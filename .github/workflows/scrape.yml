@@ -30,30 +30,19 @@ jobs:
       - name: Run scraper
         run: yarn scrape
 
+      - name: Build site
+        run: yarn build
+
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet public/data/leaderboard.json && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --quiet -- public/data/leaderboard.json docs && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/leaderboard.json
+          git add public/data/leaderboard.json docs
           git commit -m "Update leaderboard data [automated]"
           git push
-
-      # A push made with the default GITHUB_TOKEN does not trigger the deploy
-      # workflow, so build and publish here directly when the data changed.
-      - name: Build site
-        if: steps.changes.outputs.changed == 'true'
-        run: yarn build
-
-      - name: Deploy to GitHub Pages
-        if: steps.changes.outputs.changed == 'true'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./dist
