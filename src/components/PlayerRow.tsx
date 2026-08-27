@@ -48,23 +48,28 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
 
   return (
     <tr className="transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/40">
-      <td className="px-5 py-4">
-        <span
-          className={`
-            inline-flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold tabular-nums
-            ${badge}
-          `}
-        >
-          {rank}
-        </span>
+      <td className="px-2 py-3 sm:px-5 sm:py-4">
+        <div className="flex items-center gap-1 sm:block">
+          <span
+            className={`
+              inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold tabular-nums sm:h-8 sm:w-8
+              ${badge}
+            `}
+          >
+            {rank}
+          </span>
+          <span className="sm:hidden">
+            <Movement move={player.move} />
+          </span>
+        </div>
       </td>
 
-      <td className="px-2 py-4 text-center text-sm">
+      <td className="hidden px-2 py-4 text-center text-sm sm:table-cell">
         <Movement move={player.move} />
       </td>
 
       <td
-        className={`px-3 py-4 font-semibold ${
+        className={`px-1 py-3 text-sm font-semibold leading-5 sm:px-3 sm:py-4 sm:text-base ${
           isTop3
             ? "text-ink dark:text-white"
             : "text-slate-700 dark:text-slate-300"
@@ -73,12 +78,12 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
         {player.name}
       </td>
 
-      <td className="px-3 py-4 text-center text-sm tabular-nums text-slate-500 dark:text-slate-400">
+      <td className="px-1 py-3 text-center text-xs tabular-nums text-slate-500 sm:px-3 sm:py-4 sm:text-sm dark:text-slate-400">
         {player.events}
       </td>
 
       <td
-        className={`px-5 py-4 text-right font-bold tabular-nums ${
+        className={`px-2 py-3 text-right text-sm font-bold tabular-nums sm:px-5 sm:py-4 sm:text-base ${
           isTop3
             ? "text-blue dark:text-blue-300"
             : "text-slate-600 dark:text-slate-300"

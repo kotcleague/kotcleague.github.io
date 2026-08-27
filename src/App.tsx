@@ -101,20 +101,10 @@ export default function App() {
       ) : (
         <main>
           <section className="border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-            <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
-              <div className="mb-4 flex items-center gap-3 text-blue">
-                <span className="h-2 w-2 bg-blue" />
-                <span className="text-xs font-bold uppercase tracking-[0.22em]">
-                  King of the Court
-                </span>
-              </div>
-              <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
+            <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
+              <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
                 League rankings
               </h1>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500 dark:text-slate-400">
-                Follow the latest PaddleUp standings, points, and movement
-                across each ranking period.
-              </p>
             </div>
           </section>
 
@@ -134,7 +124,7 @@ export default function App() {
 
             {data && (
               <>
-                <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
+                <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
                   <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
                     <div>
                       <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">

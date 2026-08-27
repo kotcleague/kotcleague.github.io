@@ -2,7 +2,6 @@ import {
   CalendarDays,
   Clock,
   MapPin,
-  Target,
   Trophy,
   Users,
 } from "lucide-react";
@@ -28,6 +27,14 @@ const LEADERBOARD_POINTS = [
   { standing: "11th", two: 100, three: 150, six: 300 },
 ];
 
+const LEADERBOARD_POINT_RULES = [
+  { places: "1st", formula: "Courts × 500" },
+  { places: "2nd", formula: "Courts × 400" },
+  { places: "3rd", formula: "Courts × 300" },
+  { places: "4th–7th", formula: "Pts(place − 3) ÷ 2" },
+  { places: "8th–24th", formula: "Pts(place − 7) ÷ 5" },
+];
+
 function SectionHeading({
   eyebrow,
   children,
@@ -51,20 +58,10 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
   return (
     <main>
       <section className="border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-        <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
-          <div className="mb-4 flex items-center gap-3 text-blue">
-            <span className="h-2 w-2 bg-blue" />
-            <span className="text-xs font-bold uppercase tracking-[0.22em]">
-              King of the Court
-            </span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
+        <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
+          <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
             League format
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500 dark:text-slate-400">
-            A weekly league built to provide consistent, competitive play for
-            advanced players.
-          </p>
         </div>
       </section>
 
@@ -73,7 +70,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
           <div className="grid gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4 dark:border-slate-800 dark:bg-slate-800">
             {[
               { icon: Users, label: "Who", value: "4.0+ players" },
-              { icon: CalendarDays, label: "When", value: "Wednesdays" },
+              { icon: CalendarDays, label: "When", value: "TBD" },
               { icon: Clock, label: "Time", value: "8:00–10:00 PM" },
               { icon: MapPin, label: "Where", value: "Paddle Up Chesterfield" },
             ].map(({ icon: Icon, label, value }) => (
@@ -222,32 +219,50 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
             From event finish to league points
           </SectionHeading>
           <p className="mb-6 max-w-3xl text-sm leading-6 text-slate-500 dark:text-slate-400">
-            Leaderboard points are based on Game Maker finishing position and
-            the total number of courts running. First through third earn 500,
-            400, and 300 points per court. Places 4–7 descend by halves, and
-            places 8–24 descend by fifths.
+            Leaderboard points for each event are determined by the final Game
+            Maker standing and the total number of courts running. Pts(n) is
+            the number of points earned for finishing in place n.
           </p>
-          <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-            <table className="w-full min-w-[30rem]">
+          <dl className="mb-6 overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+            {LEADERBOARD_POINT_RULES.map((rule) => (
+              <div
+                key={rule.places}
+                className="grid grid-cols-[6.5rem_1fr] gap-3 border-b border-slate-100 px-4 py-3 last:border-b-0 sm:grid-cols-[8rem_1fr] sm:px-5 dark:border-slate-800"
+              >
+                <dt className="font-semibold">{rule.places}</dt>
+                <dd>
+                  <code className="font-semibold text-blue dark:text-blue-300">
+                    {rule.formula}
+                  </code>
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <div className="overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+            <table className="w-full table-fixed">
               <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-slate-800/60">
                 <tr>
-                  <th className="px-5 py-3 text-left">GM standing</th>
-                  <th className="px-5 py-3 text-right">2 courts</th>
-                  <th className="px-5 py-3 text-right">3 courts</th>
-                  <th className="px-5 py-3 text-right">6 courts</th>
+                  <th className="w-[28%] px-2 py-3 text-left sm:px-5">
+                    GM standing
+                  </th>
+                  <th className="px-2 py-3 text-right sm:px-5">2 courts</th>
+                  <th className="px-2 py-3 text-right sm:px-5">3 courts</th>
+                  <th className="px-2 py-3 text-right sm:px-5">6 courts</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                 {LEADERBOARD_POINTS.map((row) => (
                   <tr key={row.standing}>
-                    <td className="px-5 py-3 font-semibold">{row.standing}</td>
-                    <td className="px-5 py-3 text-right tabular-nums">
+                    <td className="px-2 py-3 font-semibold sm:px-5">
+                      {row.standing}
+                    </td>
+                    <td className="px-2 py-3 text-right tabular-nums sm:px-5">
                       {row.two}
                     </td>
-                    <td className="px-5 py-3 text-right tabular-nums">
+                    <td className="px-2 py-3 text-right tabular-nums sm:px-5">
                       {row.three}
                     </td>
-                    <td className="px-5 py-3 text-right tabular-nums">
+                    <td className="px-2 py-3 text-right tabular-nums sm:px-5">
                       {row.six}
                     </td>
                   </tr>
