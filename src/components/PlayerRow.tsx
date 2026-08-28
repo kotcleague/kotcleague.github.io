@@ -1,22 +1,12 @@
-import type { Player } from "../hooks/useLeaderboard";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { placementBadgeClass } from "@/components/PlacementBadge";
+import { playerRoute } from "@/config/site";
+import { formatInteger } from "@/lib/format";
+import type { Player } from "@/types/leaderboard";
 
 interface PlayerRowProps {
   player: Player;
   rank: number;
-}
-
-function getRankBadge(rank: number) {
-  switch (rank) {
-    case 1:
-      return "bg-blue text-white";
-    case 2:
-      return "bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-200";
-    case 3:
-      return "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300";
-    default:
-      return "bg-transparent text-slate-400 dark:text-slate-500";
-  }
 }
 
 function Movement({ move }: { move: Player["move"] }) {
@@ -43,7 +33,7 @@ function Movement({ move }: { move: Player["move"] }) {
 }
 
 export default function PlayerRow({ player, rank }: PlayerRowProps) {
-  const badge = getRankBadge(rank);
+  const badge = placementBadgeClass(rank);
   const isTop3 = rank <= 3;
 
   return (
@@ -75,7 +65,12 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
             : "text-slate-700 dark:text-slate-300"
         }`}
       >
-        {player.name}
+        <a
+          href={playerRoute(player.id)}
+          className="rounded-sm text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+        >
+          {player.name}
+        </a>
       </td>
 
       <td className="px-1 py-3 text-center text-xs tabular-nums text-slate-500 sm:px-3 sm:py-4 sm:text-sm dark:text-slate-400">
@@ -89,7 +84,7 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
             : "text-slate-600 dark:text-slate-300"
         }`}
       >
-        {player.points.toLocaleString()}
+        {formatInteger(player.points)}
       </td>
     </tr>
   );

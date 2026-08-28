@@ -1,5 +1,5 @@
-import type { Player } from "../hooks/useLeaderboard";
-import PlayerRow from "./PlayerRow";
+import PlayerRow from "@/components/PlayerRow";
+import type { Player } from "@/types/leaderboard";
 
 interface LeaderboardTableProps {
   players: Player[];
@@ -19,9 +19,7 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
       <table className="w-full table-fixed border-collapse sm:table-auto">
         <thead className="border-b border-slate-200 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-500">
           <tr>
-            <th className="w-16 px-2 py-3 text-left sm:w-20 sm:px-5">
-              Rank
-            </th>
+            <th className="w-16 px-2 py-3 text-left sm:w-20 sm:px-5">Rank</th>
             <th
               className="hidden w-12 px-2 py-3 sm:table-cell"
               aria-label="Movement"
@@ -38,8 +36,8 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
           </tr>
         </thead>
         <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-          {players.map((player, index) => (
-            <PlayerRow key={player.name} player={player} rank={index + 1} />
+          {players.map((player) => (
+            <PlayerRow key={player.id} player={player} rank={player.rank} />
           ))}
         </tbody>
       </table>

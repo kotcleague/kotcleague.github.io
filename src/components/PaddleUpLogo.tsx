@@ -1,4 +1,8 @@
-export default function PaddleUpLogo({ className = '' }: { className?: string }) {
+export default function PaddleUpLogo({
+  className = "",
+}: {
+  className?: string;
+}) {
   return (
     <svg
       viewBox="20 15 225 55"

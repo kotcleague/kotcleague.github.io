@@ -1,16 +1,41 @@
-# React + Vite
+# KOTC League
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Static React site for Paddle Up Pickleball's King of the Court league rankings,
+schedule, event results, player statistics, and format. League data is scraped
+from the published spreadsheet and served as static JSON.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run scrape
+npm run dev
+```
 
-## React Compiler
+Other commands:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+npm run typecheck
+npm run lint
+npm run format
+```
 
-## Expanding the ESLint configuration
+## Project structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/pages/` contains page-level composition and data loading.
+- `src/components/` contains reusable presentation and layout components.
+- `src/hooks/` contains browser and data lifecycle logic.
+- `src/types/` contains domain models and runtime data validation.
+- `src/config/` contains routes, navigation metadata, and external links.
+- `scripts/scrape.mjs` fetches the published Google Sheet and writes
+  `public/data/leaderboard.json`.
+
+The scraper consumes the `Current Month`, `Past 30 Days`, `All Time`, `Past
+Events`, `Upcoming Events`, and `Results` tabs. It joins event summaries to
+nightly results by date and assigns stable URL IDs to players.
+
+The app uses a small hash-based route layer. Add routes and their document
+titles to `src/config/site.ts`, then render the page from `src/App.tsx`.
+Shareable detail routes use `#/schedule/YYYY-MM-DD` for events and
+`#/players/player-id` for players. The league format lives at `#/format`.

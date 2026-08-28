@@ -1,16 +1,20 @@
+import { SITE_LINKS } from "@/config/site";
+
 interface FooterProps {
   scrapedAt?: string;
 }
 
+const DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  hour: "numeric",
+  minute: "2-digit",
+});
+
 export default function Footer({ scrapedAt }: FooterProps) {
   const formatted = scrapedAt
-    ? new Date(scrapedAt).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-      })
+    ? DATE_FORMATTER.format(new Date(scrapedAt))
     : null;
 
   return (
@@ -21,7 +25,7 @@ export default function Footer({ scrapedAt }: FooterProps) {
           <p>
             Data from{" "}
             <a
-              href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml"
+              href={SITE_LINKS.standings}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue hover:underline dark:text-blue-300"
@@ -31,7 +35,7 @@ export default function Footer({ scrapedAt }: FooterProps) {
           </p>
         </div>
         <a
-          href="https://www.paddleuppickleballclub.com/"
+          href={SITE_LINKS.club}
           target="_blank"
           rel="noopener noreferrer"
           className="font-medium text-blue hover:underline dark:text-blue-300"

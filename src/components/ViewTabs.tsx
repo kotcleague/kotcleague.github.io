@@ -1,4 +1,4 @@
-import type { RankingView } from "../hooks/useLeaderboard";
+import type { RankingView } from "@/types/leaderboard";
 
 interface ViewTabsProps {
   selected: RankingView;
