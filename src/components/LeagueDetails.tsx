@@ -16,12 +16,12 @@ const EVENT_POINTS = [
 ];
 
 const LEADERBOARD_POINTS = [
-  { standing: "1st", two: 1000, three: 1500, six: 3000 },
-  { standing: "2nd", two: 800, three: 1200, six: 2400 },
-  { standing: "3rd", two: 600, three: 900, six: 1800 },
-  { standing: "5th", two: 400, three: 600, six: 1200 },
-  { standing: "8th", two: 200, three: 300, six: 600 },
-  { standing: "11th", two: 100, three: 150, six: 300 },
+  { standing: "1st", two: 1000, five: 2500 },
+  { standing: "2nd", two: 800, five: 2000 },
+  { standing: "3rd", two: 600, five: 1500 },
+  { standing: "5th", two: 400, five: 1000 },
+  { standing: "8th", two: 200, five: 500 },
+  { standing: "11th", two: 100, five: 250 },
 ];
 
 const LEAGUE_FACTS = [
@@ -29,7 +29,7 @@ const LEAGUE_FACTS = [
   {
     icon: CalendarDays,
     label: "When",
-    value: "Select Mon, Tues & Thurs",
+    value: "Select Mondays, Tuesdays & Thursdays",
   },
   { icon: Clock, label: "Time", value: "8:00–10:00 PM" },
   { icon: MapPin, label: "Where", value: "Paddle Up Chesterfield" },
@@ -235,8 +235,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                     GM standing
                   </th>
                   <th className="px-2 py-3 text-right sm:px-5">2 courts</th>
-                  <th className="px-2 py-3 text-right sm:px-5">3 courts</th>
-                  <th className="px-2 py-3 text-right sm:px-5">6 courts</th>
+                  <th className="px-2 py-3 text-right sm:px-5">5 courts</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
@@ -249,10 +248,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                       {row.two}
                     </td>
                     <td className="px-2 py-3 text-right tabular-nums sm:px-5">
-                      {row.three}
-                    </td>
-                    <td className="px-2 py-3 text-right tabular-nums sm:px-5">
-                      {row.six}
+                      {row.five}
                     </td>
                   </tr>
                 ))}

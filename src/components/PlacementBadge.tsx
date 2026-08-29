@@ -11,7 +11,7 @@ export function placementBadgeClass(place: number) {
     case 2:
       return "bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-200";
     case 3:
-      return "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300";
+      return "bg-third-place text-slate-950";
     default:
       return "bg-transparent text-slate-400 dark:text-slate-500";
   }

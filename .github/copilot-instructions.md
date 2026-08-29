@@ -1,4 +1,4 @@
-# Copilot Instructions for paddleup.github.io
+# Copilot Instructions for kotcleague.github.io
 
 ## Build & Run
 
@@ -27,7 +27,7 @@ This is a **static React SPA** (React 19, Vite 7, TypeScript) deployed to GitHub
 
 ## Conventions
 
-- **Styling:** Tailwind CSS v4 with `@tailwindcss/vite` plugin. Custom colors defined in `src/index.css` under `@theme` (accent-400 through accent-700, gold, silver, bronze). Use `dark:` variants for all color classes. Dark variant is class-based: `@custom-variant dark (&:where(.dark, .dark *))`. No separate tailwind config file.
+- **Styling:** Tailwind CSS v4 with `@tailwindcss/vite` plugin. Custom colors defined in `src/index.css` under `@theme` (accent-400 through accent-700, gold, silver, third-place). Use `dark:` variants for all color classes. Dark variant is class-based: `@custom-variant dark (&:where(.dark, .dark *))`. No separate tailwind config file.
 - **Accent color:** `accent-600` (#002659 navy) for light mode, `accent-400` (#3b82f6 blue) for dark mode.
 - **Icons:** lucide-react. Import individual icons (e.g., `Sun`, `Moon`, `Monitor`).
 - **Class merging:** Use `clsx` + `tailwind-merge` for conditional/merged class names.

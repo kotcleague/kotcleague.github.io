@@ -24,7 +24,7 @@ const VIEWS = {
   "All Time": "all-time",
 };
 
-const EVENT_TABS = ["Past Events", "Upcoming Events", "Results"];
+const EVENT_TABS = ["Past Events", "Upcoming Events", "Event Log"];
 const SHEET_DATE_PATTERN = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
 const PERFORMANCE_FIELDS = [
   ["gameMakerPoints", "Game Maker points"],
@@ -319,7 +319,7 @@ function parseUpcomingEvents(html) {
   return events;
 }
 
-function parseResults(html, players) {
+function parseEventLog(html, players) {
   const $ = load(html);
   const resultsByEvent = new Map();
 
@@ -336,8 +336,8 @@ function parseResults(html, players) {
       courtsText,
       ...performanceCells
     ] = cells;
-    const eventId = parseDateId(dateText, '"Results"');
-    const context = `"Results" row for ${name} on ${eventId}`;
+    const eventId = parseDateId(dateText, '"Event Log"');
+    const context = `"Event Log" row for ${name} on ${eventId}`;
     const result = {
       playerId: players.get(name),
       name,
@@ -410,7 +410,7 @@ async function scrape() {
 
   const past = parsePastEvents(htmlByTab["Past Events"], playerRegistry);
   const upcoming = parseUpcomingEvents(htmlByTab["Upcoming Events"]);
-  const resultsByEvent = parseResults(htmlByTab.Results, playerRegistry);
+  const resultsByEvent = parseEventLog(htmlByTab["Event Log"], playerRegistry);
   assertUniqueIds(past, "past event");
   assertUniqueIds(upcoming, "upcoming event");
   const pastEventIds = new Set(past.map((event) => event.id));
