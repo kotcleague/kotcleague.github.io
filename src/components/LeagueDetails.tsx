@@ -1,4 +1,4 @@
-import { CalendarDays, Clock, MapPin, Users } from "lucide-react";
+import { CalendarDays, CircleDollarSign, MapPin, Users } from "lucide-react";
 import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import MonthlyPrizes from "@/components/MonthlyPrizes";
@@ -25,14 +25,23 @@ const LEADERBOARD_POINTS = [
 ];
 
 const LEAGUE_FACTS = [
-  { icon: Users, label: "Who", value: "4.0+ players" },
+  {
+    icon: Users,
+    label: "Who",
+    value:
+      "4.0+ players looking for consistent, competitive play in a non-DUPR-rated format.",
+  },
   {
     icon: CalendarDays,
     label: "When",
-    value: "Select Mondays, Tuesdays & Thursdays",
+    value: "Select Mondays, Tuesdays & Thursdays, 8:00–10:00 PM",
   },
-  { icon: Clock, label: "Time", value: "8:00–10:00 PM" },
   { icon: MapPin, label: "Where", value: "Paddle Up Chesterfield" },
+  {
+    icon: CircleDollarSign,
+    label: "Cost",
+    value: "$12 per event for members, $22 per event for non-members",
+  },
 ];
 
 const EVENT_DETAILS = [
@@ -42,34 +51,41 @@ const EVENT_DETAILS = [
   },
   {
     term: "Initial seeding",
-    description: "Past 30-day rank, all-time rank, DUPR, then random draw.",
+    description:
+      "Initial KOTC seeding is determined in this order: past 30-day rank, all-time rank, DUPR, then random draw.",
   },
   {
     term: "Scoring",
-    description: "Rally scoring to 21, win by 1, no freeze. Not DUPR-rated.",
+    description:
+      "Enter scores in the Game Maker app. Rally scoring to 21, win by 1, no freeze. Not DUPR-rated.",
   },
   {
     term: "Court movement",
-    description: "Winners move up, losers move down, and partners rotate.",
+    description:
+      "Game Maker directs movement and partner rotations: winners move up and losers move down.",
   },
 ];
 
 const LEAGUE_STEPS = [
   {
-    title: "Get seeded",
-    description: "Your rank sets your starting court.",
+    title: "Starting court assignment",
+    description:
+      "Leaderboard standings set each event's initial courts, with top-ranked players starting highest.",
   },
   {
-    title: "Move courts",
-    description: "Win up, lose down, and rotate partners.",
+    title: "Track the event",
+    description:
+      "Game Maker handles score entry, court movement, and event standings.",
   },
   {
     title: "Earn points",
-    description: "Your event finish adds leaderboard points.",
+    description:
+      "Final event standings determine how many leaderboard points each player earns.",
   },
   {
-    title: "Win prizes",
-    description: "The monthly top 3 play next month free.",
+    title: "Win monthly prizes",
+    description:
+      "At month's end, the top players on the leaderboard receive prizes.",
   },
 ] as const;
 
@@ -189,8 +205,9 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
           <p className="mb-6 max-w-3xl text-sm leading-6 text-slate-500 dark:text-slate-400">
             On Court 1, a win earns 1,000 GM points and a loss earns 200. Each
             lower court is worth about 71% of the court above it. Event
-            standings are ordered by GM points, with win percentage and
-            head-to-head results used as tiebreakers.
+            standings are calculated in Game Maker and ordered by GM points,
+            with win percentage, head-to-head results, point differential, and
+            head-to-head point differential used as tiebreakers, in that order.
           </p>
           <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
             <table className="w-full">
