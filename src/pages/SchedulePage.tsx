@@ -60,7 +60,9 @@ function Podium({ event }: { event: PastEvent }) {
       {event.podium.map((player) => (
         <li key={player.place} className="flex items-center gap-2 text-sm">
           <span
-            className={`rounded-full px-2.5 py-1 text-xs font-bold ${placeStyle(player.place)}`}
+            className={`rounded-full px-2.5 py-1 text-xs font-bold ${placeStyle(
+              player.place
+            )}`}
           >
             {player.place}
             {player.place === 1 ? "st" : player.place === 2 ? "nd" : "rd"}
