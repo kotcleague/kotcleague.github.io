@@ -6,8 +6,10 @@ from the published spreadsheet and served as static JSON.
 
 ## Development
 
+The project uses npm locally and in CI.
+
 ```bash
-npm install
+npm ci
 npm run scrape
 npm run dev
 ```
@@ -32,10 +34,14 @@ npm run format
   `public/data/leaderboard.json`.
 
 The scraper consumes the `Current Month`, `Past 30 Days`, `All Time`, `Past
-Events`, `Upcoming Events`, and `Results` tabs. It joins event summaries to
+Events`, `Upcoming Events`, and `Event Log` tabs. It joins event summaries to
 nightly results by date and assigns stable URL IDs to players.
 
 The app uses a small hash-based route layer. Add routes and their document
 titles to `src/config/site.ts`, then render the page from `src/App.tsx`.
 Shareable detail routes use `#/schedule/YYYY-MM-DD` for events and
 `#/players/player-id` for players. The league format lives at `#/format`.
+
+Pushes to `main` build the site to Vite's ignored `dist/` directory and deploy
+that output through the GitHub Pages artifact workflow. Generated site files
+are not committed to the repository.

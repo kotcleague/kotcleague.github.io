@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { ExternalLink } from "lucide-react";
 import type { ReactNode } from "react";
+import { FOCUS_RING } from "@/lib/styles";
 
 interface RegistrationLinkProps {
   children: ReactNode;
@@ -19,7 +20,8 @@ export default function RegistrationLink({
       target="_blank"
       rel="noopener noreferrer"
       className={clsx(
-        "inline-flex items-center justify-center gap-2 rounded-lg bg-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-accent-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue",
+        "inline-flex items-center justify-center gap-2 rounded-lg bg-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-accent-500",
+        FOCUS_RING,
         compact ? "py-2" : "py-2.5"
       )}
     >

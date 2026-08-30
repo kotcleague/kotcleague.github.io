@@ -1,4 +1,5 @@
 import PlayerRow from "@/components/PlayerRow";
+import TableShell from "@/components/TableShell";
 import type { Player } from "@/types/leaderboard";
 
 interface LeaderboardTableProps {
@@ -15,7 +16,7 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
   }
 
   return (
-    <div className="w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <TableShell className="w-full overflow-hidden">
       <table className="w-full table-fixed border-collapse sm:table-auto">
         <thead className="border-b border-slate-200 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-500">
           <tr>
@@ -41,6 +42,6 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
           ))}
         </tbody>
       </table>
-    </div>
+    </TableShell>
   );
 }

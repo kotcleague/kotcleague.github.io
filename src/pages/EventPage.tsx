@@ -1,14 +1,17 @@
 import BackLink from "@/components/BackLink";
-import { ErrorState, LoadingState } from "@/components/DataStates";
+import Card from "@/components/Card";
+import { ErrorState } from "@/components/DataStates";
 import EmptyState from "@/components/EmptyState";
-import Footer from "@/components/Footer";
+import LeaderboardPageShell from "@/components/LeaderboardPageShell";
+import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import PlacementBadge from "@/components/PlacementBadge";
+import SectionHeading from "@/components/SectionHeading";
 import StatGrid from "@/components/StatGrid";
+import TableShell from "@/components/TableShell";
 import { documentTitleForRoute, playerRoute, ROUTES } from "@/config/site";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
-import { useLeaderboard } from "@/hooks/useLeaderboard";
 import {
   formatInteger,
   formatLeagueDate,
@@ -17,12 +20,16 @@ import {
   formatRecord,
   formatSignedPercent,
 } from "@/lib/format";
-import type { EventResult, PastEvent } from "@/types/leaderboard";
+import type {
+  EventResult,
+  LeaderboardData,
+  PastEvent,
+} from "@/types/leaderboard";
 
 function ResultCard({ result }: { result: EventResult }) {
   return (
-    <article className="rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
-      <div className="flex items-center gap-3">
+    <Card className="p-3 shadow-none sm:p-4">
+      <div className="flex items-center gap-2 sm:gap-3">
         <PlacementBadge place={result.place} />
         <a
           href={playerRoute(result.playerId)}
@@ -34,8 +41,9 @@ function ResultCard({ result }: { result: EventResult }) {
           {formatInteger(result.points)} pts
         </span>
       </div>
-      <dl className="mt-4 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4 text-sm dark:border-slate-800">
+      <dl className="mt-2 grid grid-cols-3 gap-x-2 gap-y-1 border-t border-slate-100 pt-2 text-sm dark:border-slate-800 sm:mt-4 sm:grid-cols-2 sm:gap-3 sm:pt-4">
         <PerformanceMetrics
+          compactLabels
           stats={result}
           metrics={[
             "record",
@@ -45,24 +53,20 @@ function ResultCard({ result }: { result: EventResult }) {
             "pointDifferential",
           ]}
         />
-        <div>
-          <dt className="text-xs text-slate-400">Courts</dt>
-          <dd className="mt-0.5 font-semibold tabular-nums">{result.courts}</dd>
-        </div>
       </dl>
-    </article>
+    </Card>
   );
 }
 
 function ResultsTable({ results }: { results: EventResult[] }) {
   return (
     <>
-      <div className="space-y-3 md:hidden">
+      <div className="space-y-2 md:hidden sm:space-y-3">
         {results.map((result) => (
           <ResultCard key={result.playerId} result={result} />
         ))}
       </div>
-      <div className="hidden overflow-x-auto rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 md:block">
+      <TableShell className="hidden md:block">
         <table className="w-full">
           <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-slate-800/60 dark:text-slate-500">
             <tr>
@@ -118,7 +122,7 @@ function ResultsTable({ results }: { results: EventResult[] }) {
             ))}
           </tbody>
         </table>
-      </div>
+      </TableShell>
     </>
   );
 }
@@ -132,7 +136,7 @@ function EventContent({ event }: { event: PastEvent }) {
       >
         {formatLeagueDate(event.date)}
       </PageHeader>
-      <div className="mx-auto max-w-5xl space-y-10 px-4 py-8 sm:px-6 sm:py-12">
+      <PageContent className="space-y-8">
         <BackLink href={ROUTES.schedule}>Back to schedule</BackLink>
         <StatGrid
           items={[
@@ -146,12 +150,7 @@ function EventContent({ event }: { event: PastEvent }) {
           ]}
         />
         <section aria-labelledby="event-standings">
-          <h2
-            id="event-standings"
-            className="mb-5 text-2xl font-bold tracking-tight"
-          >
-            Final standings
-          </h2>
+          <SectionHeading id="event-standings">Final standings</SectionHeading>
           {event.results.length > 0 ? (
             <ResultsTable results={event.results} />
           ) : (
@@ -163,14 +162,19 @@ function EventContent({ event }: { event: PastEvent }) {
             </EmptyState>
           )}
         </section>
-      </div>
+      </PageContent>
     </>
   );
 }
 
-export default function EventPage({ eventId }: { eventId: string }) {
-  const { data, loading, error } = useLeaderboard();
-  const event = data?.events.past.find((item) => item.id === eventId);
+function LoadedEventPage({
+  data,
+  eventId,
+}: {
+  data: LeaderboardData;
+  eventId: string;
+}) {
+  const event = data.events.past.find((item) => item.id === eventId);
 
   useDocumentTitle(
     event
@@ -178,26 +182,27 @@ export default function EventPage({ eventId }: { eventId: string }) {
       : documentTitleForRoute({ page: "schedule" })
   );
 
+  if (!event) {
+    return (
+      <ErrorState
+        actionHref={ROUTES.schedule}
+        actionLabel="Back to schedule"
+        title="Event not found"
+        message="This event may have been removed or the link may be incorrect."
+      />
+    );
+  }
+
+  return <EventContent event={event} />;
+}
+
+export default function EventPage({ eventId }: { eventId: string }) {
   return (
-    <main>
-      {loading && <LoadingState label="Loading event results" />}
-      {error && (
-        <ErrorState title="Failed to load event results" message={error} />
-      )}
-      {data && !event && (
-        <ErrorState
-          actionHref={ROUTES.schedule}
-          actionLabel="Back to schedule"
-          title="Event not found"
-          message="This event may have been removed or the link may be incorrect."
-        />
-      )}
-      {data && event && (
-        <>
-          <EventContent event={event} />
-          <Footer scrapedAt={data.scrapedAt} />
-        </>
-      )}
-    </main>
+    <LeaderboardPageShell
+      errorTitle="Failed to load event results"
+      loadingLabel="Loading event results"
+    >
+      {(data) => <LoadedEventPage data={data} eventId={eventId} />}
+    </LeaderboardPageShell>
   );
 }

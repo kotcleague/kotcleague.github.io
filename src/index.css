@@ -3,9 +3,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-gold: #ffd700;
-  --color-silver: #a8a8a8;
-  --color-third-place: #93c5fd;
+  --color-gold: #f4c430;
+  --color-silver: #cbd5e1;
+  --color-bronze: #cd7f32;
   --color-ink: #081b2a;
   --color-blue: #1167d8;
   --color-accent-400: #3b82f6;

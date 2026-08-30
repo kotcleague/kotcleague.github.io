@@ -7,11 +7,11 @@ interface PlacementBadgeProps {
 export function placementBadgeClass(place: number) {
   switch (place) {
     case 1:
-      return "bg-blue text-white";
+      return "bg-gold text-amber-950";
     case 2:
-      return "bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-200";
+      return "bg-silver text-slate-800";
     case 3:
-      return "bg-third-place text-slate-950";
+      return "bg-bronze text-stone-950";
     default:
       return "bg-transparent text-slate-400 dark:text-slate-500";
   }

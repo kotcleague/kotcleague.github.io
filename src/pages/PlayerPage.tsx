@@ -1,14 +1,16 @@
 import BackLink from "@/components/BackLink";
-import { ErrorState, LoadingState } from "@/components/DataStates";
+import { ErrorState } from "@/components/DataStates";
 import EmptyState from "@/components/EmptyState";
-import Footer from "@/components/Footer";
+import LeaderboardPageShell from "@/components/LeaderboardPageShell";
+import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import PlacementBadge from "@/components/PlacementBadge";
+import SectionHeading from "@/components/SectionHeading";
 import StatGrid from "@/components/StatGrid";
+import TableShell from "@/components/TableShell";
 import { documentTitleForRoute, eventRoute, ROUTES } from "@/config/site";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
-import { useLeaderboard } from "@/hooks/useLeaderboard";
 import {
   formatInteger,
   formatLeagueDate,
@@ -17,7 +19,12 @@ import {
   formatRecord,
   formatSignedPercent,
 } from "@/lib/format";
-import type { EventResult, PastEvent, Player } from "@/types/leaderboard";
+import type {
+  EventResult,
+  LeaderboardData,
+  PastEvent,
+  Player,
+} from "@/types/leaderboard";
 
 interface HistoryEntry {
   event: PastEvent;
@@ -63,7 +70,7 @@ function HistoryTable({ history }: { history: HistoryEntry[] }) {
           <HistoryCard key={entry.event.id} entry={entry} />
         ))}
       </div>
-      <div className="hidden overflow-x-auto rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 md:block">
+      <TableShell className="hidden md:block">
         <table className="w-full">
           <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-slate-800/60 dark:text-slate-500">
             <tr>
@@ -115,15 +122,17 @@ function HistoryTable({ history }: { history: HistoryEntry[] }) {
             ))}
           </tbody>
         </table>
-      </div>
+      </TableShell>
     </>
   );
 }
 
 function PlayerContent({
+  currentMonthRank,
   player,
   history,
 }: {
+  currentMonthRank: number | null;
   player: Player;
   history: HistoryEntry[];
 }) {
@@ -131,15 +140,20 @@ function PlayerContent({
     <>
       <PageHeader
         eyebrow="Player profile"
-        description={`All-time King of the Court statistics and event-by-event finishes for ${player.name}.`}
+        description={`Past 30-day King of the Court statistics and event-by-event finishes for ${player.name}.`}
       >
         {player.name}
       </PageHeader>
-      <div className="mx-auto max-w-5xl space-y-10 px-4 py-8 sm:px-6 sm:py-12">
+      <PageContent className="space-y-8">
         <BackLink href={ROUTES.rankings}>Back to rankings</BackLink>
         <StatGrid
           items={[
-            { label: "All-time rank", value: `#${player.rank}` },
+            { label: "Past 30-day rank", value: `#${player.rank}` },
+            {
+              label: "Current month rank",
+              value:
+                currentMonthRank === null ? "Unranked" : `#${currentMonthRank}`,
+            },
             { label: "League points", value: formatInteger(player.points) },
             { label: "Events", value: player.events },
             {
@@ -147,10 +161,6 @@ function PlayerContent({
               value: formatRecord(player.wins, player.losses),
             },
             { label: "Win rate", value: formatPercent(player.winRate) },
-            {
-              label: "GM points",
-              value: formatInteger(player.gameMakerPoints),
-            },
             {
               label: "Points for / against",
               value: formatPointsForAgainst(
@@ -165,12 +175,7 @@ function PlayerContent({
           ]}
         />
         <section aria-labelledby="event-history">
-          <h2
-            id="event-history"
-            className="mb-5 text-2xl font-bold tracking-tight"
-          >
-            Event history
-          </h2>
+          <SectionHeading id="event-history">Event history</SectionHeading>
           {history.length > 0 ? (
             <HistoryTable history={history} />
           ) : (
@@ -184,19 +189,28 @@ function PlayerContent({
             </EmptyState>
           )}
         </section>
-      </div>
+      </PageContent>
     </>
   );
 }
 
-export default function PlayerPage({ playerId }: { playerId: string }) {
-  const { data, loading, error } = useLeaderboard();
-  const player = data?.views["all-time"].find((item) => item.id === playerId);
-  const history =
-    data?.events.past.flatMap((event) => {
-      const result = event.results.find((item) => item.playerId === playerId);
-      return result ? [{ event, result }] : [];
-    }) ?? [];
+function LoadedPlayerPage({
+  data,
+  playerId,
+}: {
+  data: LeaderboardData;
+  playerId: string;
+}) {
+  const player = data.views["past-30-days"].find(
+    (item) => item.id === playerId
+  );
+  const currentMonthRank =
+    data.views["current-month"].find((item) => item.id === playerId)?.rank ??
+    null;
+  const history = data.events.past.flatMap((event) => {
+    const result = event.results.find((item) => item.playerId === playerId);
+    return result ? [{ event, result }] : [];
+  });
 
   useDocumentTitle(
     player
@@ -204,26 +218,33 @@ export default function PlayerPage({ playerId }: { playerId: string }) {
       : documentTitleForRoute({ page: "rankings" })
   );
 
+  if (!player) {
+    return (
+      <ErrorState
+        actionHref={ROUTES.rankings}
+        actionLabel="Back to rankings"
+        title="No recent ranking"
+        message="This player does not have a published ranking from the past 30 days."
+      />
+    );
+  }
+
   return (
-    <main>
-      {loading && <LoadingState label="Loading player profile" />}
-      {error && (
-        <ErrorState title="Failed to load player profile" message={error} />
-      )}
-      {data && !player && (
-        <ErrorState
-          actionHref={ROUTES.rankings}
-          actionLabel="Back to rankings"
-          title="Player not found"
-          message="This player may have been removed or the link may be incorrect."
-        />
-      )}
-      {data && player && (
-        <>
-          <PlayerContent player={player} history={history} />
-          <Footer scrapedAt={data.scrapedAt} />
-        </>
-      )}
-    </main>
+    <PlayerContent
+      currentMonthRank={currentMonthRank}
+      player={player}
+      history={history}
+    />
+  );
+}
+
+export default function PlayerPage({ playerId }: { playerId: string }) {
+  return (
+    <LeaderboardPageShell
+      errorTitle="Failed to load player profile"
+      loadingLabel="Loading player profile"
+    >
+      {(data) => <LoadedPlayerPage data={data} playerId={playerId} />}
+    </LeaderboardPageShell>
   );
 }

@@ -14,13 +14,13 @@ export default function PageHeader({
 }: PageHeaderProps) {
   return (
     <section className="border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-12">
+      <div className="mx-auto max-w-5xl px-4 py-5 sm:px-6 sm:py-7">
         <Eyebrow size="hero">{eyebrow}</Eyebrow>
-        <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+        <h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
           {children}
         </h1>
         {description && (
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500 sm:text-lg dark:text-slate-400">
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base dark:text-slate-400">
             {description}
           </p>
         )}

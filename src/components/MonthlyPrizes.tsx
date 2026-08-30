@@ -17,7 +17,7 @@ const PRIZE_PLACES = [
   {
     place: "3rd",
     label: "Third place",
-    badge: "bg-third-place text-slate-950",
+    badge: "bg-bronze text-stone-950",
   },
 ] as const;
 
@@ -28,7 +28,7 @@ interface MonthlyPrizesProps {
 export default function MonthlyPrizes({ compact = false }: MonthlyPrizesProps) {
   if (compact) {
     return (
-      <aside className="mb-5 flex flex-col gap-2 rounded-lg border border-blue/20 bg-blue/5 px-4 py-3 text-sm dark:border-blue/30 dark:bg-blue/10 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+      <aside className="mb-6 flex flex-col gap-2 border-l-2 border-blue px-3 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4 dark:border-blue-300">
         <div className="flex items-center gap-2.5">
           <Trophy
             className="h-4 w-4 shrink-0 text-blue dark:text-blue-300"
@@ -60,17 +60,12 @@ export default function MonthlyPrizes({ compact = false }: MonthlyPrizesProps) {
           Finish in the top three. Play next month free.
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500 dark:text-slate-400">
-          Starting September, the monthly leaders earn free entry to every
-          King of the Court event the following month.
+          Starting September, the monthly leaders earn free entry to every King
+          of the Court event the following month.
         </p>
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-        <div className="border-b border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-800/60">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-            Eligible finishers
-          </p>
-        </div>
+      <div className="overflow-hidden rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <ol
           className="grid grid-cols-3 gap-px bg-slate-200 dark:bg-slate-800"
           aria-label="First, second, and third place"
@@ -78,7 +73,7 @@ export default function MonthlyPrizes({ compact = false }: MonthlyPrizesProps) {
           {PRIZE_PLACES.map(({ place, label, badge }) => (
             <li
               key={place}
-              className="flex items-center gap-3 bg-white px-3 py-4 sm:px-5 sm:py-5 dark:bg-slate-900"
+              className="flex items-center gap-3 bg-white px-3 py-3 sm:px-5 sm:py-4 dark:bg-slate-900"
             >
               <span
                 className={clsx(
@@ -94,19 +89,6 @@ export default function MonthlyPrizes({ compact = false }: MonthlyPrizesProps) {
             </li>
           ))}
         </ol>
-        <div className="flex items-center gap-3 border-t border-slate-200 px-4 py-4 sm:px-5 dark:border-slate-800">
-          <span className="inline-flex rounded-lg bg-blue/10 p-2.5 text-blue dark:bg-blue/20 dark:text-blue-300">
-            <Trophy className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-              Prize
-            </p>
-            <p className="mt-0.5 text-sm font-semibold text-ink sm:text-base dark:text-white">
-              Free entry to every KOTC event the following month
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -1,14 +1,15 @@
 import { ArrowRight, CalendarDays, Trophy } from "lucide-react";
 import { useState } from "react";
-import { ErrorState, LoadingState } from "@/components/DataStates";
-import Footer from "@/components/Footer";
+import Card from "@/components/Card";
 import LeaderboardTable from "@/components/LeaderboardTable";
+import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import MonthlyPrizes from "@/components/MonthlyPrizes";
+import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import RegistrationLink from "@/components/RegistrationLink";
+import SectionHeading from "@/components/SectionHeading";
 import ViewTabs from "@/components/ViewTabs";
 import { eventRoute, ROUTES } from "@/config/site";
-import { useLeaderboard } from "@/hooks/useLeaderboard";
 import { formatEventDate, formatLeagueDate } from "@/lib/format";
 import type {
   PastEvent,
@@ -18,7 +19,7 @@ import type {
 
 function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
   return (
-    <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <Card className="p-4">
       <div className="flex items-start gap-3">
         <span className="rounded-lg bg-blue/10 p-2.5 text-blue dark:bg-blue/20 dark:text-blue-300">
           <CalendarDays className="h-5 w-5" aria-hidden="true" />
@@ -32,7 +33,7 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
           </h3>
         </div>
       </div>
-      <div className="mt-5 flex flex-wrap gap-3">
+      <div className="mt-4 flex flex-wrap gap-3">
         {event?.courtReserveUrl && (
           <RegistrationLink href={event.courtReserveUrl} compact>
             Court Reserve
@@ -56,7 +57,7 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
-    </article>
+    </Card>
   );
 }
 
@@ -64,7 +65,7 @@ function LatestResultsCard({ event }: { event?: PastEvent }) {
   const winner = event?.podium.find((player) => player.place === 1);
 
   return (
-    <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <Card className="p-4">
       <div className="flex items-start gap-3">
         <span className="rounded-lg bg-amber-100 p-2.5 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300">
           <Trophy className="h-5 w-5" aria-hidden="true" />
@@ -86,7 +87,7 @@ function LatestResultsCard({ event }: { event?: PastEvent }) {
           )}
         </div>
       </div>
-      <div className="mt-5">
+      <div className="mt-4">
         <a
           href={event ? eventRoute(event.id) : ROUTES.schedule}
           className="inline-flex items-center gap-1 py-2 text-sm font-semibold text-blue hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue dark:text-blue-300"
@@ -95,7 +96,7 @@ function LatestResultsCard({ event }: { event?: PastEvent }) {
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
-    </article>
+    </Card>
   );
 }
 
@@ -104,63 +105,48 @@ function byDateAscending<T extends { date: string }>(left: T, right: T) {
 }
 
 export default function LeaderboardPage() {
-  const [selectedView, setSelectedView] =
-    useState<RankingView>("current-month");
-  const { data, loading, error } = useLeaderboard();
+  const [selectedView, setSelectedView] = useState<RankingView>("past-30-days");
 
   return (
-    <main>
-      <PageHeader eyebrow="King of the Court">League Rankings</PageHeader>
-      <section>
-        {loading && <LoadingState label="Loading leaderboard" />}
-        {error && (
-          <ErrorState title="Failed to load leaderboard" message={error} />
-        )}
-        {data && (
-          <>
-            <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
-              <MonthlyPrizes compact />
+    <LeaderboardPageShell
+      errorTitle="Failed to load leaderboard"
+      header={
+        <PageHeader eyebrow="King of the Court">League Rankings</PageHeader>
+      }
+      loadingLabel="Loading leaderboard"
+    >
+      {(data) => (
+        <PageContent>
+          <MonthlyPrizes compact />
 
-              <div className="pb-7">
-                <ViewTabs selected={selectedView} onSelect={setSelectedView} />
-              </div>
+          <div className="pb-5">
+            <ViewTabs selected={selectedView} onSelect={setSelectedView} />
+          </div>
 
-              <LeaderboardTable players={data.views[selectedView]} />
+          <LeaderboardTable players={data.views[selectedView]} />
 
-              <section
-                className="mt-14"
-                aria-labelledby="league-updates-heading"
-              >
-                <div className="mb-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue dark:text-blue-300">
-                    Around the league
-                  </p>
-                  <h2
-                    id="league-updates-heading"
-                    className="mt-2 text-2xl font-bold tracking-tight"
-                  >
-                    Events and results
-                  </h2>
-                </div>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <UpcomingEventCard
-                    event={[...data.events.upcoming].sort(byDateAscending)[0]}
-                  />
-                  <LatestResultsCard
-                    event={
-                      [...data.events.past].sort(byDateAscending)[
-                        data.events.past.length - 1
-                      ]
-                    }
-                  />
-                </div>
-              </section>
-
+          <section className="mt-10" aria-labelledby="league-updates-heading">
+            <SectionHeading
+              eyebrow="Around the league"
+              id="league-updates-heading"
+            >
+              Events and results
+            </SectionHeading>
+            <div className="grid gap-4 md:grid-cols-2">
+              <UpcomingEventCard
+                event={[...data.events.upcoming].sort(byDateAscending)[0]}
+              />
+              <LatestResultsCard
+                event={
+                  [...data.events.past].sort(byDateAscending)[
+                    data.events.past.length - 1
+                  ]
+                }
+              />
             </div>
-            <Footer scrapedAt={data.scrapedAt} />
-          </>
-        )}
-      </section>
-    </main>
+          </section>
+        </PageContent>
+      )}
+    </LeaderboardPageShell>
   );
 }

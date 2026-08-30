@@ -1,72 +1,70 @@
-import {
-  CalendarDays,
-  ChevronRight,
-  Gamepad2,
-  Trophy,
-  Users,
-} from "lucide-react";
-import { ErrorState, LoadingState } from "@/components/DataStates";
+import { ChevronRight, Gamepad2, Users } from "lucide-react";
 import EmptyState from "@/components/EmptyState";
-import Footer from "@/components/Footer";
+import JoinLeague from "@/components/JoinLeague";
+import LeaderboardPageShell from "@/components/LeaderboardPageShell";
+import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import RegistrationLink from "@/components/RegistrationLink";
+import SectionHeading from "@/components/SectionHeading";
 import { eventRoute } from "@/config/site";
-import { useLeaderboard } from "@/hooks/useLeaderboard";
 import { formatEventDate } from "@/lib/format";
 import type { PastEvent, UpcomingEvent } from "@/types/leaderboard";
 
-function UpcomingEventCard({ event }: { event: UpcomingEvent }) {
+function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
   const hasRegistration = event.courtReserveUrl || event.gameMakerUrl;
 
   return (
-    <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
-      <div className="flex items-start gap-4">
-        <span className="rounded-lg bg-blue/10 p-2.5 text-blue dark:bg-blue/20 dark:text-blue-300">
-          <CalendarDays className="h-5 w-5" aria-hidden="true" />
-        </span>
-        <div className="min-w-0 flex-1">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-            Upcoming event
-          </p>
-          <h3 className="mt-1 text-xl font-bold">
-            {formatEventDate(event.date)}
-          </h3>
-        </div>
+    <article className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+      <div>
+        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+          League night
+        </p>
+        <h3 className="mt-0.5 text-base font-bold sm:text-lg">
+          {formatEventDate(event.date)}
+        </h3>
       </div>
       {hasRegistration && (
-        <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+        <div className="flex flex-wrap gap-2">
           {event.courtReserveUrl && (
-            <RegistrationLink href={event.courtReserveUrl}>
+            <RegistrationLink href={event.courtReserveUrl} compact>
               Court Reserve
             </RegistrationLink>
           )}
           {event.gameMakerUrl && (
-            <RegistrationLink href={event.gameMakerUrl}>
+            <RegistrationLink href={event.gameMakerUrl} compact>
               Game Maker
             </RegistrationLink>
           )}
         </div>
+      )}
+      {!hasRegistration && (
+        <span className="text-sm text-slate-400 dark:text-slate-500">
+          Registration coming soon
+        </span>
       )}
     </article>
   );
 }
 
 function Podium({ event }: { event: PastEvent }) {
+  function placeStyle(place: number) {
+    if (place === 1) return "bg-gold/25 text-amber-800 dark:text-gold";
+    if (place === 2) {
+      return "bg-silver/50 text-slate-700 dark:bg-silver/20 dark:text-silver";
+    }
+    return "bg-bronze/20 text-amber-900 dark:bg-bronze/25 dark:text-orange-300";
+  }
+
   return (
-    <ol className="mt-5 grid gap-2 sm:grid-cols-3">
+    <ol className="mt-4 flex flex-wrap gap-x-5 gap-y-2 border-t border-slate-100 pt-4 dark:border-slate-800">
       {event.podium.map((player) => (
-        <li
-          key={player.place}
-          className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2 text-sm dark:bg-slate-800/60"
-        >
-          <Trophy
-            className={
-              player.place === 1
-                ? "h-4 w-4 text-amber-500"
-                : "h-4 w-4 text-slate-400"
-            }
-            aria-hidden="true"
-          />
+        <li key={player.place} className="flex items-center gap-2 text-sm">
+          <span
+            className={`rounded-full px-2.5 py-1 text-xs font-bold ${placeStyle(player.place)}`}
+          >
+            {player.place}
+            {player.place === 1 ? "st" : player.place === 2 ? "nd" : "rd"}
+          </span>
           <span className="font-semibold">{player.name}</span>
         </li>
       ))}
@@ -78,20 +76,15 @@ function PastEventCard({ event }: { event: PastEvent }) {
   return (
     <a
       href={eventRoute(event.id)}
-      className="group block rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-blue/40 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue/60 sm:p-6"
+      className="group block rounded-lg border border-slate-200 bg-white p-4 transition-colors hover:border-blue/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue/60 sm:p-5"
     >
-      <div className="flex flex-col items-start justify-between gap-4 sm:flex-row">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-            Completed event
-          </p>
-          <h3 className="mt-1 text-xl font-bold">
-            {formatEventDate(event.date)}
-          </h3>
-        </div>
+      <div className="flex items-start justify-between gap-4">
+        <h3 className="text-lg font-bold sm:text-xl">
+          {formatEventDate(event.date)}
+        </h3>
         <div className="flex items-center gap-3">
-          <span className="rounded-full bg-blue/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-blue dark:bg-blue/20 dark:text-blue-300">
-            {event.maxPointsEarnable.toLocaleString()} Point Event
+          <span className="rounded-full bg-blue/10 px-3 py-1.5 text-xs font-bold text-blue dark:bg-blue/20 dark:text-blue-300">
+            {event.maxPointsEarnable.toLocaleString()} point event
           </span>
           <ChevronRight
             className="h-5 w-5 text-slate-300 transition-transform group-hover:translate-x-1 group-hover:text-blue dark:text-slate-600"
@@ -99,7 +92,7 @@ function PastEventCard({ event }: { event: PastEvent }) {
           />
         </div>
       </div>
-      <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-500 dark:text-slate-400">
+      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-500 dark:text-slate-400">
         <span className="inline-flex items-center gap-1.5">
           <Users className="h-4 w-4" aria-hidden="true" />
           {event.playerCount} players
@@ -117,32 +110,31 @@ function PastEventCard({ event }: { event: PastEvent }) {
 }
 
 export default function SchedulePage() {
-  const { data, loading, error } = useLeaderboard();
-
   return (
-    <main>
-      <PageHeader
-        eyebrow="King of the Court"
-        description="Register for the next league night or revisit complete results from past events."
-      >
-        Schedule
-      </PageHeader>
-      {loading && <LoadingState label="Loading schedule" />}
-      {error && <ErrorState title="Failed to load schedule" message={error} />}
-      {data && (
-        <>
-          <div className="mx-auto max-w-5xl space-y-14 px-4 py-10 sm:px-6 sm:py-14">
+    <LeaderboardPageShell
+      errorTitle="Failed to load schedule"
+      header={
+        <PageHeader
+          eyebrow="King of the Court"
+          description="Join an upcoming league night or revisit complete results from past events."
+        >
+          Schedule
+        </PageHeader>
+      }
+      loadingLabel="Loading schedule"
+    >
+      {(data) => (
+        <PageContent>
+          <JoinLeague />
+          <div className="mt-8 space-y-10">
             <section aria-labelledby="upcoming-events">
-              <h2
-                id="upcoming-events"
-                className="mb-5 text-2xl font-bold tracking-tight"
-              >
+              <SectionHeading id="upcoming-events">
                 Upcoming events
-              </h2>
+              </SectionHeading>
               {data.events.upcoming.length > 0 ? (
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="divide-y divide-slate-100 overflow-hidden rounded-lg border border-slate-200 bg-white dark:divide-slate-800 dark:border-slate-800 dark:bg-slate-900">
                   {data.events.upcoming.map((event) => (
-                    <UpcomingEventCard key={event.id} event={event} />
+                    <UpcomingEventRow key={event.id} event={event} />
                   ))}
                 </div>
               ) : (
@@ -153,12 +145,7 @@ export default function SchedulePage() {
             </section>
 
             <section aria-labelledby="past-events">
-              <h2
-                id="past-events"
-                className="mb-5 text-2xl font-bold tracking-tight"
-              >
-                Past events
-              </h2>
+              <SectionHeading id="past-events">Past events</SectionHeading>
               {data.events.past.length > 0 ? (
                 <div className="space-y-4">
                   {data.events.past.map((event) => (
@@ -172,9 +159,8 @@ export default function SchedulePage() {
               )}
             </section>
           </div>
-          <Footer scrapedAt={data.scrapedAt} />
-        </>
+        </PageContent>
       )}
-    </main>
+    </LeaderboardPageShell>
   );
 }

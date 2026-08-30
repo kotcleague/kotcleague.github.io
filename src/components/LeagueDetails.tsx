@@ -1,8 +1,10 @@
 import { CalendarDays, CircleDollarSign, MapPin, Users } from "lucide-react";
-import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import MonthlyPrizes from "@/components/MonthlyPrizes";
+import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
+import SectionHeading from "@/components/SectionHeading";
+import TableShell from "@/components/TableShell";
 
 interface LeagueDetailsProps {
   leaderboardUrl: string;
@@ -89,31 +91,14 @@ const LEAGUE_STEPS = [
   },
 ] as const;
 
-function SectionHeading({
-  eyebrow,
-  children,
-}: {
-  eyebrow: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="mb-6">
-      <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-        {children}
-      </h2>
-    </div>
-  );
-}
-
 export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
   return (
     <main>
       <PageHeader eyebrow="King of the Court">League Format</PageHeader>
 
-      <div className="mx-auto max-w-5xl space-y-16 px-4 py-10 sm:px-6 sm:py-14">
+      <PageContent className="space-y-12">
         <section>
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 lg:grid-cols-4 dark:border-slate-800 dark:bg-slate-800">
+          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4 dark:border-slate-800 dark:bg-slate-800">
             {LEAGUE_FACTS.map(({ icon: Icon, label, value }) => (
               <div
                 key={label}
@@ -136,11 +121,11 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
         <MonthlyPrizes />
 
         <section>
-          <SectionHeading eyebrow="Overview">
+          <SectionHeading eyebrow="Overview" prominent>
             How the league works
           </SectionHeading>
-          <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            <ol className="grid grid-cols-2 gap-px bg-slate-200 dark:bg-slate-800 lg:grid-cols-4">
+          <div className="overflow-hidden rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+            <ol className="grid grid-cols-1 gap-px bg-slate-200 sm:grid-cols-2 dark:bg-slate-800 lg:grid-cols-4">
               {LEAGUE_STEPS.map((step, index) => (
                 <li
                   key={step.title}
@@ -173,14 +158,11 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
         </section>
 
         <section>
-          <div className="mb-4">
-            <Eyebrow>Event format</Eyebrow>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-              What to expect
-            </h2>
-          </div>
-          <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800">
-            <dl className="grid grid-cols-2 gap-px bg-slate-200 dark:bg-slate-800">
+          <SectionHeading eyebrow="Event format" prominent>
+            What to expect
+          </SectionHeading>
+          <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
+            <dl className="grid grid-cols-1 gap-px bg-slate-200 sm:grid-cols-2 dark:bg-slate-800">
               {EVENT_DETAILS.map(({ term, description }) => (
                 <div
                   key={term}
@@ -199,7 +181,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
         </section>
 
         <section>
-          <SectionHeading eyebrow="Game Maker points">
+          <SectionHeading eyebrow="Game Maker points" prominent>
             Points by court
           </SectionHeading>
           <p className="mb-6 max-w-3xl text-sm leading-6 text-slate-500 dark:text-slate-400">
@@ -209,7 +191,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
             with win percentage, head-to-head results, point differential, and
             head-to-head point differential used as tiebreakers, in that order.
           </p>
-          <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+          <TableShell>
             <table className="w-full">
               <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-slate-800/60">
                 <tr>
@@ -232,11 +214,11 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                 ))}
               </tbody>
             </table>
-          </div>
+          </TableShell>
         </section>
 
         <section>
-          <SectionHeading eyebrow="Leaderboard points">
+          <SectionHeading eyebrow="Leaderboard points" prominent>
             From event finish to league points
           </SectionHeading>
           <p className="mb-6 max-w-3xl text-sm leading-6 text-slate-500 dark:text-slate-400">
@@ -244,7 +226,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
             maximum award, second earns 80%, third earns 60%, and awards
             gradually decrease through the rest of the field.
           </p>
-          <div className="overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+          <TableShell className="overflow-hidden">
             <table className="w-full table-fixed">
               <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-slate-800/60">
                 <tr>
@@ -271,9 +253,9 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                 ))}
               </tbody>
             </table>
-          </div>
+          </TableShell>
         </section>
-      </div>
+      </PageContent>
 
       <Footer />
     </main>
