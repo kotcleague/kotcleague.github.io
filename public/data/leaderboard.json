@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-08-31T20:04:45.709Z",
+  "scrapedAt": "2026-08-31T20:32:15.626Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -662,18 +662,18 @@
       {
         "id": "2026-09-10",
         "date": "2026-09-10",
-        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/BHEPD4J1011747",
+        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/6HL31J61011754",
         "gameMakerUrl": "https://pkl.fan/iZOAvZ"
       },
       {
-        "id": "2026-09-14",
-        "date": "2026-09-14",
+        "id": "2026-09-15",
+        "date": "2026-09-15",
         "courtReserveUrl": null,
-        "gameMakerUrl": "https://pkl.fan/hrkasi"
+        "gameMakerUrl": null
       },
       {
-        "id": "2026-09-21",
-        "date": "2026-09-21",
+        "id": "2026-09-22",
+        "date": "2026-09-22",
         "courtReserveUrl": null,
         "gameMakerUrl": null
       },
@@ -684,8 +684,8 @@
         "gameMakerUrl": null
       },
       {
-        "id": "2026-09-28",
-        "date": "2026-09-28",
+        "id": "2026-09-29",
+        "date": "2026-09-29",
         "courtReserveUrl": null,
         "gameMakerUrl": null
       },
