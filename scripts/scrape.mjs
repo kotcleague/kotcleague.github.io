@@ -483,13 +483,69 @@ function validatePastEvents(events) {
   }
 }
 
+function validateAllTimeEventCounts(allTimeRankings, pastEvents) {
+  const resultCounts = new Map();
+  for (const event of pastEvents) {
+    for (const result of event.results) {
+      resultCounts.set(
+        result.playerId,
+        (resultCounts.get(result.playerId) ?? 0) + 1
+      );
+    }
+  }
+
+  const rankingsById = new Map(
+    allTimeRankings.map((player) => [player.id, player])
+  );
+  for (const playerId of resultCounts.keys()) {
+    if (!rankingsById.has(playerId)) {
+      throw new Error(
+        `Event Log player "${playerId}" is missing from "All Time" rankings`
+      );
+    }
+  }
+
+  for (const player of allTimeRankings) {
+    const resultCount = resultCounts.get(player.id) ?? 0;
+    if (player.events !== resultCount) {
+      throw new Error(
+        `"All Time" lists ${player.events} event${
+          player.events === 1 ? "" : "s"
+        } for ${player.name}, but Event Log contains ${resultCount}. The sheet tabs may still be updating`
+      );
+    }
+  }
+}
+
+function validateSnapshotProgress(snapshot, previous) {
+  if (!previous?.events?.past) return;
+
+  const eventsById = new Map(
+    snapshot.events.past.map((event) => [event.id, event])
+  );
+  for (const previousEvent of previous.events.past) {
+    const event = eventsById.get(previousEvent.id);
+    if (!event) {
+      throw new Error(
+        `Past event ${previousEvent.id} is missing from the new snapshot, which appears stale`
+      );
+    }
+    if (event.playerCount < previousEvent.playerCount) {
+      throw new Error(
+        `Past event ${event.id} regressed from ${previousEvent.playerCount} to ${event.playerCount} players`
+      );
+    }
+  }
+}
+
 async function scrapeSnapshot(gids, requiredTabs) {
+  const cacheBust = Date.now();
   const htmlByTab = Object.fromEntries(
     await Promise.all(
       requiredTabs.map(async (tabName) => {
         console.log(`Fetching "${tabName}" (gid=${gids[tabName]})...`);
         const html = await fetchHtml(
-          `${BASE}/sheet?gid=${gids[tabName]}`,
+          `${BASE}/sheet?gid=${gids[tabName]}&cacheBust=${cacheBust}`,
           `"${tabName}"`
         );
         assertSheetTable(html, tabName);
@@ -541,6 +597,7 @@ async function scrapeSnapshot(gids, requiredTabs) {
     );
   }
   validatePastEvents(past);
+  validateAllTimeEventCounts(views["all-time"], past);
 
   past.sort((a, b) => b.date.localeCompare(a.date));
   upcoming.sort((a, b) => a.date.localeCompare(b.date));
@@ -566,11 +623,23 @@ async function scrape() {
     );
   }
 
+  let previous = null;
+  if (existsSync(OUTPUT_PATH)) {
+    try {
+      previous = JSON.parse(readFileSync(OUTPUT_PATH, "utf8"));
+    } catch (error) {
+      console.warn(
+        `Could not read existing ${OUTPUT_PATH}; it will be replaced after a valid scrape: ${error.message}`
+      );
+    }
+  }
+
   let snapshot;
   let snapshotError;
   for (let attempt = 1; attempt <= SNAPSHOT_ATTEMPTS; attempt += 1) {
     try {
       snapshot = await scrapeSnapshot(gids, requiredTabs);
+      validateSnapshotProgress(snapshot, previous);
       break;
     } catch (error) {
       snapshotError = error;
@@ -601,23 +670,13 @@ async function scrape() {
   // No-op if the rankings are unchanged, so the hourly workflow only commits
   // and redeploys when the data actually differs. The scrapedAt timestamp is
   // ignored in this comparison since it changes every run.
-  if (existsSync(OUTPUT_PATH)) {
-    try {
-      const previous = JSON.parse(readFileSync(OUTPUT_PATH, "utf8"));
-      if (
-        JSON.stringify({ views: previous.views, events: previous.events }) ===
-        JSON.stringify({ views, events })
-      ) {
-        console.log(
-          "No change in league data — leaving leaderboard.json untouched"
-        );
-        return;
-      }
-    } catch (error) {
-      console.warn(
-        `Could not compare existing ${OUTPUT_PATH}; it will be replaced: ${error.message}`
-      );
-    }
+  if (
+    previous &&
+    JSON.stringify({ views: previous.views, events: previous.events }) ===
+      JSON.stringify({ views, events })
+  ) {
+    console.log("No change in league data — leaving leaderboard.json untouched");
+    return;
   }
 
   mkdirSync(dirname(OUTPUT_PATH), { recursive: true });

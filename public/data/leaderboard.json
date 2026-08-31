@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-08-31T06:37:26.439Z",
+  "scrapedAt": "2026-08-31T07:28:24.365Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -76,26 +76,8 @@
         }
       },
       {
-        "id": "jon-richert",
-        "rank": 5,
-        "name": "Jon Richert",
-        "points": 620,
-        "events": 2,
-        "gameMakerPoints": 1752,
-        "wins": 3,
-        "losses": 6,
-        "winRate": 33.33333333,
-        "pointsEarned": 48,
-        "pointsAgainst": 66,
-        "pointDifferential": -15.78947368,
-        "move": {
-          "dir": "up",
-          "places": 7
-        }
-      },
-      {
         "id": "preston-langlois",
-        "rank": 6,
+        "rank": 5,
         "name": "Preston Langlois",
         "points": 600,
         "events": 1,
@@ -107,31 +89,13 @@
         "pointsAgainst": 53,
         "pointDifferential": 5.357142857,
         "move": {
-          "dir": "down",
-          "places": 1
-        }
-      },
-      {
-        "id": "michael-randle",
-        "rank": 7,
-        "name": "Michael Randle",
-        "points": 580,
-        "events": 2,
-        "gameMakerPoints": 2160,
-        "wins": 3,
-        "losses": 6,
-        "winRate": 33.33333333,
-        "pointsEarned": 48,
-        "pointsAgainst": 66,
-        "pointDifferential": -15.78947368,
-        "move": {
-          "dir": "up",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "orlando-paez",
-        "rank": 8,
+        "rank": 6,
         "name": "Orlando Paez",
         "points": 450,
         "events": 1,
@@ -143,31 +107,13 @@
         "pointsAgainst": 53,
         "pointDifferential": 5.357142857,
         "move": {
-          "dir": "down",
-          "places": 2
-        }
-      },
-      {
-        "id": "sam-ngo",
-        "rank": 9,
-        "name": "Sam Ngo",
-        "points": 450,
-        "events": 2,
-        "gameMakerPoints": 1975,
-        "wins": 3,
-        "losses": 6,
-        "winRate": 33.33333333,
-        "pointsEarned": 48,
-        "pointsAgainst": 66,
-        "pointDifferential": -15.78947368,
-        "move": {
-          "dir": "up",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "mat-sevilla",
-        "rank": 10,
+        "rank": 7,
         "name": "Mat Sevilla",
         "points": 375,
         "events": 1,
@@ -179,13 +125,13 @@
         "pointsAgainst": 59,
         "pointDifferential": -5.357142857,
         "move": {
-          "dir": "down",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "tobi-ola",
-        "rank": 11,
+        "rank": 8,
         "name": "Tobi Ola",
         "points": 300,
         "events": 1,
@@ -197,13 +143,13 @@
         "pointsAgainst": 53,
         "pointDifferential": 5.357142857,
         "move": {
-          "dir": "down",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "derek-dallas",
-        "rank": 12,
+        "rank": 9,
         "name": "Derek Dallas",
         "points": 240,
         "events": 1,
@@ -215,8 +161,62 @@
         "pointsAgainst": 65,
         "pointDifferential": -16.07142857,
         "move": {
-          "dir": "down",
-          "places": 3
+          "dir": "none",
+          "places": 0
+        }
+      },
+      {
+        "id": "michael-randle",
+        "rank": 10,
+        "name": "Michael Randle",
+        "points": 180,
+        "events": 1,
+        "gameMakerPoints": 2159,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 47,
+        "pointsAgainst": 65,
+        "pointDifferential": -16.07142857,
+        "move": {
+          "dir": "none",
+          "places": 0
+        }
+      },
+      {
+        "id": "sam-ngo",
+        "rank": 11,
+        "name": "Sam Ngo",
+        "points": 150,
+        "events": 1,
+        "gameMakerPoints": 1974,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 47,
+        "pointsAgainst": 65,
+        "pointDifferential": -16.07142857,
+        "move": {
+          "dir": "none",
+          "places": 0
+        }
+      },
+      {
+        "id": "jon-richert",
+        "rank": 12,
+        "name": "Jon Richert",
+        "points": 120,
+        "events": 1,
+        "gameMakerPoints": 1751,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 47,
+        "pointsAgainst": 65,
+        "pointDifferential": -16.07142857,
+        "move": {
+          "dir": "none",
+          "places": 0
         }
       }
     ],
@@ -294,26 +294,8 @@
         }
       },
       {
-        "id": "jon-richert",
-        "rank": 5,
-        "name": "Jon Richert",
-        "points": 620,
-        "events": 2,
-        "gameMakerPoints": 1752,
-        "wins": 3,
-        "losses": 6,
-        "winRate": 33.33333333,
-        "pointsEarned": 48,
-        "pointsAgainst": 66,
-        "pointDifferential": -15.78947368,
-        "move": {
-          "dir": "up",
-          "places": 7
-        }
-      },
-      {
         "id": "preston-langlois",
-        "rank": 6,
+        "rank": 5,
         "name": "Preston Langlois",
         "points": 600,
         "events": 1,
@@ -325,31 +307,13 @@
         "pointsAgainst": 53,
         "pointDifferential": 5.357142857,
         "move": {
-          "dir": "down",
-          "places": 1
-        }
-      },
-      {
-        "id": "michael-randle",
-        "rank": 7,
-        "name": "Michael Randle",
-        "points": 580,
-        "events": 2,
-        "gameMakerPoints": 2160,
-        "wins": 3,
-        "losses": 6,
-        "winRate": 33.33333333,
-        "pointsEarned": 48,
-        "pointsAgainst": 66,
-        "pointDifferential": -15.78947368,
-        "move": {
-          "dir": "up",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "orlando-paez",
-        "rank": 8,
+        "rank": 6,
         "name": "Orlando Paez",
         "points": 450,
         "events": 1,
@@ -361,31 +325,13 @@
         "pointsAgainst": 53,
         "pointDifferential": 5.357142857,
         "move": {
-          "dir": "down",
-          "places": 2
-        }
-      },
-      {
-        "id": "sam-ngo",
-        "rank": 9,
-        "name": "Sam Ngo",
-        "points": 450,
-        "events": 2,
-        "gameMakerPoints": 1975,
-        "wins": 3,
-        "losses": 6,
-        "winRate": 33.33333333,
-        "pointsEarned": 48,
-        "pointsAgainst": 66,
-        "pointDifferential": -15.78947368,
-        "move": {
-          "dir": "up",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "mat-sevilla",
-        "rank": 10,
+        "rank": 7,
         "name": "Mat Sevilla",
         "points": 375,
         "events": 1,
@@ -397,13 +343,13 @@
         "pointsAgainst": 59,
         "pointDifferential": -5.357142857,
         "move": {
-          "dir": "down",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "tobi-ola",
-        "rank": 11,
+        "rank": 8,
         "name": "Tobi Ola",
         "points": 300,
         "events": 1,
@@ -415,13 +361,13 @@
         "pointsAgainst": 53,
         "pointDifferential": 5.357142857,
         "move": {
-          "dir": "down",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "derek-dallas",
-        "rank": 12,
+        "rank": 9,
         "name": "Derek Dallas",
         "points": 240,
         "events": 1,
@@ -433,8 +379,62 @@
         "pointsAgainst": 65,
         "pointDifferential": -16.07142857,
         "move": {
-          "dir": "down",
-          "places": 3
+          "dir": "none",
+          "places": 0
+        }
+      },
+      {
+        "id": "michael-randle",
+        "rank": 10,
+        "name": "Michael Randle",
+        "points": 180,
+        "events": 1,
+        "gameMakerPoints": 2159,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 47,
+        "pointsAgainst": 65,
+        "pointDifferential": -16.07142857,
+        "move": {
+          "dir": "none",
+          "places": 0
+        }
+      },
+      {
+        "id": "sam-ngo",
+        "rank": 11,
+        "name": "Sam Ngo",
+        "points": 150,
+        "events": 1,
+        "gameMakerPoints": 1974,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 47,
+        "pointsAgainst": 65,
+        "pointDifferential": -16.07142857,
+        "move": {
+          "dir": "none",
+          "places": 0
+        }
+      },
+      {
+        "id": "jon-richert",
+        "rank": 12,
+        "name": "Jon Richert",
+        "points": 120,
+        "events": 1,
+        "gameMakerPoints": 1751,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 47,
+        "pointsAgainst": 65,
+        "pointDifferential": -16.07142857,
+        "move": {
+          "dir": "none",
+          "places": 0
         }
       }
     ],
@@ -512,26 +512,8 @@
         }
       },
       {
-        "id": "jon-richert",
-        "rank": 5,
-        "name": "Jon Richert",
-        "points": 620,
-        "events": 2,
-        "gameMakerPoints": 1752,
-        "wins": 3,
-        "losses": 6,
-        "winRate": 33.33333333,
-        "pointsEarned": 48,
-        "pointsAgainst": 66,
-        "pointDifferential": -15.78947368,
-        "move": {
-          "dir": "up",
-          "places": 7
-        }
-      },
-      {
         "id": "preston-langlois",
-        "rank": 6,
+        "rank": 5,
         "name": "Preston Langlois",
         "points": 600,
         "events": 1,
@@ -543,31 +525,13 @@
         "pointsAgainst": 53,
         "pointDifferential": 5.357142857,
         "move": {
-          "dir": "down",
-          "places": 1
-        }
-      },
-      {
-        "id": "michael-randle",
-        "rank": 7,
-        "name": "Michael Randle",
-        "points": 580,
-        "events": 2,
-        "gameMakerPoints": 2160,
-        "wins": 3,
-        "losses": 6,
-        "winRate": 33.33333333,
-        "pointsEarned": 48,
-        "pointsAgainst": 66,
-        "pointDifferential": -15.78947368,
-        "move": {
-          "dir": "up",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "orlando-paez",
-        "rank": 8,
+        "rank": 6,
         "name": "Orlando Paez",
         "points": 450,
         "events": 1,
@@ -579,31 +543,13 @@
         "pointsAgainst": 53,
         "pointDifferential": 5.357142857,
         "move": {
-          "dir": "down",
-          "places": 2
-        }
-      },
-      {
-        "id": "sam-ngo",
-        "rank": 9,
-        "name": "Sam Ngo",
-        "points": 450,
-        "events": 2,
-        "gameMakerPoints": 1975,
-        "wins": 3,
-        "losses": 6,
-        "winRate": 33.33333333,
-        "pointsEarned": 48,
-        "pointsAgainst": 66,
-        "pointDifferential": -15.78947368,
-        "move": {
-          "dir": "up",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "mat-sevilla",
-        "rank": 10,
+        "rank": 7,
         "name": "Mat Sevilla",
         "points": 375,
         "events": 1,
@@ -615,13 +561,13 @@
         "pointsAgainst": 59,
         "pointDifferential": -5.357142857,
         "move": {
-          "dir": "down",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "tobi-ola",
-        "rank": 11,
+        "rank": 8,
         "name": "Tobi Ola",
         "points": 300,
         "events": 1,
@@ -633,13 +579,13 @@
         "pointsAgainst": 53,
         "pointDifferential": 5.357142857,
         "move": {
-          "dir": "down",
-          "places": 3
+          "dir": "none",
+          "places": 0
         }
       },
       {
         "id": "derek-dallas",
-        "rank": 12,
+        "rank": 9,
         "name": "Derek Dallas",
         "points": 240,
         "events": 1,
@@ -651,8 +597,62 @@
         "pointsAgainst": 65,
         "pointDifferential": -16.07142857,
         "move": {
-          "dir": "down",
-          "places": 3
+          "dir": "none",
+          "places": 0
+        }
+      },
+      {
+        "id": "michael-randle",
+        "rank": 10,
+        "name": "Michael Randle",
+        "points": 180,
+        "events": 1,
+        "gameMakerPoints": 2159,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 47,
+        "pointsAgainst": 65,
+        "pointDifferential": -16.07142857,
+        "move": {
+          "dir": "none",
+          "places": 0
+        }
+      },
+      {
+        "id": "sam-ngo",
+        "rank": 11,
+        "name": "Sam Ngo",
+        "points": 150,
+        "events": 1,
+        "gameMakerPoints": 1974,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 47,
+        "pointsAgainst": 65,
+        "pointDifferential": -16.07142857,
+        "move": {
+          "dir": "none",
+          "places": 0
+        }
+      },
+      {
+        "id": "jon-richert",
+        "rank": 12,
+        "name": "Jon Richert",
+        "points": 120,
+        "events": 1,
+        "gameMakerPoints": 1751,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 47,
+        "pointsAgainst": 65,
+        "pointDifferential": -16.07142857,
+        "move": {
+          "dir": "none",
+          "places": 0
         }
       }
     ]
@@ -715,76 +715,6 @@
       }
     ],
     "past": [
-      {
-        "id": "2026-08-27",
-        "date": "2026-08-27",
-        "playerCount": 3,
-        "courts": 1,
-        "games": 1.5,
-        "maxPointsEarnable": 500,
-        "rounds": 1.5,
-        "podium": [
-          {
-            "place": 1,
-            "playerId": "jon-richert",
-            "name": "Jon Richert"
-          },
-          {
-            "place": 2,
-            "playerId": "michael-randle",
-            "name": "Michael Randle"
-          },
-          {
-            "place": 3,
-            "playerId": "sam-ngo",
-            "name": "Sam Ngo"
-          }
-        ],
-        "results": [
-          {
-            "playerId": "jon-richert",
-            "name": "Jon Richert",
-            "points": 500,
-            "place": 1,
-            "courts": 1,
-            "gameMakerPoints": 1,
-            "wins": 1,
-            "losses": 1,
-            "winRate": 50,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
-          },
-          {
-            "playerId": "michael-randle",
-            "name": "Michael Randle",
-            "points": 400,
-            "place": 2,
-            "courts": 1,
-            "gameMakerPoints": 1,
-            "wins": 1,
-            "losses": 1,
-            "winRate": 50,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
-          },
-          {
-            "playerId": "sam-ngo",
-            "name": "Sam Ngo",
-            "points": 300,
-            "place": 3,
-            "courts": 1,
-            "gameMakerPoints": 1,
-            "wins": 1,
-            "losses": 1,
-            "winRate": 50,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
-          }
-        ]
-      },
       {
         "id": "2026-08-24",
         "date": "2026-08-24",

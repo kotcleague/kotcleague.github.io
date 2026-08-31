@@ -8,8 +8,10 @@ import Footer from "@/components/Footer";
 import MonthlyPrizes from "@/components/MonthlyPrizes";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
+import SectionAction from "@/components/SectionAction";
 import SectionHeading from "@/components/SectionHeading";
 import TableShell from "@/components/TableShell";
+import { ROUTES } from "@/config/site";
 
 interface LeagueDetailsProps {
   leaderboardUrl: string;
@@ -148,23 +150,15 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                 </li>
               ))}
             </ol>
-            <div className="flex items-center justify-between gap-4 border-t border-slate-300 bg-ink px-4 py-3 text-white dark:border-slate-700 dark:bg-slate-950">
-              <p className="text-sm font-semibold text-ink dark:text-white">
-                <span className="text-white">See where you stand</span>
-              </p>
-              <a
-                href={leaderboardUrl}
-                className="inline-flex w-fit rounded-sm bg-blue px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-accent-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
-              >
-                View leaderboard
-              </a>
-            </div>
+            <SectionAction action="View leaderboard" href={leaderboardUrl}>
+              See where you stand
+            </SectionAction>
           </div>
         </section>
 
         <section>
           <SectionHeading eyebrow="Event format" prominent>
-            What to expect
+            How each league night runs
           </SectionHeading>
           <div className="border-y border-slate-300 dark:border-slate-700">
             <dl className="grid grid-cols-1 sm:grid-cols-2">
@@ -187,6 +181,9 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                 </div>
               ))}
             </dl>
+            <SectionAction action="View schedule" href={ROUTES.schedule}>
+              Find your next league night
+            </SectionAction>
           </div>
         </section>
 
