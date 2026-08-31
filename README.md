@@ -45,5 +45,4 @@ Shareable detail routes use `#/schedule/YYYY-MM-DD` for events and
 `#/players/player-id` for players. The league format lives at `#/format`.
 
 Pushes to `main` build the site to Vite's ignored `dist/` directory and deploy
-that output through the GitHub Pages artifact workflow. Generated site files
-are not committed to the repository.
+that output through the GitHub Pages artifact workflow.
