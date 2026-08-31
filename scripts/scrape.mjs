@@ -1,5 +1,12 @@
 import { load } from "cheerio";
-import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
+import {
+  writeFileSync,
+  mkdirSync,
+  existsSync,
+  readFileSync,
+  renameSync,
+  unlinkSync,
+} from "fs";
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 
@@ -16,6 +23,11 @@ const OUTPUT_PATH = resolve(
 const PUBLISH_ID =
   "2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj";
 const BASE = `https://docs.google.com/spreadsheets/d/e/${PUBLISH_ID}/pubhtml`;
+const FETCH_ATTEMPTS = 3;
+const FETCH_TIMEOUT_MS = 15_000;
+const RETRY_BASE_DELAY_MS = 1_000;
+const SNAPSHOT_ATTEMPTS = 3;
+const SNAPSHOT_RETRY_DELAY_MS = 2_000;
 
 // Ranking sheet tab name -> site view slug.
 const VIEWS = {
@@ -36,11 +48,64 @@ const PERFORMANCE_FIELDS = [
   ["pointDifferential", "point differential"],
 ];
 
-async function fetchHtml(url) {
-  const res = await fetch(url);
-  if (!res.ok)
-    throw new Error(`HTTP ${res.status} ${res.statusText} for ${url}`);
-  return res.text();
+class HttpError extends Error {
+  constructor(response) {
+    super(`HTTP ${response.status} ${response.statusText}`);
+    this.status = response.status;
+  }
+}
+
+function isRetryableFetchError(error) {
+  return (
+    error instanceof TypeError ||
+    error?.name === "AbortError" ||
+    (error instanceof HttpError &&
+      (error.status === 408 || error.status === 429 || error.status >= 500))
+  );
+}
+
+function wait(milliseconds) {
+  return new Promise((resolvePromise) =>
+    setTimeout(resolvePromise, milliseconds)
+  );
+}
+
+async function fetchHtml(url, context) {
+  let lastError;
+  let attemptsMade = 0;
+
+  for (let attempt = 1; attempt <= FETCH_ATTEMPTS; attempt += 1) {
+    attemptsMade = attempt;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+    try {
+      const response = await fetch(url, { signal: controller.signal });
+      if (!response.ok) throw new HttpError(response);
+
+      const html = await response.text();
+      if (!html.trim()) throw new Error("Received an empty response");
+      return html;
+    } catch (error) {
+      lastError = error;
+      if (attempt === FETCH_ATTEMPTS || !isRetryableFetchError(error)) break;
+
+      const delay = RETRY_BASE_DELAY_MS * 2 ** (attempt - 1);
+      console.warn(
+        `  Fetch attempt ${attempt}/${FETCH_ATTEMPTS} for ${context} failed (${error.message}); retrying in ${delay}ms...`
+      );
+      await wait(delay);
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  throw new Error(
+    `Failed to fetch ${context} after ${attemptsMade} attempt${
+      attemptsMade === 1 ? "" : "s"
+    }: ${lastError?.message ?? "unknown error"}`,
+    { cause: lastError }
+  );
 }
 
 // Read the published tab menu and map each tab name to its gid.
@@ -92,6 +157,15 @@ function readRowCells($, row) {
     .find("td")
     .map((_, td) => $(td).text().trim())
     .get();
+}
+
+function assertSheetTable(html, tabName) {
+  const $ = load(html);
+  if ($("table tbody").length === 0) {
+    throw new Error(
+      `No data table found in "${tabName}" — Google may have returned an unexpected page`
+    );
+  }
 }
 
 function isDatedRow(cells, minimumCells) {
@@ -256,11 +330,17 @@ function parsePastEvents(html, players) {
     ] = cells;
     const id = parseDateId(dateText, '"Past Events"');
     const context = `"Past Events" row for ${id}`;
-    const podium = [first, second, third].map((name, index) => ({
-      place: index + 1,
-      playerId: players.get(name),
-      name,
-    }));
+    const podium = [first, second, third].flatMap((name, index) =>
+      name
+        ? [
+            {
+              place: index + 1,
+              playerId: players.get(name),
+              name,
+            },
+          ]
+        : []
+    );
 
     events.push({
       id,
@@ -337,6 +417,9 @@ function parseEventLog(html, players) {
       ...performanceCells
     ] = cells;
     const eventId = parseDateId(dateText, '"Event Log"');
+    if (!name) {
+      throw new Error(`Missing player name in "Event Log" row for ${eventId}`);
+    }
     const context = `"Event Log" row for ${name} on ${eventId}`;
     const result = {
       playerId: players.get(name),
@@ -365,26 +448,52 @@ function assertUniqueIds(items, context) {
   }
 }
 
-async function scrape() {
-  console.log("Discovering sheet tabs...");
-  const menuHtml = await fetchHtml(BASE);
-  const gids = parseTabGids(menuHtml);
-  const requiredTabs = [...Object.keys(VIEWS), ...EVENT_TABS];
-  const missingTabs = requiredTabs.filter((tabName) => !gids[tabName]);
+function validatePastEvents(events) {
+  for (const event of events) {
+    const context = `"Past Events" row for ${event.id}`;
+    if (!Number.isInteger(event.playerCount) || event.playerCount < 1) {
+      throw new Error(`Invalid player count "${event.playerCount}" in ${context}`);
+    }
 
-  if (missingTabs.length > 0) {
-    throw new Error(
-      `Missing published tabs: ${missingTabs.join(", ")}. Available tabs: ${
-        Object.keys(gids).join(", ") || "(none)"
-      }`
-    );
+    const expectedPodiumSize = Math.min(3, event.playerCount);
+    if (event.podium.length !== expectedPodiumSize) {
+      throw new Error(
+        `Expected ${expectedPodiumSize} podium player${
+          expectedPodiumSize === 1 ? "" : "s"
+        } in ${context}, found ${event.podium.length}`
+      );
+    }
+
+    if (event.results.length !== event.playerCount) {
+      throw new Error(
+        `Expected ${event.playerCount} result${
+          event.playerCount === 1 ? "" : "s"
+        } for event ${event.id}, found ${event.results.length}. The sheet may still be updating`
+      );
+    }
+
+    const playerIds = new Set(event.results.map((result) => result.playerId));
+    const places = new Set(event.results.map((result) => result.place));
+    if (
+      playerIds.size !== event.results.length ||
+      places.size !== event.results.length
+    ) {
+      throw new Error(`Duplicate player or place in results for event ${event.id}`);
+    }
   }
+}
 
+async function scrapeSnapshot(gids, requiredTabs) {
   const htmlByTab = Object.fromEntries(
     await Promise.all(
       requiredTabs.map(async (tabName) => {
         console.log(`Fetching "${tabName}" (gid=${gids[tabName]})...`);
-        return [tabName, await fetchHtml(`${BASE}/sheet?gid=${gids[tabName]}`)];
+        const html = await fetchHtml(
+          `${BASE}/sheet?gid=${gids[tabName]}`,
+          `"${tabName}"`
+        );
+        assertSheetTable(html, tabName);
+        return [tabName, html];
       })
     )
   );
@@ -431,6 +540,7 @@ async function scrape() {
       (a, b) => a.place - b.place
     );
   }
+  validatePastEvents(past);
 
   past.sort((a, b) => b.date.localeCompare(a.date));
   upcoming.sort((a, b) => a.date.localeCompare(b.date));
@@ -438,6 +548,49 @@ async function scrape() {
   console.log(`  ${upcoming.length} upcoming events`);
   console.log(`  ${past.length} past events`);
 
+  return { views, events };
+}
+
+async function scrape() {
+  console.log("Discovering sheet tabs...");
+  const menuHtml = await fetchHtml(BASE, "published sheet menu");
+  const gids = parseTabGids(menuHtml);
+  const requiredTabs = [...Object.keys(VIEWS), ...EVENT_TABS];
+  const missingTabs = requiredTabs.filter((tabName) => !gids[tabName]);
+
+  if (missingTabs.length > 0) {
+    throw new Error(
+      `Missing published tabs: ${missingTabs.join(", ")}. Available tabs: ${
+        Object.keys(gids).join(", ") || "(none)"
+      }`
+    );
+  }
+
+  let snapshot;
+  let snapshotError;
+  for (let attempt = 1; attempt <= SNAPSHOT_ATTEMPTS; attempt += 1) {
+    try {
+      snapshot = await scrapeSnapshot(gids, requiredTabs);
+      break;
+    } catch (error) {
+      snapshotError = error;
+      if (attempt === SNAPSHOT_ATTEMPTS) break;
+
+      console.warn(
+        `Snapshot attempt ${attempt}/${SNAPSHOT_ATTEMPTS} failed (${error.message}); retrying all tabs in ${SNAPSHOT_RETRY_DELAY_MS}ms...`
+      );
+      await wait(SNAPSHOT_RETRY_DELAY_MS);
+    }
+  }
+
+  if (!snapshot) {
+    throw new Error(
+      `Could not produce a consistent sheet snapshot after ${SNAPSHOT_ATTEMPTS} attempts: ${snapshotError?.message ?? "unknown error"}`,
+      { cause: snapshotError }
+    );
+  }
+
+  const { views, events } = snapshot;
   const data = {
     scrapedAt: new Date().toISOString(),
     source: BASE,
@@ -460,13 +613,21 @@ async function scrape() {
         );
         return;
       }
-    } catch {
-      // Unreadable/corrupt existing file — fall through and overwrite it.
+    } catch (error) {
+      console.warn(
+        `Could not compare existing ${OUTPUT_PATH}; it will be replaced: ${error.message}`
+      );
     }
   }
 
   mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
-  writeFileSync(OUTPUT_PATH, JSON.stringify(data, null, 2));
+  const temporaryPath = `${OUTPUT_PATH}.tmp`;
+  try {
+    writeFileSync(temporaryPath, JSON.stringify(data, null, 2));
+    renameSync(temporaryPath, OUTPUT_PATH);
+  } finally {
+    if (existsSync(temporaryPath)) unlinkSync(temporaryPath);
+  }
   console.log(`Wrote ${OUTPUT_PATH}`);
 }
 

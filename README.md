@@ -35,7 +35,9 @@ npm run format
 
 The scraper consumes the `Current Month`, `Past 30 Days`, `All Time`, `Past
 Events`, `Upcoming Events`, and `Event Log` tabs. It joins event summaries to
-nightly results by date and assigns stable URL IDs to players.
+nightly results by date and assigns stable URL IDs to players. Fetches use
+bounded retries and timeouts, and the generated file is replaced atomically
+only after every tab and cross-sheet event count has been validated.
 
 The app uses a small hash-based route layer. Add routes and their document
 titles to `src/config/site.ts`, then render the page from `src/App.tsx`.

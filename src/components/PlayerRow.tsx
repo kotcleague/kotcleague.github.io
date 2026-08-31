@@ -1,4 +1,3 @@
-import { ChevronDown, ChevronUp } from "lucide-react";
 import { EditorialTableRow } from "@/components/EditorialTable";
 import { placementBadgeClass } from "@/components/PlacementBadge";
 import { playerRoute } from "@/config/site";
@@ -15,19 +14,21 @@ function Movement({ move }: { move: Player["move"] }) {
     return null;
   }
   const isUp = move.dir === "up";
-  const Icon = isUp ? ChevronUp : ChevronDown;
+
   return (
     <span
-      className={`inline-flex items-center font-medium tabular-nums ${
+      className={`inline-flex items-center gap-0.5 text-[0.6875rem] font-medium leading-none tabular-nums ${
         isUp
-          ? "text-emerald-600 dark:text-emerald-400"
-          : "text-red-500 dark:text-red-400"
+          ? "text-emerald-700 dark:text-emerald-400"
+          : "text-rose-600 dark:text-rose-400"
       }`}
       title={`Moved ${isUp ? "up" : "down"} ${move.places} ${
         move.places === 1 ? "place" : "places"
       }`}
     >
-      <Icon className="w-3.5 h-3.5" strokeWidth={2.5} aria-hidden="true" />
+      <span className="text-[0.5rem]" aria-hidden="true">
+        {isUp ? "▲" : "▼"}
+      </span>
       {move.places}
     </span>
   );
