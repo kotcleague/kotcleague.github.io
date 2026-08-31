@@ -21,7 +21,7 @@ export default function PlacementBadge({ place }: PlacementBadgeProps) {
   return (
     <span
       className={clsx(
-        "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold tabular-nums",
+        "font-display inline-flex h-8 min-w-8 shrink-0 items-center justify-center rounded-sm px-1 text-lg font-bold tabular-nums",
         placementBadgeClass(place)
       )}
     >

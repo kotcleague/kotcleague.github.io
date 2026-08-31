@@ -1,4 +1,5 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { EditorialTableRow } from "@/components/EditorialTable";
 import { placementBadgeClass } from "@/components/PlacementBadge";
 import { playerRoute } from "@/config/site";
 import { formatInteger } from "@/lib/format";
@@ -37,12 +38,14 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
   const isTop3 = rank <= 3;
 
   return (
-    <tr className="transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/40">
+    <EditorialTableRow
+      className={isTop3 ? "bg-slate-50/70 dark:bg-slate-800/25" : undefined}
+    >
       <td className="px-2 py-3 sm:px-5 sm:py-4">
         <div className="flex items-center gap-1 sm:block">
           <span
             className={`
-              inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold tabular-nums sm:h-8 sm:w-8
+              font-display inline-flex h-7 min-w-7 shrink-0 items-center justify-center rounded-sm px-1 text-base font-bold tabular-nums sm:h-8 sm:min-w-8 sm:text-lg
               ${badge}
             `}
           >
@@ -78,7 +81,7 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
       </td>
 
       <td
-        className={`px-2 py-3 text-right text-sm font-bold tabular-nums sm:px-5 sm:py-4 sm:text-base ${
+        className={`font-display px-2 py-3 text-right text-lg font-bold tabular-nums sm:px-5 sm:py-4 sm:text-xl ${
           isTop3
             ? "text-blue dark:text-blue-300"
             : "text-slate-600 dark:text-slate-300"
@@ -86,6 +89,6 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
       >
         {formatInteger(player.points)}
       </td>
-    </tr>
+    </EditorialTableRow>
   );
 }

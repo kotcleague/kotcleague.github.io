@@ -1,5 +1,11 @@
 import BackLink from "@/components/BackLink";
 import { ErrorState } from "@/components/DataStates";
+import EditorialLinkCard from "@/components/EditorialLinkCard";
+import {
+  EditorialTableBody,
+  EditorialTableHead,
+  EditorialTableRow,
+} from "@/components/EditorialTable";
 import EmptyState from "@/components/EmptyState";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import PageContent from "@/components/PageContent";
@@ -35,19 +41,16 @@ function HistoryCard({ entry }: { entry: HistoryEntry }) {
   const { event, result } = entry;
 
   return (
-    <a
-      href={eventRoute(event.id)}
-      className="block rounded-xl border border-slate-200 bg-white p-4 transition hover:border-blue/40 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue/60"
-    >
+    <EditorialLinkCard href={eventRoute(event.id)}>
       <div className="flex items-center gap-3">
         <PlacementBadge place={result.place} />
         <div className="min-w-0 flex-1">
           <h3 className="font-semibold">{formatLeagueDate(event.date)}</h3>
-          <p className="text-xs text-slate-400">
+          <p className="font-display text-sm font-semibold uppercase tracking-wide text-blue dark:text-blue-300">
             {formatInteger(result.points)} league points
           </p>
         </div>
-        <span className="font-semibold tabular-nums">
+        <span className="font-display text-lg font-bold tabular-nums">
           {formatRecord(result.wins, result.losses)}
         </span>
       </div>
@@ -58,7 +61,7 @@ function HistoryCard({ entry }: { entry: HistoryEntry }) {
           metrics={["winRate", "pointsForAgainst", "pointDifferential"]}
         />
       </dl>
-    </a>
+    </EditorialLinkCard>
   );
 }
 
@@ -72,7 +75,7 @@ function HistoryTable({ history }: { history: HistoryEntry[] }) {
       </div>
       <TableShell className="hidden md:block">
         <table className="w-full">
-          <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-slate-800/60 dark:text-slate-500">
+          <EditorialTableHead>
             <tr>
               <th className="px-4 py-3 text-left">Date</th>
               <th className="px-4 py-3 text-left">Place</th>
@@ -82,13 +85,10 @@ function HistoryTable({ history }: { history: HistoryEntry[] }) {
               <th className="px-4 py-3 text-right">PF / PA</th>
               <th className="px-4 py-3 text-right">Diff</th>
             </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+          </EditorialTableHead>
+          <EditorialTableBody>
             {history.map(({ event, result }) => (
-              <tr
-                key={event.id}
-                className="transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/40"
-              >
+              <EditorialTableRow key={event.id}>
                 <td className="px-4 py-3 font-semibold">
                   <a
                     href={eventRoute(event.id)}
@@ -100,7 +100,7 @@ function HistoryTable({ history }: { history: HistoryEntry[] }) {
                 <td className="px-4 py-3">
                   <PlacementBadge place={result.place} />
                 </td>
-                <td className="px-4 py-3 text-right font-semibold tabular-nums">
+                <td className="font-display px-4 py-3 text-right text-lg font-bold tabular-nums text-blue dark:text-blue-300">
                   {formatInteger(result.points)}
                 </td>
                 <td className="px-4 py-3 text-right tabular-nums">
@@ -118,9 +118,9 @@ function HistoryTable({ history }: { history: HistoryEntry[] }) {
                 <td className="px-4 py-3 text-right font-semibold tabular-nums">
                   {formatSignedPercent(result.pointDifferential)}
                 </td>
-              </tr>
+              </EditorialTableRow>
             ))}
-          </tbody>
+          </EditorialTableBody>
         </table>
       </TableShell>
     </>
@@ -144,7 +144,7 @@ function PlayerContent({
       >
         {player.name}
       </PageHeader>
-      <PageContent className="space-y-8">
+      <PageContent className="space-y-10">
         <BackLink href={ROUTES.rankings}>Back to rankings</BackLink>
         <StatGrid
           items={[

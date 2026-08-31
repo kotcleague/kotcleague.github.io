@@ -2,6 +2,11 @@ import BackLink from "@/components/BackLink";
 import Card from "@/components/Card";
 import { ErrorState } from "@/components/DataStates";
 import EmptyState from "@/components/EmptyState";
+import {
+  EditorialTableBody,
+  EditorialTableHead,
+  EditorialTableRow,
+} from "@/components/EditorialTable";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
@@ -28,7 +33,7 @@ import type {
 
 function ResultCard({ result }: { result: EventResult }) {
   return (
-    <Card className="p-3 shadow-none sm:p-4">
+    <Card className="border-l-4 border-l-slate-300 p-3 shadow-none dark:border-l-slate-700 sm:p-4">
       <div className="flex items-center gap-2 sm:gap-3">
         <PlacementBadge place={result.place} />
         <a
@@ -37,7 +42,7 @@ function ResultCard({ result }: { result: EventResult }) {
         >
           {result.name}
         </a>
-        <span className="font-bold tabular-nums">
+        <span className="font-display text-lg font-bold tabular-nums text-blue dark:text-blue-300">
           {formatInteger(result.points)} pts
         </span>
       </div>
@@ -68,7 +73,7 @@ function ResultsTable({ results }: { results: EventResult[] }) {
       </div>
       <TableShell className="hidden md:block">
         <table className="w-full">
-          <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-slate-800/60 dark:text-slate-500">
+          <EditorialTableHead>
             <tr>
               <th className="px-4 py-3 text-left">Place</th>
               <th className="px-4 py-3 text-left">Player</th>
@@ -79,13 +84,10 @@ function ResultsTable({ results }: { results: EventResult[] }) {
               <th className="px-4 py-3 text-right">PF / PA</th>
               <th className="px-4 py-3 text-right">Diff</th>
             </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+          </EditorialTableHead>
+          <EditorialTableBody>
             {results.map((result) => (
-              <tr
-                key={result.playerId}
-                className="transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/40"
-              >
+              <EditorialTableRow key={result.playerId}>
                 <td className="px-4 py-3">
                   <PlacementBadge place={result.place} />
                 </td>
@@ -97,7 +99,7 @@ function ResultsTable({ results }: { results: EventResult[] }) {
                     {result.name}
                   </a>
                 </td>
-                <td className="px-4 py-3 text-right font-semibold tabular-nums">
+                <td className="font-display px-4 py-3 text-right text-lg font-bold tabular-nums text-blue dark:text-blue-300">
                   {formatInteger(result.points)}
                 </td>
                 <td className="px-4 py-3 text-right tabular-nums">
@@ -118,9 +120,9 @@ function ResultsTable({ results }: { results: EventResult[] }) {
                 <td className="px-4 py-3 text-right font-semibold tabular-nums">
                   {formatSignedPercent(result.pointDifferential)}
                 </td>
-              </tr>
+              </EditorialTableRow>
             ))}
-          </tbody>
+          </EditorialTableBody>
         </table>
       </TableShell>
     </>
@@ -136,7 +138,7 @@ function EventContent({ event }: { event: PastEvent }) {
       >
         {formatLeagueDate(event.date)}
       </PageHeader>
-      <PageContent className="space-y-8">
+      <PageContent className="space-y-10">
         <BackLink href={ROUTES.schedule}>Back to schedule</BackLink>
         <StatGrid
           items={[

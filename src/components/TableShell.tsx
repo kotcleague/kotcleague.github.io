@@ -8,7 +8,7 @@ export default function TableShell({
   return (
     <div
       className={twMerge(
-        "overflow-x-auto rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900",
+        "overflow-x-auto rounded-sm border border-slate-200 bg-white shadow-[0_1px_0_rgba(8,27,42,0.05)] dark:border-slate-700 dark:bg-slate-900",
         className
       )}
       {...props}

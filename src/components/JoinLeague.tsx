@@ -23,9 +23,9 @@ const PLATFORMS = [
 export default function JoinLeague() {
   return (
     <section aria-labelledby="join-league-heading">
-      <details className="group overflow-hidden rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+      <details className="group overflow-hidden rounded-sm border border-slate-200 border-l-4 border-l-blue bg-white dark:border-slate-800 dark:border-l-blue-300 dark:bg-slate-900">
         <summary className="flex cursor-pointer list-none items-start gap-3 p-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue [&::-webkit-details-marker]:hidden sm:items-center">
-          <span className="rounded-lg bg-blue/10 p-2.5 text-blue dark:bg-blue/20 dark:text-blue-300">
+          <span className="border border-blue/20 bg-blue/10 p-2.5 text-blue dark:border-blue/40 dark:bg-blue/20 dark:text-blue-300">
             <UserPlus className="h-5 w-5" aria-hidden="true" />
           </span>
           <div className="min-w-0 flex-1">
@@ -48,7 +48,7 @@ export default function JoinLeague() {
         </summary>
 
         <div className="border-t border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-800/60">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+          <p className="font-display mb-3 text-sm font-bold uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
             What each platform does
           </p>
           <div className="grid gap-4 sm:grid-cols-2">

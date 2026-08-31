@@ -65,7 +65,7 @@ export default function MonthlyPrizes({ compact = false }: MonthlyPrizesProps) {
         </p>
       </div>
 
-      <div className="overflow-hidden rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+      <div className="overflow-hidden rounded-sm border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <ol
           className="grid grid-cols-3 gap-px bg-slate-200 dark:bg-slate-800"
           aria-label="First, second, and third place"
@@ -77,7 +77,7 @@ export default function MonthlyPrizes({ compact = false }: MonthlyPrizesProps) {
             >
               <span
                 className={clsx(
-                  "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-extrabold shadow-sm sm:h-10 sm:w-10 sm:text-sm",
+                  "font-display inline-flex h-10 min-w-10 shrink-0 items-center justify-center rounded-sm px-1 text-lg font-bold sm:h-11 sm:min-w-11 sm:text-xl",
                   badge
                 )}
               >

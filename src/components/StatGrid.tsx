@@ -11,16 +11,16 @@ interface StatGridProps {
 
 export default function StatGrid({ items }: StatGridProps) {
   return (
-    <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 lg:grid-cols-4 dark:border-slate-800 dark:bg-slate-800">
+    <dl className="grid grid-cols-2 gap-px border-y border-slate-300 bg-slate-200 lg:grid-cols-4 dark:border-slate-700 dark:bg-slate-700">
       {items.map(({ label, value }) => (
         <div
           key={label}
-          className="bg-white px-4 py-3 dark:bg-slate-900 sm:px-5 sm:py-4"
+          className="bg-white px-4 py-4 dark:bg-slate-900 sm:px-5 sm:py-5"
         >
-          <dt className="text-xs font-medium text-slate-500 dark:text-slate-400">
+          <dt className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
             {label}
           </dt>
-          <dd className="mt-1 text-lg font-bold tabular-nums text-ink dark:text-white sm:text-xl">
+          <dd className="font-display mt-1 text-2xl font-bold tabular-nums text-ink dark:text-white sm:text-3xl">
             {value}
           </dd>
         </div>

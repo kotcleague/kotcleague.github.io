@@ -17,6 +17,14 @@ const SHORT_DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
 });
 
+const EVENT_MONTH_FORMATTER = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+});
+
+const EVENT_WEEKDAY_FORMATTER = new Intl.DateTimeFormat("en-US", {
+  weekday: "long",
+});
+
 const INTEGER_FORMATTER = new Intl.NumberFormat("en-US");
 
 function parseCalendarDate(date: string) {
@@ -39,6 +47,15 @@ export function formatEventDate(date: string) {
     /\bSep\b/,
     "Sept"
   );
+}
+
+export function formatEventDateParts(date: string) {
+  const value = parseCalendarDate(date);
+  return {
+    day: value.getDate().toString(),
+    month: EVENT_MONTH_FORMATTER.format(value),
+    weekday: EVENT_WEEKDAY_FORMATTER.format(value),
+  };
 }
 
 export function formatPercent(value: number) {

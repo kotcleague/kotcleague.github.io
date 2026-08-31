@@ -19,13 +19,13 @@ import type {
 
 function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
   return (
-    <Card className="p-4">
+    <Card className="border-l-4 border-l-blue p-4">
       <div className="flex items-start gap-3">
-        <span className="rounded-lg bg-blue/10 p-2.5 text-blue dark:bg-blue/20 dark:text-blue-300">
+        <span className="border border-blue/20 bg-blue/10 p-2.5 text-blue dark:border-blue/40 dark:bg-blue/20 dark:text-blue-300">
           <CalendarDays className="h-5 w-5" aria-hidden="true" />
         </span>
         <div className="min-w-0 flex-1">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+          <p className="font-display text-sm font-bold uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
             Next event
           </p>
           <h3 className="mt-1 text-lg font-bold">
@@ -65,13 +65,13 @@ function LatestResultsCard({ event }: { event?: PastEvent }) {
   const winner = event?.podium.find((player) => player.place === 1);
 
   return (
-    <Card className="p-4">
+    <Card className="border-l-4 border-l-gold p-4">
       <div className="flex items-start gap-3">
-        <span className="rounded-lg bg-amber-100 p-2.5 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300">
+        <span className="border border-amber-300 bg-amber-100 p-2.5 text-amber-700 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-300">
           <Trophy className="h-5 w-5" aria-hidden="true" />
         </span>
         <div className="min-w-0 flex-1">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+          <p className="font-display text-sm font-bold uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
             Latest results
           </p>
           <h3 className="mt-1 text-lg font-bold">

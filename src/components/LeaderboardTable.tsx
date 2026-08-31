@@ -1,3 +1,7 @@
+import {
+  EditorialTableBody,
+  EditorialTableHead,
+} from "@/components/EditorialTable";
 import PlayerRow from "@/components/PlayerRow";
 import TableShell from "@/components/TableShell";
 import type { Player } from "@/types/leaderboard";
@@ -9,7 +13,7 @@ interface LeaderboardTableProps {
 export default function LeaderboardTable({ players }: LeaderboardTableProps) {
   if (players.length === 0) {
     return (
-      <div className="rounded-xl border border-slate-200 bg-white py-16 text-center text-slate-400 dark:border-slate-800 dark:bg-slate-900">
+      <div className="rounded-sm border border-slate-200 bg-white py-16 text-center text-slate-400 dark:border-slate-800 dark:bg-slate-900">
         No rankings available yet.
       </div>
     );
@@ -18,7 +22,7 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
   return (
     <TableShell className="w-full overflow-hidden">
       <table className="w-full table-fixed border-collapse sm:table-auto">
-        <thead className="border-b border-slate-200 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-500">
+        <EditorialTableHead>
           <tr>
             <th className="w-16 px-2 py-3 text-left sm:w-20 sm:px-5">Rank</th>
             <th
@@ -35,12 +39,12 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
               <span className="hidden sm:inline">Points</span>
             </th>
           </tr>
-        </thead>
-        <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+        </EditorialTableHead>
+        <EditorialTableBody>
           {players.map((player) => (
             <PlayerRow key={player.id} player={player} rank={player.rank} />
           ))}
-        </tbody>
+        </EditorialTableBody>
       </table>
     </TableShell>
   );

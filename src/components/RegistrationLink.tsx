@@ -20,7 +20,7 @@ export default function RegistrationLink({
       target="_blank"
       rel="noopener noreferrer"
       className={clsx(
-        "inline-flex items-center justify-center gap-2 rounded-lg bg-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-accent-500",
+        "inline-flex items-center justify-center gap-2 rounded-sm bg-blue px-4 text-sm font-semibold text-white transition-colors hover:bg-accent-500",
         FOCUS_RING,
         compact ? "py-2" : "py-2.5"
       )}

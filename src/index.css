@@ -3,11 +3,13 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --color-gold: #f4c430;
   --color-silver: #cbd5e1;
   --color-bronze: #cd7f32;
   --color-ink: #081b2a;
   --color-blue: #1167d8;
+  --color-scoreboard: #17354d;
   --color-accent-400: #3b82f6;
   --color-accent-500: #0047a3;
   --color-accent-600: #002659;

@@ -1,4 +1,9 @@
 import { CalendarDays, CircleDollarSign, MapPin, Users } from "lucide-react";
+import {
+  EditorialTableBody,
+  EditorialTableHead,
+  EditorialTableRow,
+} from "@/components/EditorialTable";
 import Footer from "@/components/Footer";
 import MonthlyPrizes from "@/components/MonthlyPrizes";
 import PageContent from "@/components/PageContent";
@@ -96,20 +101,20 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
     <main>
       <PageHeader eyebrow="King of the Court">League Format</PageHeader>
 
-      <PageContent className="space-y-12">
+      <PageContent className="space-y-16">
         <section>
-          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4 dark:border-slate-800 dark:bg-slate-800">
+          <div className="grid grid-cols-1 border-y border-slate-300 sm:grid-cols-2 lg:grid-cols-4 dark:border-slate-700">
             {LEAGUE_FACTS.map(({ icon: Icon, label, value }) => (
               <div
                 key={label}
-                className="flex items-start gap-3 bg-white px-4 py-3.5 dark:bg-slate-900"
+                className="flex items-start gap-3 border-b border-slate-200 px-4 py-5 last:border-b-0 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:last:border-r-0 dark:border-slate-800"
               >
-                <Icon className="mt-0.5 h-4 w-4 shrink-0 text-blue" />
+                <Icon className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300" />
                 <div>
-                  <span className="block text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400">
+                  <span className="font-display block text-sm font-bold uppercase tracking-[0.16em] text-blue dark:text-blue-300">
                     {label}
                   </span>
-                  <span className="mt-0.5 block text-sm font-semibold leading-5">
+                  <span className="mt-1 block text-sm font-semibold leading-5">
                     {value}
                   </span>
                 </div>
@@ -124,32 +129,32 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
           <SectionHeading eyebrow="Overview" prominent>
             How the league works
           </SectionHeading>
-          <div className="overflow-hidden rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-            <ol className="grid grid-cols-1 gap-px bg-slate-200 sm:grid-cols-2 dark:bg-slate-800 lg:grid-cols-4">
+          <div className="border-y border-slate-300 dark:border-slate-700">
+            <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
               {LEAGUE_STEPS.map((step, index) => (
                 <li
                   key={step.title}
-                  className="bg-white p-3 sm:p-4 dark:bg-slate-900"
+                  className="relative border-b border-slate-200 p-5 sm:border-r lg:border-b-0 lg:p-6 lg:last:border-r-0 dark:border-slate-800"
                 >
-                  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue/10 text-[0.7rem] font-bold text-blue sm:h-7 sm:w-7 sm:text-xs dark:bg-blue/20 dark:text-blue-300">
-                    {index + 1}
+                  <span className="font-display block text-5xl font-bold leading-none text-blue/20 dark:text-blue-300/25">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-2 text-sm font-bold text-ink sm:mt-3 sm:text-base dark:text-white">
+                  <h3 className="mt-3 text-base font-bold text-ink dark:text-white">
                     {step.title}
                   </h3>
-                  <p className="mt-1 text-xs leading-4 text-slate-500 sm:text-sm sm:leading-5 dark:text-slate-400">
+                  <p className="mt-2 text-sm leading-5 text-slate-500 dark:text-slate-400">
                     {step.description}
                   </p>
                 </li>
               ))}
             </ol>
-            <div className="flex items-center justify-between gap-4 border-t border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-800/60">
+            <div className="flex items-center justify-between gap-4 border-t border-slate-300 bg-ink px-4 py-3 text-white dark:border-slate-700 dark:bg-slate-950">
               <p className="text-sm font-semibold text-ink dark:text-white">
-                See where you stand
+                <span className="text-white">See where you stand</span>
               </p>
               <a
                 href={leaderboardUrl}
-                className="inline-flex w-fit rounded-lg bg-blue px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-accent-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+                className="inline-flex w-fit rounded-sm bg-blue px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-accent-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
               >
                 View leaderboard
               </a>
@@ -161,19 +166,24 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
           <SectionHeading eyebrow="Event format" prominent>
             What to expect
           </SectionHeading>
-          <div className="overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
-            <dl className="grid grid-cols-1 gap-px bg-slate-200 sm:grid-cols-2 dark:bg-slate-800">
-              {EVENT_DETAILS.map(({ term, description }) => (
+          <div className="border-y border-slate-300 dark:border-slate-700">
+            <dl className="grid grid-cols-1 sm:grid-cols-2">
+              {EVENT_DETAILS.map(({ term, description }, index) => (
                 <div
                   key={term}
-                  className="bg-white p-3 sm:p-4 dark:bg-slate-900"
+                  className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-slate-200 py-5 sm:px-5 sm:[&:nth-child(odd)]:border-r dark:border-slate-800"
                 >
-                  <dt className="text-sm font-semibold text-ink sm:text-base dark:text-white">
-                    {term}
-                  </dt>
-                  <dd className="mt-1 text-xs leading-4 text-slate-500 sm:text-sm sm:leading-5 dark:text-slate-400">
-                    {description}
-                  </dd>
+                  <span className="font-display text-xl font-bold text-blue dark:text-blue-300">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <dt className="text-base font-semibold text-ink dark:text-white">
+                      {term}
+                    </dt>
+                    <dd className="mt-1 text-sm leading-5 text-slate-500 dark:text-slate-400">
+                      {description}
+                    </dd>
+                  </div>
                 </div>
               ))}
             </dl>
@@ -193,16 +203,16 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
           </p>
           <TableShell>
             <table className="w-full">
-              <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-slate-800/60">
+              <EditorialTableHead>
                 <tr>
                   <th className="px-5 py-3 text-left">Court</th>
                   <th className="px-5 py-3 text-right">Win</th>
                   <th className="px-5 py-3 text-right">Loss</th>
                 </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              </EditorialTableHead>
+              <EditorialTableBody className="font-display text-lg font-semibold">
                 {EVENT_POINTS.map((row) => (
-                  <tr key={row.court}>
+                  <EditorialTableRow key={row.court}>
                     <td className="px-5 py-3 font-semibold">{row.court}</td>
                     <td className="px-5 py-3 text-right tabular-nums">
                       {row.win}
@@ -210,9 +220,9 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                     <td className="px-5 py-3 text-right tabular-nums">
                       {row.loss}
                     </td>
-                  </tr>
+                  </EditorialTableRow>
                 ))}
-              </tbody>
+              </EditorialTableBody>
             </table>
           </TableShell>
         </section>
@@ -228,7 +238,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
           </p>
           <TableShell className="overflow-hidden">
             <table className="w-full table-fixed">
-              <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:bg-slate-800/60">
+              <EditorialTableHead>
                 <tr>
                   <th className="w-[28%] px-2 py-3 text-left sm:px-5">
                     GM standing
@@ -236,10 +246,10 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                   <th className="px-2 py-3 text-right sm:px-5">2 courts</th>
                   <th className="px-2 py-3 text-right sm:px-5">5 courts</th>
                 </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              </EditorialTableHead>
+              <EditorialTableBody className="font-display text-lg font-semibold">
                 {LEADERBOARD_POINTS.map((row) => (
-                  <tr key={row.standing}>
+                  <EditorialTableRow key={row.standing}>
                     <td className="px-2 py-3 font-semibold sm:px-5">
                       {row.standing}
                     </td>
@@ -249,9 +259,9 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                     <td className="px-2 py-3 text-right tabular-nums sm:px-5">
                       {row.five}
                     </td>
-                  </tr>
+                  </EditorialTableRow>
                 ))}
-              </tbody>
+              </EditorialTableBody>
             </table>
           </TableShell>
         </section>

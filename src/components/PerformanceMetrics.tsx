@@ -60,8 +60,10 @@ export default function PerformanceMetrics({
     <>
       {metrics.map((metric) => (
         <div key={metric}>
-          <dt className="text-xs text-slate-400">{labels[metric]}</dt>
-          <dd className="mt-0.5 font-semibold tabular-nums">
+          <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400">
+            {labels[metric]}
+          </dt>
+          <dd className="font-display mt-0.5 text-base font-semibold tabular-nums">
             {metricValue(metric, stats)}
           </dd>
         </div>
