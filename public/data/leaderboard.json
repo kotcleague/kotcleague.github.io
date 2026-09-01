@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-01T06:37:37.459Z",
+  "scrapedAt": "2026-09-01T10:06:15.711Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [],
@@ -457,6 +457,12 @@
       {
         "id": "2026-09-15",
         "date": "2026-09-15",
+        "courtReserveUrl": null,
+        "gameMakerUrl": null
+      },
+      {
+        "id": "2026-09-17",
+        "date": "2026-09-17",
         "courtReserveUrl": null,
         "gameMakerUrl": null
       },
