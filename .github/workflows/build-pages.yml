@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
       - "README.md"
+  workflow_dispatch: # Allows the scrape workflow to trigger a redeploy after data changes
 
 permissions:
   contents: read
