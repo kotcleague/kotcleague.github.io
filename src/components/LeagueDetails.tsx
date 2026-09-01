@@ -43,7 +43,7 @@ const LEAGUE_FACTS = [
   {
     icon: CalendarDays,
     label: "When",
-    value: "Select Mondays, Tuesdays & Thursdays, 8:00–10:00 PM",
+    value: "Select Tuesdays & Thursdays, 8:00–10:00 PM",
   },
   { icon: MapPin, label: "Where", value: "Paddle Up Pickleball Club Chesterfield" },
   {
