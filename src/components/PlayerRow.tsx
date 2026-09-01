@@ -1,5 +1,6 @@
 import { EditorialTableRow } from "@/components/EditorialTable";
 import { placementBadgeClass } from "@/components/PlacementBadge";
+import PlayerAvatar from "@/components/PlayerAvatar";
 import { playerRoute } from "@/config/site";
 import { formatInteger } from "@/lib/format";
 import type { Player } from "@/types/leaderboard";
@@ -71,9 +72,14 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
       >
         <a
           href={playerRoute(player.id)}
-          className="rounded-sm text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+          className="flex items-center gap-2 rounded-sm text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue sm:gap-3"
         >
-          {player.name}
+          <PlayerAvatar
+            name={player.name}
+            photoUrl={player.photoUrl}
+            size="sm"
+          />
+          <span className="min-w-0 truncate">{player.name}</span>
         </a>
       </td>
 

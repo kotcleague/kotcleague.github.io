@@ -7,11 +7,15 @@ import {
   EditorialTableRow,
 } from "@/components/EditorialTable";
 import EmptyState from "@/components/EmptyState";
+import Eyebrow from "@/components/Eyebrow";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import PageContent from "@/components/PageContent";
-import PageHeader from "@/components/PageHeader";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
-import PlacementBadge from "@/components/PlacementBadge";
+import PlacementBadge, {
+  placementBadgeClass,
+} from "@/components/PlacementBadge";
+import PlayerAvatar from "@/components/PlayerAvatar";
+import RegistrationLink from "@/components/RegistrationLink";
 import SectionHeading from "@/components/SectionHeading";
 import StatGrid from "@/components/StatGrid";
 import TableShell from "@/components/TableShell";
@@ -138,12 +142,47 @@ function PlayerContent({
 }) {
   return (
     <>
-      <PageHeader
-        eyebrow="Player profile"
-        description={`Past 30-day King of the Court statistics and event-by-event finishes for ${player.name}.`}
-      >
-        {player.name}
-      </PageHeader>
+      <section className="border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+        <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
+          <Eyebrow size="hero">Player profile</Eyebrow>
+          <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-center">
+            <PlayerAvatar
+              name={player.name}
+              photoUrl={player.photoUrl}
+              size="xl"
+              className="ring-1 ring-slate-200 dark:ring-slate-700"
+            />
+            <div className="min-w-0 flex-1">
+              <h1 className="font-display text-4xl font-bold uppercase leading-none tracking-tight sm:text-5xl">
+                {player.name}
+              </h1>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <span
+                  className={`font-display inline-flex items-center justify-center rounded-sm px-4 py-2 text-2xl font-bold tabular-nums ${placementBadgeClass(
+                    player.rank
+                  )}`}
+                >
+                  #{player.rank}
+                </span>
+                <span className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  Past 30-day rank
+                </span>
+              </div>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base dark:text-slate-400">
+                Past 30-day King of the Court statistics and event-by-event
+                finishes for {player.name}.
+              </p>
+              {player.gameMakerProfileUrl && (
+                <div className="mt-4">
+                  <RegistrationLink href={player.gameMakerProfileUrl} compact>
+                    Game Maker Profile
+                  </RegistrationLink>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
       <PageContent className="space-y-10">
         <BackLink href={ROUTES.rankings}>Back to rankings</BackLink>
         <StatGrid

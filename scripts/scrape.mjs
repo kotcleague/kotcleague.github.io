@@ -294,6 +294,14 @@ function parseRankingTable(html, tabName, players) {
     if (!name || !/^\d+$/.test(rankText)) return;
 
     const context = `"${tabName}" row for ${name}`;
+    // Optional trailing columns: "Photo URL" (index 12) and
+    // "Game Maker Profile URL" (index 13). A cell may hold either a bare URL
+    // or a hyperlink whose visible text differs from its href.
+    const tableCells = $(row).find("td");
+    const photoUrlText = tableCells.eq(12).find("a").attr("href") ?? cells[12];
+    const gameMakerProfileUrlText =
+      tableCells.eq(13).find("a").attr("href") ?? cells[13];
+
     rankings.push({
       id: players.get(name),
       rank: parseRequiredNumber(rankText, "rank", context),
@@ -302,6 +310,12 @@ function parseRankingTable(html, tabName, players) {
       events: parseRequiredNumber(eventsText, "event count", context),
       ...parsePerformanceStats(performanceCells, context),
       move: parseMovement(moveText),
+      photoUrl: parseOptionalUrl(photoUrlText ?? "", "Photo", context),
+      gameMakerProfileUrl: parseOptionalUrl(
+        gameMakerProfileUrlText ?? "",
+        "Game Maker Profile",
+        context
+      ),
     });
   });
 

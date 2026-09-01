@@ -5,10 +5,12 @@ import JoinLeague from "@/components/JoinLeague";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
+import PlayerAvatar from "@/components/PlayerAvatar";
 import RegistrationLink from "@/components/RegistrationLink";
 import SectionHeading from "@/components/SectionHeading";
 import { eventRoute } from "@/config/site";
 import { formatEventDate, formatEventDateParts } from "@/lib/format";
+import { buildPlayerProfileIndex, type PlayerProfile } from "@/lib/players";
 import type { PastEvent, UpcomingEvent } from "@/types/leaderboard";
 
 function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
@@ -55,7 +57,13 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
   );
 }
 
-function Podium({ event }: { event: PastEvent }) {
+function Podium({
+  event,
+  playerProfiles,
+}: {
+  event: PastEvent;
+  playerProfiles: Map<string, PlayerProfile>;
+}) {
   function placeStyle(place: number) {
     if (place === 1) return "bg-gold/25 text-amber-800 dark:text-gold";
     if (place === 2) {
@@ -76,6 +84,11 @@ function Podium({ event }: { event: PastEvent }) {
             {player.place}
             {player.place === 1 ? "st" : player.place === 2 ? "nd" : "rd"}
           </span>
+          <PlayerAvatar
+            name={player.name}
+            photoUrl={playerProfiles.get(player.playerId)?.photoUrl ?? null}
+            size="sm"
+          />
           <span className="font-semibold">{player.name}</span>
         </li>
       ))}
@@ -83,7 +96,13 @@ function Podium({ event }: { event: PastEvent }) {
   );
 }
 
-function PastEventCard({ event }: { event: PastEvent }) {
+function PastEventCard({
+  event,
+  playerProfiles,
+}: {
+  event: PastEvent;
+  playerProfiles: Map<string, PlayerProfile>;
+}) {
   return (
     <EditorialLinkCard href={eventRoute(event.id)} className="sm:p-5">
       <div className="flex items-start justify-between gap-4">
@@ -112,7 +131,7 @@ function PastEventCard({ event }: { event: PastEvent }) {
         <span>{event.courts} courts</span>
         <span>{event.rounds} rounds</span>
       </div>
-      <Podium event={event} />
+      <Podium event={event} playerProfiles={playerProfiles} />
     </EditorialLinkCard>
   );
 }
@@ -131,44 +150,52 @@ export default function SchedulePage() {
       }
       loadingLabel="Loading schedule"
     >
-      {(data) => (
-        <PageContent>
-          <JoinLeague />
-          <div className="mt-8 space-y-10">
-            <section aria-labelledby="upcoming-events">
-              <SectionHeading id="upcoming-events">
-                Upcoming events
-              </SectionHeading>
-              {data.events.upcoming.length > 0 ? (
-                <div className="divide-y divide-slate-200 overflow-hidden rounded-sm border border-slate-200 bg-white dark:divide-slate-800 dark:border-slate-800 dark:bg-slate-900">
-                  {data.events.upcoming.map((event) => (
-                    <UpcomingEventRow key={event.id} event={event} />
-                  ))}
-                </div>
-              ) : (
-                <EmptyState className="py-12 text-sm text-slate-500 dark:text-slate-400">
-                  No upcoming events have been posted yet.
-                </EmptyState>
-              )}
-            </section>
+      {(data) => {
+        const playerProfiles = buildPlayerProfileIndex(data);
 
-            <section aria-labelledby="past-events">
-              <SectionHeading id="past-events">Past events</SectionHeading>
-              {data.events.past.length > 0 ? (
-                <div className="space-y-4">
-                  {data.events.past.map((event) => (
-                    <PastEventCard key={event.id} event={event} />
-                  ))}
-                </div>
-              ) : (
-                <EmptyState className="py-12 text-sm text-slate-500 dark:text-slate-400">
-                  No past events have been posted yet.
-                </EmptyState>
-              )}
-            </section>
-          </div>
-        </PageContent>
-      )}
+        return (
+          <PageContent>
+            <JoinLeague />
+            <div className="mt-8 space-y-10">
+              <section aria-labelledby="upcoming-events">
+                <SectionHeading id="upcoming-events">
+                  Upcoming events
+                </SectionHeading>
+                {data.events.upcoming.length > 0 ? (
+                  <div className="divide-y divide-slate-200 overflow-hidden rounded-sm border border-slate-200 bg-white dark:divide-slate-800 dark:border-slate-800 dark:bg-slate-900">
+                    {data.events.upcoming.map((event) => (
+                      <UpcomingEventRow key={event.id} event={event} />
+                    ))}
+                  </div>
+                ) : (
+                  <EmptyState className="py-12 text-sm text-slate-500 dark:text-slate-400">
+                    No upcoming events have been posted yet.
+                  </EmptyState>
+                )}
+              </section>
+
+              <section aria-labelledby="past-events">
+                <SectionHeading id="past-events">Past events</SectionHeading>
+                {data.events.past.length > 0 ? (
+                  <div className="space-y-4">
+                    {data.events.past.map((event) => (
+                      <PastEventCard
+                        key={event.id}
+                        event={event}
+                        playerProfiles={playerProfiles}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <EmptyState className="py-12 text-sm text-slate-500 dark:text-slate-400">
+                    No past events have been posted yet.
+                  </EmptyState>
+                )}
+              </section>
+            </div>
+          </PageContent>
+        );
+      }}
     </LeaderboardPageShell>
   );
 }
