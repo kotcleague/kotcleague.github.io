@@ -43,13 +43,13 @@ const LEAGUE_FACTS = [
   {
     icon: CalendarDays,
     label: "When",
-    value: "Select Tuesdays & Thursdays, 8:00–10:00 PM",
+    value: "Tuesdays & Thursdays, 8:00–10:00 PM",
   },
   { icon: MapPin, label: "Where", value: "Paddle Up Pickleball Club Chesterfield" },
   {
     icon: CircleDollarSign,
     label: "Cost",
-    value: "$12 per event for members, $22 per event for non-members",
+    value: "$9 per event for members, $19 per event for non-members",
   },
 ];
 
