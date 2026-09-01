@@ -2,6 +2,7 @@ import {
   EditorialTableBody,
   EditorialTableHead,
 } from "@/components/EditorialTable";
+import EmptyState from "@/components/EmptyState";
 import PlayerRow from "@/components/PlayerRow";
 import TableShell from "@/components/TableShell";
 import type { Player } from "@/types/leaderboard";
@@ -13,9 +14,9 @@ interface LeaderboardTableProps {
 export default function LeaderboardTable({ players }: LeaderboardTableProps) {
   if (players.length === 0) {
     return (
-      <div className="rounded-sm border border-slate-200 bg-white py-16 text-center text-slate-400 dark:border-slate-800 dark:bg-slate-900">
+      <EmptyState className="py-16 text-slate-400 dark:text-slate-500">
         No rankings available yet.
-      </div>
+      </EmptyState>
     );
   }
 

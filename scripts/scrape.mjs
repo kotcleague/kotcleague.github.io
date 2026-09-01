@@ -563,14 +563,12 @@ async function scrapeSnapshot(gids, requiredTabs) {
       playerRegistry
     );
 
-    if (rankings.length === 0) {
-      throw new Error(
-        `No players parsed from "${tabName}" — sheet layout may have changed`
-      );
-    }
-
     views[slug] = rankings;
-    console.log(`  ${rankings.length} players in "${tabName}"`);
+    if (rankings.length === 0) {
+      console.log(`  0 players in "${tabName}" (empty ranking view)`);
+    } else {
+      console.log(`  ${rankings.length} players in "${tabName}"`);
+    }
   }
 
   const past = parsePastEvents(htmlByTab["Past Events"], playerRegistry);
