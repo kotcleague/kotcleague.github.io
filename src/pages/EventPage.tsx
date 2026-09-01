@@ -12,6 +12,7 @@ import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import PlacementBadge from "@/components/PlacementBadge";
+import PlayerAvatar from "@/components/PlayerAvatar";
 import SectionHeading from "@/components/SectionHeading";
 import StatGrid from "@/components/StatGrid";
 import TableShell from "@/components/TableShell";
@@ -25,22 +26,30 @@ import {
   formatRecord,
   formatSignedPercent,
 } from "@/lib/format";
+import { buildPlayerProfileIndex, type PlayerProfile } from "@/lib/players";
 import type {
   EventResult,
   LeaderboardData,
   PastEvent,
 } from "@/types/leaderboard";
 
-function ResultCard({ result }: { result: EventResult }) {
+function ResultCard({
+  result,
+  photoUrl,
+}: {
+  result: EventResult;
+  photoUrl: string | null;
+}) {
   return (
     <Card className="border-l-4 border-l-slate-300 p-3 shadow-none dark:border-l-slate-700 sm:p-4">
       <div className="flex items-center gap-2 sm:gap-3">
         <PlacementBadge place={result.place} />
         <a
           href={playerRoute(result.playerId)}
-          className="min-w-0 flex-1 truncate rounded-sm font-semibold text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+          className="flex min-w-0 flex-1 items-center gap-2 rounded-sm font-semibold text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue sm:gap-3"
         >
-          {result.name}
+          <PlayerAvatar name={result.name} photoUrl={photoUrl} size="sm" />
+          <span className="min-w-0 truncate">{result.name}</span>
         </a>
         <span className="font-display text-lg font-bold tabular-nums text-blue dark:text-blue-300">
           {formatInteger(result.points)} pts
@@ -63,12 +72,22 @@ function ResultCard({ result }: { result: EventResult }) {
   );
 }
 
-function ResultsTable({ results }: { results: EventResult[] }) {
+function ResultsTable({
+  results,
+  playerProfiles,
+}: {
+  results: EventResult[];
+  playerProfiles: Map<string, PlayerProfile>;
+}) {
   return (
     <>
       <div className="space-y-2 md:hidden sm:space-y-3">
         {results.map((result) => (
-          <ResultCard key={result.playerId} result={result} />
+          <ResultCard
+            key={result.playerId}
+            result={result}
+            photoUrl={playerProfiles.get(result.playerId)?.photoUrl ?? null}
+          />
         ))}
       </div>
       <TableShell className="hidden md:block">
@@ -94,8 +113,15 @@ function ResultsTable({ results }: { results: EventResult[] }) {
                 <td className="px-4 py-3 font-semibold">
                   <a
                     href={playerRoute(result.playerId)}
-                    className="rounded-sm text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+                    className="flex items-center gap-3 rounded-sm text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
                   >
+                    <PlayerAvatar
+                      name={result.name}
+                      photoUrl={
+                        playerProfiles.get(result.playerId)?.photoUrl ?? null
+                      }
+                      size="sm"
+                    />
                     {result.name}
                   </a>
                 </td>
@@ -129,7 +155,13 @@ function ResultsTable({ results }: { results: EventResult[] }) {
   );
 }
 
-function EventContent({ event }: { event: PastEvent }) {
+function EventContent({
+  event,
+  playerProfiles,
+}: {
+  event: PastEvent;
+  playerProfiles: Map<string, PlayerProfile>;
+}) {
   return (
     <>
       <PageHeader
@@ -154,7 +186,10 @@ function EventContent({ event }: { event: PastEvent }) {
         <section aria-labelledby="event-standings">
           <SectionHeading id="event-standings">Final standings</SectionHeading>
           {event.results.length > 0 ? (
-            <ResultsTable results={event.results} />
+            <ResultsTable
+              results={event.results}
+              playerProfiles={playerProfiles}
+            />
           ) : (
             <EmptyState className="py-14">
               <p className="font-semibold">Results have not been posted yet.</p>
@@ -177,6 +212,7 @@ function LoadedEventPage({
   eventId: string;
 }) {
   const event = data.events.past.find((item) => item.id === eventId);
+  const playerProfiles = buildPlayerProfileIndex(data);
 
   useDocumentTitle(
     event
@@ -195,7 +231,7 @@ function LoadedEventPage({
     );
   }
 
-  return <EventContent event={event} />;
+  return <EventContent event={event} playerProfiles={playerProfiles} />;
 }
 
 export default function EventPage({ eventId }: { eventId: string }) {

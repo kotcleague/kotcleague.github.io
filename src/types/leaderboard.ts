@@ -29,6 +29,8 @@ export interface Player extends PerformanceStats {
   points: number;
   events: number;
   move: Movement;
+  photoUrl: string | null;
+  gameMakerProfileUrl: string | null;
 }
 
 export interface PlayerReference {
@@ -141,7 +143,9 @@ function isPlayer(value: unknown): value is Player {
     typeof value.points === "number" &&
     typeof value.events === "number" &&
     isPerformanceStats(value) &&
-    isMovement(value.move)
+    isMovement(value.move) &&
+    isOptionalUrl(value.photoUrl) &&
+    isOptionalUrl(value.gameMakerProfileUrl)
   );
 }
 
