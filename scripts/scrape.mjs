@@ -563,12 +563,6 @@ async function scrapeSnapshot(gids, requiredTabs) {
       playerRegistry
     );
 
-    if (rankings.length === 0) {
-      throw new Error(
-        `No players parsed from "${tabName}" — sheet layout may have changed`
-      );
-    }
-
     views[slug] = rankings;
     console.log(`  ${rankings.length} players in "${tabName}"`);
   }
