@@ -18,6 +18,7 @@ const OUTPUT_PATH = resolve(
   "data",
   "leaderboard.json"
 );
+const IMAGE_DIR = resolve(__dirname, "..", "public", "images", "players");
 
 // Published "King of the Court League" Google Sheet.
 const PUBLISH_ID =
@@ -231,6 +232,52 @@ function parseOptionalUrl(text, field, context) {
   return url.toString();
 }
 
+async function downloadPlayerImage(url, playerId) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status} while downloading player image`);
+  }
+
+  const contentType = response.headers.get("content-type")?.split(";")[0];
+  const extensionByType = {
+    "image/avif": "avif",
+    "image/gif": "gif",
+    "image/jpeg": "jpg",
+    "image/png": "png",
+    "image/webp": "webp",
+  };
+  const extension = extensionByType[contentType];
+  if (!extension) {
+    throw new Error(
+      `Unsupported player image content type "${contentType ?? "unknown"}"`
+    );
+  }
+
+  mkdirSync(IMAGE_DIR, { recursive: true });
+  writeFileSync(
+    resolve(IMAGE_DIR, `${playerId}.${extension}`),
+    Buffer.from(await response.arrayBuffer())
+  );
+  return `images/players/${playerId}.${extension}`;
+}
+
+async function downloadPlayerImages(views) {
+  const players = new Map();
+  for (const ranking of Object.values(views)) {
+    for (const player of ranking) {
+      if (player.photoUrl?.startsWith("http")) {
+        players.set(player.id, player);
+      }
+    }
+  }
+
+  await Promise.all(
+    [...players.values()].map(async (player) => {
+      player.photoUrl = await downloadPlayerImage(player.photoUrl, player.id);
+    })
+  );
+}
+
 function createPlayerRegistry() {
   const idsByName = new Map();
   const namesById = new Map();
@@ -298,7 +345,10 @@ function parseRankingTable(html, tabName, players) {
     // "Game Maker Profile URL" (index 13). A cell may hold either a bare URL
     // or a hyperlink whose visible text differs from its href.
     const tableCells = $(row).find("td");
-    const photoUrlText = tableCells.eq(12).find("a").attr("href") ?? cells[12];
+    const photoUrlText =
+      tableCells.eq(12).find("a").attr("href") ??
+      tableCells.eq(12).find("img").attr("src") ??
+      cells[12];
     const gameMakerProfileUrlText =
       tableCells.eq(13).find("a").attr("href") ?? cells[13];
 
@@ -672,6 +722,7 @@ async function scrape() {
   }
 
   const { views, events } = snapshot;
+  await downloadPlayerImages(views);
   const data = {
     scrapedAt: new Date().toISOString(),
     source: BASE,
