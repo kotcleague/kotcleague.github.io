@@ -40,6 +40,16 @@ body {
   color: #f1f5f9;
 }
 
+.player-avatar-fallback {
+  color: var(--avatar-fg-light);
+  background-color: var(--avatar-bg-light);
+}
+
+.dark .player-avatar-fallback {
+  color: var(--avatar-fg-dark);
+  background-color: var(--avatar-bg-dark);
+}
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

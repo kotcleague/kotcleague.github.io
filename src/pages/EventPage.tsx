@@ -48,7 +48,12 @@ function ResultCard({
           href={playerRoute(result.playerId)}
           className="flex min-w-0 flex-1 items-center gap-2 rounded-sm font-semibold text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue sm:gap-3"
         >
-          <PlayerAvatar name={result.name} photoUrl={photoUrl} size="sm" />
+          <PlayerAvatar
+            name={result.name}
+            photoUrl={photoUrl}
+            playerId={result.playerId}
+            size="sm"
+          />
           <span className="min-w-0 truncate">{result.name}</span>
         </a>
         <span className="font-display text-lg font-bold tabular-nums text-blue dark:text-blue-300">
@@ -120,6 +125,7 @@ function ResultsTable({
                       photoUrl={
                         playerProfiles.get(result.playerId)?.photoUrl ?? null
                       }
+                      playerId={result.playerId}
                       size="sm"
                     />
                     {result.name}

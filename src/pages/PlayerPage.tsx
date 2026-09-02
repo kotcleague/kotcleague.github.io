@@ -147,6 +147,7 @@ function PlayerContent({
             <PlayerAvatar
               name={player.name}
               photoUrl={player.photoUrl}
+              playerId={player.id}
               size="xl"
               className="ring-1 ring-slate-200 dark:ring-slate-700"
             />

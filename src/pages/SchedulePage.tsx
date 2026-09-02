@@ -87,6 +87,7 @@ function Podium({
           <PlayerAvatar
             name={player.name}
             photoUrl={playerProfiles.get(player.playerId)?.photoUrl ?? null}
+            playerId={player.playerId}
             size="sm"
           />
           <span className="font-semibold">{player.name}</span>

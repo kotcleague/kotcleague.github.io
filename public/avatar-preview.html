@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KOTC default avatar concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; font-family: Inter, Arial, sans-serif; background:#fafaf9; color:#081b2a; }
+  .pane { padding: 28px 32px; }
+  .pane.dark { background:#081b2a; color:#f1f5f9; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h2 { font-size: 15px; margin: 22px 0 2px; letter-spacing:.04em; text-transform:uppercase;}
+  p.sub { font-size:12px; opacity:.65; margin:2px 0 10px; }
+  .row { display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap; }
+  .cell { text-align:center; }
+  .cell .nm { font-size:10px; opacity:.6; margin-top:4px; max-width:80px; }
+  .av { border-radius:4px; overflow:hidden; display:block; }
+  .sizes { display:flex; gap:10px; align-items:flex-end; margin-top:6px;}
+</style>
+</head>
+<body>
+<div id="light" class="pane"></div>
+<div id="dark" class="pane dark"></div>
+<script>
+const NAMES = ["Tobi Ola","Marcus Chen","Priya Raman","Jordan Lee","Sam Okafor","Ava Nguyen","Diego Ramirez","Kate Sullivan"];
+
+function hash(str){let h=0x811c9dc5;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0;}return h>>>0;}
+function bits(h,shift,n){return (h>>>shift)&((1<<n)-1);}
+
+// themed palettes: [background, foreground] for light / dark
+const PAL_LIGHT=[
+ ["#e8eef7","#002659"],["#e3ecfb","#1167d8"],["#e6ecf2","#17354d"],
+ ["#eef4e4","#5f8c1f"],["#fdf3dc","#a67c06"],["#f2ece6","#8a5320"],
+ ["#e9edf1","#0047a3"],["#e7eaee","#081b2a"]];
+const PAL_DARK=[
+ ["#12283c","#7aa7e8"],["#0f2740","#4d94f0"],["#14293a","#8fb3cc"],
+ ["#1a2a17","#a8d95c"],["#2b2411","#f4c430"],["#2a1f16","#d09a5e"],
+ ["#102340","#5f9bf5"],["#16202b","#9fb4c6"]];
+
+function pal(h,dark){const p=(dark?PAL_DARK:PAL_LIGHT);return p[h%p.length];}
+function initials(name){return name.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join("");}
+
+/* ---------- A: Court Grid identicon (5x5 mirrored) ---------- */
+function optA(name,dark){
+ const h=hash(name),[bg,fg]=pal(h,dark);let c="";
+ for(let x=0;x<3;x++)for(let y=0;y<5;y++){
+   if(((h>>>((x*5+y)%29))&1)===((x+y)%2===0?1:1)&&((h>>>(x*5+y))&1)){
+     c+=`<rect x="${x}" y="${y}" width="1" height="1" fill="${fg}"/>`;
+     if(x<2)c+=`<rect x="${4-x}" y="${y}" width="1" height="1" fill="${fg}"/>`;}}
+ return `<svg viewBox="-0.5 -0.5 6 6" width="100%" height="100%"><rect x="-0.5" y="-0.5" width="6" height="6" fill="${bg}"/>${c}</svg>`;
+}
+
+/* ---------- B: Court Lines ---------- */
+function optB(name,dark){
+ const h=hash(name),[bg,fg]=pal(h,dark);
+ const rot=bits(h,8,1)*90, kitchen=bits(h,10,1), boxes=bits(h,11,2);
+ const soft=fg+"33";
+ let g=`<rect x="8" y="6" width="84" height="88" fill="none" stroke="${fg}" stroke-width="3"/>`;
+ g+=`<line x1="8" y1="50" x2="92" y2="50" stroke="${fg}" stroke-width="4"/>`;
+ g+=kitchen?`<rect x="8" y="36" width="84" height="28" fill="${soft}"/>`:"";
+ g+=`<line x1="8" y1="36" x2="92" y2="36" stroke="${fg}" stroke-width="2"/><line x1="8" y1="64" x2="92" y2="64" stroke="${fg}" stroke-width="2"/>`;
+ g+=`<line x1="50" y1="6" x2="50" y2="36" stroke="${fg}" stroke-width="2"/><line x1="50" y1="64" x2="50" y2="94" stroke="${fg}" stroke-width="2"/>`;
+ if(boxes&1)g+=`<rect x="8" y="6" width="42" height="30" fill="${soft}"/>`;
+ if(boxes&2)g+=`<rect x="50" y="64" width="42" height="30" fill="${soft}"/>`;
+ const bx=20+bits(h,14,3)*8, by=bits(h,17,1)?22:78;
+ g+=`<circle cx="${bx}" cy="${by}" r="5" fill="${fg}"/>`;
+ return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" fill="${bg}"/><g transform="rotate(${rot} 50 50)">${g}</g></svg>`;
+}
+
+/* ---------- C: Crown Rays ---------- */
+function optC(name,dark){
+ const h=hash(name),[bg,fg]=pal(h,dark);
+ const pts=5+bits(h,8,2), rot=bits(h,10,5)*11, inner=18+bits(h,15,3)*2;
+ let d="";
+ for(let i=0;i<pts*2;i++){const r=i%2?inner:44, a=(Math.PI*i)/pts-Math.PI/2;
+   d+=(i?"L":"M")+(50+r*Math.cos(a)).toFixed(1)+" "+(50+r*Math.sin(a)).toFixed(1)+" ";}
+ return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" fill="${bg}"/>
+ <g transform="rotate(${rot} 50 50)"><path d="${d}Z" fill="${fg}" opacity=".85"/><circle cx="50" cy="50" r="${10+bits(h,20,3)}" fill="${bg}"/></g></svg>`;
+}
+
+/* ---------- D: Paddle Weave ---------- */
+function optD(name,dark){
+ const h=hash(name),[bg,fg]=pal(h,dark);
+ const ang=[0,45,90,135][bits(h,8,2)], w=6+bits(h,10,2)*3, id="w"+h.toString(36);
+ return `<svg viewBox="0 0 100 100" width="100%" height="100%">
+ <defs><pattern id="${id}" width="${w*2}" height="${w*2}" patternUnits="userSpaceOnUse" patternTransform="rotate(${ang})">
+ <rect width="${w*2}" height="${w*2}" fill="${bg}"/><rect width="${w}" height="${w*2}" fill="${fg}" opacity=".55"/>
+ <rect y="${w/2}" width="${w*2}" height="${w/2}" fill="${fg}" opacity=".25"/></pattern></defs>
+ <rect width="100" height="100" fill="url(#${id})"/></svg>`;
+}
+
+/* ---------- E: Initials only on themed field ---------- */
+function optE(name,dark){
+ const h=hash(name),[bg,fg]=pal(h,dark);
+ return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" fill="${bg}"/>
+ <text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Barlow Condensed',sans-serif" font-weight="700" font-size="${initials(name).length>1?44:56}" fill="${fg}">${initials(name)}</text></svg>`;
+}
+
+/* ---------- B+E: SELECTED — court field + initials ----------
+   Mirrors src/components/PlayerAvatarFallback.tsx exactly. */
+function optBE(name,dark,noInitials){
+ const h=hash(name),[bg,fg]=pal(h,dark);
+ const rot=((h>>>8)&1)?90:0, boxes=(h>>>9)&3;
+ let g=`<rect x="8" y="6" width="84" height="88" stroke-width="2.5" opacity=".45"/>`;
+ g+=`<line x1="8" y1="50" x2="92" y2="50" stroke-width="3" opacity=".45"/>`;
+ g+=`<rect x="8" y="36" width="84" height="28" fill="${fg}" stroke="none" opacity=".14"/>`;
+ if(boxes&1)g+=`<rect x="8" y="6" width="42" height="30" fill="${fg}" stroke="none" opacity=".1"/>`;
+ if(boxes&2)g+=`<rect x="50" y="64" width="42" height="30" fill="${fg}" stroke="none" opacity=".1"/>`;
+ g+=`<line x1="50" y1="6" x2="50" y2="36" stroke-width="2" opacity=".4"/><line x1="50" y1="64" x2="50" y2="94" stroke-width="2" opacity=".4"/>`;
+ const ini=initials(name);
+ return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" fill="${bg}"/>
+ <g transform="rotate(${rot} 50 50)" fill="none" stroke="${fg}">${g}</g>
+ ${noInitials?"":`<text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Barlow Condensed',sans-serif" font-weight="700" font-size="${ini.length>1?44:56}" fill="${fg}">${ini}</text>`}</svg>`;
+}
+
+const OPTIONS=[
+ ["\u2605 SELECTED \u2014 B + E: court field with initials",optBE],
+ ["A — Court Grid (GitHub-style 5×5 mirrored identicon)",optA],
+ ["B — Court Lines (top-down pickleball court)",optB],
+ ["C — Crown Rays (King of the Court)",optC],
+ ["D — Paddle Weave (diagonal two-tone)",optD],
+ ["E — Initials only (no court)",optE]];
+
+function render(el,dark){
+ let html=`<h1>KOTC default avatar concepts — ${dark?"dark":"light"} mode</h1><p class="sub">Deterministic from player id (names used here as stand-ins). Each row = 8 different players at 48px, then the same player at 36 / 48 / 80 / 120px. The starred row is the design shipped in the app.</p>`;
+ for(const [title,fn] of OPTIONS){
+   html+=`<h2>${title}</h2><div class="row">`;
+   for(const n of NAMES) html+=`<div class="cell"><div class="av" style="width:48px;height:48px">${fn(n,dark)}</div><div class="nm">${n}</div></div>`;
+   html+=`</div><div class="sizes">`;
+   for(const s of [36,48,80,120]) html+=`<div class="av" style="width:${s}px;height:${s}px">${fn("Tobi Ola",dark)}</div>`;
+   html+=`</div>`;
+ }
+ el.innerHTML=html;
+}
+render(document.getElementById("light"),false);
+render(document.getElementById("dark"),true);
+</script>
+</body>
+</html>
