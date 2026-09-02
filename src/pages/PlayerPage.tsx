@@ -11,9 +11,7 @@ import Eyebrow from "@/components/Eyebrow";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import PageContent from "@/components/PageContent";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
-import PlacementBadge, {
-  placementBadgeClass,
-} from "@/components/PlacementBadge";
+import PlacementBadge from "@/components/PlacementBadge";
 import PlayerAvatar from "@/components/PlayerAvatar";
 import RegistrationLink from "@/components/RegistrationLink";
 import SectionHeading from "@/components/SectionHeading";
@@ -157,11 +155,7 @@ function PlayerContent({
                 {player.name}
               </h1>
               <div className="mt-4 flex flex-wrap items-center gap-3">
-                <span
-                  className={`font-display inline-flex items-center justify-center rounded-sm px-4 py-2 text-2xl font-bold tabular-nums ${placementBadgeClass(
-                    player.rank
-                  )}`}
-                >
+                <span className="font-display inline-flex items-center justify-center rounded-sm px-4 py-2 text-2xl font-bold tabular-nums text-blue dark:text-blue-300">
                   #{player.rank}
                 </span>
                 <span className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">

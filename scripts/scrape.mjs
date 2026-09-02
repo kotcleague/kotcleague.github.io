@@ -326,16 +326,29 @@ function parseRankingTable(html, tabName, players) {
   return rankings;
 }
 
+// A "Photo URL"/"Game Maker Profile URL" cell may hold a bare URL, a hyperlink
+// whose visible text differs from its href, or (for photos) an embedded image.
+function readLinkCell(cell) {
+  return (
+    cell.find("a").attr("href") ??
+    cell.find("img").attr("src") ??
+    cell.text().trim()
+  );
+}
+
+// Parse the optional "Player Data" tab into per-player profile links keyed by
+// player id.
 function parsePlayerDataTable(html, players) {
   const $ = load(html);
-  const photos = new Map();
+  const profiles = new Map();
   $("table tbody tr").each((_, row) => {
     const cells = $(row).find("td");
     const values = cells.map((_, cell) => $(cell).text().trim()).get();
     const header = values.map((value) => value.toLocaleLowerCase("en-US"));
     const nameIndex = header.indexOf("name");
     const photoIndex = header.indexOf("photo url");
-    if (nameIndex < 0 || photoIndex < 0) return;
+    const gameMakerIndex = header.indexOf("game maker profile url");
+    if (nameIndex < 0 || (photoIndex < 0 && gameMakerIndex < 0)) return;
 
     $(row)
       .nextAll("tr")
@@ -343,16 +356,18 @@ function parsePlayerDataTable(html, players) {
         const playerCells = $(playerRow).find("td");
         const name = playerCells.eq(nameIndex).text().trim();
         if (!name) return;
-        const photoCell = playerCells.eq(photoIndex);
         const photo =
-          photoCell.find("a").attr("href") ??
-          photoCell.find("img").attr("src") ??
-          photoCell.text().trim();
-        if (photo) photos.set(players.get(name), photo);
+          photoIndex < 0 ? "" : readLinkCell(playerCells.eq(photoIndex));
+        const gameMakerProfile =
+          gameMakerIndex < 0
+            ? ""
+            : readLinkCell(playerCells.eq(gameMakerIndex));
+        if (!photo && !gameMakerProfile) return;
+        profiles.set(players.get(name), { photo, gameMakerProfile });
       });
     return false;
   });
-  return photos;
+  return profiles;
 }
 
 function parsePastEvents(html, players) {
@@ -616,16 +631,31 @@ async function scrapeSnapshot(gids, requiredTabs) {
     } else {
       console.log(`  ${rankings.length} players in "${tabName}"`);
     }
-    const playerDataTab = PLAYER_DATA_TABS.find((tabName) => htmlByTab[tabName]);
-    if (playerDataTab) {
-      const photos = parsePlayerDataTable(
-        htmlByTab[playerDataTab],
-        playerRegistry
-      );
-      for (const ranking of Object.values(views)) {
-        for (const player of ranking) {
-          const photo = photos.get(player.id);
-          if (photo) player.photoUrl = parseOptionalUrl(photo, "Photo", player.name);
+  }
+
+  const playerDataTab = PLAYER_DATA_TABS.find((tabName) => htmlByTab[tabName]);
+  if (playerDataTab) {
+    const profiles = parsePlayerDataTable(
+      htmlByTab[playerDataTab],
+      playerRegistry
+    );
+    for (const ranking of Object.values(views)) {
+      for (const player of ranking) {
+        const profile = profiles.get(player.id);
+        if (!profile) continue;
+        if (profile.photo) {
+          player.photoUrl = parseOptionalUrl(
+            profile.photo,
+            "Photo",
+            player.name
+          );
+        }
+        if (profile.gameMakerProfile) {
+          player.gameMakerProfileUrl = parseOptionalUrl(
+            profile.gameMakerProfile,
+            "Game Maker Profile",
+            player.name
+          );
         }
       }
     }
