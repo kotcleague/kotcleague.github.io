@@ -12,16 +12,13 @@ export interface AvatarPalette {
 
 export interface AvatarDesign {
   palette: AvatarPalette;
-  /** Court rotation in degrees: 0 (portrait) or 90 (landscape). */
-  rotation: 0 | 90;
-  /** Which service box is shaded: 0 none, 1 top-left, 2 bottom-right, 3 both. */
-  boxes: number;
   initials: string;
 }
 
-// Palettes are built from the site theme tokens in src/index.css so default
-// avatars never clash with the navy/blue brand. Each entry carries a light and
-// a dark variant with enough contrast for the initials to stay legible.
+// Palettes are tints/shades of the site's navy/blue accent tokens (see
+// --color-accent-400/500/600/700 in src/index.css) so default avatars read as
+// part of the brand instead of clashing with it. Each entry carries a light
+// and a dark variant with enough contrast for the initials to stay legible.
 const PALETTES: AvatarPalette[] = [
   {
     bgLight: "#e8eef7",
@@ -42,24 +39,6 @@ const PALETTES: AvatarPalette[] = [
     fgDark: "#8fb3cc",
   },
   {
-    bgLight: "#eef4e4",
-    fgLight: "#4f7a13",
-    bgDark: "#1a2a17",
-    fgDark: "#a8d95c",
-  },
-  {
-    bgLight: "#fdf3dc",
-    fgLight: "#8a6605",
-    bgDark: "#2b2411",
-    fgDark: "#f4c430",
-  },
-  {
-    bgLight: "#f2ece6",
-    fgLight: "#8a5320",
-    bgDark: "#2a1f16",
-    fgDark: "#d09a5e",
-  },
-  {
     bgLight: "#e9edf1",
     fgLight: "#0047a3",
     bgDark: "#102340",
@@ -71,6 +50,12 @@ const PALETTES: AvatarPalette[] = [
     bgDark: "#16202b",
     fgDark: "#9fb4c6",
   },
+  {
+    bgLight: "#e2eefb",
+    fgLight: "#0b5394",
+    bgDark: "#0d2b40",
+    fgDark: "#6fb3e8",
+  },
 ];
 
 /** FNV-1a, 32-bit. Stable across browsers and runs. */
@@ -81,10 +66,6 @@ export function hashString(value: string): number {
     hash = Math.imul(hash, 0x01000193) >>> 0;
   }
   return hash >>> 0;
-}
-
-function bits(hash: number, shift: number, count: number): number {
-  return (hash >>> shift) & ((1 << count) - 1);
 }
 
 export function playerInitials(name: string): string {
@@ -111,8 +92,6 @@ export function getAvatarDesign(seed: string, name: string): AvatarDesign {
 
   return {
     palette: PALETTES[hash % PALETTES.length],
-    rotation: bits(hash, 8, 1) === 1 ? 90 : 0,
-    boxes: bits(hash, 9, 2),
     initials: playerInitials(name),
   };
 }
