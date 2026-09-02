@@ -345,10 +345,10 @@ function parseRankingTable(html, tabName, players) {
     // "Game Maker Profile URL" (index 13). A cell may hold either a bare URL
     // or a hyperlink whose visible text differs from its href.
     const tableCells = $(row).find("td");
+    const photoImageSrc = tableCells.eq(12).find("img").attr("src");
     const photoUrlText =
       tableCells.eq(12).find("a").attr("href") ??
-      tableCells.eq(12).find("img").attr("src") ??
-      cells[12];
+      (photoImageSrc ? new URL(photoImageSrc, BASE).toString() : cells[12]);
     const gameMakerProfileUrlText =
       tableCells.eq(13).find("a").attr("href") ?? cells[13];
 
