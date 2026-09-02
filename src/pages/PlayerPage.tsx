@@ -162,10 +162,6 @@ function PlayerContent({
                   Past 30-day rank
                 </span>
               </div>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base dark:text-slate-400">
-                Past 30-day King of the Court statistics and event-by-event
-                finishes for {player.name}.
-              </p>
               {player.gameMakerProfileUrl && (
                 <div className="mt-4">
                   <RegistrationLink href={player.gameMakerProfileUrl} compact>
