@@ -190,6 +190,7 @@ function isPastEvent(value: unknown): value is PastEvent {
 function isOptionalUrl(value: unknown): value is string | null {
   if (value === null) return true;
   if (typeof value !== "string") return false;
+  if (value.startsWith("images/")) return true;
 
   try {
     const url = new URL(value);

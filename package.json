@@ -12,6 +12,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
     "scrape": "node scripts/scrape.mjs",
+    "add-player-photo": "node scripts/add-player-photo.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
