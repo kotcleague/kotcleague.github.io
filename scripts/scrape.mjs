@@ -38,6 +38,7 @@ const VIEWS = {
 };
 
 const EVENT_TABS = ["Past Events", "Upcoming Events", "Event Log"];
+const PLAYER_DATA_TABS = ["Player Data", "Players"];
 const SHEET_DATE_PATTERN = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
 const PERFORMANCE_FIELDS = [
   ["gameMakerPoints", "Game Maker points"],
@@ -372,6 +373,35 @@ function parseRankingTable(html, tabName, players) {
   return rankings;
 }
 
+function parsePlayerDataTable(html, players) {
+  const $ = load(html);
+  const photos = new Map();
+  $("table tbody tr").each((_, row) => {
+    const cells = $(row).find("td");
+    const values = cells.map((_, cell) => $(cell).text().trim()).get();
+    const header = values.map((value) => value.toLocaleLowerCase("en-US"));
+    const nameIndex = header.indexOf("name");
+    const photoIndex = header.indexOf("photo url");
+    if (nameIndex < 0 || photoIndex < 0) return;
+
+    $(row)
+      .nextAll("tr")
+      .each((_, playerRow) => {
+        const playerCells = $(playerRow).find("td");
+        const name = playerCells.eq(nameIndex).text().trim();
+        if (!name) return;
+        const photoCell = playerCells.eq(photoIndex);
+        const photo =
+          photoCell.find("a").attr("href") ??
+          photoCell.find("img").attr("src") ??
+          photoCell.text().trim();
+        if (photo) photos.set(players.get(name), photo);
+      });
+    return false;
+  });
+  return photos;
+}
+
 function parsePastEvents(html, players) {
   const $ = load(html);
   const events = [];
@@ -633,6 +663,19 @@ async function scrapeSnapshot(gids, requiredTabs) {
     } else {
       console.log(`  ${rankings.length} players in "${tabName}"`);
     }
+    const playerDataTab = PLAYER_DATA_TABS.find((tabName) => htmlByTab[tabName]);
+    if (playerDataTab) {
+      const photos = parsePlayerDataTable(
+        htmlByTab[playerDataTab],
+        playerRegistry
+      );
+      for (const ranking of Object.values(views)) {
+        for (const player of ranking) {
+          const photo = photos.get(player.id);
+          if (photo) player.photoUrl = parseOptionalUrl(photo, "Photo", player.name);
+        }
+      }
+    }
   }
 
   const past = parsePastEvents(htmlByTab["Past Events"], playerRegistry);
@@ -674,7 +717,12 @@ async function scrape() {
   console.log("Discovering sheet tabs...");
   const menuHtml = await fetchHtml(BASE, "published sheet menu");
   const gids = parseTabGids(menuHtml);
-  const requiredTabs = [...Object.keys(VIEWS), ...EVENT_TABS];
+  const playerDataTab = PLAYER_DATA_TABS.find((tabName) => gids[tabName]);
+  const requiredTabs = [
+    ...Object.keys(VIEWS),
+    ...EVENT_TABS,
+    ...(playerDataTab ? [playerDataTab] : []),
+  ];
   const missingTabs = requiredTabs.filter((tabName) => !gids[tabName]);
 
   if (missingTabs.length > 0) {
