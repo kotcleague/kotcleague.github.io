@@ -34,14 +34,14 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet -- public/data/leaderboard.json public/images && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
+          git diff --quiet -- public/data/leaderboard.json && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/leaderboard.json public/images
+          git add public/data/leaderboard.json
           git commit -m "Update league data [automated]"
           git push
 

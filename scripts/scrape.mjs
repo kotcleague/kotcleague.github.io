@@ -18,7 +18,6 @@ const OUTPUT_PATH = resolve(
   "data",
   "leaderboard.json"
 );
-const IMAGE_DIR = resolve(__dirname, "..", "public", "images", "players");
 
 // Published "King of the Court League" Google Sheet.
 const PUBLISH_ID =
@@ -231,52 +230,6 @@ function parseOptionalUrl(text, field, context) {
   }
 
   return url.toString();
-}
-
-async function downloadPlayerImage(url, playerId) {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status} while downloading player image`);
-  }
-
-  const contentType = response.headers.get("content-type")?.split(";")[0];
-  const extensionByType = {
-    "image/avif": "avif",
-    "image/gif": "gif",
-    "image/jpeg": "jpg",
-    "image/png": "png",
-    "image/webp": "webp",
-  };
-  const extension = extensionByType[contentType];
-  if (!extension) {
-    throw new Error(
-      `Unsupported player image content type "${contentType ?? "unknown"}"`
-    );
-  }
-
-  mkdirSync(IMAGE_DIR, { recursive: true });
-  writeFileSync(
-    resolve(IMAGE_DIR, `${playerId}.${extension}`),
-    Buffer.from(await response.arrayBuffer())
-  );
-  return `images/players/${playerId}.${extension}`;
-}
-
-async function downloadPlayerImages(views) {
-  const players = new Map();
-  for (const ranking of Object.values(views)) {
-    for (const player of ranking) {
-      if (player.photoUrl?.startsWith("http")) {
-        players.set(player.id, player);
-      }
-    }
-  }
-
-  await Promise.all(
-    [...players.values()].map(async (player) => {
-      player.photoUrl = await downloadPlayerImage(player.photoUrl, player.id);
-    })
-  );
 }
 
 function createPlayerRegistry() {
@@ -770,7 +723,6 @@ async function scrape() {
   }
 
   const { views, events } = snapshot;
-  await downloadPlayerImages(views);
   const data = {
     scrapedAt: new Date().toISOString(),
     source: BASE,
