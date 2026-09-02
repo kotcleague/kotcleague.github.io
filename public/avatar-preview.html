@@ -92,28 +92,40 @@ function optD(name,dark){
  <rect width="100" height="100" fill="url(#${id})"/></svg>`;
 }
 
-/* ---------- E: Initials on court field ---------- */
+/* ---------- E: Initials only on themed field ---------- */
 function optE(name,dark){
  const h=hash(name),[bg,fg]=pal(h,dark);
- const soft=fg+"2e";
- let g=`<rect x="6" y="4" width="88" height="92" fill="none" stroke="${fg}" stroke-width="2.5" opacity=".5"/>`;
- g+=`<line x1="6" y1="50" x2="94" y2="50" stroke="${fg}" stroke-width="3" opacity=".5"/>`;
- g+=`<rect x="6" y="36" width="88" height="28" fill="${soft}"/>`;
- g+=`<line x1="50" y1="4" x2="50" y2="36" stroke="${fg}" stroke-width="2" opacity=".45"/><line x1="50" y1="64" x2="50" y2="96" stroke="${fg}" stroke-width="2" opacity=".45"/>`;
  return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" fill="${bg}"/>
- <g transform="rotate(${bits(h,8,1)*90} 50 50)">${g}</g>
- <text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Barlow Condensed',sans-serif" font-weight="700" font-size="46" fill="${fg}">${initials(name)}</text></svg>`;
+ <text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Barlow Condensed',sans-serif" font-weight="700" font-size="${initials(name).length>1?44:56}" fill="${fg}">${initials(name)}</text></svg>`;
+}
+
+/* ---------- B+E: SELECTED — court field + initials ----------
+   Mirrors src/components/PlayerAvatarFallback.tsx exactly. */
+function optBE(name,dark,noInitials){
+ const h=hash(name),[bg,fg]=pal(h,dark);
+ const rot=((h>>>8)&1)?90:0, boxes=(h>>>9)&3;
+ let g=`<rect x="8" y="6" width="84" height="88" stroke-width="2.5" opacity=".45"/>`;
+ g+=`<line x1="8" y1="50" x2="92" y2="50" stroke-width="3" opacity=".45"/>`;
+ g+=`<rect x="8" y="36" width="84" height="28" fill="${fg}" stroke="none" opacity=".14"/>`;
+ if(boxes&1)g+=`<rect x="8" y="6" width="42" height="30" fill="${fg}" stroke="none" opacity=".1"/>`;
+ if(boxes&2)g+=`<rect x="50" y="64" width="42" height="30" fill="${fg}" stroke="none" opacity=".1"/>`;
+ g+=`<line x1="50" y1="6" x2="50" y2="36" stroke-width="2" opacity=".4"/><line x1="50" y1="64" x2="50" y2="94" stroke-width="2" opacity=".4"/>`;
+ const ini=initials(name);
+ return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" fill="${bg}"/>
+ <g transform="rotate(${rot} 50 50)" fill="none" stroke="${fg}">${g}</g>
+ ${noInitials?"":`<text x="50" y="52" text-anchor="middle" dominant-baseline="central" font-family="'Barlow Condensed',sans-serif" font-weight="700" font-size="${ini.length>1?44:56}" fill="${fg}">${ini}</text>`}</svg>`;
 }
 
 const OPTIONS=[
+ ["\u2605 SELECTED \u2014 B + E: court field with initials",optBE],
  ["A — Court Grid (GitHub-style 5×5 mirrored identicon)",optA],
  ["B — Court Lines (top-down pickleball court)",optB],
  ["C — Crown Rays (King of the Court)",optC],
  ["D — Paddle Weave (diagonal two-tone)",optD],
- ["E — Initials on themed court field",optE]];
+ ["E — Initials only (no court)",optE]];
 
 function render(el,dark){
- let html=`<h1>KOTC default avatar concepts — ${dark?"dark":"light"} mode</h1><p class="sub">Deterministic from player id (names used here as stand-ins). Each row = 8 different players at 48px, then the same player at 36 / 48 / 80 / 120px.</p>`;
+ let html=`<h1>KOTC default avatar concepts — ${dark?"dark":"light"} mode</h1><p class="sub">Deterministic from player id (names used here as stand-ins). Each row = 8 different players at 48px, then the same player at 36 / 48 / 80 / 120px. The starred row is the design shipped in the app.</p>`;
  for(const [title,fn] of OPTIONS){
    html+=`<h2>${title}</h2><div class="row">`;
    for(const n of NAMES) html+=`<div class="cell"><div class="av" style="width:48px;height:48px">${fn(n,dark)}</div><div class="nm">${n}</div></div>`;

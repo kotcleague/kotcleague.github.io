@@ -77,6 +77,7 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
           <PlayerAvatar
             name={player.name}
             photoUrl={player.photoUrl}
+            playerId={player.id}
             size="sm"
           />
           <span className="min-w-0 truncate">{player.name}</span>

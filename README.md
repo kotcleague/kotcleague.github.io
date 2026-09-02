@@ -33,6 +33,22 @@ npm run format
 - `scripts/scrape.mjs` fetches the published Google Sheet and writes
   `public/data/leaderboard.json`.
 
+## Default player avatars
+
+Players without a profile photo get a deterministic generated avatar: a
+stylised top-down pickleball court with the player's initials. Every visual
+choice (palette, court rotation, shaded service boxes) is derived from a
+32-bit FNV-1a hash of the player id in `src/lib/avatar.ts`, so a player always
+renders the same avatar everywhere. `src/components/PlayerAvatarFallback.tsx`
+draws it, and light/dark colours are swapped through the
+`.player-avatar-fallback` CSS custom properties in `src/index.css`.
+
+`public/avatar-preview.html` is a standalone gallery of the design options that
+were considered, rendered in both light and dark mode. It ships with the site,
+so it is reachable at `/avatar-preview.html` on the deployed site (and at
+`http://localhost:5173/avatar-preview.html` in dev). It is not linked from the
+app's navigation.
+
 The scraper consumes the `Current Month`, `Past 30 Days`, `All Time`, `Past
 Events`, `Upcoming Events`, and `Event Log` tabs. It joins event summaries to
 nightly results by date and assigns stable URL IDs to players. Fetches use

@@ -1,11 +1,14 @@
 import clsx from "clsx";
-import { UserRound } from "lucide-react";
 import { useState } from "react";
+
+import PlayerAvatarFallback from "@/components/PlayerAvatarFallback";
 
 interface PlayerAvatarProps {
   className?: string;
   name: string;
   photoUrl: string | null;
+  /** Stable player id used to seed the default avatar. Falls back to the name. */
+  playerId?: string;
   size?: "sm" | "md" | "lg" | "xl";
 }
 
@@ -16,17 +19,11 @@ const SIZE_CLASSES = {
   xl: "h-40 w-40 sm:h-48 sm:w-48",
 } as const;
 
-const ICON_SIZE_CLASSES = {
-  sm: "h-4 w-4",
-  md: "h-6 w-6",
-  lg: "h-9 w-9",
-  xl: "h-16 w-16 sm:h-20 sm:w-20",
-} as const;
-
 export default function PlayerAvatar({
   className,
   name,
   photoUrl,
+  playerId,
   size = "md",
 }: PlayerAvatarProps) {
   const [failed, setFailed] = useState(false);
@@ -48,11 +45,7 @@ export default function PlayerAvatar({
           onError={() => setFailed(true)}
         />
       ) : (
-        <UserRound
-          className={ICON_SIZE_CLASSES[size]}
-          aria-hidden="true"
-          strokeWidth={1.5}
-        />
+        <PlayerAvatarFallback seed={playerId ?? name} name={name} />
       )}
     </span>
   );
