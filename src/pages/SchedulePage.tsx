@@ -144,7 +144,6 @@ export default function SchedulePage() {
       header={
         <PageHeader
           eyebrow="King of the Court"
-          description="Join an upcoming league night or revisit complete results from past events."
         >
           Schedule
         </PageHeader>
