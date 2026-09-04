@@ -12,6 +12,7 @@ const currentMonthName = new Date().toLocaleDateString("en-US", {
 const VIEWS: { value: RankingView; label: string }[] = [
   { value: "past-30-days", label: "Past 30 Days" },
   { value: "current-month", label: currentMonthName },
+  { value: "all-time", label: "All Time" },
 ];
 
 function chip(active: boolean) {
