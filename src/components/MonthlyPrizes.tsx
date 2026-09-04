@@ -36,16 +36,16 @@ export default function MonthlyPrizes({ compact = false }: MonthlyPrizesProps) {
           />
           <p className="leading-5 text-slate-600 dark:text-slate-300">
             <span className="font-bold text-ink dark:text-white">
-              Monthly prizes:
+              This month:
             </span>{" "}
-            Starting September, the top 3 play the following month free.
+            Finish in the top 3, play next month free.
           </p>
         </div>
         <a
-          href={ROUTES.format}
+          href={ROUTES.schedule}
           className="inline-flex shrink-0 items-center gap-1 rounded-sm pl-6 text-xs font-semibold text-blue hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue sm:pl-0 dark:text-blue-300"
         >
-          Details
+          Join the league
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </aside>
