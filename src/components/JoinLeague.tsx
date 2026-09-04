@@ -36,9 +36,9 @@ export default function JoinLeague() {
               Join the League
             </h2>
             <p className="mt-1 text-sm leading-5 text-slate-500 dark:text-slate-400">
-              Register below through CourtReserve or Game Maker. You only need
-              to sign up once, and we’ll add you to the matching event on the
-              other platform.
+              Join event by event, no season commitment.
+              Sign up on CourtReserve and Game Maker for the best experience.
+              Missed one? We’ll get you added before the event.
             </p>
           </div>
           <ChevronDown
