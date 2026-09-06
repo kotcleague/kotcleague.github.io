@@ -44,8 +44,8 @@ const PERFORMANCE_FIELDS = [
   ["wins", "wins"],
   ["losses", "losses"],
   ["winRate", "win rate"],
-  ["pointsEarned", "points earned"],
-  ["pointsAgainst", "points against"],
+  ["pointsEarned", "pe"],
+  ["pointsAgainst", "pa"],
   ["pointDifferential", "point differential"],
 ];
 
