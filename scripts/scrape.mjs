@@ -39,14 +39,91 @@ const VIEWS = {
 const EVENT_TABS = ["Past Events", "Upcoming Events", "Event Log"];
 const PLAYER_DATA_TABS = ["Player Data", "Players"];
 const SHEET_DATE_PATTERN = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+
+// ============================================================
+// GOOGLE SHEET COLUMN NAMES
+// ============================================================
+// Keep all sheet-specific column names here.
+//
+// The scraper looks up columns by these names, NOT by position.
+// If you rename a column in Google Sheets, update it here.
+//
+// Column order in the Google Sheet can change without breaking
+// the scraper.
+// ============================================================
+
+const COLUMNS = {
+  rankings: {
+    rank: "Ranking",
+    move: "●",
+    player: "Player",
+    points: "Points",
+    events: "# of Events",
+    gameMakerPoints: "GM Points",
+    wins: "Wins",
+    losses: "Losses",
+    winRate: "Win %",
+    pointsEarned: "PE",
+    pointsAgainst: "PA",
+    pointDifferential: "Pt Diff %",
+  },
+
+  eventLog: {
+    date: "Date",
+    player: "Player",
+    gameMakerPoints: "GM Points",
+    wins: "Wins",
+    losses: "Losses",
+    pointsEarned: "PE",
+    pointsAgainst: "PA",
+    place: "Place",
+    points: "Points",
+    courts: "Courts",
+    winRate: "Win %",
+    pointDifferential: "Point diff %",
+  },
+
+  playerData: {
+    name: "Name",
+    inGroup: "In Group",
+    dupr: "DUPR",
+    gameMakerProfileUrl: "Game Maker Profile URL",
+    photoUrl: "Photo URL",
+    points: "Points",
+    duprRank: "DUPR Rank",
+    leagueRank: "League Rank",
+  },
+
+  upcomingEvents: {
+    date: "Date",
+    courtReserveUrl: "Court Reserve URL",
+    gameMakerInviteUrl: "Game Maker Invite URL",
+    gameMakerEventName: "Game Maker Event Name",
+  },
+
+  pastEvents: {
+    date: "Past Events",
+    playerCount: "Player Count",
+    courts: "Courts",
+    games: "Games",
+    maxPointsEarnable: "Max Points Earnable",
+    rounds: "Rounds",
+    first: "1st Place",
+    second: "2nd Place",
+    third: "3rd Place",
+  },
+};
+
+// Internal output field names -> human-readable sheet labels.
+// This is only used for error messages and the performance parser.
 const PERFORMANCE_FIELDS = [
-  ["gameMakerPoints", "Game Maker points"],
-  ["wins", "wins"],
-  ["losses", "losses"],
-  ["winRate", "win rate"],
-  ["pointsEarned", "pe"],
-  ["pointsAgainst", "pa"],
-  ["pointDifferential", "point differential"],
+  ["gameMakerPoints", "GM Points"],
+  ["wins", "Wins"],
+  ["losses", "Losses"],
+  ["winRate", "Win %"],
+  ["pointsEarned", "PE"],
+  ["pointsAgainst", "PA"],
+  ["pointDifferential", "Point diff %"],
 ];
 
 class HttpError extends Error {
@@ -116,10 +193,12 @@ function parseTabGids(html) {
   const gids = {};
   const re = /items\.push\(\{name:\s*"((?:[^"\\]|\\.)*)"[^}]*?gid:\s*"(\d+)"/g;
   let match;
+
   while ((match = re.exec(html)) !== null) {
     const name = JSON.parse(`"${match[1]}"`);
     gids[name] = match[2];
   }
+
   return gids;
 }
 
@@ -127,20 +206,34 @@ function parseTabGids(html) {
 // "●" / "" => none, "▲5" => up 5, "▼1" => down 1.
 function parseMovement(text) {
   const trimmed = (text || "").trim();
+
   if (trimmed.startsWith("▲")) {
-    return { dir: "up", places: parseInt(trimmed.slice(1), 10) || 0 };
+    return {
+      dir: "up",
+      places: parseInt(trimmed.slice(1), 10) || 0,
+    };
   }
+
   if (trimmed.startsWith("▼")) {
-    return { dir: "down", places: parseInt(trimmed.slice(1), 10) || 0 };
+    return {
+      dir: "down",
+      places: parseInt(trimmed.slice(1), 10) || 0,
+    };
   }
-  return { dir: "none", places: 0 };
+
+  return {
+    dir: "none",
+    places: 0,
+  };
 }
 
 function parseRequiredNumber(text, field, context) {
   const value = Number(text);
+
   if (!Number.isFinite(value)) {
     throw new Error(`Invalid ${field} "${text}" in ${context}`);
   }
+
   return value;
 }
 
@@ -153,6 +246,13 @@ function parsePerformanceStats(cells, context) {
   );
 }
 
+function normalizeHeader(value) {
+  return String(value ?? "")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLocaleLowerCase("en-US");
+}
+
 function readRowCells($, row) {
   return $(row)
     .find("td")
@@ -160,8 +260,64 @@ function readRowCells($, row) {
     .get();
 }
 
+// Build a map such as:
+// {
+//   "player": 2,
+//   "points": 3,
+//   "wins": 5
+// }
+function buildHeaderMap(cells) {
+  const map = new Map();
+
+  cells.forEach((cell, index) => {
+    const header = normalizeHeader(cell);
+
+    if (header && !map.has(header)) {
+      map.set(header, index);
+    }
+  });
+
+  return map;
+}
+
+// Find the row containing the expected column headers.
+// This allows the actual data columns to be in any order.
+function findHeaderRow($, table, requiredColumns, context) {
+  const required = requiredColumns.map(normalizeHeader);
+  const rows = $(table).find("tbody tr");
+
+  for (let i = 0; i < rows.length; i += 1) {
+    const cells = readRowCells($, rows[i]);
+    const headerMap = buildHeaderMap(cells);
+
+    if (required.every((column) => headerMap.has(column))) {
+      return {
+        row: rows[i],
+        headerMap,
+      };
+    }
+  }
+
+  throw new Error(
+    `Could not find the header row for ${context}. Expected columns: ${requiredColumns.join(
+      ", "
+    )}`
+  );
+}
+
+function getColumn(headerMap, cells, columnName, context) {
+  const index = headerMap.get(normalizeHeader(columnName));
+
+  if (index === undefined) {
+    throw new Error(`Missing column "${columnName}" in ${context}`);
+  }
+
+  return cells[index] ?? "";
+}
+
 function assertSheetTable(html, tabName) {
   const $ = load(html);
+
   if ($("table tbody").length === 0) {
     throw new Error(
       `No data table found in "${tabName}" — Google may have returned an unexpected page`
@@ -170,11 +326,17 @@ function assertSheetTable(html, tabName) {
 }
 
 function isDatedRow(cells, minimumCells) {
-  return cells.length >= minimumCells && SHEET_DATE_PATTERN.test(cells[0]);
+  return (
+    cells.length >= minimumCells &&
+    SHEET_DATE_PATTERN.test(cells[0])
+  );
 }
 
 function parseDateId(text, context) {
-  const match = /^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/.exec(text.trim());
+  const match = /^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/.exec(
+    text.trim()
+  );
+
   if (!match) {
     throw new Error(`Invalid date "${text}" in ${context}`);
   }
@@ -183,6 +345,7 @@ function parseDateId(text, context) {
   const day = Number(match[2]);
   const yearValue = Number(match[3]);
   const year = yearValue < 100 ? 2000 + yearValue : yearValue;
+
   const date = new Date(Date.UTC(year, month - 1, day));
 
   if (
@@ -195,14 +358,17 @@ function parseDateId(text, context) {
 
   return `${year.toString().padStart(4, "0")}-${month
     .toString()
-    .padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+    .padStart(2, "0")}-${day.toString()
+    .padStart(2, "0")}`;
 }
 
 function parseOptionalUrl(text, field, context) {
   const value = text.trim();
+
   if (!value) return null;
 
   let url;
+
   try {
     url = new URL(value);
   } catch {
@@ -214,6 +380,7 @@ function parseOptionalUrl(text, field, context) {
     url.pathname === "/url"
   ) {
     const target = url.searchParams.get("q");
+
     if (target) {
       try {
         url = new URL(target);
@@ -226,7 +393,9 @@ function parseOptionalUrl(text, field, context) {
   }
 
   if (url.protocol !== "http:" && url.protocol !== "https:") {
-    throw new Error(`Unsupported ${field} URL protocol in ${context}`);
+    throw new Error(
+      `Unsupported ${field} URL protocol in ${context}`
+    );
   }
 
   return url.toString();
@@ -239,12 +408,16 @@ function createPlayerRegistry() {
   return {
     get(name) {
       const normalizedName = name.trim().replace(/\s+/g, " ");
+
       if (!normalizedName) {
-        throw new Error("Cannot create a player ID from an empty name");
+        throw new Error(
+          "Cannot create a player ID from an empty name"
+        );
       }
 
       const nameKey = normalizedName.toLocaleLowerCase("en-US");
       const existing = idsByName.get(nameKey);
+
       if (existing) return existing;
 
       const id = normalizedName
@@ -255,10 +428,13 @@ function createPlayerRegistry() {
         .replace(/^-+|-+$/g, "");
 
       if (!id) {
-        throw new Error(`Cannot create a player ID from "${normalizedName}"`);
+        throw new Error(
+          `Cannot create a player ID from "${normalizedName}"`
+        );
       }
 
       const conflictingName = namesById.get(id);
+
       if (conflictingName && conflictingName !== nameKey) {
         throw new Error(
           `Player ID collision: "${normalizedName}" and "${conflictingName}" both map to "${id}"`
@@ -267,67 +443,181 @@ function createPlayerRegistry() {
 
       idsByName.set(nameKey, id);
       namesById.set(id, nameKey);
+
       return id;
     },
   };
 }
 
 // Parse a single ranking tab's HTML table into player rows.
+// Columns are located by header name, not position.
 function parseRankingTable(html, tabName, players) {
   const $ = load(html);
   const rankings = [];
+  const columns = COLUMNS.rankings;
 
-  $("table tbody tr").each((_, row) => {
-    const cells = readRowCells($, row);
+  const tables = $("table").toArray();
 
-    if (cells.length < 12) return;
+  for (const table of tables) {
+    let header;
 
-    const [
-      rankText,
-      moveText,
-      name,
-      pointsText,
-      eventsText,
-      ...performanceCells
-    ] = cells;
+    try {
+      header = findHeaderRow(
+        $,
+        table,
+        [
+          columns.rank,
+          columns.move,
+          columns.player,
+          columns.points,
+          columns.events,
+          columns.gameMakerPoints,
+          columns.wins,
+          columns.losses,
+          columns.winRate,
+          columns.pointsEarned,
+          columns.pointsAgainst,
+          columns.pointDifferential,
+        ],
+        `"${tabName}"`
+      );
+    } catch {
+      continue;
+    }
 
-    // Skip the header row and any empty/padding rows.
-    if (!name || !/^\d+$/.test(rankText)) return;
+    $(table)
+      .find("tbody tr")
+      .each((_, row) => {
+        if (row === header.row) return;
 
-    const context = `"${tabName}" row for ${name}`;
-    // Optional trailing columns: "Photo URL" (index 12) and
-    // "Game Maker Profile URL" (index 13). A cell may hold either a bare URL
-    // or a hyperlink whose visible text differs from its href.
-    const tableCells = $(row).find("td");
-    const photoImageSrc = tableCells.eq(12).find("img").attr("src");
-    const photoUrlText =
-      tableCells.eq(12).find("a").attr("href") ??
-      (photoImageSrc ? new URL(photoImageSrc, BASE).toString() : cells[12]);
-    const gameMakerProfileUrlText =
-      tableCells.eq(13).find("a").attr("href") ?? cells[13];
+        const cells = readRowCells($, row);
 
-    rankings.push({
-      id: players.get(name),
-      rank: parseRequiredNumber(rankText, "rank", context),
-      name,
-      points: parseRequiredNumber(pointsText, "points", context),
-      events: parseRequiredNumber(eventsText, "event count", context),
-      ...parsePerformanceStats(performanceCells, context),
-      move: parseMovement(moveText),
-      photoUrl: parseOptionalUrl(photoUrlText ?? "", "Photo", context),
-      gameMakerProfileUrl: parseOptionalUrl(
-        gameMakerProfileUrlText ?? "",
-        "Game Maker Profile",
-        context
-      ),
-    });
-  });
+        const rankText = getColumn(
+          header.headerMap,
+          cells,
+          columns.rank,
+          `"${tabName}"`
+        );
 
-  return rankings;
+        const name = getColumn(
+          header.headerMap,
+          cells,
+          columns.player,
+          `"${tabName}"`
+        );
+
+        // Skip empty/padding rows.
+        if (!name || !/^\d+$/.test(rankText)) return;
+
+        const context = `"${tabName}" row for ${name}`;
+
+        rankings.push({
+          id: players.get(name),
+
+          rank: parseRequiredNumber(
+            rankText,
+            "rank",
+            context
+          ),
+
+          name,
+
+          points: parseRequiredNumber(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.points,
+              context
+            ),
+            "points",
+            context
+          ),
+
+          events: parseRequiredNumber(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.events,
+              context
+            ),
+            "event count",
+            context
+          ),
+
+          ...parsePerformanceStats(
+            [
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.gameMakerPoints,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.wins,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.losses,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.winRate,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.pointsEarned,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.pointsAgainst,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.pointDifferential,
+                context
+              ),
+            ],
+            context
+          ),
+
+          move: parseMovement(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.move,
+              context
+            )
+          ),
+
+          // These now come from Player Data.
+          photoUrl: null,
+          gameMakerProfileUrl: null,
+        });
+      });
+
+    return rankings;
+  }
+
+  throw new Error(
+    `Could not find the ranking table for "${tabName}"`
+  );
 }
 
-// A "Photo URL"/"Game Maker Profile URL" cell may hold a bare URL, a hyperlink
-// whose visible text differs from its href, or (for photos) an embedded image.
+// A "Photo URL"/"Game Maker Profile URL" cell may hold a bare URL,
+// a hyperlink whose visible text differs from its href, or an
+// embedded image.
 function readLinkCell(cell) {
   return (
     cell.find("a").attr("href") ??
@@ -336,93 +626,228 @@ function readLinkCell(cell) {
   );
 }
 
-// Parse the optional "Player Data" tab into per-player profile links keyed by
-// player id.
+// Parse the "Player Data" tab into per-player profile links keyed
+// by player id.
 function parsePlayerDataTable(html, players) {
   const $ = load(html);
   const profiles = new Map();
-  $("table tbody tr").each((_, row) => {
-    const cells = $(row).find("td");
-    const values = cells.map((_, cell) => $(cell).text().trim()).get();
-    const header = values.map((value) => value.toLocaleLowerCase("en-US"));
-    const nameIndex = header.indexOf("name");
-    const photoIndex = header.indexOf("photo url");
-    const gameMakerIndex = header.indexOf("game maker profile url");
-    if (nameIndex < 0 || (photoIndex < 0 && gameMakerIndex < 0)) return;
+  const columns = COLUMNS.playerData;
 
-    $(row)
-      .nextAll("tr")
+  $("table").each((_, table) => {
+    let header;
+
+    try {
+      header = findHeaderRow(
+        $,
+        table,
+        [
+          columns.name,
+          columns.photoUrl,
+          columns.gameMakerProfileUrl,
+        ],
+        `"Player Data"`
+      );
+    } catch {
+      return;
+    }
+
+    $(table)
+      .find("tbody tr")
       .each((_, playerRow) => {
-        const playerCells = $(playerRow).find("td");
-        const name = playerCells.eq(nameIndex).text().trim();
+        if (playerRow === header.row) return;
+
+        const playerCells = readRowCells($, playerRow);
+
+        const name = getColumn(
+          header.headerMap,
+          playerCells,
+          columns.name,
+          `"Player Data"`
+        );
+
         if (!name) return;
+
+        const tableCells = $(playerRow).find("td");
+
+        const photoIndex = header.headerMap.get(
+          normalizeHeader(columns.photoUrl)
+        );
+
+        const gameMakerIndex = header.headerMap.get(
+          normalizeHeader(columns.gameMakerProfileUrl)
+        );
+
         const photo =
-          photoIndex < 0 ? "" : readLinkCell(playerCells.eq(photoIndex));
-        const gameMakerProfile =
-          gameMakerIndex < 0
+          photoIndex === undefined
             ? ""
-            : readLinkCell(playerCells.eq(gameMakerIndex));
+            : readLinkCell(tableCells.eq(photoIndex));
+
+        const gameMakerProfile =
+          gameMakerIndex === undefined
+            ? ""
+            : readLinkCell(tableCells.eq(gameMakerIndex));
+
         if (!photo && !gameMakerProfile) return;
-        profiles.set(players.get(name), { photo, gameMakerProfile });
+
+        profiles.set(players.get(name), {
+          photo,
+          gameMakerProfile,
+        });
       });
-    return false;
   });
+
   return profiles;
 }
 
 function parsePastEvents(html, players) {
   const $ = load(html);
   const events = [];
+  const columns = COLUMNS.pastEvents;
 
-  $("table tbody tr").each((_, row) => {
-    const cells = readRowCells($, row);
+  $("table").each((_, table) => {
+    let header;
 
-    if (!isDatedRow(cells, 9)) return;
+    try {
+      header = findHeaderRow(
+        $,
+        table,
+        [
+          columns.date,
+          columns.playerCount,
+          columns.courts,
+          columns.games,
+          columns.maxPointsEarnable,
+          columns.rounds,
+          columns.first,
+          columns.second,
+          columns.third,
+        ],
+        `"Past Events"`
+      );
+    } catch {
+      return;
+    }
 
-    const [
-      dateText,
-      playerCountText,
-      courtsText,
-      gamesText,
-      maxPointsText,
-      roundsText,
-      first,
-      second,
-      third,
-    ] = cells;
-    const id = parseDateId(dateText, '"Past Events"');
-    const context = `"Past Events" row for ${id}`;
-    const podium = [first, second, third].flatMap((name, index) =>
-      name
-        ? [
-            {
-              place: index + 1,
-              playerId: players.get(name),
-              name,
-            },
-          ]
-        : []
-    );
+    $(table)
+      .find("tbody tr")
+      .each((_, row) => {
+        if (row === header.row) return;
 
-    events.push({
-      id,
-      date: id,
-      playerCount: parseRequiredNumber(
-        playerCountText,
-        "player count",
-        context
-      ),
-      courts: parseRequiredNumber(courtsText, "courts", context),
-      games: parseRequiredNumber(gamesText, "games", context),
-      maxPointsEarnable: parseRequiredNumber(
-        maxPointsText,
-        "maximum points earnable",
-        context
-      ),
-      rounds: parseRequiredNumber(roundsText, "rounds", context),
-      podium,
-      results: [],
-    });
+        const cells = readRowCells($, row);
+
+        const dateText = getColumn(
+          header.headerMap,
+          cells,
+          columns.date,
+          `"Past Events"`
+        );
+
+        if (!SHEET_DATE_PATTERN.test(dateText)) return;
+
+        const id = parseDateId(
+          dateText,
+          '"Past Events"'
+        );
+
+        const context = `"Past Events" row for ${id}`;
+
+        const first = getColumn(
+          header.headerMap,
+          cells,
+          columns.first,
+          context
+        );
+
+        const second = getColumn(
+          header.headerMap,
+          cells,
+          columns.second,
+          context
+        );
+
+        const third = getColumn(
+          header.headerMap,
+          cells,
+          columns.third,
+          context
+        );
+
+        const podium = [first, second, third].flatMap(
+          (name, index) =>
+            name
+              ? [
+                  {
+                    place: index + 1,
+                    playerId: players.get(name),
+                    name,
+                  },
+                ]
+              : []
+        );
+
+        events.push({
+          id,
+          date: id,
+
+          playerCount: parseRequiredNumber(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.playerCount,
+              context
+            ),
+            "player count",
+            context
+          ),
+
+          courts: parseRequiredNumber(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.courts,
+              context
+            ),
+            "courts",
+            context
+          ),
+
+          games: parseRequiredNumber(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.games,
+              context
+            ),
+            "games",
+            context
+          ),
+
+          maxPointsEarnable: parseRequiredNumber(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.maxPointsEarnable,
+              context
+            ),
+            "maximum points earnable",
+            context
+          ),
+
+          rounds: parseRequiredNumber(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.rounds,
+              context
+            ),
+            "rounds",
+            context
+          ),
+
+          podium,
+          results: [],
+        });
+      });
   });
 
   return events;
@@ -431,31 +856,102 @@ function parsePastEvents(html, players) {
 function parseUpcomingEvents(html) {
   const $ = load(html);
   const events = [];
+  const columns = COLUMNS.upcomingEvents;
 
-  $("table tbody tr").each((_, row) => {
-    const cells = readRowCells($, row);
+  $("table").each((_, table) => {
+    let header;
 
-    if (!isDatedRow(cells, 3)) return;
+    try {
+      header = findHeaderRow(
+        $,
+        table,
+        [
+          columns.date,
+          columns.courtReserveUrl,
+          columns.gameMakerInviteUrl,
+        ],
+        `"Upcoming Events"`
+      );
+    } catch {
+      return;
+    }
 
-    const [dateText, courtReserveText, gameMakerText] = cells;
-    const tableCells = $(row).find("td");
-    const courtReserveUrl =
-      tableCells.eq(1).find("a").attr("href") ?? courtReserveText;
-    const gameMakerUrl =
-      tableCells.eq(2).find("a").attr("href") ?? gameMakerText;
-    const id = parseDateId(dateText, '"Upcoming Events"');
-    const context = `"Upcoming Events" row for ${id}`;
+    $(table)
+      .find("tbody tr")
+      .each((_, row) => {
+        if (row === header.row) return;
 
-    events.push({
-      id,
-      date: id,
-      courtReserveUrl: parseOptionalUrl(
-        courtReserveUrl,
-        "Court Reserve",
-        context
-      ),
-      gameMakerUrl: parseOptionalUrl(gameMakerUrl, "Game Maker", context),
-    });
+        const cells = readRowCells($, row);
+
+        const dateText = getColumn(
+          header.headerMap,
+          cells,
+          columns.date,
+          `"Upcoming Events"`
+        );
+
+        if (!SHEET_DATE_PATTERN.test(dateText)) return;
+
+        const id = parseDateId(
+          dateText,
+          '"Upcoming Events"'
+        );
+
+        const context = `"Upcoming Events" row for ${id}`;
+
+        const tableCells = $(row).find("td");
+
+        const courtReserveIndex = header.headerMap.get(
+          normalizeHeader(columns.courtReserveUrl)
+        );
+
+        const gameMakerIndex = header.headerMap.get(
+          normalizeHeader(columns.gameMakerInviteUrl)
+        );
+
+        const courtReserveText = getColumn(
+          header.headerMap,
+          cells,
+          columns.courtReserveUrl,
+          context
+        );
+
+        const gameMakerText = getColumn(
+          header.headerMap,
+          cells,
+          columns.gameMakerInviteUrl,
+          context
+        );
+
+        const courtReserveUrl =
+          courtReserveIndex === undefined
+            ? courtReserveText
+            : tableCells.eq(courtReserveIndex).find("a").attr("href") ??
+              courtReserveText;
+
+        const gameMakerUrl =
+          gameMakerIndex === undefined
+            ? gameMakerText
+            : tableCells.eq(gameMakerIndex).find("a").attr("href") ??
+              gameMakerText;
+
+        events.push({
+          id,
+          date: id,
+
+          courtReserveUrl: parseOptionalUrl(
+            courtReserveUrl,
+            "Court Reserve",
+            context
+          ),
+
+          gameMakerUrl: parseOptionalUrl(
+            gameMakerUrl,
+            "Game Maker",
+            context
+          ),
+        });
+      });
   });
 
   return events;
@@ -464,37 +960,164 @@ function parseUpcomingEvents(html) {
 function parseEventLog(html, players) {
   const $ = load(html);
   const resultsByEvent = new Map();
+  const columns = COLUMNS.eventLog;
 
-  $("table tbody tr").each((_, row) => {
-    const cells = readRowCells($, row);
+  $("table").each((_, table) => {
+    let header;
 
-    if (!isDatedRow(cells, 12)) return;
-
-    const [
-      dateText,
-      name,
-      pointsText,
-      placeText,
-      courtsText,
-      ...performanceCells
-    ] = cells;
-    const eventId = parseDateId(dateText, '"Event Log"');
-    if (!name) {
-      throw new Error(`Missing player name in "Event Log" row for ${eventId}`);
+    try {
+      header = findHeaderRow(
+        $,
+        table,
+        [
+          columns.date,
+          columns.player,
+          columns.gameMakerPoints,
+          columns.wins,
+          columns.losses,
+          columns.pointsEarned,
+          columns.pointsAgainst,
+          columns.place,
+          columns.points,
+          columns.courts,
+          columns.winRate,
+          columns.pointDifferential,
+        ],
+        `"Event Log"`
+      );
+    } catch {
+      return;
     }
-    const context = `"Event Log" row for ${name} on ${eventId}`;
-    const result = {
-      playerId: players.get(name),
-      name,
-      points: parseRequiredNumber(pointsText, "points", context),
-      place: parseRequiredNumber(placeText, "place", context),
-      courts: parseRequiredNumber(courtsText, "courts", context),
-      ...parsePerformanceStats(performanceCells, context),
-    };
 
-    const eventResults = resultsByEvent.get(eventId) ?? [];
-    eventResults.push(result);
-    resultsByEvent.set(eventId, eventResults);
+    $(table)
+      .find("tbody tr")
+      .each((_, row) => {
+        if (row === header.row) return;
+
+        const cells = readRowCells($, row);
+
+        const dateText = getColumn(
+          header.headerMap,
+          cells,
+          columns.date,
+          `"Event Log"`
+        );
+
+        if (!SHEET_DATE_PATTERN.test(dateText)) return;
+
+        const eventId = parseDateId(
+          dateText,
+          '"Event Log"'
+        );
+
+        const name = getColumn(
+          header.headerMap,
+          cells,
+          columns.player,
+          `"Event Log"`
+        );
+
+        if (!name) {
+          throw new Error(
+            `Missing player name in "Event Log" row for ${eventId}`
+          );
+        }
+
+        const context =
+          `"Event Log" row for ${name} on ${eventId}`;
+
+        const result = {
+          playerId: players.get(name),
+          name,
+
+          points: parseRequiredNumber(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.points,
+              context
+            ),
+            "points",
+            context
+          ),
+
+          place: parseRequiredNumber(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.place,
+              context
+            ),
+            "place",
+            context
+          ),
+
+          courts: parseRequiredNumber(
+            getColumn(
+              header.headerMap,
+              cells,
+              columns.courts,
+              context
+            ),
+            "courts",
+            context
+          ),
+
+          ...parsePerformanceStats(
+            [
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.gameMakerPoints,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.wins,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.losses,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.winRate,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.pointsEarned,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.pointsAgainst,
+                context
+              ),
+              getColumn(
+                header.headerMap,
+                cells,
+                columns.pointDifferential,
+                context
+              ),
+            ],
+            context
+          ),
+        };
+
+        const eventResults =
+          resultsByEvent.get(eventId) ?? [];
+
+        eventResults.push(result);
+        resultsByEvent.set(eventId, eventResults);
+      });
   });
 
   return resultsByEvent;
@@ -502,10 +1125,14 @@ function parseEventLog(html, players) {
 
 function assertUniqueIds(items, context) {
   const seen = new Set();
+
   for (const item of items) {
     if (seen.has(item.id)) {
-      throw new Error(`Duplicate ${context} ID: ${item.id}`);
+      throw new Error(
+        `Duplicate ${context} ID: ${item.id}`
+      );
     }
+
     seen.add(item.id);
   }
 }
@@ -513,11 +1140,21 @@ function assertUniqueIds(items, context) {
 function validatePastEvents(events) {
   for (const event of events) {
     const context = `"Past Events" row for ${event.id}`;
-    if (!Number.isInteger(event.playerCount) || event.playerCount < 1) {
-      throw new Error(`Invalid player count "${event.playerCount}" in ${context}`);
+
+    if (
+      !Number.isInteger(event.playerCount) ||
+      event.playerCount < 1
+    ) {
+      throw new Error(
+        `Invalid player count "${event.playerCount}" in ${context}`
+      );
     }
 
-    const expectedPodiumSize = Math.min(3, event.playerCount);
+    const expectedPodiumSize = Math.min(
+      3,
+      event.playerCount
+    );
+
     if (event.podium.length !== expectedPodiumSize) {
       throw new Error(
         `Expected ${expectedPodiumSize} podium player${
@@ -530,23 +1167,37 @@ function validatePastEvents(events) {
       throw new Error(
         `Expected ${event.playerCount} result${
           event.playerCount === 1 ? "" : "s"
-        } for event ${event.id}, found ${event.results.length}. The sheet may still be updating`
+        } for event ${event.id}, found ${
+          event.results.length
+        }. The sheet may still be updating`
       );
     }
 
-    const playerIds = new Set(event.results.map((result) => result.playerId));
-    const places = new Set(event.results.map((result) => result.place));
+    const playerIds = new Set(
+      event.results.map((result) => result.playerId)
+    );
+
+    const places = new Set(
+      event.results.map((result) => result.place)
+    );
+
     if (
       playerIds.size !== event.results.length ||
       places.size !== event.results.length
     ) {
-      throw new Error(`Duplicate player or place in results for event ${event.id}`);
+      throw new Error(
+        `Duplicate player or place in results for event ${event.id}`
+      );
     }
   }
 }
 
-function validateAllTimeEventCounts(allTimeRankings, pastEvents) {
+function validateAllTimeEventCounts(
+  allTimeRankings,
+  pastEvents
+) {
   const resultCounts = new Map();
+
   for (const event of pastEvents) {
     for (const result of event.results) {
       resultCounts.set(
@@ -559,6 +1210,7 @@ function validateAllTimeEventCounts(allTimeRankings, pastEvents) {
   const rankingsById = new Map(
     allTimeRankings.map((player) => [player.id, player])
   );
+
   for (const playerId of resultCounts.keys()) {
     if (!rankingsById.has(playerId)) {
       throw new Error(
@@ -568,12 +1220,16 @@ function validateAllTimeEventCounts(allTimeRankings, pastEvents) {
   }
 
   for (const player of allTimeRankings) {
-    const resultCount = resultCounts.get(player.id) ?? 0;
+    const resultCount =
+      resultCounts.get(player.id) ?? 0;
+
     if (player.events !== resultCount) {
       throw new Error(
         `"All Time" lists ${player.events} event${
           player.events === 1 ? "" : "s"
-        } for ${player.name}, but Event Log contains ${resultCount}. The sheet tabs may still be updating`
+        } for ${player.name}, but Event Log contains ${
+          resultCount
+        }. The sheet tabs may still be updating`
       );
     }
   }
@@ -585,13 +1241,16 @@ function validateSnapshotProgress(snapshot, previous) {
   const eventsById = new Map(
     snapshot.events.past.map((event) => [event.id, event])
   );
+
   for (const previousEvent of previous.events.past) {
     const event = eventsById.get(previousEvent.id);
+
     if (!event) {
       throw new Error(
         `Past event ${previousEvent.id} is missing from the new snapshot, which appears stale`
       );
     }
+
     if (event.playerCount < previousEvent.playerCount) {
       throw new Error(
         `Past event ${event.id} regressed from ${previousEvent.playerCount} to ${event.playerCount} players`
@@ -602,15 +1261,21 @@ function validateSnapshotProgress(snapshot, previous) {
 
 async function scrapeSnapshot(gids, requiredTabs) {
   const cacheBust = Date.now();
+
   const htmlByTab = Object.fromEntries(
     await Promise.all(
       requiredTabs.map(async (tabName) => {
-        console.log(`Fetching "${tabName}" (gid=${gids[tabName]})...`);
+        console.log(
+          `Fetching "${tabName}" (gid=${gids[tabName]})...`
+        );
+
         const html = await fetchHtml(
           `${BASE}/sheet?gid=${gids[tabName]}&cacheBust=${cacheBust}`,
           `"${tabName}"`
         );
+
         assertSheetTable(html, tabName);
+
         return [tabName, html];
       })
     )
@@ -618,6 +1283,7 @@ async function scrapeSnapshot(gids, requiredTabs) {
 
   const playerRegistry = createPlayerRegistry();
   const views = {};
+
   for (const [tabName, slug] of Object.entries(VIEWS)) {
     const rankings = parseRankingTable(
       htmlByTab[tabName],
@@ -626,23 +1292,34 @@ async function scrapeSnapshot(gids, requiredTabs) {
     );
 
     views[slug] = rankings;
+
     if (rankings.length === 0) {
-      console.log(`  0 players in "${tabName}" (empty ranking view)`);
+      console.log(
+        `  0 players in "${tabName}" (empty ranking view)`
+      );
     } else {
-      console.log(`  ${rankings.length} players in "${tabName}"`);
+      console.log(
+        `  ${rankings.length} players in "${tabName}"`
+      );
     }
   }
 
-  const playerDataTab = PLAYER_DATA_TABS.find((tabName) => htmlByTab[tabName]);
+  const playerDataTab = PLAYER_DATA_TABS.find(
+    (tabName) => htmlByTab[tabName]
+  );
+
   if (playerDataTab) {
     const profiles = parsePlayerDataTable(
       htmlByTab[playerDataTab],
       playerRegistry
     );
+
     for (const ranking of Object.values(views)) {
       for (const player of ranking) {
         const profile = profiles.get(player.id);
+
         if (!profile) continue;
+
         if (profile.photo) {
           player.photoUrl = parseOptionalUrl(
             profile.photo,
@@ -650,6 +1327,7 @@ async function scrapeSnapshot(gids, requiredTabs) {
             player.name
           );
         }
+
         if (profile.gameMakerProfile) {
           player.gameMakerProfileUrl = parseOptionalUrl(
             profile.gameMakerProfile,
@@ -661,15 +1339,30 @@ async function scrapeSnapshot(gids, requiredTabs) {
     }
   }
 
-  const past = parsePastEvents(htmlByTab["Past Events"], playerRegistry);
-  const upcoming = parseUpcomingEvents(htmlByTab["Upcoming Events"]);
-  const resultsByEvent = parseEventLog(htmlByTab["Event Log"], playerRegistry);
+  const past = parsePastEvents(
+    htmlByTab["Past Events"],
+    playerRegistry
+  );
+
+  const upcoming = parseUpcomingEvents(
+    htmlByTab["Upcoming Events"]
+  );
+
+  const resultsByEvent = parseEventLog(
+    htmlByTab["Event Log"],
+    playerRegistry
+  );
+
   assertUniqueIds(past, "past event");
   assertUniqueIds(upcoming, "upcoming event");
-  const pastEventIds = new Set(past.map((event) => event.id));
-  const unmatchedResultDates = [...resultsByEvent.keys()].filter(
-    (eventId) => !pastEventIds.has(eventId)
+
+  const pastEventIds = new Set(
+    past.map((event) => event.id)
   );
+
+  const unmatchedResultDates = [
+    ...resultsByEvent.keys(),
+  ].filter((eventId) => !pastEventIds.has(eventId));
 
   if (unmatchedResultDates.length > 0) {
     throw new Error(
@@ -680,46 +1373,85 @@ async function scrapeSnapshot(gids, requiredTabs) {
   }
 
   for (const event of past) {
-    event.results = (resultsByEvent.get(event.id) ?? []).sort(
-      (a, b) => a.place - b.place
-    );
+    event.results = (
+      resultsByEvent.get(event.id) ?? []
+    ).sort((a, b) => a.place - b.place);
   }
+
   validatePastEvents(past);
-  validateAllTimeEventCounts(views["all-time"], past);
+  validateAllTimeEventCounts(
+    views["all-time"],
+    past
+  );
 
-  past.sort((a, b) => b.date.localeCompare(a.date));
-  upcoming.sort((a, b) => a.date.localeCompare(b.date));
-  const events = { upcoming, past };
-  console.log(`  ${upcoming.length} upcoming events`);
-  console.log(`  ${past.length} past events`);
+  past.sort((a, b) =>
+    b.date.localeCompare(a.date)
+  );
 
-  return { views, events };
+  upcoming.sort((a, b) =>
+    a.date.localeCompare(b.date)
+  );
+
+  const events = {
+    upcoming,
+    past,
+  };
+
+  console.log(
+    `  ${upcoming.length} upcoming events`
+  );
+
+  console.log(
+    `  ${past.length} past events`
+  );
+
+  return {
+    views,
+    events,
+  };
 }
 
 async function scrape() {
   console.log("Discovering sheet tabs...");
-  const menuHtml = await fetchHtml(BASE, "published sheet menu");
+
+  const menuHtml = await fetchHtml(
+    BASE,
+    "published sheet menu"
+  );
+
   const gids = parseTabGids(menuHtml);
-  const playerDataTab = PLAYER_DATA_TABS.find((tabName) => gids[tabName]);
+
+  const playerDataTab = PLAYER_DATA_TABS.find(
+    (tabName) => gids[tabName]
+  );
+
   const requiredTabs = [
     ...Object.keys(VIEWS),
     ...EVENT_TABS,
     ...(playerDataTab ? [playerDataTab] : []),
   ];
-  const missingTabs = requiredTabs.filter((tabName) => !gids[tabName]);
+
+  const missingTabs = requiredTabs.filter(
+    (tabName) => !gids[tabName]
+  );
 
   if (missingTabs.length > 0) {
     throw new Error(
-      `Missing published tabs: ${missingTabs.join(", ")}. Available tabs: ${
+      `Missing published tabs: ${missingTabs.join(
+        ", "
+      )}. Available tabs: ${
         Object.keys(gids).join(", ") || "(none)"
       }`
     );
   }
 
   let previous = null;
+
   if (existsSync(OUTPUT_PATH)) {
     try {
-      previous = JSON.parse(readFileSync(OUTPUT_PATH, "utf8"));
+      previous = JSON.parse(
+        readFileSync(OUTPUT_PATH, "utf8")
+      );
     } catch (error) {
       console.warn(
         `Could not read existing ${OUTPUT_PATH}; it will be replaced after a valid scrape: ${error.message}`
@@ -729,30 +1461,50 @@ async function scrape() {
 
   let snapshot;
   let snapshotError;
-  for (let attempt = 1; attempt <= SNAPSHOT_ATTEMPTS; attempt += 1) {
+
+  for (
+    let attempt = 1;
+    attempt <= SNAPSHOT_ATTEMPTS;
+    attempt += 1
+  ) {
     try {
-      snapshot = await scrapeSnapshot(gids, requiredTabs);
-      validateSnapshotProgress(snapshot, previous);
+      snapshot = await scrapeSnapshot(
+        gids,
+        requiredTabs
+      );
+
+      validateSnapshotProgress(
+        snapshot,
+        previous
+      );
+
       break;
     } catch (error) {
       snapshotError = error;
+
       if (attempt === SNAPSHOT_ATTEMPTS) break;
 
       console.warn(
         `Snapshot attempt ${attempt}/${SNAPSHOT_ATTEMPTS} failed (${error.message}); retrying all tabs in ${SNAPSHOT_RETRY_DELAY_MS}ms...`
       );
-      await wait(SNAPSHOT_RETRY_DELAY_MS);
+
+      await wait(
+        SNAPSHOT_RETRY_DELAY_MS
+      );
     }
   }
 
   if (!snapshot) {
     throw new Error(
-      `Could not produce a consistent sheet snapshot after ${SNAPSHOT_ATTEMPTS} attempts: ${snapshotError?.message ?? "unknown error"}`,
+      `Could not produce a consistent sheet snapshot after ${SNAPSHOT_ATTEMPTS} attempts: ${
+        snapshotError?.message ?? "unknown error"
+      }`,
       { cause: snapshotError }
     );
   }
 
   const { views, events } = snapshot;
+
   const data = {
     scrapedAt: new Date().toISOString(),
     source: BASE,
@@ -760,27 +1512,53 @@ async function scrape() {
     events,
   };
 
-  // No-op if the rankings are unchanged, so the hourly workflow only commits
-  // and redeploys when the data actually differs. The scrapedAt timestamp is
-  // ignored in this comparison since it changes every run.
+  // No-op if the rankings are unchanged, so the hourly workflow only
+  // commits and redeploys when the data actually differs.
+  // The scrapedAt timestamp is ignored in this comparison since it
+  // changes every run.
   if (
     previous &&
-    JSON.stringify({ views: previous.views, events: previous.events }) ===
-      JSON.stringify({ views, events })
+    JSON.stringify({
+      views: previous.views,
+      events: previous.events,
+    }) ===
+      JSON.stringify({
+        views,
+        events,
+      })
   ) {
-    console.log("No change in league data — leaving leaderboard.json untouched");
+    console.log(
+      "No change in league data — leaving leaderboard.json untouched"
+    );
+
     return;
   }
 
-  mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
+  mkdirSync(dirname(OUTPUT_PATH), {
+    recursive: true,
+  });
+
   const temporaryPath = `${OUTPUT_PATH}.tmp`;
+
   try {
-    writeFileSync(temporaryPath, JSON.stringify(data, null, 2));
-    renameSync(temporaryPath, OUTPUT_PATH);
+    writeFileSync(
+      temporaryPath,
+      JSON.stringify(data, null, 2)
+    );
+
+    renameSync(
+      temporaryPath,
+      OUTPUT_PATH
+    );
   } finally {
-    if (existsSync(temporaryPath)) unlinkSync(temporaryPath);
+    if (existsSync(temporaryPath)) {
+      unlinkSync(temporaryPath);
+    }
   }
-  console.log(`Wrote ${OUTPUT_PATH}`);
+
+  console.log(
+    `Wrote ${OUTPUT_PATH}`
+  );
 }
 
 scrape().catch((err) => {
