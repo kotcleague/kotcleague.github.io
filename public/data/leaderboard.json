@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-05T18:18:12.196Z",
+  "scrapedAt": "2026-09-06T12:37:50.500Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [],
@@ -125,9 +125,9 @@
         "gameMakerProfileUrl": null
       },
       {
-        "id": "mat-sevilla",
+        "id": "mati-sevilla",
         "rank": 7,
-        "name": "Mat Sevilla",
+        "name": "Mati Sevilla",
         "points": 400,
         "events": 1,
         "gameMakerPoints": 2772,
@@ -367,9 +367,9 @@
         "gameMakerProfileUrl": null
       },
       {
-        "id": "mat-sevilla",
+        "id": "mati-sevilla",
         "rank": 7,
-        "name": "Mat Sevilla",
+        "name": "Mati Sevilla",
         "points": 400,
         "events": 1,
         "gameMakerPoints": 2772,
@@ -651,8 +651,8 @@
             "pointDifferential": 5.35
           },
           {
-            "playerId": "mat-sevilla",
-            "name": "Mat Sevilla",
+            "playerId": "mati-sevilla",
+            "name": "Mati Sevilla",
             "points": 400,
             "place": 7,
             "courts": 3,
