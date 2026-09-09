@@ -1,242 +1,81 @@
 {
-  "scrapedAt": "2026-09-07T23:29:54.195Z",
+  "scrapedAt": "2026-09-09T02:51:29.160Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
-    "current-month": [],
-    "past-30-days": [
+    "current-month": [
       {
-        "id": "ivan-gutierrez",
+        "id": "chase-blickhan",
         "rank": 1,
-        "name": "Ivan Gutierrez",
-        "points": 1500,
+        "name": "Chase Blickhan",
+        "points": 500,
         "events": 1,
-        "gameMakerPoints": 5630,
-        "wins": 6,
+        "gameMakerPoints": 5200,
+        "wins": 5,
         "losses": 1,
-        "winRate": 85.71428571,
-        "pointsEarned": 71,
-        "pointsAgainst": 41,
-        "pointDifferential": 26.78571429,
+        "winRate": 83.33333333,
+        "pointsEarned": 123,
+        "pointsAgainst": 109,
+        "pointDifferential": 6.034482759,
         "move": {
           "dir": "none",
           "places": 0
         },
         "photoUrl": null,
-        "gameMakerProfileUrl": "https://pkl.fan/IujycB"
+        "gameMakerProfileUrl": null
       },
       {
         "id": "jon-harris",
         "rank": 2,
         "name": "Jon Harris",
-        "points": 1200,
-        "events": 1,
-        "gameMakerPoints": 4258,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57.14285714,
-        "pointsEarned": 59,
-        "pointsAgainst": 53,
-        "pointDifferential": 5.357142857,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null,
-        "gameMakerProfileUrl": null
-      },
-      {
-        "id": "dev-newsome",
-        "rank": 3,
-        "name": "Dev Newsome",
-        "points": 900,
-        "events": 1,
-        "gameMakerPoints": 4055,
-        "wins": 5,
-        "losses": 2,
-        "winRate": 71.42857143,
-        "pointsEarned": 65,
-        "pointsAgainst": 47,
-        "pointDifferential": 16.07142857,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null,
-        "gameMakerProfileUrl": "https://pkl.fan/5Z6XZC"
-      },
-      {
-        "id": "james-brown",
-        "rank": 4,
-        "name": "James Brown",
-        "points": 750,
-        "events": 1,
-        "gameMakerPoints": 3670,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57.14285714,
-        "pointsEarned": 59,
-        "pointsAgainst": 53,
-        "pointDifferential": 5.357142857,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null,
-        "gameMakerProfileUrl": null
-      },
-      {
-        "id": "preston-langlois",
-        "rank": 5,
-        "name": "Preston Langlois",
-        "points": 600,
-        "events": 1,
-        "gameMakerPoints": 3629,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57.14285714,
-        "pointsEarned": 59,
-        "pointsAgainst": 53,
-        "pointDifferential": 5.357142857,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null,
-        "gameMakerProfileUrl": null
-      },
-      {
-        "id": "orlando-paez",
-        "rank": 6,
-        "name": "Orlando Paez",
-        "points": 500,
-        "events": 1,
-        "gameMakerPoints": 2936,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57.14285714,
-        "pointsEarned": 59,
-        "pointsAgainst": 53,
-        "pointDifferential": 5.357142857,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null,
-        "gameMakerProfileUrl": null
-      },
-      {
-        "id": "mati-sevilla",
-        "rank": 7,
-        "name": "Mati Sevilla",
         "points": 400,
         "events": 1,
-        "gameMakerPoints": 2772,
-        "wins": 3,
-        "losses": 4,
-        "winRate": 42.85714286,
-        "pointsEarned": 53,
-        "pointsAgainst": 59,
-        "pointDifferential": -5.357142857,
+        "gameMakerPoints": 4400,
+        "wins": 4,
+        "losses": 2,
+        "winRate": 66.66666667,
+        "pointsEarned": 124,
+        "pointsAgainst": 108,
+        "pointDifferential": 6.896551724,
         "move": {
           "dir": "none",
           "places": 0
         },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/14a659bd-dd4a-43ee-849f-c3317c2b4a42/6fd6e0a3-01fa-4f25-b47a-98a4301a6440.jpg",
+        "photoUrl": null,
         "gameMakerProfileUrl": null
       },
       {
-        "id": "tobi-ola",
-        "rank": 8,
-        "name": "Tobi Ola",
+        "id": "michael-fan",
+        "rank": 3,
+        "name": "Michael Fan",
         "points": 300,
         "events": 1,
-        "gameMakerPoints": 2469,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57.14285714,
-        "pointsEarned": 59,
-        "pointsAgainst": 53,
-        "pointDifferential": 5.357142857,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/a37ce612-3baa-48a8-9b54-17b43bb72141/7dad9400-330b-4744-bea1-ff8d77e2c5da.jpg",
-        "gameMakerProfileUrl": "https://pkl.fan/WRgeOs"
-      },
-      {
-        "id": "derek-dallas",
-        "rank": 9,
-        "name": "Derek Dallas",
-        "points": 250,
-        "events": 1,
-        "gameMakerPoints": 2177,
+        "gameMakerPoints": 2800,
         "wins": 2,
-        "losses": 5,
-        "winRate": 28.57142857,
-        "pointsEarned": 47,
-        "pointsAgainst": 65,
-        "pointDifferential": -16.07142857,
+        "losses": 4,
+        "winRate": 33.33333333,
+        "pointsEarned": 108,
+        "pointsAgainst": 124,
+        "pointDifferential": -6.896551724,
         "move": {
           "dir": "none",
           "places": 0
         },
         "photoUrl": null,
-        "gameMakerProfileUrl": null
-      },
-      {
-        "id": "michael-randle",
-        "rank": 10,
-        "name": "Michael Randle",
-        "points": 200,
-        "events": 1,
-        "gameMakerPoints": 2159,
-        "wins": 2,
-        "losses": 5,
-        "winRate": 28.57142857,
-        "pointsEarned": 47,
-        "pointsAgainst": 65,
-        "pointDifferential": -16.07142857,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null,
-        "gameMakerProfileUrl": null
+        "gameMakerProfileUrl": "https://pkl.fan/jYFLer"
       },
       {
         "id": "sam-ngo",
-        "rank": 11,
+        "rank": 4,
         "name": "Sam Ngo",
-        "points": 150,
+        "points": 250,
         "events": 1,
-        "gameMakerPoints": 1974,
-        "wins": 2,
+        "gameMakerPoints": 2000,
+        "wins": 1,
         "losses": 5,
-        "winRate": 28.57142857,
-        "pointsEarned": 47,
-        "pointsAgainst": 65,
-        "pointDifferential": -16.07142857,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null,
-        "gameMakerProfileUrl": null
-      },
-      {
-        "id": "jon-richert",
-        "rank": 12,
-        "name": "Jon Richert",
-        "points": 125,
-        "events": 1,
-        "gameMakerPoints": 1751,
-        "wins": 2,
-        "losses": 5,
-        "winRate": 28.57142857,
-        "pointsEarned": 47,
-        "pointsAgainst": 65,
-        "pointDifferential": -16.07142857,
+        "winRate": 16.66666667,
+        "pointsEarned": 109,
+        "pointsAgainst": 123,
+        "pointDifferential": -6.034482759,
         "move": {
           "dir": "none",
           "places": 0
@@ -245,10 +84,30 @@
         "gameMakerProfileUrl": null
       }
     ],
-    "all-time": [
+    "past-30-days": [
+      {
+        "id": "jon-harris",
+        "rank": 1,
+        "name": "Jon Harris",
+        "points": 1600,
+        "events": 2,
+        "gameMakerPoints": 8658,
+        "wins": 8,
+        "losses": 5,
+        "winRate": 61.53846154,
+        "pointsEarned": 135,
+        "pointsAgainst": 118,
+        "pointDifferential": 6.719367589,
+        "move": {
+          "dir": "up",
+          "places": 1
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
       {
         "id": "ivan-gutierrez",
-        "rank": 1,
+        "rank": 2,
         "name": "Ivan Gutierrez",
         "points": 1500,
         "events": 1,
@@ -256,35 +115,15 @@
         "wins": 6,
         "losses": 1,
         "winRate": 85.71428571,
-        "pointsEarned": 71,
-        "pointsAgainst": 41,
-        "pointDifferential": 26.78571429,
+        "pointsEarned": 13,
+        "pointsAgainst": 8,
+        "pointDifferential": 23.80952381,
         "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "down",
+          "places": 1
         },
         "photoUrl": null,
         "gameMakerProfileUrl": "https://pkl.fan/IujycB"
-      },
-      {
-        "id": "jon-harris",
-        "rank": 2,
-        "name": "Jon Harris",
-        "points": 1200,
-        "events": 1,
-        "gameMakerPoints": 4258,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57.14285714,
-        "pointsEarned": 59,
-        "pointsAgainst": 53,
-        "pointDifferential": 5.357142857,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null,
-        "gameMakerProfileUrl": null
       },
       {
         "id": "dev-newsome",
@@ -296,9 +135,9 @@
         "wins": 5,
         "losses": 2,
         "winRate": 71.42857143,
-        "pointsEarned": 65,
-        "pointsAgainst": 47,
-        "pointDifferential": 16.07142857,
+        "pointsEarned": 12,
+        "pointsAgainst": 9,
+        "pointDifferential": 14.28571429,
         "move": {
           "dir": "none",
           "places": 0
@@ -316,9 +155,9 @@
         "wins": 4,
         "losses": 3,
         "winRate": 57.14285714,
-        "pointsEarned": 59,
-        "pointsAgainst": 53,
-        "pointDifferential": 5.357142857,
+        "pointsEarned": 11,
+        "pointsAgainst": 10,
+        "pointDifferential": 4.761904762,
         "move": {
           "dir": "none",
           "places": 0
@@ -336,9 +175,29 @@
         "wins": 4,
         "losses": 3,
         "winRate": 57.14285714,
-        "pointsEarned": 59,
-        "pointsAgainst": 53,
-        "pointDifferential": 5.357142857,
+        "pointsEarned": 11,
+        "pointsAgainst": 10,
+        "pointDifferential": 4.761904762,
+        "move": {
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "chase-blickhan",
+        "rank": 6,
+        "name": "Chase Blickhan",
+        "points": 500,
+        "events": 1,
+        "gameMakerPoints": 5200,
+        "wins": 5,
+        "losses": 1,
+        "winRate": 83.33333333,
+        "pointsEarned": 123,
+        "pointsAgainst": 109,
+        "pointDifferential": 6.034482759,
         "move": {
           "dir": "none",
           "places": 0
@@ -348,7 +207,7 @@
       },
       {
         "id": "orlando-paez",
-        "rank": 6,
+        "rank": 7,
         "name": "Orlando Paez",
         "points": 500,
         "events": 1,
@@ -356,9 +215,9 @@
         "wins": 4,
         "losses": 3,
         "winRate": 57.14285714,
-        "pointsEarned": 59,
-        "pointsAgainst": 53,
-        "pointDifferential": 5.357142857,
+        "pointsEarned": 11,
+        "pointsAgainst": 10,
+        "pointDifferential": 4.761904762,
         "move": {
           "dir": "none",
           "places": 0
@@ -368,7 +227,7 @@
       },
       {
         "id": "mati-sevilla",
-        "rank": 7,
+        "rank": 8,
         "name": "Mati Sevilla",
         "points": 400,
         "events": 1,
@@ -376,19 +235,59 @@
         "wins": 3,
         "losses": 4,
         "winRate": 42.85714286,
-        "pointsEarned": 53,
-        "pointsAgainst": 59,
-        "pointDifferential": -5.357142857,
+        "pointsEarned": 10,
+        "pointsAgainst": 11,
+        "pointDifferential": -4.761904762,
         "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "down",
+          "places": 1
         },
         "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/14a659bd-dd4a-43ee-849f-c3317c2b4a42/6fd6e0a3-01fa-4f25-b47a-98a4301a6440.jpg",
         "gameMakerProfileUrl": null
       },
       {
+        "id": "sam-ngo",
+        "rank": 9,
+        "name": "Sam Ngo",
+        "points": 400,
+        "events": 2,
+        "gameMakerPoints": 3974,
+        "wins": 3,
+        "losses": 10,
+        "winRate": 23.07692308,
+        "pointsEarned": 118,
+        "pointsAgainst": 135,
+        "pointDifferential": -6.719367589,
+        "move": {
+          "dir": "up",
+          "places": 3
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "michael-fan",
+        "rank": 10,
+        "name": "Michael Fan",
+        "points": 300,
+        "events": 1,
+        "gameMakerPoints": 2800,
+        "wins": 2,
+        "losses": 4,
+        "winRate": 33.33333333,
+        "pointsEarned": 108,
+        "pointsAgainst": 124,
+        "pointDifferential": -6.896551724,
+        "move": {
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": "https://pkl.fan/jYFLer"
+      },
+      {
         "id": "tobi-ola",
-        "rank": 8,
+        "rank": 11,
         "name": "Tobi Ola",
         "points": 300,
         "events": 1,
@@ -396,19 +295,19 @@
         "wins": 4,
         "losses": 3,
         "winRate": 57.14285714,
-        "pointsEarned": 59,
-        "pointsAgainst": 53,
-        "pointDifferential": 5.357142857,
+        "pointsEarned": 11,
+        "pointsAgainst": 10,
+        "pointDifferential": 4.761904762,
         "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "down",
+          "places": 2
         },
         "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/a37ce612-3baa-48a8-9b54-17b43bb72141/7dad9400-330b-4744-bea1-ff8d77e2c5da.jpg",
         "gameMakerProfileUrl": "https://pkl.fan/WRgeOs"
       },
       {
         "id": "derek-dallas",
-        "rank": 9,
+        "rank": 12,
         "name": "Derek Dallas",
         "points": 250,
         "events": 1,
@@ -416,19 +315,19 @@
         "wins": 2,
         "losses": 5,
         "winRate": 28.57142857,
-        "pointsEarned": 47,
-        "pointsAgainst": 65,
-        "pointDifferential": -16.07142857,
+        "pointsEarned": 9,
+        "pointsAgainst": 12,
+        "pointDifferential": -14.28571429,
         "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "down",
+          "places": 3
         },
         "photoUrl": null,
         "gameMakerProfileUrl": null
       },
       {
         "id": "michael-randle",
-        "rank": 10,
+        "rank": 13,
         "name": "Michael Randle",
         "points": 200,
         "events": 1,
@@ -436,39 +335,19 @@
         "wins": 2,
         "losses": 5,
         "winRate": 28.57142857,
-        "pointsEarned": 47,
-        "pointsAgainst": 65,
-        "pointDifferential": -16.07142857,
+        "pointsEarned": 9,
+        "pointsAgainst": 12,
+        "pointDifferential": -14.28571429,
         "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null,
-        "gameMakerProfileUrl": null
-      },
-      {
-        "id": "sam-ngo",
-        "rank": 11,
-        "name": "Sam Ngo",
-        "points": 150,
-        "events": 1,
-        "gameMakerPoints": 1974,
-        "wins": 2,
-        "losses": 5,
-        "winRate": 28.57142857,
-        "pointsEarned": 47,
-        "pointsAgainst": 65,
-        "pointDifferential": -16.07142857,
-        "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "down",
+          "places": 3
         },
         "photoUrl": null,
         "gameMakerProfileUrl": null
       },
       {
         "id": "jon-richert",
-        "rank": 12,
+        "rank": 14,
         "name": "Jon Richert",
         "points": 125,
         "events": 1,
@@ -476,12 +355,294 @@
         "wins": 2,
         "losses": 5,
         "winRate": 28.57142857,
-        "pointsEarned": 47,
-        "pointsAgainst": 65,
-        "pointDifferential": -16.07142857,
+        "pointsEarned": 9,
+        "pointsAgainst": 12,
+        "pointDifferential": -14.28571429,
+        "move": {
+          "dir": "down",
+          "places": 2
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      }
+    ],
+    "all-time": [
+      {
+        "id": "jon-harris",
+        "rank": 1,
+        "name": "Jon Harris",
+        "points": 1600,
+        "events": 2,
+        "gameMakerPoints": 8658,
+        "wins": 8,
+        "losses": 5,
+        "winRate": 61.53846154,
+        "pointsEarned": 135,
+        "pointsAgainst": 118,
+        "pointDifferential": 6.719367589,
+        "move": {
+          "dir": "up",
+          "places": 1
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "ivan-gutierrez",
+        "rank": 2,
+        "name": "Ivan Gutierrez",
+        "points": 1500,
+        "events": 1,
+        "gameMakerPoints": 5630,
+        "wins": 6,
+        "losses": 1,
+        "winRate": 85.71428571,
+        "pointsEarned": 13,
+        "pointsAgainst": 8,
+        "pointDifferential": 23.80952381,
+        "move": {
+          "dir": "down",
+          "places": 1
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": "https://pkl.fan/IujycB"
+      },
+      {
+        "id": "dev-newsome",
+        "rank": 3,
+        "name": "Dev Newsome",
+        "points": 900,
+        "events": 1,
+        "gameMakerPoints": 4055,
+        "wins": 5,
+        "losses": 2,
+        "winRate": 71.42857143,
+        "pointsEarned": 12,
+        "pointsAgainst": 9,
+        "pointDifferential": 14.28571429,
         "move": {
           "dir": "none",
           "places": 0
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": "https://pkl.fan/5Z6XZC"
+      },
+      {
+        "id": "james-brown",
+        "rank": 4,
+        "name": "James Brown",
+        "points": 750,
+        "events": 1,
+        "gameMakerPoints": 3670,
+        "wins": 4,
+        "losses": 3,
+        "winRate": 57.14285714,
+        "pointsEarned": 11,
+        "pointsAgainst": 10,
+        "pointDifferential": 4.761904762,
+        "move": {
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "preston-langlois",
+        "rank": 5,
+        "name": "Preston Langlois",
+        "points": 600,
+        "events": 1,
+        "gameMakerPoints": 3629,
+        "wins": 4,
+        "losses": 3,
+        "winRate": 57.14285714,
+        "pointsEarned": 11,
+        "pointsAgainst": 10,
+        "pointDifferential": 4.761904762,
+        "move": {
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "chase-blickhan",
+        "rank": 6,
+        "name": "Chase Blickhan",
+        "points": 500,
+        "events": 1,
+        "gameMakerPoints": 5200,
+        "wins": 5,
+        "losses": 1,
+        "winRate": 83.33333333,
+        "pointsEarned": 123,
+        "pointsAgainst": 109,
+        "pointDifferential": 6.034482759,
+        "move": {
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "orlando-paez",
+        "rank": 7,
+        "name": "Orlando Paez",
+        "points": 500,
+        "events": 1,
+        "gameMakerPoints": 2936,
+        "wins": 4,
+        "losses": 3,
+        "winRate": 57.14285714,
+        "pointsEarned": 11,
+        "pointsAgainst": 10,
+        "pointDifferential": 4.761904762,
+        "move": {
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "mati-sevilla",
+        "rank": 8,
+        "name": "Mati Sevilla",
+        "points": 400,
+        "events": 1,
+        "gameMakerPoints": 2772,
+        "wins": 3,
+        "losses": 4,
+        "winRate": 42.85714286,
+        "pointsEarned": 10,
+        "pointsAgainst": 11,
+        "pointDifferential": -4.761904762,
+        "move": {
+          "dir": "down",
+          "places": 1
+        },
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/14a659bd-dd4a-43ee-849f-c3317c2b4a42/6fd6e0a3-01fa-4f25-b47a-98a4301a6440.jpg",
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "sam-ngo",
+        "rank": 9,
+        "name": "Sam Ngo",
+        "points": 400,
+        "events": 2,
+        "gameMakerPoints": 3974,
+        "wins": 3,
+        "losses": 10,
+        "winRate": 23.07692308,
+        "pointsEarned": 118,
+        "pointsAgainst": 135,
+        "pointDifferential": -6.719367589,
+        "move": {
+          "dir": "up",
+          "places": 3
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "michael-fan",
+        "rank": 10,
+        "name": "Michael Fan",
+        "points": 300,
+        "events": 1,
+        "gameMakerPoints": 2800,
+        "wins": 2,
+        "losses": 4,
+        "winRate": 33.33333333,
+        "pointsEarned": 108,
+        "pointsAgainst": 124,
+        "pointDifferential": -6.896551724,
+        "move": {
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": "https://pkl.fan/jYFLer"
+      },
+      {
+        "id": "tobi-ola",
+        "rank": 11,
+        "name": "Tobi Ola",
+        "points": 300,
+        "events": 1,
+        "gameMakerPoints": 2469,
+        "wins": 4,
+        "losses": 3,
+        "winRate": 57.14285714,
+        "pointsEarned": 11,
+        "pointsAgainst": 10,
+        "pointDifferential": 4.761904762,
+        "move": {
+          "dir": "down",
+          "places": 2
+        },
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/a37ce612-3baa-48a8-9b54-17b43bb72141/7dad9400-330b-4744-bea1-ff8d77e2c5da.jpg",
+        "gameMakerProfileUrl": "https://pkl.fan/WRgeOs"
+      },
+      {
+        "id": "derek-dallas",
+        "rank": 12,
+        "name": "Derek Dallas",
+        "points": 250,
+        "events": 1,
+        "gameMakerPoints": 2177,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 9,
+        "pointsAgainst": 12,
+        "pointDifferential": -14.28571429,
+        "move": {
+          "dir": "down",
+          "places": 3
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "michael-randle",
+        "rank": 13,
+        "name": "Michael Randle",
+        "points": 200,
+        "events": 1,
+        "gameMakerPoints": 2159,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 9,
+        "pointsAgainst": 12,
+        "pointDifferential": -14.28571429,
+        "move": {
+          "dir": "down",
+          "places": 3
+        },
+        "photoUrl": null,
+        "gameMakerProfileUrl": null
+      },
+      {
+        "id": "jon-richert",
+        "rank": 14,
+        "name": "Jon Richert",
+        "points": 125,
+        "events": 1,
+        "gameMakerPoints": 1751,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 28.57142857,
+        "pointsEarned": 9,
+        "pointsAgainst": 12,
+        "pointDifferential": -14.28571429,
+        "move": {
+          "dir": "down",
+          "places": 2
         },
         "photoUrl": null,
         "gameMakerProfileUrl": null
@@ -541,6 +702,90 @@
     ],
     "past": [
       {
+        "id": "2026-09-08",
+        "date": "2026-09-08",
+        "playerCount": 4,
+        "courts": 1,
+        "games": 6,
+        "maxPointsEarnable": 500,
+        "rounds": 6,
+        "podium": [
+          {
+            "place": 1,
+            "playerId": "chase-blickhan",
+            "name": "Chase Blickhan"
+          },
+          {
+            "place": 2,
+            "playerId": "jon-harris",
+            "name": "Jon Harris"
+          },
+          {
+            "place": 3,
+            "playerId": "michael-fan",
+            "name": "Michael Fan"
+          }
+        ],
+        "results": [
+          {
+            "playerId": "chase-blickhan",
+            "name": "Chase Blickhan",
+            "points": 500,
+            "place": 1,
+            "courts": 1,
+            "gameMakerPoints": 5200,
+            "wins": 5,
+            "losses": 1,
+            "winRate": 83.33,
+            "pointsEarned": 123,
+            "pointsAgainst": 109,
+            "pointDifferential": 6.03
+          },
+          {
+            "playerId": "jon-harris",
+            "name": "Jon Harris",
+            "points": 400,
+            "place": 2,
+            "courts": 1,
+            "gameMakerPoints": 4400,
+            "wins": 4,
+            "losses": 2,
+            "winRate": 66.66,
+            "pointsEarned": 124,
+            "pointsAgainst": 108,
+            "pointDifferential": 6.89
+          },
+          {
+            "playerId": "michael-fan",
+            "name": "Michael Fan",
+            "points": 300,
+            "place": 3,
+            "courts": 1,
+            "gameMakerPoints": 2800,
+            "wins": 2,
+            "losses": 4,
+            "winRate": 33.33,
+            "pointsEarned": 108,
+            "pointsAgainst": 124,
+            "pointDifferential": -6.9
+          },
+          {
+            "playerId": "sam-ngo",
+            "name": "Sam Ngo",
+            "points": 250,
+            "place": 4,
+            "courts": 1,
+            "gameMakerPoints": 2000,
+            "wins": 1,
+            "losses": 5,
+            "winRate": 16.66,
+            "pointsEarned": 109,
+            "pointsAgainst": 123,
+            "pointDifferential": -6.04
+          }
+        ]
+      },
+      {
         "id": "2026-08-24",
         "date": "2026-08-24",
         "playerCount": 12,
@@ -576,9 +821,9 @@
             "wins": 6,
             "losses": 1,
             "winRate": 85.71,
-            "pointsEarned": 71,
-            "pointsAgainst": 41,
-            "pointDifferential": 26.78
+            "pointsEarned": 13,
+            "pointsAgainst": 8,
+            "pointDifferential": 23.8
           },
           {
             "playerId": "jon-harris",
@@ -590,9 +835,9 @@
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 59,
-            "pointsAgainst": 53,
-            "pointDifferential": 5.35
+            "pointsEarned": 11,
+            "pointsAgainst": 10,
+            "pointDifferential": 4.76
           },
           {
             "playerId": "dev-newsome",
@@ -604,9 +849,9 @@
             "wins": 5,
             "losses": 2,
             "winRate": 71.42,
-            "pointsEarned": 65,
-            "pointsAgainst": 47,
-            "pointDifferential": 16.07
+            "pointsEarned": 12,
+            "pointsAgainst": 9,
+            "pointDifferential": 14.28
           },
           {
             "playerId": "james-brown",
@@ -618,9 +863,9 @@
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 59,
-            "pointsAgainst": 53,
-            "pointDifferential": 5.35
+            "pointsEarned": 11,
+            "pointsAgainst": 10,
+            "pointDifferential": 4.76
           },
           {
             "playerId": "preston-langlois",
@@ -632,9 +877,9 @@
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 59,
-            "pointsAgainst": 53,
-            "pointDifferential": 5.35
+            "pointsEarned": 11,
+            "pointsAgainst": 10,
+            "pointDifferential": 4.76
           },
           {
             "playerId": "orlando-paez",
@@ -646,9 +891,9 @@
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 59,
-            "pointsAgainst": 53,
-            "pointDifferential": 5.35
+            "pointsEarned": 11,
+            "pointsAgainst": 10,
+            "pointDifferential": 4.76
           },
           {
             "playerId": "mati-sevilla",
@@ -660,9 +905,9 @@
             "wins": 3,
             "losses": 4,
             "winRate": 42.85,
-            "pointsEarned": 53,
-            "pointsAgainst": 59,
-            "pointDifferential": -5.36
+            "pointsEarned": 10,
+            "pointsAgainst": 11,
+            "pointDifferential": -4.77
           },
           {
             "playerId": "tobi-ola",
@@ -674,9 +919,9 @@
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 59,
-            "pointsAgainst": 53,
-            "pointDifferential": 5.35
+            "pointsEarned": 11,
+            "pointsAgainst": 10,
+            "pointDifferential": 4.76
           },
           {
             "playerId": "derek-dallas",
@@ -688,9 +933,9 @@
             "wins": 2,
             "losses": 5,
             "winRate": 28.57,
-            "pointsEarned": 47,
-            "pointsAgainst": 65,
-            "pointDifferential": -16.08
+            "pointsEarned": 9,
+            "pointsAgainst": 12,
+            "pointDifferential": -14.29
           },
           {
             "playerId": "michael-randle",
@@ -702,9 +947,9 @@
             "wins": 2,
             "losses": 5,
             "winRate": 28.57,
-            "pointsEarned": 47,
-            "pointsAgainst": 65,
-            "pointDifferential": -16.08
+            "pointsEarned": 9,
+            "pointsAgainst": 12,
+            "pointDifferential": -14.29
           },
           {
             "playerId": "sam-ngo",
@@ -716,9 +961,9 @@
             "wins": 2,
             "losses": 5,
             "winRate": 28.57,
-            "pointsEarned": 47,
-            "pointsAgainst": 65,
-            "pointDifferential": -16.08
+            "pointsEarned": 9,
+            "pointsAgainst": 12,
+            "pointDifferential": -14.29
           },
           {
             "playerId": "jon-richert",
@@ -730,9 +975,9 @@
             "wins": 2,
             "losses": 5,
             "winRate": 28.57,
-            "pointsEarned": 47,
-            "pointsAgainst": 65,
-            "pointDifferential": -16.08
+            "pointsEarned": 9,
+            "pointsAgainst": 12,
+            "pointDifferential": -14.29
           }
         ]
       }
