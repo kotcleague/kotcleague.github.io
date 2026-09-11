@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-11T04:41:24.725Z",
+  "scrapedAt": "2026-09-11T18:32:30.739Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -1537,12 +1537,6 @@
   ],
   "events": {
     "upcoming": [
-      {
-        "id": "2026-09-10",
-        "date": "2026-09-10",
-        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/6HL31J61011754",
-        "gameMakerUrl": "https://pkl.fan/iZOAvZ"
-      },
       {
         "id": "2026-09-15",
         "date": "2026-09-15",
