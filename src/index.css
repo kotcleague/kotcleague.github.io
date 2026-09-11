@@ -57,3 +57,18 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+@media print {
+  @page {
+    margin: 0.35in;
+  }
+
+  body {
+    background: white !important;
+    color: #081b2a !important;
+  }
+
+  header {
+    display: none !important;
+  }
+}

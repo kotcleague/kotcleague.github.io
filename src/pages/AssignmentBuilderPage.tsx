@@ -79,7 +79,7 @@ function MatchTeam({
   players: SeededPlayer[];
 }) {
   return (
-    <section className="px-4 py-2">
+    <section className="px-4 py-2 print:px-2 print:py-1">
       <div className="mb-1 flex items-center">
         <span className="font-display text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 dark:text-slate-500">
           Team {number}
@@ -89,7 +89,7 @@ function MatchTeam({
         {players.map((player) => (
           <div
             key={player.id}
-            className="grid grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-2 py-1 text-sm"
+            className="grid grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-2 py-1 text-sm print:py-0.5"
           >
             <span className="text-xs font-semibold tabular-nums text-slate-400">
               #{player.seed}
@@ -136,6 +136,7 @@ export default function AssignmentBuilderPage() {
       header={
         <PageHeader
           eyebrow="Admin tool"
+          className="print:hidden"
           description="Select the players who are present and generate balanced initial court assignments from league seeding."
         >
           Court Assignments
@@ -223,7 +224,7 @@ export default function AssignmentBuilderPage() {
         }
 
         return (
-          <PageContent>
+          <PageContent className="print:pt-0 print:pb-0">
             <div
               className={
                 showAttendance
@@ -232,7 +233,7 @@ export default function AssignmentBuilderPage() {
               }
             >
               {showAttendance && (
-                <Card className="p-4 sm:p-5">
+                <Card className="p-4 sm:p-5 print:hidden">
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <SectionHeading>Attendance</SectionHeading>
@@ -288,8 +289,11 @@ export default function AssignmentBuilderPage() {
                 </Card>
               )}
 
-              <section aria-labelledby="assignments-heading">
-                <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+              <section
+                aria-labelledby="assignments-heading"
+                className="print:w-full"
+              >
+                <div className="mb-4 flex flex-wrap items-end justify-between gap-3 print:mb-2">
                   <div>
                     <SectionHeading id="assignments-heading">
                       Initial assignments
@@ -310,7 +314,7 @@ export default function AssignmentBuilderPage() {
                         : "Select players to begin"}
                     </p>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 print:hidden">
                     <button
                       type="button"
                       onClick={() => {
@@ -355,15 +359,13 @@ export default function AssignmentBuilderPage() {
                   </p>
                 )}
                 {selectedPlayers.length > 0 ? (
-                  <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="grid gap-3 sm:grid-cols-2 print:grid-cols-3 print:gap-2">
                     {assignmentPlan.courts.map((assignment) => (
                       <Card
                         key={assignment.court}
-                        className={
-                          "overflow-hidden border-2 border-blue/60 dark:border-blue-400/60"
-                        }
+                        className="break-inside-avoid overflow-hidden border-2 border-blue/60 dark:border-blue-400/60 print:border print:border-blue-700"
                       >
-                        <div className="flex items-center justify-between px-4 py-2.5">
+                        <div className="flex items-center justify-between px-4 py-2.5 print:px-2 print:py-1.5">
                           <h3 className="font-display text-lg font-bold uppercase tracking-wide">
                             Court {assignment.court}
                           </h3>
@@ -371,13 +373,13 @@ export default function AssignmentBuilderPage() {
                             4 players
                           </span>
                         </div>
-                        <div>
+                        <div className="print:text-xs">
                           <MatchTeam
                             number={1}
                             players={assignment.slots.slice(0, 2)}
                           />
-                          <div className="flex h-5 items-center justify-center">
-                            <span className="font-display text-base font-bold uppercase tracking-[0.2em] text-blue dark:text-blue-300">
+                          <div className="flex h-5 items-center justify-center print:h-3">
+                            <span className="font-display text-base font-bold uppercase tracking-[0.2em] text-blue dark:text-blue-300 print:text-xs">
                               vs
                             </span>
                           </div>
@@ -389,8 +391,8 @@ export default function AssignmentBuilderPage() {
                       </Card>
                     ))}
                     {assignmentPlan.byeQueue.length > 0 && (
-                      <Card className="overflow-hidden border-amber-200 sm:col-span-2 dark:border-amber-900/70">
-                        <div className="flex items-center gap-3 border-b border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/70 dark:bg-amber-950/30">
+                      <Card className="break-inside-avoid overflow-hidden border-amber-200 sm:col-span-2 dark:border-amber-900/70 print:col-span-3 print:border print:border-amber-700">
+                        <div className="flex items-center gap-3 border-b border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-900/70 dark:bg-amber-950/30 print:px-2 print:py-1.5">
                           <ListOrdered
                             className="h-5 w-5 text-amber-700 dark:text-amber-300"
                             aria-hidden="true"

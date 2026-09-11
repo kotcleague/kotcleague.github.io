@@ -18,7 +18,7 @@ export default function Footer({ scrapedAt }: FooterProps) {
     : null;
 
   return (
-    <footer className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+    <footer className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 print:hidden">
       <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 dark:text-slate-500">
         <div className="space-y-1">
           {formatted && <p>Data updated {formatted}</p>}
