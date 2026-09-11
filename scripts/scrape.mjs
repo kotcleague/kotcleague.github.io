@@ -38,6 +38,7 @@ const VIEWS = {
 
 const EVENT_TABS = ["Past Events", "Upcoming Events", "Event Log"];
 const PLAYER_DATA_TABS = ["Player Data", "Players"];
+const SEEDING_TAB = "Seeding";
 const SHEET_DATE_PATTERN = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
 
 // ============================================================
@@ -92,6 +93,14 @@ const COLUMNS = {
     points: "Points",
     duprRank: "DUPR Rank",
     leagueRank: "League Rank",
+  },
+
+  seeding: {
+    seed: "Seed",
+    player: "Player",
+    past30Days: "Past 30 Days",
+    allTime: "All Time",
+    dupr: "DUPR",
   },
 
   upcomingEvents: {
@@ -195,7 +204,9 @@ function parseTabGids(html) {
   let match;
 
   while ((match = re.exec(html)) !== null) {
-    const name = JSON.parse(`"${match[1]}"`);
+    const name = JSON.parse(
+      `"${match[1].replace(/\\x26/g, "&")}"`
+    );
     gids[name] = match[2];
   }
 
@@ -323,13 +334,6 @@ function assertSheetTable(html, tabName) {
       `No data table found in "${tabName}" — Google may have returned an unexpected page`
     );
   }
-}
-
-function isDatedRow(cells, minimumCells) {
-  return (
-    cells.length >= minimumCells &&
-    SHEET_DATE_PATTERN.test(cells[0])
-  );
 }
 
 function parseDateId(text, context) {
@@ -697,6 +701,83 @@ function parsePlayerDataTable(html, players) {
   });
 
   return profiles;
+}
+
+function parseSeedingTable(html, players) {
+ const $ = load(html);
+ const seeding = [];
+ const columns = COLUMNS.seeding;
+
+ $("table").each((_, table) => {
+   let header;
+
+   try {
+     header = findHeaderRow(
+       $,
+       table,
+       [
+         columns.seed,
+         columns.player,
+         columns.past30Days,
+         columns.allTime,
+         columns.dupr,
+       ],
+       `"${SEEDING_TAB}"`
+     );
+   } catch {
+     return;
+   }
+
+   $(table)
+     .find("tbody tr")
+     .each((_, row) => {
+       if (row === header.row) return;
+
+       const cells = readRowCells($, row);
+       const seedText = getColumn(
+         header.headerMap,
+         cells,
+         columns.seed,
+         `"${SEEDING_TAB}"`
+       );
+       const name = getColumn(
+         header.headerMap,
+         cells,
+         columns.player,
+         `"${SEEDING_TAB}"`
+       );
+
+       if (!name || !/^\d+$/.test(seedText)) return;
+
+       const context = `"${SEEDING_TAB}" row for ${name}`;
+       seeding.push({
+         id: players.get(name),
+         name,
+         seed: parseRequiredNumber(seedText, "seed", context),
+         past30Days: parseRequiredNumber(
+           getColumn(header.headerMap, cells, columns.past30Days, context),
+           "Past 30 Days points",
+           context
+         ),
+         allTime: parseRequiredNumber(
+           getColumn(header.headerMap, cells, columns.allTime, context),
+           "All Time points",
+           context
+         ),
+         dupr: parseRequiredNumber(
+           getColumn(header.headerMap, cells, columns.dupr, context),
+           "DUPR",
+           context
+         ),
+       });
+     });
+ });
+
+ if (seeding.length === 0) {
+   throw new Error(`Could not find the "${SEEDING_TAB}" table`);
+ }
+
+ return seeding.sort((a, b) => a.seed - b.seed);
 }
 
 function parsePastEvents(html, players) {
@@ -1308,6 +1389,8 @@ async function scrapeSnapshot(gids, requiredTabs) {
     (tabName) => htmlByTab[tabName]
   );
 
+  const seeding = parseSeedingTable(htmlByTab[SEEDING_TAB], playerRegistry);
+
   if (playerDataTab) {
     const profiles = parsePlayerDataTable(
       htmlByTab[playerDataTab],
@@ -1407,6 +1490,7 @@ async function scrapeSnapshot(gids, requiredTabs) {
 
   return {
     views,
+    seeding,
     events,
   };
 }
@@ -1428,6 +1512,7 @@ async function scrape() {
   const requiredTabs = [
     ...Object.keys(VIEWS),
     ...EVENT_TABS,
+    SEEDING_TAB,
     ...(playerDataTab ? [playerDataTab] : []),
   ];
 
@@ -1503,12 +1588,13 @@ async function scrape() {
     );
   }
 
-  const { views, events } = snapshot;
+  const { views, seeding, events } = snapshot;
 
   const data = {
     scrapedAt: new Date().toISOString(),
     source: BASE,
     views,
+    seeding,
     events,
   };
 
@@ -1520,10 +1606,12 @@ async function scrape() {
     previous &&
     JSON.stringify({
       views: previous.views,
+      seeding: previous.seeding,
       events: previous.events,
     }) ===
       JSON.stringify({
         views,
+        seeding,
         events,
       })
   ) {

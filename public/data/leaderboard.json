@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-09T18:36:42.464Z",
+  "scrapedAt": "2026-09-10T22:12:15.170Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -649,6 +649,232 @@
       }
     ]
   },
+  "seeding": [
+    {
+      "id": "jon-harris",
+      "name": "Jon Harris",
+      "seed": 1,
+      "past30Days": 1600,
+      "allTime": 1600,
+      "dupr": 4.397
+    },
+    {
+      "id": "ivan-gutierrez",
+      "name": "Ivan Gutierrez",
+      "seed": 2,
+      "past30Days": 1500,
+      "allTime": 1500,
+      "dupr": 4.087
+    },
+    {
+      "id": "dev-newsome",
+      "name": "Dev Newsome",
+      "seed": 3,
+      "past30Days": 900,
+      "allTime": 900,
+      "dupr": 4.577
+    },
+    {
+      "id": "james-brown",
+      "name": "James Brown",
+      "seed": 4,
+      "past30Days": 750,
+      "allTime": 750,
+      "dupr": 4.292
+    },
+    {
+      "id": "preston-langlois",
+      "name": "Preston Langlois",
+      "seed": 5,
+      "past30Days": 600,
+      "allTime": 600,
+      "dupr": 3.946
+    },
+    {
+      "id": "chase-blickhan",
+      "name": "Chase Blickhan",
+      "seed": 6,
+      "past30Days": 500,
+      "allTime": 500,
+      "dupr": 4.931
+    },
+    {
+      "id": "orlando-paez",
+      "name": "Orlando Paez",
+      "seed": 7,
+      "past30Days": 500,
+      "allTime": 500,
+      "dupr": 4.294
+    },
+    {
+      "id": "mati-sevilla",
+      "name": "Mati Sevilla",
+      "seed": 8,
+      "past30Days": 400,
+      "allTime": 400,
+      "dupr": 4.476
+    },
+    {
+      "id": "sam-ngo",
+      "name": "Sam Ngo",
+      "seed": 9,
+      "past30Days": 400,
+      "allTime": 400,
+      "dupr": 3.596
+    },
+    {
+      "id": "tobi-ola",
+      "name": "Tobi Ola",
+      "seed": 10,
+      "past30Days": 300,
+      "allTime": 300,
+      "dupr": 4.494
+    },
+    {
+      "id": "michael-fan",
+      "name": "Michael Fan",
+      "seed": 11,
+      "past30Days": 300,
+      "allTime": 300,
+      "dupr": 4.28
+    },
+    {
+      "id": "derek-dallas",
+      "name": "Derek Dallas",
+      "seed": 12,
+      "past30Days": 250,
+      "allTime": 250,
+      "dupr": 4.142
+    },
+    {
+      "id": "michael-randle",
+      "name": "Michael Randle",
+      "seed": 13,
+      "past30Days": 200,
+      "allTime": 200,
+      "dupr": 4.314
+    },
+    {
+      "id": "jon-richert",
+      "name": "Jon Richert",
+      "seed": 14,
+      "past30Days": 125,
+      "allTime": 125,
+      "dupr": 4.509
+    },
+    {
+      "id": "brett-mell",
+      "name": "Brett Mell",
+      "seed": 15,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.841
+    },
+    {
+      "id": "preston-behlmann",
+      "name": "Preston Behlmann",
+      "seed": 16,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.622
+    },
+    {
+      "id": "aniket-sharma",
+      "name": "Aniket Sharma",
+      "seed": 17,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.611
+    },
+    {
+      "id": "garrett-hallemeier",
+      "name": "Garrett Hallemeier",
+      "seed": 18,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.597
+    },
+    {
+      "id": "john-paden",
+      "name": "John Paden",
+      "seed": 19,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.577
+    },
+    {
+      "id": "brooks-toth",
+      "name": "Brooks Toth",
+      "seed": 20,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.559
+    },
+    {
+      "id": "matt-landolt",
+      "name": "Matt Landolt",
+      "seed": 21,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.423
+    },
+    {
+      "id": "brian-romine",
+      "name": "Brian Romine",
+      "seed": 22,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.388
+    },
+    {
+      "id": "austin-lin",
+      "name": "Austin Lin",
+      "seed": 23,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.33
+    },
+    {
+      "id": "matt-fleming",
+      "name": "Matt Fleming",
+      "seed": 24,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.303
+    },
+    {
+      "id": "matthew-hultman",
+      "name": "Matthew Hultman",
+      "seed": 25,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.245
+    },
+    {
+      "id": "ryan-niedermayer",
+      "name": "Ryan Niedermayer",
+      "seed": 26,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.202
+    },
+    {
+      "id": "nick-borger",
+      "name": "Nick Borger",
+      "seed": 27,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.059
+    },
+    {
+      "id": "sean-liston",
+      "name": "Sean Liston",
+      "seed": 28,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.019
+    }
+  ],
   "events": {
     "upcoming": [
       {

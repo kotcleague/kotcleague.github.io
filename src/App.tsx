@@ -7,6 +7,7 @@ import EventPage from "@/pages/EventPage";
 import LeaderboardPage from "@/pages/LeaderboardPage";
 import PlayerPage from "@/pages/PlayerPage";
 import SchedulePage from "@/pages/SchedulePage";
+import AssignmentBuilderPage from "@/pages/AssignmentBuilderPage";
 
 export default function App() {
   const route = useHashRoute();
@@ -29,6 +30,9 @@ export default function App() {
       break;
     case "format":
       content = <LeagueDetails leaderboardUrl={ROUTES.rankings} />;
+      break;
+    case "assignments":
+      content = <AssignmentBuilderPage />;
       break;
     default:
       content = <LeaderboardPage />;

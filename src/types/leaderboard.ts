@@ -33,6 +33,15 @@ export interface Player extends PerformanceStats {
   gameMakerProfileUrl: string | null;
 }
 
+export interface SeededPlayer {
+  id: string;
+  name: string;
+  seed: number;
+  past30Days: number;
+  allTime: number;
+  dupr: number;
+}
+
 export interface PlayerReference {
   place: number;
   playerId: string;
@@ -70,6 +79,7 @@ export interface LeaderboardData {
   scrapedAt: string;
   source: string;
   views: Record<RankingView, Player[]>;
+  seeding: SeededPlayer[];
   events: {
     upcoming: UpcomingEvent[];
     past: PastEvent[];
@@ -158,6 +168,18 @@ function isPlayerReference(value: unknown): value is PlayerReference {
   );
 }
 
+function isSeededPlayer(value: unknown): value is SeededPlayer {
+  return (
+    isRecord(value) &&
+    isPlayerId(value.id) &&
+    typeof value.name === "string" &&
+    typeof value.seed === "number" &&
+    typeof value.past30Days === "number" &&
+    typeof value.allTime === "number" &&
+    typeof value.dupr === "number"
+  );
+}
+
 function isEventResult(value: unknown): value is EventResult {
   return (
     isRecord(value) &&
@@ -223,6 +245,7 @@ export function parseLeaderboardData(value: unknown): LeaderboardData {
   }
 
   const views = value.views;
+  const seeding = value.seeding;
   const events = value.events;
 
   if (
@@ -232,6 +255,7 @@ export function parseLeaderboardData(value: unknown): LeaderboardData {
     !isArrayOf(views["current-month"], isPlayer) ||
     !isArrayOf(views["past-30-days"], isPlayer) ||
     !isArrayOf(views["all-time"], isPlayer) ||
+    !isArrayOf(seeding, isSeededPlayer) ||
     !isRecord(events) ||
     !isArrayOf(events.upcoming, isUpcomingEvent) ||
     !isArrayOf(events.past, isPastEvent)
@@ -247,6 +271,7 @@ export function parseLeaderboardData(value: unknown): LeaderboardData {
       "past-30-days": views["past-30-days"],
       "all-time": views["all-time"],
     },
+    seeding,
     events: {
       upcoming: events.upcoming,
       past: events.past,

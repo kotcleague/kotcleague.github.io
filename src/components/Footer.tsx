@@ -22,17 +22,6 @@ export default function Footer({ scrapedAt }: FooterProps) {
       <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 dark:text-slate-500">
         <div className="space-y-1">
           {formatted && <p>Data updated {formatted}</p>}
-          <p>
-            Data from{" "}
-            <a
-              href={SITE_LINKS.standings}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue hover:underline dark:text-blue-300"
-            >
-              KOTC League Standings
-            </a>
-          </p>
         </div>
         <a
           href={SITE_LINKS.club}

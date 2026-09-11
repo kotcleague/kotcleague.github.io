@@ -2,6 +2,7 @@ export const ROUTES = {
   rankings: "#/",
   schedule: "#/schedule",
   format: "#/format",
+  assignments: "#/assignments",
 } as const;
 
 export type AppRoute =
@@ -9,7 +10,8 @@ export type AppRoute =
   | { page: "schedule" }
   | { page: "event"; eventId: string }
   | { page: "player"; playerId: string }
-  | { page: "format" };
+  | { page: "format" }
+  | { page: "assignments" };
 
 export const NAV_ITEMS = [
   {
@@ -48,13 +50,72 @@ export function playerRoute(playerId: string) {
   return `#/players/${encodeURIComponent(playerId)}`;
 }
 
+export function assignmentRoute(
+  playerIds: string[],
+  courtLabels: string[] = [],
+  attendanceHidden = false
+) {
+  const query = new URLSearchParams();
+  if (playerIds.length > 0) {
+    query.set("players", playerIds.join(","));
+  }
+  if (courtLabels.length > 0) {
+    query.set("courts", courtLabels.join(","));
+  }
+  if (attendanceHidden) {
+    query.set("attendance", "hidden");
+  }
+
+  const queryString = query.toString();
+  return `${ROUTES.assignments}${queryString ? `?${queryString}` : ""}`;
+}
+
+export function assignmentCourtLabelsFromHash(hash: string) {
+  const queryStart = hash.indexOf("?");
+  if (queryStart === -1) return [];
+
+  return (
+    new URLSearchParams(hash.slice(queryStart + 1))
+      .get("courts")
+      ?.split(",")
+      .map((label) => label.trim())
+      .filter((label) => /^[a-z0-9-]+$/i.test(label)) ?? []
+  );
+}
+
+export function assignmentAttendanceHiddenFromHash(hash: string) {
+  const queryStart = hash.indexOf("?");
+  if (queryStart === -1) return false;
+
+  return (
+    new URLSearchParams(hash.slice(queryStart + 1)).get("attendance") ===
+    "hidden"
+  );
+}
+
+export function assignmentPlayerIdsFromHash(hash: string) {
+  const queryStart = hash.indexOf("?");
+  if (queryStart === -1) return [];
+
+  return (
+    new URLSearchParams(hash.slice(queryStart + 1))
+      .get("players")
+      ?.split(",")
+      .filter((playerId) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(playerId)) ?? []
+  );
+}
+
 export function navigationPageForRoute(route: AppRoute): NavigationPage {
   if (route.page === "player") return "rankings";
   if (route.page === "event") return "schedule";
+  if (route.page === "assignments") return "rankings";
   return route.page;
 }
 
 export function documentTitleForRoute(route: AppRoute) {
+  if (route.page === "assignments") {
+    return "Court Assignments | Paddle Up Pickleball";
+  }
   const page = navigationPageForRoute(route);
   return (
     NAV_ITEMS.find((item) => item.page === page)?.title ?? NAV_ITEMS[0].title
@@ -62,18 +123,23 @@ export function documentTitleForRoute(route: AppRoute) {
 }
 
 export function parseHashRoute(hash: string): AppRoute {
-  if (hash === "" || hash === ROUTES.rankings) {
+  const path = hash.split("?")[0];
+
+  if (path === "" || path === ROUTES.rankings) {
     return { page: "rankings" };
   }
-  if (hash === ROUTES.schedule || hash === `${ROUTES.schedule}/`) {
+  if (path === ROUTES.schedule || path === `${ROUTES.schedule}/`) {
     return { page: "schedule" };
   }
-  if (hash === ROUTES.format || hash === `${ROUTES.format}/`) {
+  if (path === ROUTES.format || path === `${ROUTES.format}/`) {
     return { page: "format" };
+  }
+  if (path === ROUTES.assignments || path === `${ROUTES.assignments}/`) {
+    return { page: "assignments" };
   }
 
   // Keep old bookmarks working while using #/format for all new links.
-  if (hash === "#/league" || hash === "#/league/") {
+  if (path === "#/league" || path === "#/league/") {
     return { page: "format" };
   }
 
