@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-11T22:13:55.431Z",
+  "scrapedAt": "2026-09-14T18:38:21.885Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -1380,7 +1380,7 @@
       "seed": 9,
       "past30Days": 800,
       "allTime": 800,
-      "dupr": 4.494
+      "dupr": 4.533
     },
     {
       "id": "james-brown",
@@ -1527,9 +1527,17 @@
       "dupr": 4.423
     },
     {
+      "id": "bekah-ola",
+      "name": "Bekah Ola",
+      "seed": 28,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.248
+    },
+    {
       "id": "ryan-niedermayer",
       "name": "Ryan Niedermayer",
-      "seed": 28,
+      "seed": 29,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.202
@@ -1550,20 +1558,8 @@
         "gameMakerUrl": "https://pkl.fan/OhvTrY"
       },
       {
-        "id": "2026-09-22",
-        "date": "2026-09-22",
-        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/SKIZ8O210117158",
-        "gameMakerUrl": null
-      },
-      {
         "id": "2026-09-24",
         "date": "2026-09-24",
-        "courtReserveUrl": null,
-        "gameMakerUrl": null
-      },
-      {
-        "id": "2026-09-29",
-        "date": "2026-09-29",
         "courtReserveUrl": null,
         "gameMakerUrl": null
       },
