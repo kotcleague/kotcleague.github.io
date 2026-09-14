@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-14T23:42:43.198Z",
+  "scrapedAt": "2026-09-14T23:46:18.942Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -1527,9 +1527,17 @@
       "dupr": 4.423
     },
     {
+      "id": "kevin-reque",
+      "name": "Kevin Reque",
+      "seed": 28,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.274
+    },
+    {
       "id": "bekah-ola",
       "name": "Bekah Ola",
-      "seed": 28,
+      "seed": 29,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.248
@@ -1537,7 +1545,7 @@
     {
       "id": "ryan-niedermayer",
       "name": "Ryan Niedermayer",
-      "seed": 29,
+      "seed": 30,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.202
@@ -1545,7 +1553,7 @@
     {
       "id": "matthew-johnson",
       "name": "Matthew Johnson",
-      "seed": 30,
+      "seed": 31,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.764
