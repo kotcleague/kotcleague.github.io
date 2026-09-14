@@ -31,7 +31,8 @@ export default function PlayerAvatar({
   return (
     <span
       className={clsx(
-        "inline-flex shrink-0 items-center justify-center overflow-hidden rounded-sm bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-500",
+        "inline-flex shrink-0 items-center justify-center overflow-hidden bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-500",
+        size === "sm" ? "rounded-full" : "rounded-sm",
         SIZE_CLASSES[size],
         className
       )}

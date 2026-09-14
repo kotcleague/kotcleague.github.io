@@ -1,4 +1,4 @@
-import { ChevronRight, Gamepad2, Users } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import EmptyState from "@/components/EmptyState";
 import EditorialLinkCard from "@/components/EditorialLinkCard";
 import JoinLeague from "@/components/JoinLeague";
@@ -9,7 +9,7 @@ import PlayerAvatar from "@/components/PlayerAvatar";
 import RegistrationLink from "@/components/RegistrationLink";
 import SectionHeading from "@/components/SectionHeading";
 import { eventRoute } from "@/config/site";
-import { formatEventDate, formatEventDateParts } from "@/lib/format";
+import { formatEventDateParts } from "@/lib/format";
 import { buildPlayerProfileIndex, type PlayerProfile } from "@/lib/players";
 import type { PastEvent, UpcomingEvent } from "@/types/leaderboard";
 
@@ -64,23 +64,14 @@ function Podium({
   event: PastEvent;
   playerProfiles: Map<string, PlayerProfile>;
 }) {
-  function placeStyle(place: number) {
-    if (place === 1) return "bg-gold/25 text-amber-800 dark:text-gold";
-    if (place === 2) {
-      return "bg-silver/50 text-slate-700 dark:bg-silver/20 dark:text-silver";
-    }
-    return "bg-bronze/20 text-amber-900 dark:bg-bronze/25 dark:text-orange-300";
-  }
-
   return (
-    <ol className="mt-4 flex flex-wrap gap-x-5 gap-y-2 border-t border-slate-100 pt-4 dark:border-slate-800">
+    <ol className="grid gap-1.5">
       {event.podium.map((player) => (
-        <li key={player.place} className="flex items-center gap-2 text-sm">
-          <span
-            className={`font-display rounded-sm px-2.5 py-1 text-sm font-bold uppercase ${placeStyle(
-              player.place
-            )}`}
-          >
+        <li
+          key={player.place}
+          className="grid min-w-0 grid-cols-[2rem_2rem_minmax(0,1fr)] items-center gap-2"
+        >
+          <span className="font-display text-xs font-bold uppercase tracking-wide text-slate-400 dark:text-slate-500">
             {player.place}
             {player.place === 1 ? "st" : player.place === 2 ? "nd" : "rd"}
           </span>
@@ -89,8 +80,11 @@ function Podium({
             photoUrl={playerProfiles.get(player.playerId)?.photoUrl ?? null}
             playerId={player.playerId}
             size="sm"
+            className="h-7 w-7 rounded-full"
           />
-          <span className="font-semibold">{player.name}</span>
+          <span className="min-w-0 truncate text-sm font-semibold">
+            {player.name}
+          </span>
         </li>
       ))}
     </ol>
@@ -104,35 +98,49 @@ function PastEventCard({
   event: PastEvent;
   playerProfiles: Map<string, PlayerProfile>;
 }) {
+  const date = formatEventDateParts(event.date);
+
   return (
-    <EditorialLinkCard href={eventRoute(event.id)} className="sm:p-5">
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="text-lg font-bold sm:text-xl">
-          {formatEventDate(event.date)}
-        </h3>
-        <div className="flex items-center gap-3">
-          <span className="font-display rounded-sm bg-blue/10 px-3 py-1.5 text-sm font-bold uppercase tracking-wide text-blue dark:bg-blue/20 dark:text-blue-300">
-            {event.maxPointsEarnable.toLocaleString()} point event
+    <EditorialLinkCard
+      href={eventRoute(event.id)}
+      className="grid grid-cols-[4.25rem_1fr] rounded-none border-x-0 border-t-0 border-l-2 border-l-transparent p-0 hover:border-l-blue hover:bg-blue/[0.035] sm:grid-cols-[5.25rem_1fr] lg:grid-cols-[5.25rem_minmax(14rem,1fr)_minmax(20rem,1.5fr)] dark:hover:bg-blue/[0.08]"
+    >
+      <div className="flex flex-col items-center justify-center border-r border-slate-200 bg-slate-50 px-3 py-3 dark:border-slate-700 dark:bg-slate-950/60">
+        <span className="font-display text-sm font-bold uppercase tracking-[0.16em] text-blue dark:text-blue-300">
+          {date.month}
+        </span>
+        <span className="font-display text-3xl font-bold leading-none tabular-nums text-ink dark:text-white">
+          {date.day}
+        </span>
+      </div>
+      <div className="min-w-0 px-4 py-3 sm:px-5 sm:py-3.5">
+        <div className="flex min-w-0 items-center gap-3">
+          <div className="min-w-0 flex-1">
+            <p className="font-display truncate text-xs font-bold uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
+              {date.weekday} · League night
+            </p>
+            <h3 className="mt-0.5 truncate text-base font-bold sm:text-lg">
+              King of the Court
+            </h3>
+          </div>
+          <span className="hidden shrink-0 font-display rounded-sm bg-blue/10 px-2.5 py-1.5 text-xs font-bold uppercase tracking-wide text-blue lg:inline-block dark:bg-blue/20 dark:text-blue-300">
+            {event.maxPointsEarnable.toLocaleString()} pts
           </span>
-          <ChevronRight
-            className="h-5 w-5 text-slate-300 transition-transform group-hover:translate-x-1 group-hover:text-blue dark:text-slate-600"
-            aria-hidden="true"
-          />
         </div>
+        <p className="mt-1 truncate text-xs text-slate-500 dark:text-slate-400">
+          {event.playerCount} players · {event.games} games · {event.courts}{" "}
+          courts · {event.rounds} rounds
+        </p>
       </div>
-      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-500 dark:text-slate-400">
-        <span className="inline-flex items-center gap-1.5">
-          <Users className="h-4 w-4" aria-hidden="true" />
-          {event.playerCount} players
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <Gamepad2 className="h-4 w-4" aria-hidden="true" />
-          {event.games} games
-        </span>
-        <span>{event.courts} courts</span>
-        <span>{event.rounds} rounds</span>
+      <div className="col-span-2 flex min-w-0 items-center gap-3 border-t border-slate-100 px-4 py-2.5 sm:px-5 lg:col-span-1 lg:border-t-0 dark:border-slate-800">
+        <div className="min-w-0 flex-1">
+        <Podium event={event} playerProfiles={playerProfiles} />
+        </div>
+        <ChevronRight
+          className="hidden h-4 w-4 shrink-0 text-slate-300 transition-transform group-hover:translate-x-1 group-hover:text-blue lg:block dark:text-slate-600"
+          aria-hidden="true"
+        />
       </div>
-      <Podium event={event} playerProfiles={playerProfiles} />
     </EditorialLinkCard>
   );
 }
@@ -177,7 +185,7 @@ export default function SchedulePage() {
               <section aria-labelledby="past-events">
                 <SectionHeading id="past-events">Past events</SectionHeading>
                 {data.events.past.length > 0 ? (
-                  <div className="space-y-4">
+                  <div className="divide-y divide-slate-200 overflow-hidden rounded-sm border border-slate-200 bg-white dark:divide-slate-800 dark:border-slate-800 dark:bg-slate-900">
                     {data.events.past.map((event) => (
                       <PastEventCard
                         key={event.id}
