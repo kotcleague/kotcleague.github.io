@@ -20,7 +20,9 @@ export default function App() {
   let content;
   switch (route.page) {
     case "schedule":
-      content = <SchedulePage />;
+      content = (
+        <SchedulePage monthId={route.monthId} pastMonths={route.pastMonths} />
+      );
       break;
     case "event":
       content = <EventPage eventId={route.eventId} />;

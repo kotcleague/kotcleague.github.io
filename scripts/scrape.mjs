@@ -37,6 +37,7 @@ const VIEWS = {
 };
 
 const EVENT_TABS = ["Past Events", "Upcoming Events", "Event Log"];
+const PAST_MONTHS_TAB = "Past Months";
 const PLAYER_DATA_TABS = ["Player Data", "Players"];
 const SEEDING_TAB = "Seeding";
 const SHEET_DATE_PATTERN = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
@@ -121,6 +122,14 @@ const COLUMNS = {
     second: "2nd Place",
     third: "3rd Place",
   },
+  pastMonths: {
+    month: "Month",
+    first: "1st Place",
+    second: "2nd Place",
+    third: "3rd Place",
+    events: "# of Events",
+    players: "# of Players",
+  },
 };
 
 // Internal output field names -> human-readable sheet labels.
@@ -204,9 +213,7 @@ function parseTabGids(html) {
   let match;
 
   while ((match = re.exec(html)) !== null) {
-    const name = JSON.parse(
-      `"${match[1].replace(/\\x26/g, "&")}"`
-    );
+    const name = JSON.parse(`"${match[1].replace(/\\x26/g, "&")}"`);
     gids[name] = match[2];
   }
 
@@ -248,12 +255,27 @@ function parseRequiredNumber(text, field, context) {
   return value;
 }
 
-function parsePerformanceStats(cells, context) {
+function parseRequiredPercentage(text, field, context) {
+  const trimmed = String(text ?? "").trim();
+
+  if (!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)%$/.test(trimmed)) {
+    throw new Error(`Invalid ${field} "${text}" in ${context}`);
+  }
+
+  return Number(trimmed.slice(0, -1));
+}
+
+function parsePerformanceStats(cells, context, percentageFields = []) {
+  const percentageFieldSet = new Set(percentageFields);
+
   return Object.fromEntries(
-    PERFORMANCE_FIELDS.map(([key, label], index) => [
-      key,
-      parseRequiredNumber(cells[index], label, context),
-    ])
+    PERFORMANCE_FIELDS.map(([key, label], index) => {
+      const parseValue = percentageFieldSet.has(key)
+        ? parseRequiredPercentage
+        : parseRequiredNumber;
+
+      return [key, parseValue(cells[index], label, context)];
+    })
   );
 }
 
@@ -337,9 +359,7 @@ function assertSheetTable(html, tabName) {
 }
 
 function parseDateId(text, context) {
-  const match = /^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/.exec(
-    text.trim()
-  );
+  const match = /^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/.exec(text.trim());
 
   if (!match) {
     throw new Error(`Invalid date "${text}" in ${context}`);
@@ -362,8 +382,32 @@ function parseDateId(text, context) {
 
   return `${year.toString().padStart(4, "0")}-${month
     .toString()
-    .padStart(2, "0")}-${day.toString()
-    .padStart(2, "0")}`;
+    .padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+}
+
+function parseMonthId(text, context) {
+  const match = /^([A-Za-z]+)\s+(\d{4})$/.exec(text.trim());
+  const monthNames = [
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+  ];
+  const month = match ? monthNames.indexOf(match[1].toLowerCase()) + 1 : 0;
+
+  if (!match || month === 0) {
+    throw new Error(`Invalid month "${text}" in ${context}`);
+  }
+
+  return `${match[2]}-${month.toString().padStart(2, "0")}`;
 }
 
 function parseOptionalUrl(text, field, context) {
@@ -397,9 +441,7 @@ function parseOptionalUrl(text, field, context) {
   }
 
   if (url.protocol !== "http:" && url.protocol !== "https:") {
-    throw new Error(
-      `Unsupported ${field} URL protocol in ${context}`
-    );
+    throw new Error(`Unsupported ${field} URL protocol in ${context}`);
   }
 
   return url.toString();
@@ -414,9 +456,7 @@ function createPlayerRegistry() {
       const normalizedName = name.trim().replace(/\s+/g, " ");
 
       if (!normalizedName) {
-        throw new Error(
-          "Cannot create a player ID from an empty name"
-        );
+        throw new Error("Cannot create a player ID from an empty name");
       }
 
       const nameKey = normalizedName.toLocaleLowerCase("en-US");
@@ -432,9 +472,7 @@ function createPlayerRegistry() {
         .replace(/^-+|-+$/g, "");
 
       if (!id) {
-        throw new Error(
-          `Cannot create a player ID from "${normalizedName}"`
-        );
+        throw new Error(`Cannot create a player ID from "${normalizedName}"`);
       }
 
       const conflictingName = namesById.get(id);
@@ -518,32 +556,18 @@ function parseRankingTable(html, tabName, players) {
         rankings.push({
           id: players.get(name),
 
-          rank: parseRequiredNumber(
-            rankText,
-            "rank",
-            context
-          ),
+          rank: parseRequiredNumber(rankText, "rank", context),
 
           name,
 
           points: parseRequiredNumber(
-            getColumn(
-              header.headerMap,
-              cells,
-              columns.points,
-              context
-            ),
+            getColumn(header.headerMap, cells, columns.points, context),
             "points",
             context
           ),
 
           events: parseRequiredNumber(
-            getColumn(
-              header.headerMap,
-              cells,
-              columns.events,
-              context
-            ),
+            getColumn(header.headerMap, cells, columns.events, context),
             "event count",
             context
           ),
@@ -556,30 +580,10 @@ function parseRankingTable(html, tabName, players) {
                 columns.gameMakerPoints,
                 context
               ),
-              getColumn(
-                header.headerMap,
-                cells,
-                columns.wins,
-                context
-              ),
-              getColumn(
-                header.headerMap,
-                cells,
-                columns.losses,
-                context
-              ),
-              getColumn(
-                header.headerMap,
-                cells,
-                columns.winRate,
-                context
-              ),
-              getColumn(
-                header.headerMap,
-                cells,
-                columns.pointsEarned,
-                context
-              ),
+              getColumn(header.headerMap, cells, columns.wins, context),
+              getColumn(header.headerMap, cells, columns.losses, context),
+              getColumn(header.headerMap, cells, columns.winRate, context),
+              getColumn(header.headerMap, cells, columns.pointsEarned, context),
               getColumn(
                 header.headerMap,
                 cells,
@@ -593,16 +597,12 @@ function parseRankingTable(html, tabName, players) {
                 context
               ),
             ],
-            context
+            context,
+            ["winRate", "pointDifferential"]
           ),
 
           move: parseMovement(
-            getColumn(
-              header.headerMap,
-              cells,
-              columns.move,
-              context
-            )
+            getColumn(header.headerMap, cells, columns.move, context)
           ),
 
           // These now come from Player Data.
@@ -614,9 +614,7 @@ function parseRankingTable(html, tabName, players) {
     return rankings;
   }
 
-  throw new Error(
-    `Could not find the ranking table for "${tabName}"`
-  );
+  throw new Error(`Could not find the ranking table for "${tabName}"`);
 }
 
 // A "Photo URL"/"Game Maker Profile URL" cell may hold a bare URL,
@@ -644,11 +642,7 @@ function parsePlayerDataTable(html, players) {
       header = findHeaderRow(
         $,
         table,
-        [
-          columns.name,
-          columns.photoUrl,
-          columns.gameMakerProfileUrl,
-        ],
+        [columns.name, columns.photoUrl, columns.gameMakerProfileUrl],
         `"Player Data"`
       );
     } catch {
@@ -704,80 +698,80 @@ function parsePlayerDataTable(html, players) {
 }
 
 function parseSeedingTable(html, players) {
- const $ = load(html);
- const seeding = [];
- const columns = COLUMNS.seeding;
+  const $ = load(html);
+  const seeding = [];
+  const columns = COLUMNS.seeding;
 
- $("table").each((_, table) => {
-   let header;
+  $("table").each((_, table) => {
+    let header;
 
-   try {
-     header = findHeaderRow(
-       $,
-       table,
-       [
-         columns.seed,
-         columns.player,
-         columns.past30Days,
-         columns.allTime,
-         columns.dupr,
-       ],
-       `"${SEEDING_TAB}"`
-     );
-   } catch {
-     return;
-   }
+    try {
+      header = findHeaderRow(
+        $,
+        table,
+        [
+          columns.seed,
+          columns.player,
+          columns.past30Days,
+          columns.allTime,
+          columns.dupr,
+        ],
+        `"${SEEDING_TAB}"`
+      );
+    } catch {
+      return;
+    }
 
-   $(table)
-     .find("tbody tr")
-     .each((_, row) => {
-       if (row === header.row) return;
+    $(table)
+      .find("tbody tr")
+      .each((_, row) => {
+        if (row === header.row) return;
 
-       const cells = readRowCells($, row);
-       const seedText = getColumn(
-         header.headerMap,
-         cells,
-         columns.seed,
-         `"${SEEDING_TAB}"`
-       );
-       const name = getColumn(
-         header.headerMap,
-         cells,
-         columns.player,
-         `"${SEEDING_TAB}"`
-       );
+        const cells = readRowCells($, row);
+        const seedText = getColumn(
+          header.headerMap,
+          cells,
+          columns.seed,
+          `"${SEEDING_TAB}"`
+        );
+        const name = getColumn(
+          header.headerMap,
+          cells,
+          columns.player,
+          `"${SEEDING_TAB}"`
+        );
 
-       if (!name || !/^\d+$/.test(seedText)) return;
+        if (!name || !/^\d+$/.test(seedText)) return;
 
-       const context = `"${SEEDING_TAB}" row for ${name}`;
-       seeding.push({
-         id: players.get(name),
-         name,
-         seed: parseRequiredNumber(seedText, "seed", context),
-         past30Days: parseRequiredNumber(
-           getColumn(header.headerMap, cells, columns.past30Days, context),
-           "Past 30 Days points",
-           context
-         ),
-         allTime: parseRequiredNumber(
-           getColumn(header.headerMap, cells, columns.allTime, context),
-           "All Time points",
-           context
-         ),
-         dupr: parseRequiredNumber(
-           getColumn(header.headerMap, cells, columns.dupr, context),
-           "DUPR",
-           context
-         ),
-       });
-     });
- });
+        const context = `"${SEEDING_TAB}" row for ${name}`;
+        seeding.push({
+          id: players.get(name),
+          name,
+          seed: parseRequiredNumber(seedText, "seed", context),
+          past30Days: parseRequiredNumber(
+            getColumn(header.headerMap, cells, columns.past30Days, context),
+            "Past 30 Days points",
+            context
+          ),
+          allTime: parseRequiredNumber(
+            getColumn(header.headerMap, cells, columns.allTime, context),
+            "All Time points",
+            context
+          ),
+          dupr: parseRequiredNumber(
+            getColumn(header.headerMap, cells, columns.dupr, context),
+            "DUPR",
+            context
+          ),
+        });
+      });
+  });
 
- if (seeding.length === 0) {
-   throw new Error(`Could not find the "${SEEDING_TAB}" table`);
- }
+  if (seeding.length === 0) {
+    throw new Error(`Could not find the "${SEEDING_TAB}" table`);
+  }
 
- return seeding.sort((a, b) => a.seed - b.seed);
+  return seeding.sort((a, b) => a.seed - b.seed);
 }
 
 function parsePastEvents(html, players) {
@@ -825,10 +819,7 @@ function parsePastEvents(html, players) {
 
         if (!SHEET_DATE_PATTERN.test(dateText)) return;
 
-        const id = parseDateId(
-          dateText,
-          '"Past Events"'
-        );
+        const id = parseDateId(dateText, '"Past Events"');
 
         const context = `"Past Events" row for ${id}`;
 
@@ -853,17 +844,16 @@ function parsePastEvents(html, players) {
           context
         );
 
-        const podium = [first, second, third].flatMap(
-          (name, index) =>
-            name
-              ? [
-                  {
-                    place: index + 1,
-                    playerId: players.get(name),
-                    name,
-                  },
-                ]
-              : []
+        const podium = [first, second, third].flatMap((name, index) =>
+          name
+            ? [
+                {
+                  place: index + 1,
+                  playerId: players.get(name),
+                  name,
+                },
+              ]
+            : []
         );
 
         events.push({
@@ -871,34 +861,19 @@ function parsePastEvents(html, players) {
           date: id,
 
           playerCount: parseRequiredNumber(
-            getColumn(
-              header.headerMap,
-              cells,
-              columns.playerCount,
-              context
-            ),
+            getColumn(header.headerMap, cells, columns.playerCount, context),
             "player count",
             context
           ),
 
           courts: parseRequiredNumber(
-            getColumn(
-              header.headerMap,
-              cells,
-              columns.courts,
-              context
-            ),
+            getColumn(header.headerMap, cells, columns.courts, context),
             "courts",
             context
           ),
 
           games: parseRequiredNumber(
-            getColumn(
-              header.headerMap,
-              cells,
-              columns.games,
-              context
-            ),
+            getColumn(header.headerMap, cells, columns.games, context),
             "games",
             context
           ),
@@ -915,12 +890,7 @@ function parsePastEvents(html, players) {
           ),
 
           rounds: parseRequiredNumber(
-            getColumn(
-              header.headerMap,
-              cells,
-              columns.rounds,
-              context
-            ),
+            getColumn(header.headerMap, cells, columns.rounds, context),
             "rounds",
             context
           ),
@@ -946,11 +916,7 @@ function parseUpcomingEvents(html) {
       header = findHeaderRow(
         $,
         table,
-        [
-          columns.date,
-          columns.courtReserveUrl,
-          columns.gameMakerInviteUrl,
-        ],
+        [columns.date, columns.courtReserveUrl, columns.gameMakerInviteUrl],
         `"Upcoming Events"`
       );
     } catch {
@@ -973,10 +939,7 @@ function parseUpcomingEvents(html) {
 
         if (!SHEET_DATE_PATTERN.test(dateText)) return;
 
-        const id = parseDateId(
-          dateText,
-          '"Upcoming Events"'
-        );
+        const id = parseDateId(dateText, '"Upcoming Events"');
 
         const context = `"Upcoming Events" row for ${id}`;
 
@@ -1026,16 +989,127 @@ function parseUpcomingEvents(html) {
             context
           ),
 
-          gameMakerUrl: parseOptionalUrl(
-            gameMakerUrl,
-            "Game Maker",
-            context
-          ),
+          gameMakerUrl: parseOptionalUrl(gameMakerUrl, "Game Maker", context),
         });
       });
   });
 
   return events;
+}
+
+function parsePastMonths(html, players, pastEvents) {
+  const $ = load(html);
+  const months = [];
+  const columns = COLUMNS.pastMonths;
+
+  $("table").each((_, table) => {
+    let header;
+
+    try {
+      header = findHeaderRow(
+        $,
+        table,
+        [
+          columns.month,
+          columns.first,
+          columns.second,
+          columns.third,
+          columns.events,
+          columns.players,
+        ],
+        `"Past Months"`
+      );
+    } catch {
+      return;
+    }
+
+    $(table)
+      .find("tbody tr")
+      .each((_, row) => {
+        if (row === header.row) return;
+
+        const cells = readRowCells($, row);
+        const label = getColumn(
+          header.headerMap,
+          cells,
+          columns.month,
+          `"Past Months"`
+        );
+        if (!label.trim()) return;
+
+        const id = parseMonthId(label, `"Past Months"`);
+        const context = `"Past Months" row for ${id}`;
+        const names = [columns.first, columns.second, columns.third].map(
+          (column) => getColumn(header.headerMap, cells, column, context)
+        );
+        const eventIds = pastEvents
+          .filter((event) => event.date.startsWith(`${id}-`))
+          .map((event) => event.id);
+
+        if (eventIds.length === 0) {
+          throw new Error(
+            `Past month ${id} has no matching events in "Past Events"`
+          );
+        }
+
+        months.push({
+          id,
+          label: label.trim(),
+          podium: names.flatMap((name, index) =>
+            name.trim()
+              ? [
+                  {
+                    place: index + 1,
+                    playerId: players.get(name.trim()),
+                    name: name.trim(),
+                  },
+                ]
+              : []
+          ),
+          eventCount: parseRequiredNumber(
+            getColumn(header.headerMap, cells, columns.events, context),
+            "event count",
+            context
+          ),
+          playerCount: parseRequiredNumber(
+            getColumn(header.headerMap, cells, columns.players, context),
+            "player count",
+            context
+          ),
+          eventIds,
+        });
+      });
+  });
+
+  return months.sort((a, b) => b.id.localeCompare(a.id));
+}
+
+function validatePastMonths(months) {
+  assertUniqueIds(months, "past month");
+
+  for (const month of months) {
+    if (!Number.isInteger(month.eventCount) || month.eventCount < 1) {
+      throw new Error(
+        `Invalid event count "${month.eventCount}" in "Past Months" row for ${month.id}`
+      );
+    }
+
+    if (!Number.isInteger(month.playerCount) || month.playerCount < 1) {
+      throw new Error(
+        `Invalid player count "${month.playerCount}" in "Past Months" row for ${month.id}`
+      );
+    }
+
+    if (month.eventCount !== month.eventIds.length) {
+      throw new Error(
+        `"Past Months" lists ${month.eventCount} event${
+          month.eventCount === 1 ? "" : "s"
+        } for ${month.id}, but "Past Events" contains ${
+          month.eventIds.length
+        } matching event${month.eventIds.length === 1 ? "" : "s"}`
+      );
+    }
+  }
 }
 
 function parseEventLog(html, players) {
@@ -1086,10 +1160,7 @@ function parseEventLog(html, players) {
 
         if (!SHEET_DATE_PATTERN.test(dateText)) return;
 
-        const eventId = parseDateId(
-          dateText,
-          '"Event Log"'
-        );
+        const eventId = parseDateId(dateText, '"Event Log"');
 
         const name = getColumn(
           header.headerMap,
@@ -1104,42 +1175,26 @@ function parseEventLog(html, players) {
           );
         }
 
-        const context =
-          `"Event Log" row for ${name} on ${eventId}`;
+        const context = `"Event Log" row for ${name} on ${eventId}`;
 
         const result = {
           playerId: players.get(name),
           name,
 
           points: parseRequiredNumber(
-            getColumn(
-              header.headerMap,
-              cells,
-              columns.points,
-              context
-            ),
+            getColumn(header.headerMap, cells, columns.points, context),
             "points",
             context
           ),
 
           place: parseRequiredNumber(
-            getColumn(
-              header.headerMap,
-              cells,
-              columns.place,
-              context
-            ),
+            getColumn(header.headerMap, cells, columns.place, context),
             "place",
             context
           ),
 
           courts: parseRequiredNumber(
-            getColumn(
-              header.headerMap,
-              cells,
-              columns.courts,
-              context
-            ),
+            getColumn(header.headerMap, cells, columns.courts, context),
             "courts",
             context
           ),
@@ -1152,30 +1207,10 @@ function parseEventLog(html, players) {
                 columns.gameMakerPoints,
                 context
               ),
-              getColumn(
-                header.headerMap,
-                cells,
-                columns.wins,
-                context
-              ),
-              getColumn(
-                header.headerMap,
-                cells,
-                columns.losses,
-                context
-              ),
-              getColumn(
-                header.headerMap,
-                cells,
-                columns.winRate,
-                context
-              ),
-              getColumn(
-                header.headerMap,
-                cells,
-                columns.pointsEarned,
-                context
-              ),
+              getColumn(header.headerMap, cells, columns.wins, context),
+              getColumn(header.headerMap, cells, columns.losses, context),
+              getColumn(header.headerMap, cells, columns.winRate, context),
+              getColumn(header.headerMap, cells, columns.pointsEarned, context),
               getColumn(
                 header.headerMap,
                 cells,
@@ -1193,8 +1228,7 @@ function parseEventLog(html, players) {
           ),
         };
 
-        const eventResults =
-          resultsByEvent.get(eventId) ?? [];
+        const eventResults = resultsByEvent.get(eventId) ?? [];
 
         eventResults.push(result);
         resultsByEvent.set(eventId, eventResults);
@@ -1209,9 +1243,7 @@ function assertUniqueIds(items, context) {
 
   for (const item of items) {
     if (seen.has(item.id)) {
-      throw new Error(
-        `Duplicate ${context} ID: ${item.id}`
-      );
+      throw new Error(`Duplicate ${context} ID: ${item.id}`);
     }
 
     seen.add(item.id);
@@ -1222,19 +1254,13 @@ function validatePastEvents(events) {
   for (const event of events) {
     const context = `"Past Events" row for ${event.id}`;
 
-    if (
-      !Number.isInteger(event.playerCount) ||
-      event.playerCount < 1
-    ) {
+    if (!Number.isInteger(event.playerCount) || event.playerCount < 1) {
       throw new Error(
         `Invalid player count "${event.playerCount}" in ${context}`
       );
     }
 
-    const expectedPodiumSize = Math.min(
-      3,
-      event.playerCount
-    );
+    const expectedPodiumSize = Math.min(3, event.playerCount);
 
     if (event.podium.length !== expectedPodiumSize) {
       throw new Error(
@@ -1254,13 +1280,9 @@ function validatePastEvents(events) {
       );
     }
 
-    const playerIds = new Set(
-      event.results.map((result) => result.playerId)
-    );
+    const playerIds = new Set(event.results.map((result) => result.playerId));
 
-    const places = new Set(
-      event.results.map((result) => result.place)
-    );
+    const places = new Set(event.results.map((result) => result.place));
 
     if (
       playerIds.size !== event.results.length ||
@@ -1273,10 +1295,7 @@ function validatePastEvents(events) {
   }
 }
 
-function validateAllTimeEventCounts(
-  allTimeRankings,
-  pastEvents
-) {
+function validateAllTimeEventCounts(allTimeRankings, pastEvents) {
   const resultCounts = new Map();
 
   for (const event of pastEvents) {
@@ -1301,16 +1320,15 @@ function validateAllTimeEventCounts(
   }
 
   for (const player of allTimeRankings) {
-    const resultCount =
-      resultCounts.get(player.id) ?? 0;
+    const resultCount = resultCounts.get(player.id) ?? 0;
 
     if (player.events !== resultCount) {
       throw new Error(
         `"All Time" lists ${player.events} event${
           player.events === 1 ? "" : "s"
-        } for ${player.name}, but Event Log contains ${
-          resultCount
-        }. The sheet tabs may still be updating`
+        } for ${
+          player.name
+        }, but Event Log contains ${resultCount}. The sheet tabs may still be updating`
       );
     }
   }
@@ -1346,9 +1364,7 @@ async function scrapeSnapshot(gids, requiredTabs) {
   const htmlByTab = Object.fromEntries(
     await Promise.all(
       requiredTabs.map(async (tabName) => {
-        console.log(
-          `Fetching "${tabName}" (gid=${gids[tabName]})...`
-        );
+        console.log(`Fetching "${tabName}" (gid=${gids[tabName]})...`);
 
         const html = await fetchHtml(
           `${BASE}/sheet?gid=${gids[tabName]}&cacheBust=${cacheBust}`,
@@ -1375,19 +1391,13 @@ async function scrapeSnapshot(gids, requiredTabs) {
     views[slug] = rankings;
 
     if (rankings.length === 0) {
-      console.log(
-        `  0 players in "${tabName}" (empty ranking view)`
-      );
+      console.log(`  0 players in "${tabName}" (empty ranking view)`);
     } else {
-      console.log(
-        `  ${rankings.length} players in "${tabName}"`
-      );
+      console.log(`  ${rankings.length} players in "${tabName}"`);
     }
   }
 
-  const playerDataTab = PLAYER_DATA_TABS.find(
-    (tabName) => htmlByTab[tabName]
-  );
+  const playerDataTab = PLAYER_DATA_TABS.find((tabName) => htmlByTab[tabName]);
 
   const seeding = parseSeedingTable(htmlByTab[SEEDING_TAB], playerRegistry);
 
@@ -1422,30 +1432,26 @@ async function scrapeSnapshot(gids, requiredTabs) {
     }
   }
 
-  const past = parsePastEvents(
-    htmlByTab["Past Events"],
-    playerRegistry
+  const past = parsePastEvents(htmlByTab["Past Events"], playerRegistry);
+
+  const upcoming = parseUpcomingEvents(htmlByTab["Upcoming Events"]);
+
+  const months = parsePastMonths(
+    htmlByTab[PAST_MONTHS_TAB],
+    playerRegistry,
+    past
   );
 
-  const upcoming = parseUpcomingEvents(
-    htmlByTab["Upcoming Events"]
-  );
-
-  const resultsByEvent = parseEventLog(
-    htmlByTab["Event Log"],
-    playerRegistry
-  );
+  const resultsByEvent = parseEventLog(htmlByTab["Event Log"], playerRegistry);
 
   assertUniqueIds(past, "past event");
   assertUniqueIds(upcoming, "upcoming event");
 
-  const pastEventIds = new Set(
-    past.map((event) => event.id)
-  );
+  const pastEventIds = new Set(past.map((event) => event.id));
 
-  const unmatchedResultDates = [
-    ...resultsByEvent.keys(),
-  ].filter((eventId) => !pastEventIds.has(eventId));
+  const unmatchedResultDates = [...resultsByEvent.keys()].filter(
+    (eventId) => !pastEventIds.has(eventId)
+  );
 
   if (unmatchedResultDates.length > 0) {
     throw new Error(
@@ -1456,37 +1462,28 @@ async function scrapeSnapshot(gids, requiredTabs) {
   }
 
   for (const event of past) {
-    event.results = (
-      resultsByEvent.get(event.id) ?? []
-    ).sort((a, b) => a.place - b.place);
+    event.results = (resultsByEvent.get(event.id) ?? []).sort(
+      (a, b) => a.place - b.place
+    );
   }
 
   validatePastEvents(past);
-  validateAllTimeEventCounts(
-    views["all-time"],
-    past
-  );
+  validatePastMonths(months);
+  validateAllTimeEventCounts(views["all-time"], past);
 
-  past.sort((a, b) =>
-    b.date.localeCompare(a.date)
-  );
+  past.sort((a, b) => b.date.localeCompare(a.date));
 
-  upcoming.sort((a, b) =>
-    a.date.localeCompare(b.date)
-  );
+  upcoming.sort((a, b) => a.date.localeCompare(b.date));
 
   const events = {
     upcoming,
     past,
+    months,
   };
 
-  console.log(
-    `  ${upcoming.length} upcoming events`
-  );
+  console.log(`  ${upcoming.length} upcoming events`);
 
-  console.log(
-    `  ${past.length} past events`
-  );
+  console.log(`  ${past.length} past events`);
 
   return {
     views,
@@ -1498,33 +1495,25 @@ async function scrapeSnapshot(gids, requiredTabs) {
 async function scrape() {
   console.log("Discovering sheet tabs...");
 
-  const menuHtml = await fetchHtml(
-    BASE,
-    "published sheet menu"
-  );
+  const menuHtml = await fetchHtml(BASE, "published sheet menu");
 
   const gids = parseTabGids(menuHtml);
 
-  const playerDataTab = PLAYER_DATA_TABS.find(
-    (tabName) => gids[tabName]
-  );
+  const playerDataTab = PLAYER_DATA_TABS.find((tabName) => gids[tabName]);
 
   const requiredTabs = [
     ...Object.keys(VIEWS),
     ...EVENT_TABS,
+    PAST_MONTHS_TAB,
     SEEDING_TAB,
     ...(playerDataTab ? [playerDataTab] : []),
   ];
 
-  const missingTabs = requiredTabs.filter(
-    (tabName) => !gids[tabName]
-  );
+  const missingTabs = requiredTabs.filter((tabName) => !gids[tabName]);
 
   if (missingTabs.length > 0) {
     throw new Error(
-      `Missing published tabs: ${missingTabs.join(
-        ", "
-      )}. Available tabs: ${
+      `Missing published tabs: ${missingTabs.join(", ")}. Available tabs: ${
         Object.keys(gids).join(", ") || "(none)"
       }`
     );
@@ -1534,9 +1523,7 @@ async function scrape() {
 
   if (existsSync(OUTPUT_PATH)) {
     try {
-      previous = JSON.parse(
-        readFileSync(OUTPUT_PATH, "utf8")
-      );
+      previous = JSON.parse(readFileSync(OUTPUT_PATH, "utf8"));
     } catch (error) {
       console.warn(
         `Could not read existing ${OUTPUT_PATH}; it will be replaced after a valid scrape: ${error.message}`
@@ -1547,21 +1534,11 @@ async function scrape() {
   let snapshot;
   let snapshotError;
 
-  for (
-    let attempt = 1;
-    attempt <= SNAPSHOT_ATTEMPTS;
-    attempt += 1
-  ) {
+  for (let attempt = 1; attempt <= SNAPSHOT_ATTEMPTS; attempt += 1) {
     try {
-      snapshot = await scrapeSnapshot(
-        gids,
-        requiredTabs
-      );
+      snapshot = await scrapeSnapshot(gids, requiredTabs);
 
-      validateSnapshotProgress(
-        snapshot,
-        previous
-      );
+      validateSnapshotProgress(snapshot, previous);
 
       break;
     } catch (error) {
@@ -1573,9 +1550,7 @@ async function scrape() {
         `Snapshot attempt ${attempt}/${SNAPSHOT_ATTEMPTS} failed (${error.message}); retrying all tabs in ${SNAPSHOT_RETRY_DELAY_MS}ms...`
       );
 
-      await wait(
-        SNAPSHOT_RETRY_DELAY_MS
-      );
+      await wait(SNAPSHOT_RETRY_DELAY_MS);
     }
   }
 
@@ -1629,24 +1604,16 @@ async function scrape() {
   const temporaryPath = `${OUTPUT_PATH}.tmp`;
 
   try {
-    writeFileSync(
-      temporaryPath,
-      JSON.stringify(data, null, 2)
-    );
+    writeFileSync(temporaryPath, JSON.stringify(data, null, 2));
 
-    renameSync(
-      temporaryPath,
-      OUTPUT_PATH
-    );
+    renameSync(temporaryPath, OUTPUT_PATH);
   } finally {
     if (existsSync(temporaryPath)) {
       unlinkSync(temporaryPath);
     }
   }
 
-  console.log(
-    `Wrote ${OUTPUT_PATH}`
-  );
+  console.log(`Wrote ${OUTPUT_PATH}`);
 }
 
 scrape().catch((err) => {

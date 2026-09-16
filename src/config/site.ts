@@ -7,7 +7,7 @@ export const ROUTES = {
 
 export type AppRoute =
   | { page: "rankings" }
-  | { page: "schedule" }
+  | { page: "schedule"; monthId?: string; pastMonths?: boolean }
   | { page: "event"; eventId: string }
   | { page: "player"; playerId: string }
   | { page: "format" }
@@ -130,6 +130,13 @@ export function parseHashRoute(hash: string): AppRoute {
   }
   if (path === ROUTES.schedule || path === `${ROUTES.schedule}/`) {
     return { page: "schedule" };
+  }
+  const monthMatch = /^#\/schedule\/month\/(\d{4}-\d{2})\/?$/.exec(path);
+  if (monthMatch) {
+    return { page: "schedule", monthId: monthMatch[1] };
+  }
+  if (path === `${ROUTES.schedule}/month`) {
+    return { page: "schedule", pastMonths: true };
   }
   if (path === ROUTES.format || path === `${ROUTES.format}/`) {
     return { page: "format" };

@@ -75,6 +75,15 @@ export interface UpcomingEvent {
   gameMakerUrl: string | null;
 }
 
+export interface PastMonth {
+  id: string;
+  label: string;
+  podium: PlayerReference[];
+  eventCount: number;
+  playerCount: number;
+  eventIds: string[];
+}
+
 export interface LeaderboardData {
   scrapedAt: string;
   source: string;
@@ -83,6 +92,7 @@ export interface LeaderboardData {
   events: {
     upcoming: UpcomingEvent[];
     past: PastEvent[];
+    months: PastMonth[];
   };
 }
 
@@ -232,6 +242,21 @@ function isUpcomingEvent(value: unknown): value is UpcomingEvent {
   );
 }
 
+function isPastMonth(value: unknown): value is PastMonth {
+  return (
+    isRecord(value) &&
+    typeof value.id === "string" &&
+    /^\d{4}-\d{2}$/.test(value.id) &&
+    typeof value.label === "string" &&
+    typeof value.eventCount === "number" &&
+    typeof value.playerCount === "number" &&
+    Array.isArray(value.podium) &&
+    value.podium.every(isPlayerReference) &&
+    Array.isArray(value.eventIds) &&
+    value.eventIds.every(isDateId)
+  );
+}
+
 function isArrayOf<T>(
   value: unknown,
   guard: (item: unknown) => item is T
@@ -258,7 +283,8 @@ export function parseLeaderboardData(value: unknown): LeaderboardData {
     !isArrayOf(seeding, isSeededPlayer) ||
     !isRecord(events) ||
     !isArrayOf(events.upcoming, isUpcomingEvent) ||
-    !isArrayOf(events.past, isPastEvent)
+    !isArrayOf(events.past, isPastEvent) ||
+    !isArrayOf(events.months, isPastMonth)
   ) {
     throw new Error("Leaderboard data has an invalid format");
   }
@@ -275,6 +301,7 @@ export function parseLeaderboardData(value: unknown): LeaderboardData {
     events: {
       upcoming: events.upcoming,
       past: events.past,
+      months: events.months,
     },
   };
 }
