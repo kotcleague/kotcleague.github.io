@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-16T16:54:53.537Z",
+  "scrapedAt": "2026-09-16T22:56:10.322Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -1883,9 +1883,17 @@
       "dupr": 4.202
     },
     {
+      "id": "john-tuason",
+      "name": "John Tuason",
+      "seed": 35,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.122
+    },
+    {
       "id": "todd-wahl",
       "name": "Todd Wahl",
-      "seed": 35,
+      "seed": 36,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.009
