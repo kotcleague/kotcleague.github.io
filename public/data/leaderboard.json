@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-17T07:39:11.316Z",
+  "scrapedAt": "2026-09-17T13:27:36.127Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -1771,121 +1771,185 @@
   },
   "seeding": [
     {
-      "id": "chase-blickhan",
-      "name": "Chase Blickhan",
-      "seed": 1,
-      "past30Days": 2500,
-      "allTime": 2500,
-      "dupr": 4.931
-    },
-    {
-      "id": "brett-mell",
-      "name": "Brett Mell",
-      "seed": 2,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4.841
-    },
-    {
-      "id": "preston-behlmann",
-      "name": "Preston Behlmann",
-      "seed": 3,
-      "past30Days": 300,
-      "allTime": 300,
-      "dupr": 4.622
-    },
-    {
-      "id": "aniket-sharma",
-      "name": "Aniket Sharma",
-      "seed": 4,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4.611
-    },
-    {
-      "id": "garrett-hallemeier",
-      "name": "Garrett Hallemeier",
-      "seed": 5,
-      "past30Days": 800,
-      "allTime": 800,
-      "dupr": 4.597
-    },
-    {
-      "id": "dev-newsome",
-      "name": "Dev Newsome",
-      "seed": 6,
-      "past30Days": 900,
-      "allTime": 900,
-      "dupr": 4.577
-    },
-    {
-      "id": "john-paden",
-      "name": "John Paden",
-      "seed": 7,
-      "past30Days": 50,
-      "allTime": 50,
-      "dupr": 4.577
-    },
-    {
-      "id": "brooks-toth",
-      "name": "Brooks Toth",
-      "seed": 8,
-      "past30Days": 125,
-      "allTime": 125,
-      "dupr": 4.559
-    },
-    {
-      "id": "tobi-ola",
-      "name": "Tobi Ola",
-      "seed": 9,
-      "past30Days": 1600,
-      "allTime": 1600,
-      "dupr": 4.533
-    },
-    {
-      "id": "jon-richert",
-      "name": "Jon Richert",
-      "seed": 10,
-      "past30Days": 1125,
-      "allTime": 1125,
-      "dupr": 4.509
-    },
-    {
-      "id": "mati-sevilla",
-      "name": "Mati Sevilla",
-      "seed": 11,
-      "past30Days": 400,
-      "allTime": 400,
-      "dupr": 4.476
-    },
-    {
-      "id": "matt-landolt",
-      "name": "Matt Landolt",
-      "seed": 12,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4.423
-    },
-    {
       "id": "jon-harris",
       "name": "Jon Harris",
-      "seed": 13,
+      "seed": 1,
       "past30Days": 3200,
       "allTime": 3200,
       "dupr": 4.397
     },
     {
+      "id": "chase-blickhan",
+      "name": "Chase Blickhan",
+      "seed": 2,
+      "past30Days": 2500,
+      "allTime": 2500,
+      "dupr": 4.931
+    },
+    {
+      "id": "tobi-ola",
+      "name": "Tobi Ola",
+      "seed": 3,
+      "past30Days": 1600,
+      "allTime": 1600,
+      "dupr": 4.533
+    },
+    {
+      "id": "michael-fan",
+      "name": "Michael Fan",
+      "seed": 4,
+      "past30Days": 1500,
+      "allTime": 1500,
+      "dupr": 4.28
+    },
+    {
+      "id": "ivan-gutierrez",
+      "name": "Ivan Gutierrez",
+      "seed": 5,
+      "past30Days": 1500,
+      "allTime": 1500,
+      "dupr": 4.111
+    },
+    {
+      "id": "sean-liston",
+      "name": "Sean Liston",
+      "seed": 6,
+      "past30Days": 1150,
+      "allTime": 1150,
+      "dupr": 4.019
+    },
+    {
+      "id": "jon-richert",
+      "name": "Jon Richert",
+      "seed": 7,
+      "past30Days": 1125,
+      "allTime": 1125,
+      "dupr": 4.509
+    },
+    {
+      "id": "dev-newsome",
+      "name": "Dev Newsome",
+      "seed": 8,
+      "past30Days": 900,
+      "allTime": 900,
+      "dupr": 4.577
+    },
+    {
+      "id": "orlando-paez",
+      "name": "Orlando Paez",
+      "seed": 9,
+      "past30Days": 900,
+      "allTime": 900,
+      "dupr": 4.294
+    },
+    {
+      "id": "garrett-hallemeier",
+      "name": "Garrett Hallemeier",
+      "seed": 10,
+      "past30Days": 800,
+      "allTime": 800,
+      "dupr": 4.597
+    },
+    {
+      "id": "james-brown",
+      "name": "James Brown",
+      "seed": 11,
+      "past30Days": 750,
+      "allTime": 750,
+      "dupr": 4.292
+    },
+    {
+      "id": "sam-ngo",
+      "name": "Sam Ngo",
+      "seed": 12,
+      "past30Days": 730,
+      "allTime": 730,
+      "dupr": 3.596
+    },
+    {
       "id": "brian-romine",
       "name": "Brian Romine",
-      "seed": 14,
+      "seed": 13,
       "past30Days": 600,
       "allTime": 600,
       "dupr": 4.388
     },
     {
+      "id": "preston-langlois",
+      "name": "Preston Langlois",
+      "seed": 14,
+      "past30Days": 600,
+      "allTime": 600,
+      "dupr": 3.946
+    },
+    {
+      "id": "mayur-ostwal",
+      "name": "Mayur Ostwal",
+      "seed": 15,
+      "past30Days": 600,
+      "allTime": 600,
+      "dupr": -1
+    },
+    {
+      "id": "khoa-nguyen",
+      "name": "Khoa Nguyen",
+      "seed": 16,
+      "past30Days": 500,
+      "allTime": 500,
+      "dupr": -1
+    },
+    {
+      "id": "mati-sevilla",
+      "name": "Mati Sevilla",
+      "seed": 17,
+      "past30Days": 400,
+      "allTime": 400,
+      "dupr": 4.476
+    },
+    {
+      "id": "libby-liston",
+      "name": "Libby Liston",
+      "seed": 18,
+      "past30Days": 400,
+      "allTime": 400,
+      "dupr": -1
+    },
+    {
+      "id": "preston-behlmann",
+      "name": "Preston Behlmann",
+      "seed": 19,
+      "past30Days": 300,
+      "allTime": 300,
+      "dupr": 4.622
+    },
+    {
+      "id": "matthew-johnson",
+      "name": "Matthew Johnson",
+      "seed": 20,
+      "past30Days": 300,
+      "allTime": 300,
+      "dupr": 3.764
+    },
+    {
+      "id": "matt-fleming",
+      "name": "Matt Fleming",
+      "seed": 21,
+      "past30Days": 250,
+      "allTime": 250,
+      "dupr": 4.303
+    },
+    {
+      "id": "derek-dallas",
+      "name": "Derek Dallas",
+      "seed": 22,
+      "past30Days": 250,
+      "allTime": 250,
+      "dupr": 4.142
+    },
+    {
       "id": "austin-lin",
       "name": "Austin Lin",
-      "seed": 15,
+      "seed": 23,
       "past30Days": 200,
       "allTime": 200,
       "dupr": 4.33
@@ -1893,98 +1957,34 @@
     {
       "id": "michael-randle",
       "name": "Michael Randle",
-      "seed": 16,
+      "seed": 24,
       "past30Days": 200,
       "allTime": 200,
       "dupr": 4.314
     },
     {
-      "id": "matt-fleming",
-      "name": "Matt Fleming",
-      "seed": 17,
-      "past30Days": 250,
-      "allTime": 250,
-      "dupr": 4.303
-    },
-    {
-      "id": "orlando-paez",
-      "name": "Orlando Paez",
-      "seed": 18,
-      "past30Days": 900,
-      "allTime": 900,
-      "dupr": 4.294
-    },
-    {
-      "id": "james-brown",
-      "name": "James Brown",
-      "seed": 19,
-      "past30Days": 750,
-      "allTime": 750,
-      "dupr": 4.292
-    },
-    {
-      "id": "michael-fan",
-      "name": "Michael Fan",
-      "seed": 20,
-      "past30Days": 1500,
-      "allTime": 1500,
-      "dupr": 4.28
-    },
-    {
-      "id": "kevin-reque",
-      "name": "Kevin Reque",
-      "seed": 21,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4.274
-    },
-    {
       "id": "bekah-ola",
       "name": "Bekah Ola",
-      "seed": 22,
+      "seed": 25,
       "past30Days": 200,
       "allTime": 200,
       "dupr": 4.248
     },
     {
+      "id": "brooks-toth",
+      "name": "Brooks Toth",
+      "seed": 26,
+      "past30Days": 125,
+      "allTime": 125,
+      "dupr": 4.559
+    },
+    {
       "id": "matthew-hultman",
       "name": "Matthew Hultman",
-      "seed": 23,
+      "seed": 27,
       "past30Days": 100,
       "allTime": 100,
       "dupr": 4.245
-    },
-    {
-      "id": "ryan-niedermayer",
-      "name": "Ryan Niedermayer",
-      "seed": 24,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4.202
-    },
-    {
-      "id": "derek-dallas",
-      "name": "Derek Dallas",
-      "seed": 25,
-      "past30Days": 250,
-      "allTime": 250,
-      "dupr": 4.142
-    },
-    {
-      "id": "john-tuason",
-      "name": "John Tuason",
-      "seed": 26,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4.122
-    },
-    {
-      "id": "ivan-gutierrez",
-      "name": "Ivan Gutierrez",
-      "seed": 27,
-      "past30Days": 1500,
-      "allTime": 1500,
-      "dupr": 4.111
     },
     {
       "id": "nick-borger",
@@ -1995,68 +1995,68 @@
       "dupr": 4.059
     },
     {
-      "id": "sean-liston",
-      "name": "Sean Liston",
+      "id": "john-paden",
+      "name": "John Paden",
       "seed": 29,
-      "past30Days": 1150,
-      "allTime": 1150,
-      "dupr": 4.019
+      "past30Days": 50,
+      "allTime": 50,
+      "dupr": 4.577
+    },
+    {
+      "id": "brett-mell",
+      "name": "Brett Mell",
+      "seed": 30,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.841
+    },
+    {
+      "id": "aniket-sharma",
+      "name": "Aniket Sharma",
+      "seed": 31,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.611
+    },
+    {
+      "id": "matt-landolt",
+      "name": "Matt Landolt",
+      "seed": 32,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.423
+    },
+    {
+      "id": "kevin-reque",
+      "name": "Kevin Reque",
+      "seed": 33,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.274
+    },
+    {
+      "id": "ryan-niedermayer",
+      "name": "Ryan Niedermayer",
+      "seed": 34,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.202
+    },
+    {
+      "id": "john-tuason",
+      "name": "John Tuason",
+      "seed": 35,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.122
     },
     {
       "id": "todd-wahl",
       "name": "Todd Wahl",
-      "seed": 30,
+      "seed": 36,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.009
-    },
-    {
-      "id": "preston-langlois",
-      "name": "Preston Langlois",
-      "seed": 31,
-      "past30Days": 600,
-      "allTime": 600,
-      "dupr": 3.946
-    },
-    {
-      "id": "matthew-johnson",
-      "name": "Matthew Johnson",
-      "seed": 32,
-      "past30Days": 300,
-      "allTime": 300,
-      "dupr": 3.764
-    },
-    {
-      "id": "sam-ngo",
-      "name": "Sam Ngo",
-      "seed": 33,
-      "past30Days": 730,
-      "allTime": 730,
-      "dupr": 3.596
-    },
-    {
-      "id": "mayur-ostwal",
-      "name": "Mayur Ostwal",
-      "seed": 34,
-      "past30Days": 600,
-      "allTime": 600,
-      "dupr": -1
-    },
-    {
-      "id": "khoa-nguyen",
-      "name": "Khoa Nguyen",
-      "seed": 35,
-      "past30Days": 500,
-      "allTime": 500,
-      "dupr": -1
-    },
-    {
-      "id": "libby-liston",
-      "name": "Libby Liston",
-      "seed": 36,
-      "past30Days": 400,
-      "allTime": 400,
-      "dupr": -1
     }
   ],
   "events": {
@@ -2076,7 +2076,7 @@
       {
         "id": "2026-10-01",
         "date": "2026-10-01",
-        "courtReserveUrl": null,
+        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null
       },
       {
