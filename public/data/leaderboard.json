@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-17T13:27:36.127Z",
+  "scrapedAt": "2026-09-17T22:26:09.533Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2051,12 +2051,36 @@
       "dupr": 4.122
     },
     {
-      "id": "todd-wahl",
-      "name": "Todd Wahl",
+      "id": "luke-bovee",
+      "name": "Luke Bovee",
       "seed": 36,
       "past30Days": 0,
       "allTime": 0,
+      "dupr": 4.011
+    },
+    {
+      "id": "todd-wahl",
+      "name": "Todd Wahl",
+      "seed": 37,
+      "past30Days": 0,
+      "allTime": 0,
       "dupr": 4.009
+    },
+    {
+      "id": "sub-2",
+      "name": "Sub 2",
+      "seed": 38,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 0
+    },
+    {
+      "id": "sub-1",
+      "name": "Sub 1",
+      "seed": 39,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 0
     }
   ],
   "events": {
