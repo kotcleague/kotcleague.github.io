@@ -7,13 +7,13 @@ interface PlacementBadgeProps {
 export function placementBadgeClass(place: number) {
   switch (place) {
     case 1:
-      return "bg-gold text-amber-950";
+      return "border border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-700 dark:bg-amber-950/40 dark:text-amber-200";
     case 2:
-      return "bg-silver text-slate-800";
+      return "border border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200";
     case 3:
-      return "bg-bronze text-stone-950";
+      return "border border-orange-300 bg-orange-50 text-orange-800 dark:border-orange-800 dark:bg-orange-950/40 dark:text-orange-200";
     default:
-      return "bg-transparent text-slate-400 dark:text-slate-500";
+      return "border border-transparent bg-transparent text-slate-400 dark:text-slate-500";
   }
 }
 

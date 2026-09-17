@@ -7,7 +7,7 @@ import type { LeaderboardData } from "@/types/leaderboard";
 interface LeaderboardPageShellProps {
   children: (data: LeaderboardData) => ReactNode;
   errorTitle: string;
-  header?: ReactNode;
+  header?: ReactNode | ((data: LeaderboardData) => ReactNode);
   loadingLabel: string;
 }
 
@@ -21,7 +21,7 @@ export default function LeaderboardPageShell({
 
   return (
     <main>
-      {header}
+      {typeof header === "function" ? data && header(data) : header}
       {loading && <LoadingState label={loadingLabel} />}
       {error && <ErrorState title={errorTitle} message={error} />}
       {data && (

@@ -20,6 +20,7 @@ import {
   assignmentRoute,
 } from "@/config/site";
 import { assignmentText, buildAssignments } from "@/lib/assignments";
+import { actionClass, META_LABEL, META_LABEL_MUTED } from "@/lib/styles";
 import type { SeededPlayer } from "@/types/leaderboard";
 
 function PlayerPicker({
@@ -81,7 +82,7 @@ function MatchTeam({
   return (
     <section className="px-4 py-2 print:px-2 print:py-1">
       <div className="mb-1 flex items-center">
-        <span className="font-display text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 dark:text-slate-500">
+        <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
           Team {number}
         </span>
       </div>
@@ -241,18 +242,24 @@ export default function AssignmentBuilderPage() {
                         {selectedPlayers.length} of {players.length} selected
                       </p>
                     </div>
-                    <div className="flex gap-2 text-xs font-semibold">
+                    <div className="flex gap-2">
                       <button
                         type="button"
                         onClick={selectAll}
-                        className="text-blue hover:underline"
+                        className={actionClass({
+                          size: "sm",
+                          variant: "quiet",
+                        })}
                       >
                         All
                       </button>
                       <button
                         type="button"
                         onClick={clearAll}
-                        className="text-slate-500 hover:underline dark:text-slate-400"
+                        className={actionClass({
+                          size: "sm",
+                          variant: "quiet",
+                        })}
                       >
                         Clear
                       </button>
@@ -260,7 +267,7 @@ export default function AssignmentBuilderPage() {
                   </div>
                   <div className="mt-5">
                     <label
-                      className="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
+                      className={`${META_LABEL} mb-2 block text-slate-500 dark:text-slate-400`}
                       htmlFor="court-numbers"
                     >
                       Court numbers
@@ -322,7 +329,10 @@ export default function AssignmentBuilderPage() {
                         setShowAttendance(nextVisible);
                         persistUrl(selectedIds, courtLabels, !nextVisible);
                       }}
-                      className="inline-flex items-center gap-2 border border-slate-300 px-3 py-2 text-xs font-semibold uppercase tracking-wide hover:border-blue dark:border-slate-700"
+                      className={actionClass({
+                        size: "sm",
+                        variant: "secondary",
+                      })}
                     >
                       {showAttendance ? (
                         <EyeOff className="h-4 w-4" aria-hidden="true" />
@@ -334,7 +344,10 @@ export default function AssignmentBuilderPage() {
                     <button
                       type="button"
                       onClick={() => window.print()}
-                      className="inline-flex items-center gap-2 border border-slate-300 px-3 py-2 text-xs font-semibold uppercase tracking-wide hover:border-blue dark:border-slate-700"
+                      className={actionClass({
+                        size: "sm",
+                        variant: "secondary",
+                      })}
                     >
                       <Printer className="h-4 w-4" aria-hidden="true" /> Print
                     </button>
@@ -342,7 +355,7 @@ export default function AssignmentBuilderPage() {
                       type="button"
                       disabled={!selectedPlayers.length}
                       onClick={() => void copyAssignments()}
-                      className="inline-flex items-center gap-2 bg-ink px-3 py-2 text-xs font-semibold uppercase tracking-wide text-white disabled:cursor-not-allowed disabled:opacity-40 dark:bg-white dark:text-ink"
+                      className={actionClass({ size: "sm" })}
                     >
                       {copied ? (
                         <Check className="h-4 w-4" aria-hidden="true" />
@@ -366,12 +379,10 @@ export default function AssignmentBuilderPage() {
                         className="break-inside-avoid overflow-hidden border-2 border-blue/60 dark:border-blue-400/60 print:border print:border-blue-700"
                       >
                         <div className="flex items-center justify-between px-4 py-2.5 print:px-2 print:py-1.5">
-                          <h3 className="font-display text-lg font-bold uppercase tracking-wide">
+                          <h3 className="text-lg font-bold">
                             Court {assignment.court}
                           </h3>
-                          <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                            4 players
-                          </span>
+                          <span className={META_LABEL_MUTED}>4 players</span>
                         </div>
                         <div className="print:text-xs">
                           <MatchTeam
@@ -379,7 +390,7 @@ export default function AssignmentBuilderPage() {
                             players={assignment.slots.slice(0, 2)}
                           />
                           <div className="flex h-5 items-center justify-center print:h-3">
-                            <span className="font-display text-base font-bold uppercase tracking-[0.2em] text-blue dark:text-blue-300 print:text-xs">
+                            <span className="text-sm font-bold uppercase tracking-[0.16em] text-blue dark:text-blue-300 print:text-xs">
                               vs
                             </span>
                           </div>
@@ -398,9 +409,7 @@ export default function AssignmentBuilderPage() {
                             aria-hidden="true"
                           />
                           <div>
-                            <h3 className="font-display text-lg font-bold uppercase tracking-wide">
-                              Bye
-                            </h3>
+                            <h3 className="text-lg font-bold">Bye</h3>
                             <p className="text-xs text-amber-800/70 dark:text-amber-200/70">
                               Waiting for the next available court
                             </p>

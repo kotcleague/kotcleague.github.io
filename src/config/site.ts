@@ -1,6 +1,7 @@
 export const ROUTES = {
   rankings: "#/",
   schedule: "#/schedule",
+  pastMonths: "#/schedule/month",
   format: "#/format",
   assignments: "#/assignments",
 } as const;
@@ -44,6 +45,10 @@ export const SITE_LINKS = {
 
 export function eventRoute(eventId: string) {
   return `${ROUTES.schedule}/${encodeURIComponent(eventId)}`;
+}
+
+export function monthRoute(monthId: string) {
+  return `${ROUTES.pastMonths}/${encodeURIComponent(monthId)}`;
 }
 
 export function playerRoute(playerId: string) {
@@ -135,7 +140,7 @@ export function parseHashRoute(hash: string): AppRoute {
   if (monthMatch) {
     return { page: "schedule", monthId: monthMatch[1] };
   }
-  if (path === `${ROUTES.schedule}/month`) {
+  if (path === ROUTES.pastMonths) {
     return { page: "schedule", pastMonths: true };
   }
   if (path === ROUTES.format || path === `${ROUTES.format}/`) {

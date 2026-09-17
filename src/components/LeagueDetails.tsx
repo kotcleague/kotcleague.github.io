@@ -5,9 +5,12 @@ import {
   MapPin,
   Users,
 } from "lucide-react";
+import ActionLink from "@/components/ActionLink";
 import {
   EditorialTableBody,
+  EditorialTableCell,
   EditorialTableHead,
+  EditorialTableHeaderCell,
   EditorialTableRow,
 } from "@/components/EditorialTable";
 import Footer from "@/components/Footer";
@@ -15,6 +18,8 @@ import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import SectionHeading from "@/components/SectionHeading";
 import TableShell from "@/components/TableShell";
+import { formatInteger } from "@/lib/format";
+import { META_LABEL_ACCENT } from "@/lib/styles";
 
 interface LeagueDetailsProps {
   leaderboardUrl: string;
@@ -82,11 +87,23 @@ const LEAGUE_STEPS = [
 export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
   return (
     <main>
-      <PageHeader eyebrow="King of the Court">League Format</PageHeader>
+      <PageHeader
+        eyebrow="King of the Court"
+        description="How league nights run and how event results become leaderboard points."
+      >
+        League Format
+      </PageHeader>
 
-      <PageContent className="space-y-12 sm:space-y-16">
+      <PageContent className="space-y-12">
         <section aria-labelledby="quick-facts">
-          <div className="overflow-hidden rounded-sm border border-slate-300 bg-white shadow-[0_1px_0_rgba(8,27,42,0.05)] dark:border-slate-700 dark:bg-slate-900">
+          <SectionHeading
+            eyebrow="League essentials"
+            id="quick-facts"
+            prominent
+          >
+            At a glance
+          </SectionHeading>
+          <div className="border-y border-slate-200 dark:border-slate-800">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
               {LEAGUE_FACTS.map(({ icon: Icon, label, lines, note }) => (
                 <div
@@ -95,7 +112,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                 >
                   <Icon className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300" />
                   <div>
-                    <span className="font-display block text-sm font-bold uppercase tracking-[0.16em] text-blue dark:text-blue-300">
+                    <span className={`${META_LABEL_ACCENT} block`}>
                       {label}
                     </span>
                     <span className="mt-1 block text-sm font-semibold leading-5">
@@ -114,7 +131,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                 </div>
               ))}
             </div>
-            <div className="flex items-start gap-3 border-t border-blue/30 bg-blue/[0.04] px-4 py-4 dark:border-blue/40 dark:bg-blue/[0.08]">
+            <div className="flex items-start gap-3 border-t border-slate-200 px-4 py-4 dark:border-slate-800">
               <Clock3 className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300" />
               <p className="text-sm leading-5 text-slate-600 dark:text-slate-300">
                 <strong className="text-ink dark:text-white">Scoring:</strong>{" "}
@@ -125,25 +142,17 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
           </div>
         </section>
 
-        <section
-          aria-labelledby="league-flow"
-          className="rounded-sm border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900 sm:p-6"
-        >
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
-            <h2
-              id="league-flow"
-              className="font-display text-2xl font-bold uppercase tracking-tight sm:text-3xl"
-            >
-              How it works
-            </h2>
-          </div>
-          <ol className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+        <section aria-labelledby="league-flow">
+          <SectionHeading eyebrow="League flow" id="league-flow" prominent>
+            How it works
+          </SectionHeading>
+          <ol className="grid grid-cols-1 gap-5 border-y border-slate-200 py-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 dark:border-slate-800">
             {LEAGUE_STEPS.map((step, index) => (
               <li
                 key={step.title}
                 className="relative flex gap-3 lg:px-5 lg:first:pl-0 lg:last:pr-0"
               >
-                <span className="font-display flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue text-sm font-bold text-white dark:bg-blue-300 dark:text-slate-950">
+                <span className="font-display flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border border-blue/30 bg-blue/[0.06] text-sm font-bold text-blue dark:border-blue/50 dark:bg-blue/10 dark:text-blue-300">
                   {index + 1}
                 </span>
                 <div className="min-w-0">
@@ -157,16 +166,13 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
               </li>
             ))}
           </ol>
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-4 dark:border-slate-800">
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm font-semibold text-slate-600 dark:text-slate-300">
               See where you stand before your next event.
             </p>
-            <a
-              href={leaderboardUrl}
-              className="inline-flex rounded-sm bg-blue px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-accent-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue dark:bg-blue-300 dark:text-slate-950 dark:hover:bg-blue-200"
-            >
+            <ActionLink href={leaderboardUrl} size="sm">
               View leaderboard
-            </a>
+            </ActionLink>
           </div>
         </section>
 
@@ -189,21 +195,27 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
             <table className="w-full">
               <EditorialTableHead>
                 <tr>
-                  <th className="px-5 py-3 text-left">Court</th>
-                  <th className="px-5 py-3 text-right">Win</th>
-                  <th className="px-5 py-3 text-right">Loss</th>
+                  <EditorialTableHeaderCell>Court</EditorialTableHeaderCell>
+                  <EditorialTableHeaderCell alignment="right">
+                    Win
+                  </EditorialTableHeaderCell>
+                  <EditorialTableHeaderCell alignment="right">
+                    Loss
+                  </EditorialTableHeaderCell>
                 </tr>
               </EditorialTableHead>
-              <EditorialTableBody className="font-display text-lg font-semibold">
+              <EditorialTableBody className="text-base font-semibold">
                 {EVENT_POINTS.map((row) => (
                   <EditorialTableRow key={row.court}>
-                    <td className="px-5 py-3 font-semibold">{row.court}</td>
-                    <td className="px-5 py-3 text-right tabular-nums">
-                      {row.win}
-                    </td>
-                    <td className="px-5 py-3 text-right tabular-nums">
-                      {row.loss}
-                    </td>
+                    <EditorialTableCell className="font-semibold">
+                      {row.court}
+                    </EditorialTableCell>
+                    <EditorialTableCell alignment="right" numeric>
+                      {formatInteger(row.win)}
+                    </EditorialTableCell>
+                    <EditorialTableCell alignment="right" numeric>
+                      {formatInteger(row.loss)}
+                    </EditorialTableCell>
                   </EditorialTableRow>
                 ))}
               </EditorialTableBody>
@@ -228,25 +240,43 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
             <table className="w-full table-fixed">
               <EditorialTableHead>
                 <tr>
-                  <th className="w-[28%] px-2 py-3 text-left sm:px-5">
+                  <EditorialTableHeaderCell
+                    density="compact"
+                    className="w-[28%]"
+                  >
                     GM standing
-                  </th>
-                  <th className="px-2 py-3 text-right sm:px-5">2 courts</th>
-                  <th className="px-2 py-3 text-right sm:px-5">5 courts</th>
+                  </EditorialTableHeaderCell>
+                  <EditorialTableHeaderCell alignment="right" density="compact">
+                    2 courts
+                  </EditorialTableHeaderCell>
+                  <EditorialTableHeaderCell alignment="right" density="compact">
+                    5 courts
+                  </EditorialTableHeaderCell>
                 </tr>
               </EditorialTableHead>
-              <EditorialTableBody className="font-display text-lg font-semibold">
+              <EditorialTableBody className="text-base font-semibold">
                 {LEADERBOARD_POINTS.map((row) => (
                   <EditorialTableRow key={row.standing}>
-                    <td className="px-2 py-3 font-semibold sm:px-5">
+                    <EditorialTableCell
+                      density="compact"
+                      className="font-semibold"
+                    >
                       {row.standing}
-                    </td>
-                    <td className="px-2 py-3 text-right tabular-nums sm:px-5">
-                      {row.two}
-                    </td>
-                    <td className="px-2 py-3 text-right tabular-nums sm:px-5">
-                      {row.five}
-                    </td>
+                    </EditorialTableCell>
+                    <EditorialTableCell
+                      alignment="right"
+                      density="compact"
+                      numeric
+                    >
+                      {formatInteger(row.two)}
+                    </EditorialTableCell>
+                    <EditorialTableCell
+                      alignment="right"
+                      density="compact"
+                      numeric
+                    >
+                      {formatInteger(row.five)}
+                    </EditorialTableCell>
                   </EditorialTableRow>
                 ))}
               </EditorialTableBody>

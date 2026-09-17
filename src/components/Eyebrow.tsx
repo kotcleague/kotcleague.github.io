@@ -15,7 +15,7 @@ export default function Eyebrow({
   return (
     <div
       className={clsx(
-        "inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em]",
+        "inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em]",
         muted
           ? "text-slate-400 dark:text-slate-500"
           : "text-blue dark:text-blue-300"

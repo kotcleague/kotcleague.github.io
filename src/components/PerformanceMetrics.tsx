@@ -5,6 +5,7 @@ import {
   formatRecord,
   formatSignedPercent,
 } from "@/lib/format";
+import { META_LABEL_MUTED } from "@/lib/styles";
 import type { PerformanceStats } from "@/types/leaderboard";
 
 type PerformanceMetric =
@@ -60,9 +61,7 @@ export default function PerformanceMetrics({
     <>
       {metrics.map((metric) => (
         <div key={metric}>
-          <dt className="text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400">
-            {labels[metric]}
-          </dt>
+          <dt className={META_LABEL_MUTED}>{labels[metric]}</dt>
           <dd className="font-display mt-0.5 text-base font-semibold tabular-nums">
             {metricValue(metric, stats)}
           </dd>

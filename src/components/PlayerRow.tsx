@@ -1,7 +1,9 @@
-import { EditorialTableRow } from "@/components/EditorialTable";
+import {
+  EditorialTableCell,
+  EditorialTableRow,
+} from "@/components/EditorialTable";
 import { placementBadgeClass } from "@/components/PlacementBadge";
-import PlayerAvatar from "@/components/PlayerAvatar";
-import { playerRoute } from "@/config/site";
+import PlayerIdentityLink from "@/components/PlayerIdentityLink";
 import { formatInteger } from "@/lib/format";
 import type { Player } from "@/types/leaderboard";
 
@@ -12,22 +14,30 @@ interface PlayerRowProps {
 
 function Movement({ move }: { move: Player["move"] }) {
   if (move.dir === "none") {
-    return null;
+    return (
+      <span
+        className="inline-flex min-h-6 min-w-8 items-center justify-center text-sm font-semibold text-slate-300 sm:min-h-7 sm:min-w-10 dark:text-slate-600"
+        title="No ranking movement"
+        aria-label="No ranking movement"
+      >
+        —
+      </span>
+    );
   }
   const isUp = move.dir === "up";
 
   return (
     <span
-      className={`inline-flex items-center gap-0.5 text-[0.6875rem] font-medium leading-none tabular-nums ${
+      className={`inline-flex min-h-6 min-w-8 items-center justify-center gap-1 rounded-full px-1.5 text-sm font-bold leading-none tabular-nums sm:min-h-7 sm:min-w-10 ${
         isUp
-          ? "text-emerald-700 dark:text-emerald-400"
-          : "text-rose-600 dark:text-rose-400"
+          ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400"
+          : "bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-400"
       }`}
       title={`Moved ${isUp ? "up" : "down"} ${move.places} ${
         move.places === 1 ? "place" : "places"
       }`}
     >
-      <span className="text-[0.5rem]" aria-hidden="true">
+      <span className="text-[0.6rem] sm:text-xs" aria-hidden="true">
         {isUp ? "▲" : "▼"}
       </span>
       {move.places}
@@ -43,52 +53,72 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
     <EditorialTableRow
       className={isTop3 ? "bg-slate-50/70 dark:bg-slate-800/25" : undefined}
     >
-      <td className="px-2 py-3 sm:px-5 sm:py-4">
-        <div className="flex items-center gap-1 sm:block">
-          <span
-            className={`
-              font-display inline-flex h-7 min-w-7 shrink-0 items-center justify-center rounded-sm px-1 text-base font-bold tabular-nums sm:h-8 sm:min-w-8 sm:text-lg
-              ${badge}
-            `}
-          >
-            {rank}
-          </span>
-          <span className="sm:hidden">
-            <Movement move={player.move} />
-          </span>
-        </div>
-      </td>
+      <EditorialTableCell density="compact">
+        <span
+          className={`
+            font-display inline-flex h-7 min-w-7 shrink-0 items-center justify-center rounded-sm px-1 text-base font-bold tabular-nums sm:h-8 sm:min-w-8 sm:text-lg
+            ${badge}
+          `}
+        >
+          {rank}
+        </span>
+      </EditorialTableCell>
 
-      <td className="hidden px-2 py-4 text-center text-sm sm:table-cell">
+      <EditorialTableCell
+        alignment="center"
+        density="compact"
+        className="px-0 sm:px-2"
+      >
         <Movement move={player.move} />
-      </td>
+      </EditorialTableCell>
 
-      <td
-        className={`px-1 py-3 text-sm font-semibold leading-5 sm:px-3 sm:py-4 sm:text-base ${
+      <EditorialTableCell
+        density="compact"
+        className={`px-1 text-sm font-semibold leading-5 sm:px-3 sm:text-base ${
           isTop3
             ? "text-ink dark:text-white"
             : "text-slate-700 dark:text-slate-300"
         }`}
       >
-        <a
-          href={playerRoute(player.id)}
-          className="flex items-center gap-2 rounded-sm text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue sm:gap-3"
-        >
-          <PlayerAvatar
-            name={player.name}
-            photoUrl={player.photoUrl}
-            playerId={player.id}
-            size="sm"
-          />
-          <span className="min-w-0 truncate">{player.name}</span>
-        </a>
-      </td>
+        <PlayerIdentityLink
+          className="gap-2 sm:gap-3"
+          name={player.name}
+          photoUrl={player.photoUrl}
+          playerId={player.id}
+        />
+      </EditorialTableCell>
 
-      <td className="px-1 py-3 text-center text-xs tabular-nums text-slate-500 sm:px-3 sm:py-4 sm:text-sm dark:text-slate-400">
-        {player.events}
-      </td>
+      <EditorialTableCell
+        alignment="center"
+        density="compact"
+        numeric
+        className="px-1 text-sm font-semibold text-slate-600 sm:px-3 sm:text-base dark:text-slate-300"
+      >
+        {player.gold}
+      </EditorialTableCell>
 
-      <td
+      <EditorialTableCell
+        alignment="center"
+        density="compact"
+        numeric
+        className="px-1 text-sm font-semibold text-slate-600 sm:px-3 sm:text-base dark:text-slate-300"
+      >
+        {player.silver}
+      </EditorialTableCell>
+
+      <EditorialTableCell
+        alignment="center"
+        density="compact"
+        numeric
+        className="px-1 text-sm font-semibold text-slate-600 sm:px-3 sm:text-base dark:text-slate-300"
+      >
+        {player.bronze}
+      </EditorialTableCell>
+
+      <EditorialTableCell
+        alignment="right"
+        density="compact"
+        numeric
         className={`font-display px-2 py-3 text-right text-lg font-bold tabular-nums sm:px-5 sm:py-4 sm:text-xl ${
           isTop3
             ? "text-blue dark:text-blue-300"
@@ -96,7 +126,7 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
         }`}
       >
         {formatInteger(player.points)}
-      </td>
+      </EditorialTableCell>
     </EditorialTableRow>
   );
 }

@@ -1,4 +1,5 @@
 import type { RankingView } from "@/types/leaderboard";
+import { tabClass } from "@/lib/styles";
 
 interface ViewTabsProps {
   selected: RankingView;
@@ -15,23 +16,15 @@ const VIEWS: { value: RankingView; label: string }[] = [
   { value: "all-time", label: "All Time" },
 ];
 
-function chip(active: boolean) {
-  return `-mb-px cursor-pointer whitespace-nowrap border-b-2 px-1 pb-2 text-sm font-semibold transition-colors ${
-    active
-      ? "border-blue text-blue dark:border-blue-300 dark:text-blue-300"
-      : "border-transparent text-slate-500 hover:text-ink dark:text-slate-400 dark:hover:text-white"
-  }`;
-}
-
 export default function ViewTabs({ selected, onSelect }: ViewTabsProps) {
   return (
-    <div className="scrollbar-hide inline-flex max-w-full gap-6 overflow-x-auto border-b border-slate-200 dark:border-slate-800">
+    <div className="scrollbar-hide inline-flex max-w-full overflow-x-auto border border-slate-200 bg-white p-1 dark:border-slate-800 dark:bg-slate-900">
       {VIEWS.map((v) => (
         <button
           key={v.value}
           onClick={() => onSelect(v.value)}
           aria-pressed={selected === v.value}
-          className={chip(selected === v.value)}
+          className={tabClass(selected === v.value)}
         >
           {v.label}
         </button>

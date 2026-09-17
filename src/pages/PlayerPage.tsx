@@ -1,14 +1,16 @@
-import BackLink from "@/components/BackLink";
 import { ErrorState } from "@/components/DataStates";
 import EditorialLinkCard from "@/components/EditorialLinkCard";
 import {
   EditorialTableBody,
+  EditorialTableCell,
   EditorialTableHead,
+  EditorialTableHeaderCell,
   EditorialTableRow,
 } from "@/components/EditorialTable";
 import EmptyState from "@/components/EmptyState";
 import Eyebrow from "@/components/Eyebrow";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
+import MedalSummary from "@/components/MedalSummary";
 import PageContent from "@/components/PageContent";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import PlacementBadge from "@/components/PlacementBadge";
@@ -27,6 +29,7 @@ import {
   formatRecord,
   formatSignedPercent,
 } from "@/lib/format";
+import { META_LABEL } from "@/lib/styles";
 import type {
   EventResult,
   LeaderboardData,
@@ -48,7 +51,7 @@ function HistoryCard({ entry }: { entry: HistoryEntry }) {
         <PlacementBadge place={result.place} />
         <div className="min-w-0 flex-1">
           <h3 className="font-semibold">{formatLeagueDate(event.date)}</h3>
-          <p className="font-display text-sm font-semibold uppercase tracking-wide text-blue dark:text-blue-300">
+          <p className="text-sm font-semibold uppercase tracking-wide text-blue dark:text-blue-300">
             {formatInteger(result.points)} league points
           </p>
         </div>
@@ -76,50 +79,68 @@ function HistoryTable({ history }: { history: HistoryEntry[] }) {
         ))}
       </div>
       <TableShell className="hidden md:block">
-        <table className="w-full">
+        <table className="w-full min-w-[44rem]">
           <EditorialTableHead>
             <tr>
-              <th className="px-4 py-3 text-left">Date</th>
-              <th className="px-4 py-3 text-left">Place</th>
-              <th className="px-4 py-3 text-right">League pts</th>
-              <th className="px-4 py-3 text-right">Record</th>
-              <th className="px-4 py-3 text-right">Win %</th>
-              <th className="px-4 py-3 text-right">PF / PA</th>
-              <th className="px-4 py-3 text-right">Diff</th>
+              <EditorialTableHeaderCell>Date</EditorialTableHeaderCell>
+              <EditorialTableHeaderCell>Place</EditorialTableHeaderCell>
+              <EditorialTableHeaderCell alignment="right">
+                League pts
+              </EditorialTableHeaderCell>
+              <EditorialTableHeaderCell alignment="right">
+                Record
+              </EditorialTableHeaderCell>
+              <EditorialTableHeaderCell alignment="right">
+                Win %
+              </EditorialTableHeaderCell>
+              <EditorialTableHeaderCell alignment="right">
+                PF / PA
+              </EditorialTableHeaderCell>
+              <EditorialTableHeaderCell alignment="right">
+                Diff
+              </EditorialTableHeaderCell>
             </tr>
           </EditorialTableHead>
           <EditorialTableBody>
             {history.map(({ event, result }) => (
               <EditorialTableRow key={event.id}>
-                <td className="px-4 py-3 font-semibold">
+                <EditorialTableCell className="font-semibold">
                   <a
                     href={eventRoute(event.id)}
                     className="text-blue hover:underline dark:text-blue-300"
                   >
                     {formatLeagueDate(event.date, true)}
                   </a>
-                </td>
-                <td className="px-4 py-3">
+                </EditorialTableCell>
+                <EditorialTableCell>
                   <PlacementBadge place={result.place} />
-                </td>
-                <td className="font-display px-4 py-3 text-right text-lg font-bold tabular-nums text-blue dark:text-blue-300">
+                </EditorialTableCell>
+                <EditorialTableCell
+                  alignment="right"
+                  numeric
+                  className="font-display text-lg font-bold text-blue dark:text-blue-300"
+                >
                   {formatInteger(result.points)}
-                </td>
-                <td className="px-4 py-3 text-right tabular-nums">
+                </EditorialTableCell>
+                <EditorialTableCell alignment="right" numeric>
                   {formatRecord(result.wins, result.losses)}
-                </td>
-                <td className="px-4 py-3 text-right tabular-nums">
+                </EditorialTableCell>
+                <EditorialTableCell alignment="right" numeric>
                   {formatPercent(result.winRate)}
-                </td>
-                <td className="px-4 py-3 text-right tabular-nums">
+                </EditorialTableCell>
+                <EditorialTableCell alignment="right" numeric>
                   {formatPointsForAgainst(
                     result.pointsEarned,
                     result.pointsAgainst
                   )}
-                </td>
-                <td className="px-4 py-3 text-right font-semibold tabular-nums">
+                </EditorialTableCell>
+                <EditorialTableCell
+                  alignment="right"
+                  numeric
+                  className="font-semibold"
+                >
                   {formatSignedPercent(result.pointDifferential)}
-                </td>
+                </EditorialTableCell>
               </EditorialTableRow>
             ))}
           </EditorialTableBody>
@@ -141,9 +162,9 @@ function PlayerContent({
   return (
     <>
       <section className="border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-        <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
+        <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
           <Eyebrow size="hero">Player profile</Eyebrow>
-          <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-center">
+          <div className="mt-5 flex flex-col gap-7 sm:flex-row sm:items-center sm:gap-9">
             <PlayerAvatar
               name={player.name}
               photoUrl={player.photoUrl}
@@ -152,16 +173,37 @@ function PlayerContent({
               className="ring-1 ring-slate-200 dark:ring-slate-700"
             />
             <div className="min-w-0 flex-1">
-              <h1 className="font-display text-4xl font-bold uppercase leading-none tracking-tight sm:text-5xl">
+              <h1 className="font-display text-4xl font-bold uppercase leading-none tracking-[0.015em] text-ink sm:text-5xl dark:text-white">
                 {player.name}
               </h1>
-              <div className="mt-4 flex flex-wrap items-center gap-3">
-                <span className="font-display inline-flex items-center justify-center rounded-sm px-4 py-2 text-2xl font-bold tabular-nums text-blue dark:text-blue-300">
-                  #{player.rank}
-                </span>
-                <span className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                  Past 30-day rank
-                </span>
+              <div className="mt-6 grid max-w-xl grid-cols-2 overflow-hidden border-y border-slate-200 sm:inline-grid sm:grid-cols-[auto_auto_auto] dark:border-slate-700">
+                <div className="px-4 py-3">
+                  <p
+                    className={`${META_LABEL} text-slate-500 dark:text-slate-400`}
+                  >
+                    Past 30-day rank
+                  </p>
+                  <p className="font-display mt-1 text-3xl font-bold tabular-nums text-ink dark:text-white">
+                    #{player.rank}
+                  </p>
+                </div>
+                <div className="border-l border-slate-200 px-4 py-3 dark:border-slate-700">
+                  <p
+                    className={`${META_LABEL} text-slate-500 dark:text-slate-400`}
+                  >
+                    League points
+                  </p>
+                  <p className="font-display mt-1 text-3xl font-bold tabular-nums text-blue dark:text-blue-300">
+                    {formatInteger(player.points)}
+                  </p>
+                </div>
+                <div className="col-span-2 border-t border-slate-200 sm:col-span-1 sm:border-l sm:border-t-0 dark:border-slate-700">
+                  <MedalSummary
+                    bronze={player.bronze}
+                    gold={player.gold}
+                    silver={player.silver}
+                  />
+                </div>
               </div>
               {player.gameMakerProfileUrl && (
                 <div className="mt-4">
@@ -172,38 +214,39 @@ function PlayerContent({
               )}
             </div>
           </div>
+          <StatGrid
+            className="mt-7 border-b-0 pb-0"
+            columns={5}
+            compact
+            items={[
+              {
+                label: "Current month rank",
+                value:
+                  currentMonthRank === null
+                    ? "Unranked"
+                    : `#${currentMonthRank}`,
+              },
+              {
+                label: "Record",
+                value: formatRecord(player.wins, player.losses),
+              },
+              { label: "Win rate", value: formatPercent(player.winRate) },
+              {
+                label: "Points for / against",
+                value: formatPointsForAgainst(
+                  player.pointsEarned,
+                  player.pointsAgainst
+                ),
+              },
+              {
+                label: "Point differential",
+                value: formatSignedPercent(player.pointDifferential),
+              },
+            ]}
+          />
         </div>
       </section>
-      <PageContent className="space-y-10">
-        <BackLink href={ROUTES.rankings}>Back to rankings</BackLink>
-        <StatGrid
-          items={[
-            { label: "Past 30-day rank", value: `#${player.rank}` },
-            {
-              label: "Current month rank",
-              value:
-                currentMonthRank === null ? "Unranked" : `#${currentMonthRank}`,
-            },
-            { label: "League points", value: formatInteger(player.points) },
-            { label: "Events", value: player.events },
-            {
-              label: "Record",
-              value: formatRecord(player.wins, player.losses),
-            },
-            { label: "Win rate", value: formatPercent(player.winRate) },
-            {
-              label: "Points for / against",
-              value: formatPointsForAgainst(
-                player.pointsEarned,
-                player.pointsAgainst
-              ),
-            },
-            {
-              label: "Point differential",
-              value: formatSignedPercent(player.pointDifferential),
-            },
-          ]}
-        />
+      <PageContent>
         <section aria-labelledby="event-history">
           <SectionHeading id="event-history">Event history</SectionHeading>
           {history.length > 0 ? (

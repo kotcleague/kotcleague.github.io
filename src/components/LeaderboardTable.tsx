@@ -1,6 +1,7 @@
 import {
   EditorialTableBody,
   EditorialTableHead,
+  EditorialTableHeaderCell,
 } from "@/components/EditorialTable";
 import EmptyState from "@/components/EmptyState";
 import PlayerRow from "@/components/PlayerRow";
@@ -25,20 +26,58 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
       <table className="w-full table-fixed border-collapse sm:table-auto">
         <EditorialTableHead>
           <tr>
-            <th className="w-16 px-2 py-3 text-left sm:w-20 sm:px-5">Rank</th>
-            <th
-              className="hidden w-12 px-2 py-3 sm:table-cell"
+            <EditorialTableHeaderCell
+              density="compact"
+              className="w-12 sm:w-16"
+            >
+              Rank
+            </EditorialTableHeaderCell>
+            <EditorialTableHeaderCell
+              alignment="center"
+              density="compact"
+              className="w-10 sm:w-14"
               aria-label="Movement"
-            />
-            <th className="px-1 py-3 text-left sm:px-3">Player</th>
-            <th className="w-12 px-1 py-3 text-center sm:w-20 sm:px-3">
-              <span className="sm:hidden">Evt</span>
-              <span className="hidden sm:inline">Events</span>
-            </th>
-            <th className="w-16 px-2 py-3 text-right sm:w-28 sm:px-5">
+            >
+              <span className="sm:hidden" aria-hidden="true">
+                ±
+              </span>
+              <span className="hidden sm:inline">Move</span>
+            </EditorialTableHeaderCell>
+            <EditorialTableHeaderCell density="compact">
+              Player
+            </EditorialTableHeaderCell>
+            <EditorialTableHeaderCell
+              alignment="center"
+              density="compact"
+              className="w-9 px-1 text-base sm:w-14 sm:text-lg"
+              aria-label="Gold medals"
+            >
+              🥇
+            </EditorialTableHeaderCell>
+            <EditorialTableHeaderCell
+              alignment="center"
+              density="compact"
+              className="w-9 px-1 text-base sm:w-14 sm:text-lg"
+              aria-label="Silver medals"
+            >
+              🥈
+            </EditorialTableHeaderCell>
+            <EditorialTableHeaderCell
+              alignment="center"
+              density="compact"
+              className="w-9 px-1 text-base sm:w-14 sm:text-lg"
+              aria-label="Bronze medals"
+            >
+              🥉
+            </EditorialTableHeaderCell>
+            <EditorialTableHeaderCell
+              alignment="right"
+              density="compact"
+              className="w-16 sm:w-24"
+            >
               <span className="sm:hidden">Pts</span>
               <span className="hidden sm:inline">Points</span>
-            </th>
+            </EditorialTableHeaderCell>
           </tr>
         </EditorialTableHead>
         <EditorialTableBody>

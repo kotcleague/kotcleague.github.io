@@ -32,7 +32,7 @@ function Navigation({ currentRoute, mobile = false }: NavigationProps) {
             href={item.route}
             aria-current={isActive ? "page" : undefined}
             className={clsx(
-              "text-xs font-semibold uppercase transition-colors",
+              "text-xs font-semibold uppercase tracking-[0.08em] transition-colors",
               mobile
                 ? "border-b-2 px-3 py-3 tracking-[0.12em]"
                 : "tracking-[0.14em]",

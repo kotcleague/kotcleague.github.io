@@ -27,7 +27,9 @@ export interface Player extends PerformanceStats {
   rank: number;
   name: string;
   points: number;
-  events: number;
+  gold: number;
+  silver: number;
+  bronze: number;
   move: Movement;
   photoUrl: string | null;
   gameMakerProfileUrl: string | null;
@@ -161,7 +163,9 @@ function isPlayer(value: unknown): value is Player {
     typeof value.rank === "number" &&
     typeof value.name === "string" &&
     typeof value.points === "number" &&
-    typeof value.events === "number" &&
+    typeof value.gold === "number" &&
+    typeof value.silver === "number" &&
+    typeof value.bronze === "number" &&
     isPerformanceStats(value) &&
     isMovement(value.move) &&
     isOptionalUrl(value.photoUrl) &&

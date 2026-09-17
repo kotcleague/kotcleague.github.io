@@ -7,6 +7,7 @@ interface PageHeaderProps {
   description?: ReactNode;
   eyebrow: string;
   className?: string;
+  footer?: ReactNode;
 }
 
 export default function PageHeader({
@@ -14,6 +15,7 @@ export default function PageHeader({
   description,
   eyebrow,
   className,
+  footer,
 }: PageHeaderProps) {
   return (
     <section
@@ -24,7 +26,7 @@ export default function PageHeader({
     >
       <div className="mx-auto max-w-5xl px-4 py-5 sm:px-6 sm:py-7">
         <Eyebrow size="hero">{eyebrow}</Eyebrow>
-        <h1 className="font-display mt-3 text-4xl font-bold uppercase leading-none tracking-tight sm:text-5xl">
+        <h1 className="font-display mt-3 text-4xl font-bold uppercase leading-none tracking-[0.015em] sm:text-5xl">
           {children}
         </h1>
         {description && (
@@ -32,6 +34,7 @@ export default function PageHeader({
             {description}
           </p>
         )}
+        {footer && <div className="mt-6">{footer}</div>}
       </div>
     </section>
   );

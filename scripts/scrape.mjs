@@ -60,7 +60,9 @@ const COLUMNS = {
     move: "●",
     player: "Player",
     points: "Points",
-    events: "# of Events",
+    gold: "🥇",
+    silver: "🥈",
+    bronze: "🥉",
     gameMakerPoints: "GM Points",
     wins: "Wins",
     losses: "Losses",
@@ -512,7 +514,9 @@ function parseRankingTable(html, tabName, players) {
           columns.move,
           columns.player,
           columns.points,
-          columns.events,
+          columns.gold,
+          columns.silver,
+          columns.bronze,
           columns.gameMakerPoints,
           columns.wins,
           columns.losses,
@@ -566,9 +570,21 @@ function parseRankingTable(html, tabName, players) {
             context
           ),
 
-          events: parseRequiredNumber(
-            getColumn(header.headerMap, cells, columns.events, context),
-            "event count",
+          gold: parseRequiredNumber(
+            getColumn(header.headerMap, cells, columns.gold, context),
+            "gold medal count",
+            context
+          ),
+
+          silver: parseRequiredNumber(
+            getColumn(header.headerMap, cells, columns.silver, context),
+            "silver medal count",
+            context
+          ),
+
+          bronze: parseRequiredNumber(
+            getColumn(header.headerMap, cells, columns.bronze, context),
+            "bronze medal count",
             context
           ),
 
@@ -1295,41 +1311,19 @@ function validatePastEvents(events) {
   }
 }
 
-function validateAllTimeEventCounts(allTimeRankings, pastEvents) {
-  const resultCounts = new Map();
-
-  for (const event of pastEvents) {
-    for (const result of event.results) {
-      resultCounts.set(
-        result.playerId,
-        (resultCounts.get(result.playerId) ?? 0) + 1
-      );
-    }
-  }
-
+function validateAllTimePlayers(allTimeRankings, pastEvents) {
   const rankingsById = new Map(
     allTimeRankings.map((player) => [player.id, player])
   );
 
-  for (const playerId of resultCounts.keys()) {
-    if (!rankingsById.has(playerId)) {
-      throw new Error(
-        `Event Log player "${playerId}" is missing from "All Time" rankings`
-      );
-    }
-  }
-
-  for (const player of allTimeRankings) {
-    const resultCount = resultCounts.get(player.id) ?? 0;
-
-    if (player.events !== resultCount) {
-      throw new Error(
-        `"All Time" lists ${player.events} event${
-          player.events === 1 ? "" : "s"
-        } for ${
-          player.name
-        }, but Event Log contains ${resultCount}. The sheet tabs may still be updating`
-      );
+  for (const event of pastEvents) {
+    for (const result of event.results) {
+      const playerId = result.playerId;
+      if (!rankingsById.has(playerId)) {
+        throw new Error(
+          `Event Log player "${playerId}" is missing from "All Time" rankings`
+        );
+      }
     }
   }
 }
@@ -1469,7 +1463,7 @@ async function scrapeSnapshot(gids, requiredTabs) {
 
   validatePastEvents(past);
   validatePastMonths(months);
-  validateAllTimeEventCounts(views["all-time"], past);
+  validateAllTimePlayers(views["all-time"], past);
 
   past.sort((a, b) => b.date.localeCompare(a.date));
 

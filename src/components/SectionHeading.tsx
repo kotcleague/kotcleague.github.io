@@ -21,9 +21,9 @@ export default function SectionHeading({
       <h2
         id={id}
         className={clsx(
-          "text-xl font-bold tracking-tight sm:text-2xl",
+          "font-display text-3xl font-semibold leading-none tracking-[0.02em] sm:text-4xl",
           eyebrow && "mt-2",
-          prominent && "text-2xl sm:text-3xl"
+          prominent && "text-4xl sm:text-5xl"
         )}
       >
         {children}
