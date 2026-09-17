@@ -327,12 +327,7 @@ export default function SchedulePage({
             );
           }
         ) : (
-          <PageHeader
-            eyebrow="King of the Court"
-            description="Register for the next league night or revisit past results."
-          >
-            Schedule
-          </PageHeader>
+          <PageHeader eyebrow="King of the Court">Schedule</PageHeader>
         )
       }
       loadingLabel="Loading schedule"
