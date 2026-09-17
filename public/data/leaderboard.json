@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-17T02:04:02.471Z",
+  "scrapedAt": "2026-09-17T07:39:11.316Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2070,7 +2070,7 @@
       {
         "id": "2026-09-24",
         "date": "2026-09-24",
-        "courtReserveUrl": null,
+        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/329HPCJ10117202",
         "gameMakerUrl": null
       },
       {
