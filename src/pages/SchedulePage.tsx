@@ -37,7 +37,7 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
   const hasRegistration = event.courtReserveUrl || event.gameMakerUrl;
 
   return (
-    <article className="grid grid-cols-[5.25rem_1fr] overflow-hidden rounded-sm border border-slate-200 bg-white shadow-[0_1px_0_rgba(8,27,42,0.04)] transition-colors hover:border-blue/40 lg:grid-cols-[6rem_1fr_auto] dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue/60">
+    <article className="grid grid-cols-[5.25rem_1fr] overflow-hidden rounded-sm border border-slate-200 bg-white shadow-[0_1px_0_rgba(8,27,42,0.04)] transition-colors hover:border-blue/40 lg:grid-cols-[6rem_1fr_auto] dark:border-scoreboard dark:bg-ink dark:hover:border-blue/60">
       <EventDateBadge date={event.date} />
       <div className="flex min-w-0 flex-col justify-center px-4 py-4 sm:px-5">
         <p className={META_LABEL_ACCENT}>Upcoming league night</p>

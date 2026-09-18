@@ -161,7 +161,7 @@ function PlayerContent({
 }) {
   return (
     <>
-      <section className="border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+      <section className="border-b border-slate-200 bg-white dark:border-scoreboard dark:bg-ink">
         <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
           <Eyebrow size="hero">Player profile</Eyebrow>
           <div className="mt-5 flex flex-col gap-7 sm:flex-row sm:items-center sm:gap-9">

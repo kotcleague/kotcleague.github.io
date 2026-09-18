@@ -12,7 +12,11 @@ import SectionHeading from "@/components/SectionHeading";
 import ViewTabs from "@/components/ViewTabs";
 import { assignmentRoute, eventRoute, ROUTES } from "@/config/site";
 import { formatEventDate, formatLeagueDate } from "@/lib/format";
-import { META_LABEL_ACCENT, META_LABEL_MUTED } from "@/lib/styles";
+import {
+  actionClass,
+  META_LABEL_ACCENT,
+  META_LABEL_MUTED,
+} from "@/lib/styles";
 import type {
   PastEvent,
   RankingView,
@@ -116,8 +120,17 @@ function byDateAscending<T extends { date: string }>(left: T, right: T) {
   return left.date.localeCompare(right.date);
 }
 
+const PLAYERS_PER_PAGE = 10;
+
 export default function LeaderboardPage() {
   const [selectedView, setSelectedView] = useState<RankingView>("past-30-days");
+  const [visiblePlayerCount, setVisiblePlayerCount] =
+    useState(PLAYERS_PER_PAGE);
+
+  function selectView(view: RankingView) {
+    setSelectedView(view);
+    setVisiblePlayerCount(PLAYERS_PER_PAGE);
+  }
 
   return (
     <LeaderboardPageShell
@@ -130,10 +143,27 @@ export default function LeaderboardPage() {
       {(data) => (
         <PageContent>
           <div className="pb-5">
-            <ViewTabs selected={selectedView} onSelect={setSelectedView} />
+            <ViewTabs selected={selectedView} onSelect={selectView} />
           </div>
 
-          <LeaderboardTable players={data.views[selectedView]} />
+          <LeaderboardTable
+            players={data.views[selectedView].slice(0, visiblePlayerCount)}
+          />
+          {visiblePlayerCount < data.views[selectedView].length && (
+            <div className="mt-5 flex justify-center">
+              <button
+                type="button"
+                className={actionClass({ size: "sm", variant: "secondary" })}
+                onClick={() =>
+                  setVisiblePlayerCount(
+                    (count) => count + PLAYERS_PER_PAGE
+                  )
+                }
+              >
+                Show more
+              </button>
+            </div>
+          )}
 
           <section className="mt-10" aria-labelledby="league-updates-heading">
             <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
@@ -148,7 +178,7 @@ export default function LeaderboardPage() {
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </ActionLink>
             </div>
-            <div className="grid overflow-hidden border border-slate-200 bg-white shadow-[0_1px_0_rgba(8,27,42,0.04)] md:grid-cols-2 dark:border-slate-800 dark:bg-slate-900">
+            <div className="grid overflow-hidden border border-slate-200 bg-white shadow-[0_1px_0_rgba(8,27,42,0.04)] md:grid-cols-2 dark:border-scoreboard dark:bg-ink">
               <UpcomingEventCard
                 event={[...data.events.upcoming].sort(byDateAscending)[0]}
               />

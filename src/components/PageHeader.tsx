@@ -20,7 +20,7 @@ export default function PageHeader({
   return (
     <section
       className={clsx(
-        "border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900",
+        "border-b border-slate-200 bg-white dark:border-scoreboard dark:bg-ink",
         className
       )}
     >

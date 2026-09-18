@@ -28,7 +28,7 @@ export function actionClass({
     variant === "primary" &&
       "border-blue bg-blue text-white hover:border-accent-500 hover:bg-accent-500",
     variant === "secondary" &&
-      "border-slate-300 bg-white text-ink hover:border-blue hover:text-blue dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-blue-300 dark:hover:text-blue-300",
+      "border-slate-300 bg-white text-ink hover:border-blue hover:text-blue dark:border-scoreboard dark:bg-ink dark:text-white dark:hover:border-blue-300 dark:hover:text-blue-300",
     variant === "quiet" &&
       "border-transparent bg-transparent px-0 text-blue hover:text-accent-500 dark:text-blue-300 dark:hover:text-blue-200",
     className

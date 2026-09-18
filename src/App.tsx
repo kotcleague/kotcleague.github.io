@@ -41,7 +41,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 text-ink transition-colors dark:bg-slate-950 dark:text-white">
+    <div className="min-h-screen bg-slate-50 text-ink transition-colors dark:bg-ink dark:text-white">
       <AppHeader currentRoute={route} />
       {content}
     </div>

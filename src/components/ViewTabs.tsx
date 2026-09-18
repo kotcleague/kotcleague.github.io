@@ -18,7 +18,7 @@ const VIEWS: { value: RankingView; label: string }[] = [
 
 export default function ViewTabs({ selected, onSelect }: ViewTabsProps) {
   return (
-    <div className="scrollbar-hide inline-flex max-w-full overflow-x-auto border border-slate-200 bg-white p-1 dark:border-slate-800 dark:bg-slate-900">
+    <div className="scrollbar-hide inline-flex max-w-full overflow-x-auto border border-slate-200 bg-white p-1 dark:border-scoreboard dark:bg-ink">
       {VIEWS.map((v) => (
         <button
           key={v.value}
