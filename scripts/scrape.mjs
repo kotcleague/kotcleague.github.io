@@ -479,18 +479,170 @@ function createPlayerRegistry() {
 
       const conflictingName = namesById.get(id);
 
-      if (conflictingName && conflictingName !== nameKey) {
+      if (conflictingName && conflictingName !== normalizedName) {
         throw new Error(
           `Player ID collision: "${normalizedName}" and "${conflictingName}" both map to "${id}"`
         );
       }
 
       idsByName.set(nameKey, id);
-      namesById.set(id, nameKey);
+      namesById.set(id, normalizedName);
 
       return id;
     },
+    entries() {
+      return [...namesById.entries()].map(([id, name]) => ({ id, name }));
+    },
   };
+}
+
+function normalizePlayerName(name) {
+  return String(name ?? "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("en-US")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+}
+
+function matchCourtReserveName(name, players) {
+  const tokens = normalizePlayerName(name);
+  if (tokens.length === 0) return null;
+
+  const exactMatches = players.filter(
+    (player) =>
+      normalizePlayerName(player.name).join(" ") === tokens.join(" ")
+  );
+
+  if (exactMatches.length === 1) return exactMatches[0].id;
+  if (exactMatches.length > 1) return null;
+
+  const candidates = players.filter((player) => {
+    const playerTokens = normalizePlayerName(player.name);
+    if (tokens.length !== 2 || playerTokens.length < 2) return false;
+
+    const firstMatches =
+      tokens[0] === playerTokens[0] ||
+      (tokens[0].length === 1 && tokens[0] === playerTokens[0][0]);
+    const lastMatches =
+      tokens[1] === playerTokens.at(-1) ||
+      (tokens[1].length === 1 && tokens[1] === playerTokens.at(-1)?.[0]);
+
+    return firstMatches && lastMatches;
+  });
+
+  return candidates.length === 1 ? candidates[0].id : null;
+}
+
+async function fetchCourtReserveRegistrants(url, context) {
+  let lastError;
+
+  for (let attempt = 1; attempt <= FETCH_ATTEMPTS; attempt += 1) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+    try {
+      const pageResponse = await fetch(url, { signal: controller.signal });
+      if (!pageResponse.ok) throw new HttpError(pageResponse);
+
+      const pageHtml = await pageResponse.text();
+      const endpointMatch =
+        /https:\/\/events\.courtreserve\.com\/Online\/EventsApi\/ApiDetails\?id=\d+&amp;[^']+/.exec(
+          pageHtml
+        );
+
+      if (!endpointMatch) {
+        throw new Error("Court Reserve details endpoint was not found");
+      }
+
+      const endpoint = endpointMatch[0].replaceAll("&amp;", "&");
+      const cookies =
+        pageResponse.headers
+          .getSetCookie?.()
+          .map((cookie) => cookie.split(";", 1)[0])
+          .join("; ") ?? "";
+      const detailsResponse = await fetch(endpoint, {
+        headers: {
+          cookie: cookies,
+          referer: url,
+        },
+        signal: controller.signal,
+      });
+
+      if (!detailsResponse.ok) throw new HttpError(detailsResponse);
+
+      const $ = load(await detailsResponse.text());
+      const table = $('[data-testid="registrants-table"]');
+
+      if (table.length === 0) {
+        return [];
+      }
+
+      return table
+        .find('[data-testid="name"]')
+        .map((_, element) => $(element).text().trim())
+        .get()
+        .filter(Boolean);
+    } catch (error) {
+      lastError = error;
+      if (attempt === FETCH_ATTEMPTS || !isRetryableFetchError(error)) break;
+
+      const delay = RETRY_BASE_DELAY_MS * 2 ** (attempt - 1);
+      console.warn(
+        `  Court Reserve attempt ${attempt}/${FETCH_ATTEMPTS} for ${context} failed (${error.message}); retrying in ${delay}ms...`
+      );
+      await wait(delay);
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  throw new Error(
+    `Failed to fetch Court Reserve registrants for ${context}: ${
+      lastError?.message ?? "unknown error"
+    }`,
+    { cause: lastError }
+  );
+}
+
+async function enrichUpcomingEvents(events, players) {
+  const knownPlayers = players.entries();
+
+  for (const event of events) {
+    if (!event.courtReserveUrl) continue;
+
+    try {
+      const names = await fetchCourtReserveRegistrants(
+        event.courtReserveUrl,
+        event.id
+      );
+      const registeredPlayerIds = [];
+
+      for (const name of names) {
+        const playerId = matchCourtReserveName(
+          name,
+          knownPlayers
+        );
+
+        if (playerId) {
+          registeredPlayerIds.push(playerId);
+        } else {
+          console.warn(
+            `  Could not uniquely match Court Reserve registrant "${name}" for ${event.id}`
+          );
+        }
+      }
+
+      event.registeredPlayerCount = names.length;
+      event.registeredPlayerIds = [...new Set(registeredPlayerIds)];
+    } catch (error) {
+      console.warn(`  ${error.message}; using empty registration data`);
+      event.registeredPlayerCount = 0;
+      event.registeredPlayerIds = [];
+    }
+  }
 }
 
 // Parse a single ranking tab's HTML table into player rows.
@@ -1006,6 +1158,8 @@ function parseUpcomingEvents(html) {
           ),
 
           gameMakerUrl: parseOptionalUrl(gameMakerUrl, "Game Maker", context),
+          registeredPlayerCount: 0,
+          registeredPlayerIds: [],
         });
       });
   });
@@ -1429,6 +1583,7 @@ async function scrapeSnapshot(gids, requiredTabs) {
   const past = parsePastEvents(htmlByTab["Past Events"], playerRegistry);
 
   const upcoming = parseUpcomingEvents(htmlByTab["Upcoming Events"]);
+  await enrichUpcomingEvents(upcoming, playerRegistry);
 
   const months = parsePastMonths(
     htmlByTab[PAST_MONTHS_TAB],

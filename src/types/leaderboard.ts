@@ -75,6 +75,8 @@ export interface UpcomingEvent {
   date: string;
   courtReserveUrl: string | null;
   gameMakerUrl: string | null;
+  registeredPlayerCount: number;
+  registeredPlayerIds: string[];
 }
 
 export interface PastMonth {
@@ -242,7 +244,12 @@ function isUpcomingEvent(value: unknown): value is UpcomingEvent {
     isDateId(value.id) &&
     value.date === value.id &&
     isOptionalUrl(value.courtReserveUrl) &&
-    isOptionalUrl(value.gameMakerUrl)
+    isOptionalUrl(value.gameMakerUrl) &&
+    typeof value.registeredPlayerCount === "number" &&
+    Number.isInteger(value.registeredPlayerCount) &&
+    value.registeredPlayerCount >= 0 &&
+    Array.isArray(value.registeredPlayerIds) &&
+    value.registeredPlayerIds.every(isPlayerId)
   );
 }
 

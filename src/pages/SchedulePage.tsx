@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import ActionLink from "@/components/ActionLink";
 import DateBadge from "@/components/DateBadge";
 import EmptyState from "@/components/EmptyState";
 import EditorialLinkCard from "@/components/EditorialLinkCard";
@@ -10,9 +11,15 @@ import PageTabs from "@/components/PageTabs";
 import PodiumList from "@/components/PodiumList";
 import PodiumShowcase from "@/components/PodiumShowcase";
 import RegistrationLink from "@/components/RegistrationLink";
+import RegistrationSummary from "@/components/RegistrationSummary";
 import SectionHeading from "@/components/SectionHeading";
 import StatGrid from "@/components/StatGrid";
-import { eventRoute, monthRoute, ROUTES } from "@/config/site";
+import {
+  assignmentRoute,
+  eventRoute,
+  monthRoute,
+  ROUTES,
+} from "@/config/site";
 import { buildPlayerProfileIndex, type PlayerProfile } from "@/lib/players";
 import { META_LABEL_ACCENT, META_LABEL_MUTED } from "@/lib/styles";
 import type {
@@ -30,15 +37,19 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
   const hasRegistration = event.courtReserveUrl || event.gameMakerUrl;
 
   return (
-    <article className="grid grid-cols-[5.25rem_1fr] overflow-hidden rounded-sm border border-slate-200 bg-white shadow-[0_1px_0_rgba(8,27,42,0.04)] transition-colors hover:border-blue/40 sm:grid-cols-[6rem_1fr_auto] dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue/60">
+    <article className="grid grid-cols-[5.25rem_1fr] overflow-hidden rounded-sm border border-slate-200 bg-white shadow-[0_1px_0_rgba(8,27,42,0.04)] transition-colors hover:border-blue/40 lg:grid-cols-[6rem_1fr_auto] dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue/60">
       <EventDateBadge date={event.date} />
       <div className="flex min-w-0 flex-col justify-center px-4 py-4 sm:px-5">
         <p className={META_LABEL_ACCENT}>Upcoming league night</p>
         <h3 className="mt-0.5 text-lg font-bold">King of the Court</h3>
       </div>
-      <div className="col-span-2 flex flex-wrap items-center gap-2 border-t border-slate-100 px-4 py-3 sm:col-span-1 sm:border-0 sm:px-5 dark:border-slate-800">
+      <div className="col-span-2 flex flex-col gap-3 border-t border-slate-100 px-4 py-3 lg:col-span-1 lg:flex-row lg:flex-wrap lg:items-center lg:border-0 lg:px-5 dark:border-slate-800">
+        <RegistrationSummary
+          available={Boolean(event.courtReserveUrl)}
+          count={event.registeredPlayerCount}
+        />
         {hasRegistration ? (
-          <>
+          <div className="grid w-full gap-2 lg:flex lg:w-auto lg:flex-wrap">
             {event.courtReserveUrl && (
               <RegistrationLink href={event.courtReserveUrl} compact>
                 Court Reserve
@@ -49,7 +60,16 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
                 Game Maker
               </RegistrationLink>
             )}
-          </>
+            {event.registeredPlayerIds.length > 0 && (
+              <ActionLink
+                href={assignmentRoute(event.registeredPlayerIds, [], true)}
+                size="sm"
+                variant="secondary"
+              >
+                Initial assignments
+              </ActionLink>
+            )}
+          </div>
         ) : (
           <span className="rounded-sm border border-slate-300 px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-slate-400 dark:border-slate-700 dark:text-slate-500">
             Registration coming soon

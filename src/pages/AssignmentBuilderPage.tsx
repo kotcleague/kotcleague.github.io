@@ -138,7 +138,7 @@ export default function AssignmentBuilderPage() {
         <PageHeader
           eyebrow="Admin tool"
           className="print:hidden"
-          description="Select the players who are present and generate balanced initial court assignments from league seeding."
+          description="Seeding is first determined by past 30 day rankings then by DUPR"
         >
           Court Assignments
         </PageHeader>

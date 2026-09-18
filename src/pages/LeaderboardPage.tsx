@@ -7,9 +7,10 @@ import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import RegistrationLink from "@/components/RegistrationLink";
+import RegistrationSummary from "@/components/RegistrationSummary";
 import SectionHeading from "@/components/SectionHeading";
 import ViewTabs from "@/components/ViewTabs";
-import { eventRoute, ROUTES } from "@/config/site";
+import { assignmentRoute, eventRoute, ROUTES } from "@/config/site";
 import { formatEventDate, formatLeagueDate } from "@/lib/format";
 import { META_LABEL_ACCENT, META_LABEL_MUTED } from "@/lib/styles";
 import type {
@@ -35,7 +36,11 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
               </p>
             </div>
           </div>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-4 grid gap-2 sm:flex sm:flex-wrap sm:items-center">
+            <RegistrationSummary
+              available={Boolean(event.courtReserveUrl)}
+              count={event.registeredPlayerCount}
+            />
             {event.courtReserveUrl && (
               <RegistrationLink href={event.courtReserveUrl} compact>
                 Court Reserve
@@ -45,6 +50,15 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
               <RegistrationLink href={event.gameMakerUrl} compact>
                 Game Maker
               </RegistrationLink>
+            )}
+            {event.registeredPlayerIds.length > 0 && (
+              <ActionLink
+                href={assignmentRoute(event.registeredPlayerIds, [], true)}
+                size="sm"
+                variant="secondary"
+              >
+                Initial assignments
+              </ActionLink>
             )}
           </div>
         </>
