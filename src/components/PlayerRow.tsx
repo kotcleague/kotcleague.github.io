@@ -92,7 +92,7 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
         alignment="center"
         density="compact"
         numeric
-        className="px-1 text-sm font-semibold text-slate-600 sm:px-3 sm:text-base dark:text-slate-300"
+        className="max-[499px]:hidden px-1 text-sm font-semibold text-slate-600 sm:px-3 sm:text-base dark:text-slate-300"
       >
         {player.gold}
       </EditorialTableCell>
@@ -101,7 +101,7 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
         alignment="center"
         density="compact"
         numeric
-        className="px-1 text-sm font-semibold text-slate-600 sm:px-3 sm:text-base dark:text-slate-300"
+        className="max-[499px]:hidden px-1 text-sm font-semibold text-slate-600 sm:px-3 sm:text-base dark:text-slate-300"
       >
         {player.silver}
       </EditorialTableCell>
@@ -110,7 +110,7 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
         alignment="center"
         density="compact"
         numeric
-        className="px-1 text-sm font-semibold text-slate-600 sm:px-3 sm:text-base dark:text-slate-300"
+        className="max-[499px]:hidden px-1 text-sm font-semibold text-slate-600 sm:px-3 sm:text-base dark:text-slate-300"
       >
         {player.bronze}
       </EditorialTableCell>

@@ -49,7 +49,7 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
             <EditorialTableHeaderCell
               alignment="center"
               density="compact"
-              className="w-9 px-1 text-base sm:w-14 sm:text-lg"
+              className="max-[499px]:hidden w-9 px-1 text-base sm:w-14 sm:text-lg"
               aria-label="Gold medals"
             >
               🥇
@@ -57,7 +57,7 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
             <EditorialTableHeaderCell
               alignment="center"
               density="compact"
-              className="w-9 px-1 text-base sm:w-14 sm:text-lg"
+              className="max-[499px]:hidden w-9 px-1 text-base sm:w-14 sm:text-lg"
               aria-label="Silver medals"
             >
               🥈
@@ -65,7 +65,7 @@ export default function LeaderboardTable({ players }: LeaderboardTableProps) {
             <EditorialTableHeaderCell
               alignment="center"
               density="compact"
-              className="w-9 px-1 text-base sm:w-14 sm:text-lg"
+              className="max-[499px]:hidden w-9 px-1 text-base sm:w-14 sm:text-lg"
               aria-label="Bronze medals"
             >
               🥉
