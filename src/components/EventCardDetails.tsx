@@ -19,9 +19,14 @@ export default function EventCardDetails({
 }: EventCardDetailsProps) {
   return (
     <div
-      className={clsx("flex min-w-0 flex-1 flex-col justify-center", className)}
+      className={clsx(
+        "flex min-w-0 flex-1 flex-col justify-center overflow-hidden",
+        className
+      )}
     >
-      <p className={META_LABEL_MUTED}>{label}</p>
+      <p className={`${META_LABEL_MUTED} truncate whitespace-nowrap`}>
+        {label}
+      </p>
       <div className="mt-1.5 flex min-w-0 items-center gap-2.5">{children}</div>
       <RelativeEventDate className="mt-1.5" date={date} />
     </div>

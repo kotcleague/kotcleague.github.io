@@ -41,7 +41,7 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
       <EventCardDetails
         className="px-4 py-4 sm:px-5"
         date={event.date}
-        label="Upcoming league night"
+        label="Upcoming event"
       >
         <h3 className="min-w-0">
           {hasRegistration ? (
@@ -104,7 +104,7 @@ function PastEventCard({
     >
       <EventDateBadge date={event.date} />
       <div className="min-w-0 px-4 py-4 sm:px-5 sm:py-5">
-        <p className={META_LABEL_MUTED}>Completed league night</p>
+        <p className={META_LABEL_MUTED}>Completed event</p>
         <div className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <h3 className="text-lg font-bold">King of the Court</h3>
           <span className="font-display text-base font-bold tabular-nums text-blue dark:text-blue-300">
@@ -152,7 +152,7 @@ function PastMonthCard({
         </div>
         <div className="mt-5 grid grid-cols-2 border-y border-slate-100 py-4 dark:border-slate-800">
           <div>
-            <p className={META_LABEL_MUTED}>League nights</p>
+            <p className={META_LABEL_MUTED}>Events</p>
             <p className="font-display mt-1 text-xl font-bold tabular-nums">
               {month.eventCount}
             </p>
@@ -325,7 +325,7 @@ export default function SchedulePage({
                   month &&
                   `${countLabel(
                     month.eventCount,
-                    "league night"
+                    "event"
                   )} · ${countLabel(month.playerCount, "player")}`
                 }
               >

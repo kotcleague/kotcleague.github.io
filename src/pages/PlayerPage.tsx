@@ -250,7 +250,7 @@ function PlayerContent({
                 No event history is available yet.
               </p>
               <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                This player has rankings data but no published nightly results.
+                This player has rankings data but no published results.
               </p>
             </EmptyState>
           )}

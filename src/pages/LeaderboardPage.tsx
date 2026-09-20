@@ -27,19 +27,20 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
   );
 
   return (
-    <article className="p-4 sm:p-6">
+    <article className="min-w-0 p-4 sm:p-6">
       <p className={META_LABEL_ACCENT}>Next event</p>
       {event ? (
         <>
           <div className="mt-4 flex overflow-hidden border border-slate-200 bg-slate-50/60 dark:border-slate-700 dark:bg-white/[0.025]">
             <EventDateBadge
+              compact
               date={event.date}
-              className="min-w-16 lg:min-w-24"
+              className="min-w-16 px-2"
             />
             <EventCardDetails
               className="px-3 py-3 sm:px-4"
               date={event.date}
-              label="Upcoming league night"
+              label="Upcoming event"
             >
               <h3 className="min-w-0">
                 {hasRegistration ? (
@@ -82,7 +83,7 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
         <div className="mt-4 border-y border-slate-200 py-5 dark:border-slate-800">
           <h3 className="text-lg font-bold">To be announced</h3>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            Check the schedule for future league nights.
+            Check the schedule for future events.
           </p>
         </div>
       )}
@@ -100,11 +101,11 @@ function LatestResultsCard({
   const winner = event?.podium.find((player) => player.place === 1);
 
   return (
-    <article className="border-t border-slate-200 p-4 sm:p-6 lg:border-l lg:border-t-0 dark:border-slate-800">
+    <article className="min-w-0 border-t border-slate-200 p-4 sm:p-6 lg:border-l lg:border-t-0 dark:border-slate-800">
       <p className={META_LABEL_ACCENT}>Latest results</p>
       {event ? (
         <div className="mt-4 flex overflow-hidden border border-slate-200 bg-slate-50/60 dark:border-slate-700 dark:bg-white/[0.025]">
-          <EventDateBadge date={event.date} className="min-w-16 lg:min-w-24" />
+          <EventDateBadge compact date={event.date} className="min-w-16 px-2" />
           <EventCardDetails
             className="px-3 py-3 sm:px-4"
             date={event.date}
@@ -120,7 +121,7 @@ function LatestResultsCard({
               />
             )}
             <h3
-              className="min-w-0 max-w-36 truncate whitespace-nowrap text-lg font-bold lg:max-w-none"
+              className="min-w-0 flex-1 truncate whitespace-nowrap text-lg font-bold"
               title={winner?.name ?? "Results posted"}
             >
               {winner?.name ?? "Results posted"}

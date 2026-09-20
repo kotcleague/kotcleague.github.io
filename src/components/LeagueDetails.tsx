@@ -89,7 +89,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
     <main>
       <PageHeader
         eyebrow="King of the Court"
-        description="How league nights run and how event results become leaderboard points."
+        description="How league events run and how event results become leaderboard points."
       >
         League Format
       </PageHeader>
