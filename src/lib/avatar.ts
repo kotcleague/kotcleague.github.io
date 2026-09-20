@@ -15,46 +15,45 @@ export interface AvatarDesign {
   initials: string;
 }
 
-// Palettes are tints/shades of the site's navy/blue accent tokens (see
-// --color-accent-400/500/600/700 in src/index.css) so default avatars read as
-// part of the brand instead of clashing with it. Each entry carries a light
-// and a dark variant with enough contrast for the initials to stay legible.
+// Muted athletic colors keep default avatars distinct from the site's neutral
+// surfaces without overpowering the rankings. Each theme variant has at least
+// 4.5:1 text contrast.
 const PALETTES: AvatarPalette[] = [
   {
-    bgLight: "#e8eef7",
-    fgLight: "#002659",
-    bgDark: "#12283c",
-    fgDark: "#7aa7e8",
+    bgLight: "#c6d8ee",
+    fgLight: "#12395f",
+    bgDark: "#1d3854",
+    fgDark: "#c6d8ee",
   },
   {
-    bgLight: "#e3ecfb",
-    fgLight: "#1167d8",
-    bgDark: "#0f2740",
-    fgDark: "#4d94f0",
+    bgLight: "#c9d6dc",
+    fgLight: "#263f4a",
+    bgDark: "#273c45",
+    fgDark: "#c9d6dc",
   },
   {
-    bgLight: "#e6ecf2",
-    fgLight: "#17354d",
-    bgDark: "#14293a",
-    fgDark: "#8fb3cc",
+    bgLight: "#d1d7e2",
+    fgLight: "#263b58",
+    bgDark: "#29374d",
+    fgDark: "#d1d7e2",
   },
   {
-    bgLight: "#e9edf1",
-    fgLight: "#0047a3",
-    bgDark: "#102340",
-    fgDark: "#5f9bf5",
+    bgLight: "#cbdcd4",
+    fgLight: "#24463a",
+    bgDark: "#273f36",
+    fgDark: "#cbdcd4",
   },
   {
-    bgLight: "#e7eaee",
-    fgLight: "#22364a",
-    bgDark: "#16202b",
-    fgDark: "#9fb4c6",
+    bgLight: "#dfced2",
+    fgLight: "#603342",
+    bgDark: "#4a2e38",
+    fgDark: "#dfced2",
   },
   {
-    bgLight: "#e2eefb",
-    fgLight: "#0b5394",
-    bgDark: "#0d2b40",
-    fgDark: "#6fb3e8",
+    bgLight: "#ddd4c2",
+    fgLight: "#56452a",
+    bgDark: "#463b2c",
+    fgDark: "#ddd4c2",
   },
 ];
 
