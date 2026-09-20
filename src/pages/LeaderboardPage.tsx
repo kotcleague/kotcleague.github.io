@@ -72,7 +72,7 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
                   size="sm"
                   variant="secondary"
                 >
-                  View initial assignments
+                  Initial assignments
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </ActionLink>
               )}
