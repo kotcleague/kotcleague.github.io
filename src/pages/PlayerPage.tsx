@@ -1,3 +1,4 @@
+import { ChevronRight } from "lucide-react";
 import { ErrorState } from "@/components/DataStates";
 import EditorialLinkCard from "@/components/EditorialLinkCard";
 import {
@@ -10,14 +11,11 @@ import {
 import EmptyState from "@/components/EmptyState";
 import Eyebrow from "@/components/Eyebrow";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
-import MedalSummary from "@/components/MedalSummary";
 import PageContent from "@/components/PageContent";
 import PerformanceMetrics from "@/components/PerformanceMetrics";
 import PlacementBadge from "@/components/PlacementBadge";
 import PlayerAvatar from "@/components/PlayerAvatar";
-import RegistrationLink from "@/components/RegistrationLink";
 import SectionHeading from "@/components/SectionHeading";
-import StatGrid from "@/components/StatGrid";
 import TableShell from "@/components/TableShell";
 import { documentTitleForRoute, eventRoute, ROUTES } from "@/config/site";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
@@ -29,7 +27,7 @@ import {
   formatRecord,
   formatSignedPercent,
 } from "@/lib/format";
-import { META_LABEL } from "@/lib/styles";
+import { META_LABEL, META_LABEL_MUTED } from "@/lib/styles";
 import type {
   EventResult,
   LeaderboardData,
@@ -50,14 +48,26 @@ function HistoryCard({ entry }: { entry: HistoryEntry }) {
       <div className="flex items-center gap-3">
         <PlacementBadge place={result.place} />
         <div className="min-w-0 flex-1">
-          <h3 className="font-semibold">{formatLeagueDate(event.date)}</h3>
-          <p className="text-sm font-semibold uppercase tracking-wide text-blue dark:text-blue-300">
+          <p className={META_LABEL_MUTED}>League event</p>
+          <h3 className="mt-0.5 font-semibold">
+            {formatLeagueDate(event.date)}
+          </h3>
+          <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-blue dark:text-blue-300">
             {formatInteger(result.points)} league points
           </p>
         </div>
-        <span className="font-display text-lg font-bold tabular-nums">
-          {formatRecord(result.wins, result.losses)}
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="text-right">
+            <span className={META_LABEL_MUTED}>Record</span>
+            <span className="font-display block text-lg font-bold tabular-nums">
+              {formatRecord(result.wins, result.losses)}
+            </span>
+          </span>
+          <ChevronRight
+            className="h-4 w-4 text-slate-300 transition-transform group-hover:translate-x-0.5 group-hover:text-blue dark:text-slate-600 dark:group-hover:text-blue-300"
+            aria-hidden="true"
+          />
+        </div>
       </div>
       <dl className="mt-4 grid grid-cols-3 gap-3 border-t border-slate-100 pt-4 text-sm dark:border-slate-800">
         <PerformanceMetrics
@@ -151,97 +161,88 @@ function HistoryTable({ history }: { history: HistoryEntry[] }) {
 }
 
 function PlayerContent({
-  currentMonthRank,
   player,
   history,
 }: {
-  currentMonthRank: number | null;
   player: Player;
   history: HistoryEntry[];
 }) {
   return (
     <>
       <section className="border-b border-slate-200 bg-white dark:border-scoreboard dark:bg-ink">
-        <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
-          <Eyebrow size="hero">Player profile</Eyebrow>
-          <div className="mt-5 flex flex-col gap-7 sm:flex-row sm:items-center sm:gap-9">
+        <div className="mx-auto max-w-5xl px-4 pt-6 pb-8 sm:px-6 sm:pt-8 sm:pb-10">
+          <div className="grid gap-7 md:grid-cols-[auto_minmax(0,1fr)] md:items-center md:gap-10">
             <PlayerAvatar
               name={player.name}
               photoUrl={player.photoUrl}
               playerId={player.id}
               size="xl"
-              className="ring-1 ring-slate-200 dark:ring-slate-700"
+              className="ring-1 ring-slate-200 ring-offset-4 ring-offset-white dark:ring-scoreboard dark:ring-offset-ink"
             />
             <div className="min-w-0 flex-1">
-              <h1 className="font-display text-4xl font-bold uppercase leading-none tracking-[0.015em] text-ink sm:text-5xl dark:text-white">
+              <Eyebrow size="hero">Player profile</Eyebrow>
+              <h1 className="font-display mt-4 text-5xl font-bold uppercase leading-[0.88] tracking-[0.015em] text-ink sm:text-6xl dark:text-white">
                 {player.name}
               </h1>
-              <div className="mt-6 grid max-w-xl grid-cols-2 overflow-hidden border-y border-slate-200 sm:inline-grid sm:grid-cols-[auto_auto_auto] dark:border-slate-700">
-                <div className="px-4 py-3">
-                  <p
-                    className={`${META_LABEL} text-slate-500 dark:text-slate-400`}
-                  >
-                    League Rank
-                  </p>
-                  <p className="font-display mt-1 text-3xl font-bold tabular-nums text-ink dark:text-white">
+              <div className="mt-5">
+                <span className="inline-grid grid-cols-[auto_auto] overflow-hidden border border-slate-200 bg-white dark:border-blue/40 dark:bg-scoreboard">
+                  <span className="flex items-center gap-2.5 px-3.5 py-2.5">
+                    <span
+                      className="h-1.5 w-1.5 bg-blue dark:bg-blue-300"
+                      aria-hidden="true"
+                    />
+                    <span
+                      className={`${META_LABEL} text-slate-600 dark:text-slate-300`}
+                    >
+                      League rank
+                    </span>
+                  </span>
+                  <strong className="font-display flex items-center border-l border-slate-200 bg-blue/[0.06] px-4 py-1.5 text-2xl font-bold tabular-nums text-blue dark:border-blue/30 dark:bg-blue/15 dark:text-blue-200">
                     #{player.rank}
-                  </p>
-                </div>
-                <div className="border-l border-slate-200 px-4 py-3 dark:border-slate-700">
-                  <p
-                    className={`${META_LABEL} text-slate-500 dark:text-slate-400`}
-                  >
-                    League points
-                  </p>
-                  <p className="font-display mt-1 text-3xl font-bold tabular-nums text-blue dark:text-blue-300">
-                    {formatInteger(player.points)}
-                  </p>
-                </div>
-                <div className="col-span-2 border-t border-slate-200 sm:col-span-1 sm:border-l sm:border-t-0 dark:border-slate-700">
-                  <MedalSummary
-                    bronze={player.bronze}
-                    gold={player.gold}
-                    silver={player.silver}
-                  />
-                </div>
+                  </strong>
+                </span>
               </div>
-              {player.gameMakerProfileUrl && (
-                <div className="mt-4">
-                  <RegistrationLink href={player.gameMakerProfileUrl} compact>
-                    Game Maker Profile
-                  </RegistrationLink>
-                </div>
-              )}
             </div>
           </div>
-          <StatGrid
-            className="mt-7 border-b-0 pb-0"
-            columns={4}
-            compact
-            items={[
-              {
-                label: "Record",
-                value: formatRecord(player.wins, player.losses),
-              },
-              { label: "Win rate", value: formatPercent(player.winRate) },
-              {
-                label: "Points for / against",
-                value: formatPointsForAgainst(
-                  player.pointsEarned,
-                  player.pointsAgainst
-                ),
-              },
-              {
-                label: "Point differential",
-                value: formatSignedPercent(player.pointDifferential),
-              },
-            ]}
-          />
         </div>
       </section>
-      <PageContent>
+      <section className="bg-scoreboard text-white">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 divide-x divide-y divide-white/10 px-4 sm:grid-cols-4 sm:divide-y-0 sm:px-6">
+          {[
+            { label: "League points", value: formatInteger(player.points) },
+            {
+              label: "Record",
+              value: formatRecord(player.wins, player.losses),
+            },
+            { label: "Win rate", value: formatPercent(player.winRate) },
+            {
+              label: "Point differential",
+              value: formatSignedPercent(player.pointDifferential),
+            },
+          ].map(({ label, value }) => (
+            <div key={label} className="px-4 py-5 first:pl-0 sm:py-6">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-blue-200">
+                {label}
+              </p>
+              <p className="font-display mt-1 text-3xl font-bold tabular-nums">
+                {value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <PageContent className="pt-8 sm:pt-10">
         <section aria-labelledby="event-history">
-          <SectionHeading id="event-history">Event history</SectionHeading>
+          <div className="flex items-end justify-between gap-4">
+            <SectionHeading id="event-history" eyebrow="Results">
+              Event history
+            </SectionHeading>
+            {history.length > 0 && (
+              <p className="mb-4 text-sm text-slate-500 dark:text-slate-400">
+                {history.length} {history.length === 1 ? "event" : "events"}
+              </p>
+            )}
+          </div>
           {history.length > 0 ? (
             <HistoryTable history={history} />
           ) : (
@@ -270,9 +271,6 @@ function LoadedPlayerPage({
   const player = data.views["past-30-days"].find(
     (item) => item.id === playerId
   );
-  const currentMonthRank =
-    data.views["current-month"].find((item) => item.id === playerId)?.rank ??
-    null;
   const history = data.events.past.flatMap((event) => {
     const result = event.results.find((item) => item.playerId === playerId);
     return result ? [{ event, result }] : [];
@@ -295,13 +293,7 @@ function LoadedPlayerPage({
     );
   }
 
-  return (
-    <PlayerContent
-      currentMonthRank={currentMonthRank}
-      player={player}
-      history={history}
-    />
-  );
+  return <PlayerContent player={player} history={history} />;
 }
 
 export default function PlayerPage({ playerId }: { playerId: string }) {
