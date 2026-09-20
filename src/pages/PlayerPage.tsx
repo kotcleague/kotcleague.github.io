@@ -181,7 +181,7 @@ function PlayerContent({
                   <p
                     className={`${META_LABEL} text-slate-500 dark:text-slate-400`}
                   >
-                    Past 30-day rank
+                    League Rank
                   </p>
                   <p className="font-display mt-1 text-3xl font-bold tabular-nums text-ink dark:text-white">
                     #{player.rank}
@@ -216,16 +216,9 @@ function PlayerContent({
           </div>
           <StatGrid
             className="mt-7 border-b-0 pb-0"
-            columns={5}
+            columns={4}
             compact
             items={[
-              {
-                label: "Current month rank",
-                value:
-                  currentMonthRank === null
-                    ? "Unranked"
-                    : `#${currentMonthRank}`,
-              },
               {
                 label: "Record",
                 value: formatRecord(player.wins, player.losses),

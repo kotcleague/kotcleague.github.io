@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import clsx from "clsx";
 
 import Card from "@/components/Card";
 import PlacementBadge from "@/components/PlacementBadge";
@@ -24,12 +25,6 @@ function placementLabel(place: number) {
   return "Third place";
 }
 
-function podiumBorderClass(place: number) {
-  if (place === 1) return "border-t-gold";
-  if (place === 2) return "border-t-silver";
-  return "border-t-bronze";
-}
-
 export default function PodiumShowcase<T extends PlayerReference>({
   entries,
   id,
@@ -46,23 +41,24 @@ export default function PodiumShowcase<T extends PlayerReference>({
 
   return (
     <section aria-labelledby={id}>
-      <SectionHeading id={id} prominent>
-        {title}
-      </SectionHeading>
-      <div className="grid gap-3 sm:grid-cols-3">
-        {podium.map((entry) => (
-          <Card
+      <SectionHeading id={id}>{title}</SectionHeading>
+      <Card className="grid overflow-hidden rounded-none p-0 sm:grid-cols-3">
+        {podium.map((entry, index) => (
+          <div
             key={entry.playerId}
-            className={`overflow-hidden border-t-2 ${podiumBorderClass(
-              entry.place
-            )}`}
+            className={clsx(
+              "min-w-0 p-5",
+              index > 0 &&
+                "border-t border-slate-100 sm:border-l sm:border-t-0 dark:border-slate-800",
+              entry.place === 1 && "bg-amber-50/35 dark:bg-amber-400/[0.025]"
+            )}
           >
-            <div className="flex items-center gap-4 p-5">
+            <div className="flex items-center gap-3">
               <PlayerAvatar
                 name={entry.name}
                 photoUrl={playerProfiles.get(entry.playerId)?.photoUrl ?? null}
                 playerId={entry.playerId}
-                size="lg"
+                size="podium"
               />
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
@@ -73,27 +69,29 @@ export default function PodiumShowcase<T extends PlayerReference>({
                 </div>
                 <a
                   href={playerRoute(entry.playerId)}
-                  className="mt-3 block truncate rounded-sm text-lg font-bold text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+                  className="mt-2 block truncate text-base font-bold text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
                 >
                   {entry.name}
                 </a>
+              </div>
+            </div>
+            {(renderSummary || renderMeta) && (
+              <div className="mt-4 flex items-baseline justify-between gap-3 border-t border-slate-100 pt-3 dark:border-slate-800">
                 {renderSummary && (
-                  <p className="font-display mt-1 text-lg font-bold tabular-nums text-blue dark:text-blue-300">
+                  <p className="font-display text-lg font-bold tabular-nums text-blue dark:text-blue-300">
                     {renderSummary(entry)}
                   </p>
                 )}
+                {renderMeta && (
+                  <p className={`${META_LABEL_MUTED} text-right`}>
+                    {renderMeta(entry)}
+                  </p>
+                )}
               </div>
-            </div>
-            {renderMeta && (
-              <p
-                className={`${META_LABEL_MUTED} border-t border-slate-100 px-5 py-3 dark:border-slate-800`}
-              >
-                {renderMeta(entry)}
-              </p>
             )}
-          </Card>
+          </div>
         ))}
-      </div>
+      </Card>
     </section>
   );
 }

@@ -28,7 +28,7 @@ function Movement({ move }: { move: Player["move"] }) {
 
   return (
     <span
-      className={`inline-flex min-h-6 min-w-8 items-center justify-center gap-1 rounded-full px-1.5 text-sm font-bold leading-none tabular-nums sm:min-h-7 sm:min-w-10 ${
+      className={`inline-flex min-h-6 min-w-8 items-center justify-center gap-1 px-1.5 text-sm font-bold leading-none tabular-nums sm:min-h-7 sm:min-w-10 ${
         isUp
           ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400"
           : "bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-400"
@@ -56,7 +56,7 @@ export default function PlayerRow({ player, rank }: PlayerRowProps) {
       <EditorialTableCell density="compact">
         <span
           className={`
-            font-display inline-flex h-7 min-w-7 shrink-0 items-center justify-center rounded-sm px-1 text-base font-bold tabular-nums sm:h-8 sm:min-w-8 sm:text-lg
+            font-display inline-flex h-7 min-w-7 shrink-0 items-center justify-center px-1 text-base font-bold tabular-nums sm:h-8 sm:min-w-8 sm:text-lg
             ${badge}
           `}
         >

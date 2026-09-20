@@ -10,6 +10,7 @@ export type AppRoute =
   | { page: "rankings" }
   | { page: "schedule"; monthId?: string; pastMonths?: boolean }
   | { page: "event"; eventId: string }
+  | { page: "event-assignments"; eventId: string }
   | { page: "player"; playerId: string }
   | { page: "format" }
   | { page: "assignments" };
@@ -45,6 +46,10 @@ export const SITE_LINKS = {
 
 export function eventRoute(eventId: string) {
   return `${ROUTES.schedule}/${encodeURIComponent(eventId)}`;
+}
+
+export function eventAssignmentsRoute(eventId: string) {
+  return `${eventRoute(eventId)}/assignments`;
 }
 
 export function monthRoute(monthId: string) {
@@ -112,7 +117,9 @@ export function assignmentPlayerIdsFromHash(hash: string) {
 
 export function navigationPageForRoute(route: AppRoute): NavigationPage {
   if (route.page === "player") return "rankings";
-  if (route.page === "event") return "schedule";
+  if (route.page === "event" || route.page === "event-assignments") {
+    return "schedule";
+  }
   if (route.page === "assignments") return "rankings";
   return route.page;
 }
@@ -120,6 +127,9 @@ export function navigationPageForRoute(route: AppRoute): NavigationPage {
 export function documentTitleForRoute(route: AppRoute) {
   if (route.page === "assignments") {
     return "Court Assignments | Paddle Up Pickleball";
+  }
+  if (route.page === "event-assignments") {
+    return "Event Assignments | Paddle Up Pickleball";
   }
   const page = navigationPageForRoute(route);
   return (
@@ -149,13 +159,18 @@ export function parseHashRoute(hash: string): AppRoute {
   if (path === ROUTES.assignments || path === `${ROUTES.assignments}/`) {
     return { page: "assignments" };
   }
+  const eventAssignmentsMatch =
+    /^#\/schedule\/(\d{4}-\d{2}-\d{2})\/assignments\/?$/.exec(path);
+  if (eventAssignmentsMatch) {
+    return { page: "event-assignments", eventId: eventAssignmentsMatch[1] };
+  }
 
   // Keep old bookmarks working while using #/format for all new links.
   if (path === "#/league" || path === "#/league/") {
     return { page: "format" };
   }
 
-  const eventMatch = /^#\/schedule\/(\d{4}-\d{2}-\d{2})\/?$/.exec(hash);
+  const eventMatch = /^#\/schedule\/(\d{4}-\d{2}-\d{2})\/?$/.exec(path);
   if (eventMatch) {
     return { page: "event", eventId: eventMatch[1] };
   }

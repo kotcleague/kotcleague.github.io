@@ -18,7 +18,6 @@ import PlacementBadge from "@/components/PlacementBadge";
 import PlayerIdentityLink from "@/components/PlayerIdentityLink";
 import PodiumShowcase from "@/components/PodiumShowcase";
 import SectionHeading from "@/components/SectionHeading";
-import StatGrid from "@/components/StatGrid";
 import TableShell from "@/components/TableShell";
 import { documentTitleForRoute, ROUTES } from "@/config/site";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
@@ -70,7 +69,7 @@ function ResultCard({
         </div>
         <button
           type="button"
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue dark:text-slate-500 dark:hover:bg-slate-800 dark:hover:text-blue-300"
+          className="flex h-8 w-8 shrink-0 items-center justify-center text-slate-400 transition-colors hover:bg-slate-100 hover:text-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue dark:text-slate-500 dark:hover:bg-slate-800 dark:hover:text-blue-300"
           aria-controls={detailsId}
           aria-expanded={expanded}
           aria-label={`${expanded ? "Hide" : "Show"} stats for ${result.name}`}
@@ -214,26 +213,18 @@ function EventContent({
     <>
       <PageHeader
         eyebrow="Event results"
-        footer={
-          <StatGrid
-            className="border-b-0 pb-0"
-            compact
-            items={[
-              { label: "Players", value: event.playerCount },
-              { label: "Games", value: event.games },
-              { label: "Rounds", value: event.rounds },
-              {
-                label: "Max points",
-                value: formatInteger(event.maxPointsEarnable),
-              },
-            ]}
-          />
-        }
+        description={`${event.playerCount} ${
+          event.playerCount === 1 ? "player" : "players"
+        } · ${event.games} ${event.games === 1 ? "game" : "games"} · ${
+          event.rounds
+        } ${event.rounds === 1 ? "round" : "rounds"} · ${formatInteger(
+          event.maxPointsEarnable
+        )} max points`}
       >
         {formatLeagueDate(event.date)}
       </PageHeader>
       <PageContent>
-        <div className="space-y-12">
+        <div className="space-y-10">
           <PodiumShowcase
             entries={event.results}
             id="event-podium"

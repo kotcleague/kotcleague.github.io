@@ -26,7 +26,7 @@ export default function PlayerIdentityLink({
     <a
       href={playerRoute(playerId)}
       className={twMerge(
-        "flex min-w-0 items-center gap-3 rounded-sm text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue",
+        "flex min-w-0 items-center gap-3 text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue",
         className
       )}
       {...props}

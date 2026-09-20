@@ -26,6 +26,7 @@ const EVENT_WEEKDAY_FORMATTER = new Intl.DateTimeFormat("en-US", {
 });
 
 const INTEGER_FORMATTER = new Intl.NumberFormat("en-US");
+const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
 
 function parseCalendarDate(date: string) {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
@@ -56,6 +57,28 @@ export function formatEventDateParts(date: string) {
     month: EVENT_MONTH_FORMATTER.format(value),
     weekday: EVENT_WEEKDAY_FORMATTER.format(value),
   };
+}
+
+export function formatRelativeEventDate(date: string, today = new Date()) {
+  const value = parseCalendarDate(date);
+  const eventDay = Date.UTC(
+    value.getFullYear(),
+    value.getMonth(),
+    value.getDate()
+  );
+  const currentDay = Date.UTC(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate()
+  );
+  const days = Math.round((eventDay - currentDay) / MILLISECONDS_PER_DAY);
+
+  if (days === 0) {
+    return "Today";
+  }
+
+  const dayLabel = `${Math.abs(days)} day${Math.abs(days) === 1 ? "" : "s"}`;
+  return days > 0 ? `In ${dayLabel}` : `${dayLabel} ago`;
 }
 
 export function formatPercent(value: number) {

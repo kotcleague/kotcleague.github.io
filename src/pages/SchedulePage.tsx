@@ -1,21 +1,20 @@
-import { ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import ActionLink from "@/components/ActionLink";
-import DateBadge from "@/components/DateBadge";
+import ArchiveWinner from "@/components/ArchiveWinner";
 import EmptyState from "@/components/EmptyState";
 import EditorialLinkCard from "@/components/EditorialLinkCard";
+import EventCardDetails from "@/components/EventCardDetails";
 import EventDateBadge from "@/components/EventDateBadge";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import PageTabs from "@/components/PageTabs";
-import PodiumList from "@/components/PodiumList";
 import PodiumShowcase from "@/components/PodiumShowcase";
 import RegistrationLink from "@/components/RegistrationLink";
 import RegistrationSummary from "@/components/RegistrationSummary";
 import SectionHeading from "@/components/SectionHeading";
-import StatGrid from "@/components/StatGrid";
 import {
-  assignmentRoute,
+  eventAssignmentsRoute,
   eventRoute,
   monthRoute,
   ROUTES,
@@ -34,22 +33,30 @@ function countLabel(count: number, singular: string) {
 }
 
 function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
-  const hasRegistration = event.courtReserveUrl || event.gameMakerUrl;
+  const hasRegistration = Boolean(event.courtReserveUrl || event.gameMakerUrl);
 
   return (
-    <article className="grid grid-cols-[5.25rem_1fr] overflow-hidden rounded-sm border border-slate-200 bg-white shadow-[0_1px_0_rgba(8,27,42,0.04)] transition-colors hover:border-blue/40 lg:grid-cols-[6rem_1fr_auto] dark:border-scoreboard dark:bg-ink dark:hover:border-blue/60">
+    <article className="grid grid-cols-[5.25rem_1fr] overflow-hidden border border-slate-200 bg-white transition-colors hover:border-blue/40 lg:grid-cols-[6rem_minmax(14rem,1fr)_auto] dark:border-scoreboard dark:bg-ink dark:hover:border-blue/60">
       <EventDateBadge date={event.date} />
-      <div className="flex min-w-0 flex-col justify-center px-4 py-4 sm:px-5">
-        <p className={META_LABEL_ACCENT}>Upcoming league night</p>
-        <h3 className="mt-0.5 text-lg font-bold">King of the Court</h3>
-      </div>
-      <div className="col-span-2 flex flex-col gap-3 border-t border-slate-100 px-4 py-3 lg:col-span-1 lg:flex-row lg:flex-wrap lg:items-center lg:border-0 lg:px-5 dark:border-slate-800">
-        <RegistrationSummary
-          available={Boolean(event.courtReserveUrl)}
-          count={event.registeredPlayerCount}
-        />
+      <EventCardDetails
+        className="px-4 py-4 sm:px-5"
+        date={event.date}
+        label="Upcoming league night"
+      >
+        <h3 className="min-w-0">
+          {hasRegistration ? (
+            <RegistrationSummary
+              available
+              count={event.registeredPlayerCount}
+            />
+          ) : (
+            <span className="text-lg font-bold">King of the Court</span>
+          )}
+        </h3>
+      </EventCardDetails>
+      <div className="col-span-2 flex flex-col gap-3 border-t border-slate-100 bg-slate-50/70 px-4 py-3.5 sm:px-5 lg:col-span-1 lg:min-w-[19rem] lg:flex-row lg:items-center lg:justify-end lg:border-l lg:border-t-0 dark:border-slate-800 dark:bg-white/[0.025]">
         {hasRegistration ? (
-          <div className="grid w-full gap-2 lg:flex lg:w-auto lg:flex-wrap">
+          <div className="grid w-full gap-1 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:gap-2">
             {event.courtReserveUrl && (
               <RegistrationLink href={event.courtReserveUrl} compact>
                 Court Reserve
@@ -62,16 +69,17 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
             )}
             {event.registeredPlayerIds.length > 0 && (
               <ActionLink
-                href={assignmentRoute(event.registeredPlayerIds, [], true)}
+                href={eventAssignmentsRoute(event.id)}
                 size="sm"
                 variant="secondary"
               >
                 Initial assignments
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </ActionLink>
             )}
           </div>
         ) : (
-          <span className="rounded-sm border border-slate-300 px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-slate-400 dark:border-slate-700 dark:text-slate-500">
+          <span className="border border-slate-300 px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-slate-400 dark:border-slate-700 dark:text-slate-500">
             Registration coming soon
           </span>
         )}
@@ -87,44 +95,34 @@ function PastEventCard({
   event: PastEvent;
   playerProfiles: Map<string, PlayerProfile>;
 }) {
+  const winner = event.podium.find((player) => player.place === 1);
+
   return (
     <EditorialLinkCard
       href={eventRoute(event.id)}
-      className="grid grid-cols-[5.25rem_1fr] overflow-hidden p-0 sm:grid-cols-[6rem_1fr] lg:grid-cols-[6rem_minmax(15rem,1fr)_minmax(18rem,1.15fr)]"
+      className="grid grid-cols-[5.25rem_1fr] overflow-hidden rounded-none p-0 sm:grid-cols-[6rem_1fr] lg:grid-cols-[6rem_minmax(0,1fr)_17rem]"
     >
       <EventDateBadge date={event.date} />
-      <div className="min-w-0 px-4 py-4 sm:px-5">
-        <div className="flex min-w-0 items-center gap-3">
-          <div className="min-w-0 flex-1">
-            <p className={`${META_LABEL_ACCENT} truncate`}>
-              Completed league night
-            </p>
-            <h3 className="mt-0.5 truncate text-lg font-bold">
-              King of the Court
-            </h3>
-          </div>
-          <span className="hidden shrink-0 font-display text-sm font-bold tabular-nums text-blue sm:inline-block dark:text-blue-300">
+      <div className="min-w-0 px-4 py-4 sm:px-5 sm:py-5">
+        <p className={META_LABEL_MUTED}>Completed league night</p>
+        <div className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <h3 className="text-lg font-bold">King of the Court</h3>
+          <span className="font-display text-base font-bold tabular-nums text-blue dark:text-blue-300">
             {event.maxPointsEarnable.toLocaleString()} pts
           </span>
         </div>
-        <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs font-medium text-slate-500 dark:text-slate-400">
-          <span className="font-bold text-blue sm:hidden dark:text-blue-300">
-            {event.maxPointsEarnable.toLocaleString()} pts
-          </span>
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-slate-500 dark:text-slate-400">
           <span>{countLabel(event.playerCount, "player")}</span>
           <span>{countLabel(event.games, "game")}</span>
           <span>{countLabel(event.courts, "court")}</span>
           <span>{countLabel(event.rounds, "round")}</span>
         </div>
       </div>
-      <div className="col-span-2 flex min-w-0 items-center gap-4 border-t border-slate-100 px-4 py-3 sm:px-5 lg:col-span-1 lg:border-l lg:border-t-0 dark:border-slate-800">
-        <div className="min-w-0 flex-1">
-          <p className={`${META_LABEL_MUTED} mb-2`}>Event podium</p>
-          <PodiumList podium={event.podium} playerProfiles={playerProfiles} />
-        </div>
-        <ChevronRight
-          className="hidden h-4 w-4 shrink-0 text-slate-300 transition-transform group-hover:translate-x-1 group-hover:text-blue lg:block dark:text-slate-600"
-          aria-hidden="true"
+      <div className="col-span-2 flex items-center border-t border-slate-100 bg-slate-50/60 px-4 py-3.5 sm:px-5 lg:col-span-1 lg:border-l lg:border-t-0 dark:border-slate-800 dark:bg-white/[0.02]">
+        <ArchiveWinner
+          label="Event winner"
+          player={winner}
+          playerProfiles={playerProfiles}
         />
       </div>
     </EditorialLinkCard>
@@ -138,40 +136,40 @@ function PastMonthCard({
   month: PastMonth;
   playerProfiles: Map<string, PlayerProfile>;
 }) {
-  const [monthName, year] = month.label.split(" ");
+  const champion = month.podium.find((player) => player.place === 1);
 
   return (
     <EditorialLinkCard
       href={monthRoute(month.id)}
-      className="grid grid-cols-[5.25rem_1fr] overflow-hidden p-0 sm:grid-cols-[6rem_1fr] lg:grid-cols-[6rem_minmax(15rem,1fr)_minmax(18rem,1.15fr)]"
+      className="overflow-hidden rounded-none p-0"
     >
-      <DateBadge
-        bottom={year}
-        dateTime={month.id}
-        top="Archive"
-        value={monthName.slice(0, 3)}
-        valueClassName="text-3xl uppercase"
-      />
-      <div className="min-w-0 px-4 py-4 sm:px-5">
-        <div className="flex min-w-0 items-center gap-3">
-          <div className="min-w-0 flex-1">
-            <p className={`${META_LABEL_ACCENT} truncate`}>Completed month</p>
-            <h3 className="mt-0.5 truncate text-lg font-bold">{month.label}</h3>
+      <div className="p-5 sm:p-6">
+        <p className={META_LABEL_ACCENT}>Monthly archive</p>
+        <div className="mt-2">
+          <h3 className="font-display text-3xl font-bold uppercase leading-none">
+            {month.label}
+          </h3>
+        </div>
+        <div className="mt-5 grid grid-cols-2 border-y border-slate-100 py-4 dark:border-slate-800">
+          <div>
+            <p className={META_LABEL_MUTED}>League nights</p>
+            <p className="font-display mt-1 text-xl font-bold tabular-nums">
+              {month.eventCount}
+            </p>
+          </div>
+          <div>
+            <p className={META_LABEL_MUTED}>Players</p>
+            <p className="font-display mt-1 text-xl font-bold tabular-nums">
+              {month.playerCount}
+            </p>
           </div>
         </div>
-        <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs font-medium text-slate-500 dark:text-slate-400">
-          <span>{countLabel(month.eventCount, "event")}</span>
-          <span>{countLabel(month.playerCount, "player")}</span>
-        </div>
       </div>
-      <div className="col-span-2 flex min-w-0 items-center gap-4 border-t border-slate-100 px-4 py-3 sm:px-5 lg:col-span-1 lg:border-l lg:border-t-0 dark:border-slate-800">
-        <div className="min-w-0 flex-1">
-          <p className={`${META_LABEL_MUTED} mb-2`}>Monthly podium</p>
-          <PodiumList podium={month.podium} playerProfiles={playerProfiles} />
-        </div>
-        <ChevronRight
-          className="hidden h-4 w-4 shrink-0 text-slate-300 transition-transform group-hover:translate-x-1 group-hover:text-blue lg:block dark:text-slate-600"
-          aria-hidden="true"
+      <div className="flex items-center border-t border-slate-100 bg-slate-50/60 px-5 py-4 sm:px-6 dark:border-slate-800 dark:bg-white/[0.02]">
+        <ArchiveWinner
+          label="Month champion"
+          player={champion}
+          playerProfiles={playerProfiles}
         />
       </div>
     </EditorialLinkCard>
@@ -228,7 +226,7 @@ function PastMonthsView({
     <section aria-labelledby="past-months">
       <SectionHeading id="past-months">Past months</SectionHeading>
       {months.length > 0 ? (
-        <div className="space-y-3">
+        <div className="grid gap-4 md:grid-cols-2">
           {months.map((month) => (
             <PastMonthCard
               key={month.id}
@@ -271,7 +269,7 @@ function PastMonthView({
 
   return (
     <section aria-label={`${month.label} results`}>
-      <div className="space-y-12">
+      <div className="space-y-10">
         <PodiumShowcase
           entries={month.podium}
           id="monthly-podium"
@@ -279,12 +277,7 @@ function PastMonthView({
           title="Top players"
         />
         <section aria-labelledby="month-events">
-          <SectionHeading
-            id="month-events"
-            eyebrow={`${month.eventCount} league ${
-              month.eventCount === 1 ? "night" : "nights"
-            }`}
-          >
+          <SectionHeading id="month-events" eyebrow="Event archive">
             Events this month
           </SectionHeading>
           {events.length > 0 ? (
@@ -327,19 +320,13 @@ export default function SchedulePage({
 
             return (
               <PageHeader
-                eyebrow="Past month"
-                footer={
-                  month && (
-                    <StatGrid
-                      className="border-b-0 pb-0"
-                      columns={2}
-                      compact
-                      items={[
-                        { label: "Events", value: month.eventCount },
-                        { label: "Players", value: month.playerCount },
-                      ]}
-                    />
-                  )
+                eyebrow="Monthly archive"
+                description={
+                  month &&
+                  `${countLabel(
+                    month.eventCount,
+                    "league night"
+                  )} · ${countLabel(month.playerCount, "player")}`
                 }
               >
                 {month?.label ?? "Month not found"}

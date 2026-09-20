@@ -20,7 +20,7 @@ export function actionClass({
   variant?: ActionVariant;
 } = {}) {
   return clsx(
-    "inline-flex cursor-pointer items-center justify-center gap-2 rounded-[2px] border font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-40",
+    "inline-flex cursor-pointer items-center justify-center gap-2 border font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-40",
     FOCUS_RING,
     size === "sm"
       ? "min-h-10 px-3 text-xs uppercase tracking-[0.08em]"

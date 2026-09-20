@@ -152,7 +152,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                 key={step.title}
                 className="relative flex gap-3 lg:px-5 lg:first:pl-0 lg:last:pr-0"
               >
-                <span className="font-display flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border border-blue/30 bg-blue/[0.06] text-sm font-bold text-blue dark:border-blue/50 dark:bg-blue/10 dark:text-blue-300">
+                <span className="font-display flex h-7 w-7 shrink-0 items-center justify-center border border-blue/30 bg-blue/[0.06] text-sm font-bold text-blue dark:border-blue/50 dark:bg-blue/10 dark:text-blue-300">
                   {index + 1}
                 </span>
                 <div className="min-w-0">

@@ -8,7 +8,7 @@ export default function Card({
   return (
     <article
       className={twMerge(
-        "rounded-sm border border-slate-200 bg-white dark:border-scoreboard dark:bg-ink",
+        "border border-slate-200 bg-white dark:border-scoreboard dark:bg-ink",
         className
       )}
       {...props}
