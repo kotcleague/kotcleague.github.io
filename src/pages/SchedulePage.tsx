@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Grid2X2, Users } from "lucide-react";
 import ActionLink from "@/components/ActionLink";
 import ArchiveWinner from "@/components/ArchiveWinner";
 import EmptyState from "@/components/EmptyState";
@@ -103,7 +103,7 @@ function PastEventCard({
       className="grid grid-cols-[5.25rem_1fr] overflow-hidden rounded-none p-0 sm:grid-cols-[6rem_1fr] lg:grid-cols-[6rem_minmax(0,1fr)_17rem]"
     >
       <EventDateBadge date={event.date} />
-      <div className="min-w-0 px-4 py-4 sm:px-5 sm:py-5">
+      <div className="min-w-0 px-4 py-3.5 sm:px-5 sm:py-4">
         <p className={META_LABEL_MUTED}>Completed event</p>
         <div className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <h3 className="text-lg font-bold">King of the Court</h3>
@@ -111,12 +111,32 @@ function PastEventCard({
             {event.maxPointsEarnable.toLocaleString()} pts
           </span>
         </div>
-        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-slate-500 dark:text-slate-400">
-          <span>{countLabel(event.playerCount, "player")}</span>
-          <span>{countLabel(event.games, "game")}</span>
-          <span>{countLabel(event.courts, "court")}</span>
-          <span>{countLabel(event.rounds, "round")}</span>
-        </div>
+        <dl className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs font-medium text-slate-500 dark:text-slate-400">
+          <div className="flex items-center gap-1.5">
+            <Users
+              className="h-3.5 w-3.5 text-blue dark:text-blue-300"
+              aria-hidden="true"
+            />
+            <dt className="order-3">
+              {event.playerCount === 1 ? "Player" : "Players"}
+            </dt>
+            <dd className="font-display order-2 text-base font-bold tabular-nums text-ink dark:text-white">
+              {event.playerCount}
+            </dd>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <Grid2X2
+              className="h-3.5 w-3.5 text-blue dark:text-blue-300"
+              aria-hidden="true"
+            />
+            <dt className="order-3">
+              {event.courts === 1 ? "Court" : "Courts"}
+            </dt>
+            <dd className="font-display order-2 text-base font-bold tabular-nums text-ink dark:text-white">
+              {event.courts}
+            </dd>
+          </div>
+        </dl>
       </div>
       <div className="col-span-2 flex items-center border-t border-slate-100 bg-slate-50/60 px-4 py-3.5 sm:px-5 lg:col-span-1 lg:border-l lg:border-t-0 dark:border-slate-800 dark:bg-white/[0.02]">
         <ArchiveWinner
@@ -323,10 +343,10 @@ export default function SchedulePage({
                 eyebrow="Monthly archive"
                 description={
                   month &&
-                  `${countLabel(
-                    month.eventCount,
-                    "event"
-                  )} · ${countLabel(month.playerCount, "player")}`
+                  `${countLabel(month.eventCount, "event")} · ${countLabel(
+                    month.playerCount,
+                    "player"
+                  )}`
                 }
               >
                 {month?.label ?? "Month not found"}
