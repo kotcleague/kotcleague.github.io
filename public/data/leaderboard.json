@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-19T18:01:22.300Z",
+  "scrapedAt": "2026-09-20T06:16:07.081Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2494,12 +2494,13 @@
         "date": "2026-09-24",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/329HPCJ10117202",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 5,
+        "registeredPlayerCount": 6,
         "registeredPlayerIds": [
           "garrett-hallemeier",
           "jon-harris",
           "kevin-reque",
           "matt-fleming",
+          "sean-liston",
           "tobi-ola"
         ]
       },
