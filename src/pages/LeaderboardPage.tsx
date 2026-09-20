@@ -57,7 +57,7 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
             <div className="grid gap-1 sm:flex sm:flex-wrap sm:items-center sm:gap-2">
               {event.courtReserveUrl && (
                 <RegistrationLink href={event.courtReserveUrl} compact>
-                  Court Reserve
+                  Register
                 </RegistrationLink>
               )}
               {event.gameMakerUrl && (
@@ -71,7 +71,7 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
                   size="sm"
                   variant="secondary"
                 >
-                  Initial assignments
+                  View initial assignments
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </ActionLink>
               )}
