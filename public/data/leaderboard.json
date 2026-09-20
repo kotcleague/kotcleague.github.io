@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-19T18:01:22.300Z",
+  "scrapedAt": "2026-09-20T16:05:42.661Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2447,9 +2447,17 @@
       "dupr": 4.577
     },
     {
+      "id": "jason-rule",
+      "name": "Jason Rule",
+      "seed": 36,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 5.106
+    },
+    {
       "id": "brett-mell",
       "name": "Brett Mell",
-      "seed": 36,
+      "seed": 37,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.841
@@ -2457,34 +2465,34 @@
     {
       "id": "aniket-sharma",
       "name": "Aniket Sharma",
-      "seed": 37,
+      "seed": 38,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.611
     },
     {
+      "id": "chris-lee",
+      "name": "Chris Lee",
+      "seed": 39,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.459
+    },
+    {
       "id": "matt-landolt",
       "name": "Matt Landolt",
-      "seed": 38,
+      "seed": 40,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.423
     },
     {
-      "id": "sub-2",
-      "name": "Sub 2",
-      "seed": 39,
+      "id": "kevin-folkl",
+      "name": "Kevin Folkl",
+      "seed": 41,
       "past30Days": 0,
       "allTime": 0,
-      "dupr": 4
-    },
-    {
-      "id": "sub-1",
-      "name": "Sub 1",
-      "seed": 40,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4
+      "dupr": 4.05
     }
   ],
   "events": {
@@ -2494,12 +2502,13 @@
         "date": "2026-09-24",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/329HPCJ10117202",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 5,
+        "registeredPlayerCount": 6,
         "registeredPlayerIds": [
           "garrett-hallemeier",
           "jon-harris",
           "kevin-reque",
           "matt-fleming",
+          "sean-liston",
           "tobi-ola"
         ]
       },

@@ -59,7 +59,7 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
           <div className="grid w-full gap-1 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:gap-2">
             {event.courtReserveUrl && (
               <RegistrationLink href={event.courtReserveUrl} compact>
-                Court Reserve
+                Register
               </RegistrationLink>
             )}
             {event.gameMakerUrl && (
@@ -73,7 +73,7 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
                 size="sm"
                 variant="secondary"
               >
-                Initial assignments
+                View initial assignments
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </ActionLink>
             )}
