@@ -27,14 +27,17 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
   );
 
   return (
-    <article className="p-5 sm:p-6">
+    <article className="p-4 sm:p-6">
       <p className={META_LABEL_ACCENT}>Next event</p>
       {event ? (
         <>
           <div className="mt-4 flex overflow-hidden border border-slate-200 bg-slate-50/60 dark:border-slate-700 dark:bg-white/[0.025]">
-            <EventDateBadge date={event.date} className="min-w-24" />
+            <EventDateBadge
+              date={event.date}
+              className="min-w-16 lg:min-w-24"
+            />
             <EventCardDetails
-              className="px-4 py-3"
+              className="px-3 py-3 sm:px-4"
               date={event.date}
               label="Upcoming league night"
             >
@@ -97,26 +100,29 @@ function LatestResultsCard({
   const winner = event?.podium.find((player) => player.place === 1);
 
   return (
-    <article className="border-t border-slate-200 p-5 md:border-l md:border-t-0 sm:p-6 dark:border-slate-800">
+    <article className="border-t border-slate-200 p-4 sm:p-6 lg:border-l lg:border-t-0 dark:border-slate-800">
       <p className={META_LABEL_ACCENT}>Latest results</p>
       {event ? (
         <div className="mt-4 flex overflow-hidden border border-slate-200 bg-slate-50/60 dark:border-slate-700 dark:bg-white/[0.025]">
-          <EventDateBadge date={event.date} className="min-w-24" />
+          <EventDateBadge date={event.date} className="min-w-16 lg:min-w-24" />
           <EventCardDetails
-            className="px-4 py-3"
+            className="px-3 py-3 sm:px-4"
             date={event.date}
             label="Event winner"
           >
             {winner && (
               <PlayerAvatar
-                className="h-9 w-9"
+                className="h-8 w-8 sm:h-9 sm:w-9"
                 name={winner.name}
                 photoUrl={playerProfiles.get(winner.playerId)?.photoUrl ?? null}
                 playerId={winner.playerId}
                 size="sm"
               />
             )}
-            <h3 className="min-w-0 truncate text-lg font-bold">
+            <h3
+              className="min-w-0 max-w-36 truncate whitespace-nowrap text-lg font-bold lg:max-w-none"
+              title={winner?.name ?? "Results posted"}
+            >
               {winner?.name ?? "Results posted"}
             </h3>
           </EventCardDetails>
@@ -203,7 +209,7 @@ export default function LeaderboardPage() {
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </ActionLink>
               </div>
-              <div className="grid overflow-hidden border border-slate-200 bg-white md:grid-cols-2 dark:border-scoreboard dark:bg-ink">
+              <div className="grid overflow-hidden border border-slate-200 bg-white lg:grid-cols-2 dark:border-scoreboard dark:bg-ink">
                 <UpcomingEventCard
                   event={[...data.events.upcoming].sort(byDateAscending)[0]}
                 />

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 import { META_LABEL_ACCENT, META_LABEL_MUTED } from "@/lib/styles";
 
 interface DateBadgeProps {
@@ -22,7 +23,7 @@ export default function DateBadge({
   return (
     <time
       dateTime={dateTime}
-      className={clsx(
+      className={twMerge(
         "flex min-w-20 shrink-0 flex-col items-center justify-center border-r border-blue/10 bg-blue/[0.055] px-3 py-4 text-center text-ink dark:border-blue/20 dark:bg-blue/10 dark:text-white",
         className
       )}
