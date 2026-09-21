@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-20T21:33:35.183Z",
+  "scrapedAt": "2026-09-21T00:16:17.404Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -655,8 +655,8 @@
         "wins": 13,
         "losses": 7,
         "winRate": 65,
-        "pointsEarned": 266,
-        "pointsAgainst": 235,
+        "pointsEarned": 256,
+        "pointsAgainst": 226,
         "pointDifferential": 6.2,
         "move": {
           "dir": "down",
@@ -743,8 +743,8 @@
         "wins": 13,
         "losses": 8,
         "winRate": 62,
-        "pointsEarned": 276,
-        "pointsAgainst": 240,
+        "pointsEarned": 266,
+        "pointsAgainst": 231,
         "pointDifferential": 7,
         "move": {
           "dir": "down",
@@ -765,9 +765,9 @@
         "wins": 6,
         "losses": 1,
         "winRate": 86,
-        "pointsEarned": 13,
-        "pointsAgainst": 8,
-        "pointDifferential": 23.8,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 3
@@ -787,9 +787,9 @@
         "wins": 10,
         "losses": 11,
         "winRate": 48,
-        "pointsEarned": 262,
-        "pointsAgainst": 271,
-        "pointDifferential": -1.7,
+        "pointsEarned": 252,
+        "pointsAgainst": 262,
+        "pointDifferential": -1.9,
         "move": {
           "dir": "none",
           "places": 0
@@ -809,9 +809,9 @@
         "wins": 9,
         "losses": 11,
         "winRate": 45,
-        "pointsEarned": 252,
-        "pointsAgainst": 257,
-        "pointDifferential": -1,
+        "pointsEarned": 244,
+        "pointsAgainst": 246,
+        "pointDifferential": -0.4,
         "move": {
           "dir": "down",
           "places": 2
@@ -831,9 +831,9 @@
         "wins": 9,
         "losses": 24,
         "winRate": 27,
-        "pointsEarned": 445,
-        "pointsAgainst": 516,
-        "pointDifferential": -7.4,
+        "pointsEarned": 437,
+        "pointsAgainst": 505,
+        "pointDifferential": -7.2,
         "move": {
           "dir": "up",
           "places": 2
@@ -853,9 +853,9 @@
         "wins": 5,
         "losses": 2,
         "winRate": 71,
-        "pointsEarned": 12,
-        "pointsAgainst": 9,
-        "pointDifferential": 14.3,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 3
@@ -897,9 +897,9 @@
         "wins": 4,
         "losses": 3,
         "winRate": 57,
-        "pointsEarned": 11,
-        "pointsAgainst": 10,
-        "pointDifferential": 4.8,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 2
@@ -985,9 +985,9 @@
         "wins": 4,
         "losses": 3,
         "winRate": 57,
-        "pointsEarned": 11,
-        "pointsAgainst": 10,
-        "pointDifferential": 4.8,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 2
@@ -1051,9 +1051,9 @@
         "wins": 3,
         "losses": 4,
         "winRate": 43,
-        "pointsEarned": 10,
-        "pointsAgainst": 11,
-        "pointDifferential": -4.8,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 2
@@ -1117,9 +1117,9 @@
         "wins": 2,
         "losses": 5,
         "winRate": 29,
-        "pointsEarned": 9,
-        "pointsAgainst": 12,
-        "pointDifferential": -14.3,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 2
@@ -1205,9 +1205,9 @@
         "wins": 2,
         "losses": 5,
         "winRate": 29,
-        "pointsEarned": 9,
-        "pointsAgainst": 12,
-        "pointDifferential": -14.3,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 2
@@ -1427,8 +1427,8 @@
         "wins": 13,
         "losses": 7,
         "winRate": 65,
-        "pointsEarned": 266,
-        "pointsAgainst": 235,
+        "pointsEarned": 256,
+        "pointsAgainst": 226,
         "pointDifferential": 6.2,
         "move": {
           "dir": "down",
@@ -1515,8 +1515,8 @@
         "wins": 13,
         "losses": 8,
         "winRate": 62,
-        "pointsEarned": 276,
-        "pointsAgainst": 240,
+        "pointsEarned": 266,
+        "pointsAgainst": 231,
         "pointDifferential": 7,
         "move": {
           "dir": "down",
@@ -1537,9 +1537,9 @@
         "wins": 6,
         "losses": 1,
         "winRate": 86,
-        "pointsEarned": 13,
-        "pointsAgainst": 8,
-        "pointDifferential": 23.8,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 3
@@ -1559,9 +1559,9 @@
         "wins": 10,
         "losses": 11,
         "winRate": 48,
-        "pointsEarned": 262,
-        "pointsAgainst": 271,
-        "pointDifferential": -1.7,
+        "pointsEarned": 252,
+        "pointsAgainst": 262,
+        "pointDifferential": -1.9,
         "move": {
           "dir": "none",
           "places": 0
@@ -1581,9 +1581,9 @@
         "wins": 9,
         "losses": 11,
         "winRate": 45,
-        "pointsEarned": 252,
-        "pointsAgainst": 257,
-        "pointDifferential": -1,
+        "pointsEarned": 244,
+        "pointsAgainst": 246,
+        "pointDifferential": -0.4,
         "move": {
           "dir": "down",
           "places": 2
@@ -1603,9 +1603,9 @@
         "wins": 9,
         "losses": 24,
         "winRate": 27,
-        "pointsEarned": 445,
-        "pointsAgainst": 516,
-        "pointDifferential": -7.4,
+        "pointsEarned": 437,
+        "pointsAgainst": 505,
+        "pointDifferential": -7.2,
         "move": {
           "dir": "up",
           "places": 2
@@ -1625,9 +1625,9 @@
         "wins": 5,
         "losses": 2,
         "winRate": 71,
-        "pointsEarned": 12,
-        "pointsAgainst": 9,
-        "pointDifferential": 14.3,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 3
@@ -1669,9 +1669,9 @@
         "wins": 4,
         "losses": 3,
         "winRate": 57,
-        "pointsEarned": 11,
-        "pointsAgainst": 10,
-        "pointDifferential": 4.8,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 2
@@ -1757,9 +1757,9 @@
         "wins": 4,
         "losses": 3,
         "winRate": 57,
-        "pointsEarned": 11,
-        "pointsAgainst": 10,
-        "pointDifferential": 4.8,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 2
@@ -1823,9 +1823,9 @@
         "wins": 3,
         "losses": 4,
         "winRate": 43,
-        "pointsEarned": 10,
-        "pointsAgainst": 11,
-        "pointDifferential": -4.8,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 2
@@ -1889,9 +1889,9 @@
         "wins": 2,
         "losses": 5,
         "winRate": 29,
-        "pointsEarned": 9,
-        "pointsAgainst": 12,
-        "pointDifferential": -14.3,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 2
@@ -1977,9 +1977,9 @@
         "wins": 2,
         "losses": 5,
         "winRate": 29,
-        "pointsEarned": 9,
-        "pointsAgainst": 12,
-        "pointDifferential": -14.3,
+        "pointsEarned": 1,
+        "pointsAgainst": 1,
+        "pointDifferential": 0,
         "move": {
           "dir": "down",
           "places": 2
@@ -2447,12 +2447,12 @@
       "dupr": 4.577
     },
     {
-      "id": "aniket-sharma",
-      "name": "Aniket Sharma",
+      "id": "jason-rule",
+      "name": "Jason Rule",
       "seed": 36,
       "past30Days": 0,
       "allTime": 0,
-      "dupr": 4.611
+      "dupr": 5.106
     },
     {
       "id": "brett-mell",
@@ -2463,36 +2463,36 @@
       "dupr": 4.841
     },
     {
+      "id": "aniket-sharma",
+      "name": "Aniket Sharma",
+      "seed": 38,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.611
+    },
+    {
       "id": "chris-lee",
       "name": "Chris Lee",
-      "seed": 38,
+      "seed": 39,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.459
     },
     {
-      "id": "jason-rule",
-      "name": "Jason Rule",
-      "seed": 39,
+      "id": "matt-landolt",
+      "name": "Matt Landolt",
+      "seed": 40,
       "past30Days": 0,
       "allTime": 0,
-      "dupr": 5.106
+      "dupr": 4.423
     },
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 40,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4.05
-    },
-    {
-      "id": "matt-landolt",
-      "name": "Matt Landolt",
       "seed": 41,
       "past30Days": 0,
       "allTime": 0,
-      "dupr": 4.423
+      "dupr": 4.05
     }
   ],
   "events": {
@@ -2502,69 +2502,48 @@
         "date": "2026-09-24",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/329HPCJ10117202",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 6,
-        "registeredPlayerIds": [
-          "garrett-hallemeier",
-          "jon-harris",
-          "kevin-reque",
-          "matt-fleming",
-          "sean-liston",
-          "tobi-ola"
-        ]
+        "registeredPlayerCount": 0,
+        "registeredPlayerIds": []
       },
       {
         "id": "2026-10-01",
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 2,
-        "registeredPlayerIds": [
-          "kevin-reque",
-          "tobi-ola"
-        ]
+        "registeredPlayerCount": 0,
+        "registeredPlayerIds": []
       },
       {
         "id": "2026-10-08",
         "date": "2026-10-08",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062576",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 2,
-        "registeredPlayerIds": [
-          "kevin-reque",
-          "tobi-ola"
-        ]
+        "registeredPlayerCount": 0,
+        "registeredPlayerIds": []
       },
       {
         "id": "2026-10-15",
         "date": "2026-10-15",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062578",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 2,
-        "registeredPlayerIds": [
-          "kevin-reque",
-          "tobi-ola"
-        ]
+        "registeredPlayerCount": 0,
+        "registeredPlayerIds": []
       },
       {
         "id": "2026-10-22",
         "date": "2026-10-22",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062580",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 2,
-        "registeredPlayerIds": [
-          "kevin-reque",
-          "tobi-ola"
-        ]
+        "registeredPlayerCount": 0,
+        "registeredPlayerIds": []
       },
       {
         "id": "2026-10-29",
         "date": "2026-10-29",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062582",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 1,
-        "registeredPlayerIds": [
-          "tobi-ola"
-        ]
+        "registeredPlayerCount": 0,
+        "registeredPlayerIds": []
       }
     ],
     "past": [
@@ -3318,9 +3297,9 @@
             "wins": 6,
             "losses": 1,
             "winRate": 85.71,
-            "pointsEarned": 13,
-            "pointsAgainst": 8,
-            "pointDifferential": 23.8
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "jon-harris",
@@ -3332,9 +3311,9 @@
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 11,
-            "pointsAgainst": 10,
-            "pointDifferential": 4.76
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "dev-newsome",
@@ -3346,9 +3325,9 @@
             "wins": 5,
             "losses": 2,
             "winRate": 71.42,
-            "pointsEarned": 12,
-            "pointsAgainst": 9,
-            "pointDifferential": 14.28
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "james-brown",
@@ -3360,9 +3339,9 @@
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 11,
-            "pointsAgainst": 10,
-            "pointDifferential": 4.76
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "preston-langlois",
@@ -3374,9 +3353,9 @@
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 11,
-            "pointsAgainst": 10,
-            "pointDifferential": 4.76
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "orlando-paez",
@@ -3388,9 +3367,9 @@
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 11,
-            "pointsAgainst": 10,
-            "pointDifferential": 4.76
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "mati-sevilla",
@@ -3402,9 +3381,9 @@
             "wins": 3,
             "losses": 4,
             "winRate": 42.85,
-            "pointsEarned": 10,
-            "pointsAgainst": 11,
-            "pointDifferential": -4.77
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "tobi-ola",
@@ -3416,9 +3395,9 @@
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 11,
-            "pointsAgainst": 10,
-            "pointDifferential": 4.76
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "derek-dallas",
@@ -3430,9 +3409,9 @@
             "wins": 2,
             "losses": 5,
             "winRate": 28.57,
-            "pointsEarned": 9,
-            "pointsAgainst": 12,
-            "pointDifferential": -14.29
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "michael-randle",
@@ -3444,9 +3423,9 @@
             "wins": 2,
             "losses": 5,
             "winRate": 28.57,
-            "pointsEarned": 9,
-            "pointsAgainst": 12,
-            "pointDifferential": -14.29
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "sam-ngo",
@@ -3458,9 +3437,9 @@
             "wins": 2,
             "losses": 5,
             "winRate": 28.57,
-            "pointsEarned": 9,
-            "pointsAgainst": 12,
-            "pointDifferential": -14.29
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           },
           {
             "playerId": "jon-richert",
@@ -3472,9 +3451,9 @@
             "wins": 2,
             "losses": 5,
             "winRate": 28.57,
-            "pointsEarned": 9,
-            "pointsAgainst": 12,
-            "pointDifferential": -14.29
+            "pointsEarned": 1,
+            "pointsAgainst": 1,
+            "pointDifferential": 0
           }
         ]
       }
