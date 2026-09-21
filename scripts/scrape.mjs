@@ -613,35 +613,29 @@ async function enrichUpcomingEvents(events, players) {
   for (const event of events) {
     if (!event.courtReserveUrl) continue;
 
-    try {
-      const names = await fetchCourtReserveRegistrants(
-        event.courtReserveUrl,
-        event.id
+    const names = await fetchCourtReserveRegistrants(
+      event.courtReserveUrl,
+      event.id
+    );
+    const registeredPlayerIds = [];
+
+    for (const name of names) {
+      const playerId = matchCourtReserveName(
+        name,
+        knownPlayers
       );
-      const registeredPlayerIds = [];
 
-      for (const name of names) {
-        const playerId = matchCourtReserveName(
-          name,
-          knownPlayers
+      if (playerId) {
+        registeredPlayerIds.push(playerId);
+      } else {
+        console.warn(
+          `  Could not uniquely match Court Reserve registrant "${name}" for ${event.id}`
         );
-
-        if (playerId) {
-          registeredPlayerIds.push(playerId);
-        } else {
-          console.warn(
-            `  Could not uniquely match Court Reserve registrant "${name}" for ${event.id}`
-          );
-        }
       }
-
-      event.registeredPlayerCount = names.length;
-      event.registeredPlayerIds = [...new Set(registeredPlayerIds)];
-    } catch (error) {
-      console.warn(`  ${error.message}; using empty registration data`);
-      event.registeredPlayerCount = 0;
-      event.registeredPlayerIds = [];
     }
+
+    event.registeredPlayerCount = names.length;
+    event.registeredPlayerIds = [...new Set(registeredPlayerIds)];
   }
 }
 
