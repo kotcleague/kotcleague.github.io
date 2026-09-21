@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-21T03:36:36.327Z",
+  "scrapedAt": "2026-09-21T21:04:30.445Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -1040,9 +1040,9 @@
         "gameMakerProfileUrl": null
       },
       {
-        "id": "mati-sevilla",
+        "id": "mat-sevilla",
         "rank": 20,
-        "name": "Mati Sevilla",
+        "name": "Mat Sevilla",
         "points": 400,
         "gold": 0,
         "silver": 0,
@@ -1812,9 +1812,9 @@
         "gameMakerProfileUrl": null
       },
       {
-        "id": "mati-sevilla",
+        "id": "mat-sevilla",
         "rank": 20,
-        "name": "Mati Sevilla",
+        "name": "Mat Sevilla",
         "points": 400,
         "gold": 0,
         "silver": 0,
@@ -2311,8 +2311,8 @@
       "dupr": 2
     },
     {
-      "id": "mati-sevilla",
-      "name": "Mati Sevilla",
+      "id": "mat-sevilla",
+      "name": "Mat Sevilla",
       "seed": 19,
       "past30Days": 400,
       "allTime": 400,
@@ -2502,11 +2502,12 @@
         "date": "2026-09-24",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/329HPCJ10117202",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 6,
+        "registeredPlayerCount": 7,
         "registeredPlayerIds": [
           "garrett-hallemeier",
           "jon-harris",
           "kevin-reque",
+          "mat-sevilla",
           "matt-fleming",
           "sean-liston",
           "tobi-ola"
@@ -3393,8 +3394,8 @@
             "pointDifferential": 0
           },
           {
-            "playerId": "mati-sevilla",
-            "name": "Mati Sevilla",
+            "playerId": "mat-sevilla",
+            "name": "Mat Sevilla",
             "points": 400,
             "place": 7,
             "courts": 3,
