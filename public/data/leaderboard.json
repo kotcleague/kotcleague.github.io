@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-21T00:16:17.404Z",
+  "scrapedAt": "2026-09-21T03:12:55.119Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2502,48 +2502,69 @@
         "date": "2026-09-24",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/329HPCJ10117202",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 0,
-        "registeredPlayerIds": []
+        "registeredPlayerCount": 6,
+        "registeredPlayerIds": [
+          "garrett-hallemeier",
+          "jon-harris",
+          "kevin-reque",
+          "matt-fleming",
+          "sean-liston",
+          "tobi-ola"
+        ]
       },
       {
         "id": "2026-10-01",
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 0,
-        "registeredPlayerIds": []
+        "registeredPlayerCount": 2,
+        "registeredPlayerIds": [
+          "kevin-reque",
+          "tobi-ola"
+        ]
       },
       {
         "id": "2026-10-08",
         "date": "2026-10-08",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062576",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 0,
-        "registeredPlayerIds": []
+        "registeredPlayerCount": 2,
+        "registeredPlayerIds": [
+          "kevin-reque",
+          "tobi-ola"
+        ]
       },
       {
         "id": "2026-10-15",
         "date": "2026-10-15",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062578",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 0,
-        "registeredPlayerIds": []
+        "registeredPlayerCount": 2,
+        "registeredPlayerIds": [
+          "kevin-reque",
+          "tobi-ola"
+        ]
       },
       {
         "id": "2026-10-22",
         "date": "2026-10-22",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062580",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 0,
-        "registeredPlayerIds": []
+        "registeredPlayerCount": 2,
+        "registeredPlayerIds": [
+          "kevin-reque",
+          "tobi-ola"
+        ]
       },
       {
         "id": "2026-10-29",
         "date": "2026-10-29",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062582",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 0,
-        "registeredPlayerIds": []
+        "registeredPlayerCount": 1,
+        "registeredPlayerIds": [
+          "tobi-ola"
+        ]
       }
     ],
     "past": [
