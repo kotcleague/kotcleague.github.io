@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-21T21:04:30.445Z",
+  "scrapedAt": "2026-09-22T04:55:24.105Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -484,7 +484,7 @@
           "dir": "none",
           "places": 0
         },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/db9639fd-9386-4b92-bc4d-dfdaa2f63e5f/c50e6c49-03c0-4ec8-baa0-187fe71c8075.jpg",
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/db9639fd-9386-4b92-bc4d-dfdaa2f63e5f/5a568a22-0449-4a2a-b435-eb6d5be009c2.jpg",
         "gameMakerProfileUrl": null
       },
       {
@@ -1256,7 +1256,7 @@
           "dir": "none",
           "places": 0
         },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/db9639fd-9386-4b92-bc4d-dfdaa2f63e5f/c50e6c49-03c0-4ec8-baa0-187fe71c8075.jpg",
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/db9639fd-9386-4b92-bc4d-dfdaa2f63e5f/5a568a22-0449-4a2a-b435-eb6d5be009c2.jpg",
         "gameMakerProfileUrl": null
       },
       {
@@ -2028,7 +2028,7 @@
           "dir": "none",
           "places": 0
         },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/db9639fd-9386-4b92-bc4d-dfdaa2f63e5f/c50e6c49-03c0-4ec8-baa0-187fe71c8075.jpg",
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/db9639fd-9386-4b92-bc4d-dfdaa2f63e5f/5a568a22-0449-4a2a-b435-eb6d5be009c2.jpg",
         "gameMakerProfileUrl": null
       },
       {
@@ -2487,9 +2487,17 @@
       "dupr": 4.423
     },
     {
+      "id": "shiva-garimella",
+      "name": "Shiva Garimella",
+      "seed": 41,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.106
+    },
+    {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 41,
+      "seed": 42,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -2504,12 +2512,12 @@
         "gameMakerUrl": null,
         "registeredPlayerCount": 7,
         "registeredPlayerIds": [
-          "garrett-hallemeier",
           "jon-harris",
           "kevin-reque",
           "mat-sevilla",
           "matt-fleming",
           "sean-liston",
+          "shiva-garimella",
           "tobi-ola"
         ]
       },
