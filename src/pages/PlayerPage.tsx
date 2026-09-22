@@ -278,7 +278,7 @@ function LoadedPlayerPage({
 
   useDocumentTitle(
     player
-      ? `${player.name} | Paddle Up Pickleball`
+      ? `${player.name} | KOTC League`
       : documentTitleForRoute({ page: "rankings" })
   );
 

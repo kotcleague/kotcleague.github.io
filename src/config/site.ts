@@ -4,6 +4,7 @@ export const ROUTES = {
   pastMonths: "#/schedule/month",
   format: "#/format",
   assignments: "#/assignments",
+  deals: "#/deals",
 } as const;
 
 export type AppRoute =
@@ -13,33 +14,33 @@ export type AppRoute =
   | { page: "event-assignments"; eventId: string }
   | { page: "player"; playerId: string }
   | { page: "format" }
-  | { page: "assignments" };
+  | { page: "assignments" }
+  | { page: "deals" };
 
 export const NAV_ITEMS = [
   {
     page: "rankings",
     route: ROUTES.rankings,
     label: "Rankings",
-    title: "Paddle Up Pickleball | Leaderboard",
+    title: "KOTC League | Leaderboard",
   },
   {
     page: "schedule",
     route: ROUTES.schedule,
     label: "Schedule",
-    title: "KOTC Schedule | Paddle Up Pickleball",
+    title: "KOTC League | Schedule",
   },
   {
     page: "format",
     route: ROUTES.format,
     label: "Format",
-    title: "KOTC Format | Paddle Up Pickleball",
+    title: "KOTC League | Format",
   },
 ] as const;
 
 export type NavigationPage = (typeof NAV_ITEMS)[number]["page"];
 
 export const SITE_LINKS = {
-  club: "https://www.paddleuppickleballclub.com/",
   standings:
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
 } as const;
@@ -115,21 +116,25 @@ export function assignmentPlayerIdsFromHash(hash: string) {
   );
 }
 
-export function navigationPageForRoute(route: AppRoute): NavigationPage {
+export function navigationPageForRoute(route: AppRoute): NavigationPage | null {
   if (route.page === "player") return "rankings";
   if (route.page === "event" || route.page === "event-assignments") {
     return "schedule";
   }
   if (route.page === "assignments") return "rankings";
+  if (route.page === "deals") return null;
   return route.page;
 }
 
 export function documentTitleForRoute(route: AppRoute) {
+  if (route.page === "deals") {
+    return "KOTC League | Pickleball Deals";
+  }
   if (route.page === "assignments") {
-    return "Court Assignments | Paddle Up Pickleball";
+    return "KOTC League | Court Assignments";
   }
   if (route.page === "event-assignments") {
-    return "Event Assignments | Paddle Up Pickleball";
+    return "KOTC League | Event Assignments";
   }
   const page = navigationPageForRoute(route);
   return (
@@ -158,6 +163,9 @@ export function parseHashRoute(hash: string): AppRoute {
   }
   if (path === ROUTES.assignments || path === `${ROUTES.assignments}/`) {
     return { page: "assignments" };
+  }
+  if (path === ROUTES.deals || path === `${ROUTES.deals}/`) {
+    return { page: "deals" };
   }
   const eventAssignmentsMatch =
     /^#\/schedule\/(\d{4}-\d{2}-\d{2})\/assignments\/?$/.exec(path);

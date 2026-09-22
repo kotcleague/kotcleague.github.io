@@ -1,8 +1,8 @@
 # KOTC League
 
-Static React site for Paddle Up Pickleball's King of the Court league rankings,
-schedule, event results, player statistics, and format. League data is scraped
-from the published spreadsheet and served as static JSON.
+Static React site for KOTC League rankings, schedule, event results, player
+statistics, and format. League data is scraped from the published spreadsheet
+and served as static JSON.
 
 ## Development
 

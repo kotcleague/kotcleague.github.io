@@ -3,11 +3,12 @@ import LeagueDetails from "@/components/LeagueDetails";
 import { documentTitleForRoute, ROUTES } from "@/config/site";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import { useHashRoute } from "@/hooks/useHashRoute";
+import AssignmentBuilderPage from "@/pages/AssignmentBuilderPage";
+import DealsPage from "@/pages/DealsPage";
 import EventPage from "@/pages/EventPage";
 import LeaderboardPage from "@/pages/LeaderboardPage";
 import PlayerPage from "@/pages/PlayerPage";
 import SchedulePage from "@/pages/SchedulePage";
-import AssignmentBuilderPage from "@/pages/AssignmentBuilderPage";
 import UpcomingEventAssignmentsPage from "@/pages/UpcomingEventAssignmentsPage";
 
 export default function App() {
@@ -39,6 +40,9 @@ export default function App() {
       break;
     case "assignments":
       content = <AssignmentBuilderPage />;
+      break;
+    case "deals":
+      content = <DealsPage />;
       break;
     default:
       content = <LeaderboardPage />;

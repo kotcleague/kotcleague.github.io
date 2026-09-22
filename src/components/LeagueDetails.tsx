@@ -55,7 +55,7 @@ const LEAGUE_FACTS = [
   {
     icon: MapPin,
     label: "Where",
-    lines: ["Paddle Up Pickleball Club", "Chesterfield"],
+    lines: ["KOTC League", "Chesterfield"],
   },
   {
     icon: CircleDollarSign,

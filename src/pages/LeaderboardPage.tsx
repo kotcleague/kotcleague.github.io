@@ -224,6 +224,32 @@ export default function LeaderboardPage() {
                 />
               </div>
             </section>
+
+            <section className="mt-10" aria-labelledby="deals-promo-heading">
+              <div className="flex flex-col gap-4 border border-slate-200 bg-white p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6 dark:border-scoreboard dark:bg-ink">
+                <div>
+                  <p className={META_LABEL_ACCENT}>Player perks</p>
+                  <h2
+                    id="deals-promo-heading"
+                    className="mt-1 text-lg font-bold text-ink dark:text-white"
+                  >
+                    Pickleball gear deals
+                  </h2>
+                  <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                    Save 10–15% and help support future league events.
+                  </p>
+                </div>
+                <ActionLink
+                  href={ROUTES.deals}
+                  size="sm"
+                  variant="secondary"
+                  className="self-start sm:self-auto"
+                >
+                  View deals
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </ActionLink>
+              </div>
+            </section>
           </PageContent>
         );
       }}

@@ -5,7 +5,7 @@ import {
   ROUTES,
   type AppRoute,
 } from "@/config/site";
-import PaddleUpLogo from "@/components/PaddleUpLogo";
+import KotcLeagueLogo from "@/components/KotcLeagueLogo";
 import ThemeToggle from "@/components/ThemeToggle";
 
 interface NavigationProps {
@@ -61,8 +61,8 @@ export default function AppHeader({ currentRoute }: AppHeaderProps) {
   return (
     <header className="bg-ink text-white">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
-        <a href={ROUTES.rankings} aria-label="PaddleUp home">
-          <PaddleUpLogo className="h-9 w-auto" />
+        <a href={ROUTES.rankings} aria-label="KOTC League home">
+          <KotcLeagueLogo />
         </a>
         <div className="flex items-center gap-4">
           <Navigation currentRoute={currentRoute} />

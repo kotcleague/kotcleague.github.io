@@ -1,4 +1,4 @@
-import { SITE_LINKS } from "@/config/site";
+import { ROUTES } from "@/config/site";
 
 interface FooterProps {
   scrapedAt?: string;
@@ -24,12 +24,10 @@ export default function Footer({ scrapedAt }: FooterProps) {
           {formatted && <p>Data updated {formatted}</p>}
         </div>
         <a
-          href={SITE_LINKS.club}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={ROUTES.rankings}
           className="font-medium text-blue hover:underline dark:text-blue-300"
         >
-          paddleuppickleballclub.com
+          KOTC League
         </a>
       </div>
     </footer>

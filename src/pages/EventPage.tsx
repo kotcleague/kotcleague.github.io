@@ -275,7 +275,7 @@ function LoadedEventPage({
 
   useDocumentTitle(
     event
-      ? `${formatLeagueDate(event.date)} Results | Paddle Up Pickleball`
+      ? `${formatLeagueDate(event.date)} Results | KOTC League`
       : documentTitleForRoute({ page: "schedule" })
   );
 

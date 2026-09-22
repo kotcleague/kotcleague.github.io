@@ -26,8 +26,8 @@ function LoadedUpcomingEventAssignments({
 
   useDocumentTitle(
     event
-      ? `${formatLeagueDate(event.date)} Assignments | Paddle Up Pickleball`
-      : "Event Assignments | Paddle Up Pickleball"
+      ? `${formatLeagueDate(event.date)} Assignments | KOTC League`
+      : "KOTC League | Event Assignments"
   );
 
   if (!event) {
