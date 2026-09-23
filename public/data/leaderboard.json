@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-22T14:53:37.997Z",
+  "scrapedAt": "2026-09-23T16:57:55.038Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2487,9 +2487,17 @@
       "dupr": 4.423
     },
     {
+      "id": "josh-wilson",
+      "name": "Josh Wilson",
+      "seed": 41,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.386
+    },
+    {
       "id": "shiva-garimella",
       "name": "Shiva Garimella",
-      "seed": 41,
+      "seed": 42,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.106
@@ -2497,7 +2505,7 @@
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 42,
+      "seed": 43,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -2510,13 +2518,17 @@
         "date": "2026-09-24",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/329HPCJ10117202",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 8,
+        "registeredPlayerCount": 12,
         "registeredPlayerIds": [
           "brian-romine",
+          "john-paden",
           "jon-harris",
+          "jon-richert",
+          "josh-wilson",
           "kevin-reque",
           "mat-sevilla",
           "matt-fleming",
+          "preston-behlmann",
           "sean-liston",
           "shiva-garimella",
           "tobi-ola"
