@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-23T16:57:55.038Z",
+  "scrapedAt": "2026-09-23T20:22:07.284Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -352,7 +352,7 @@
           "dir": "down",
           "places": 2
         },
-        "photoUrl": null,
+        "photoUrl": "https://cdn.pickleball.com/profile-images/1771429886910/Facetune_22-01-2026-13-45-11.jpeg?width=190&height=190&optimizer=image&saturation=0&face_crop=true",
         "gameMakerProfileUrl": null
       },
       {
@@ -1080,7 +1080,7 @@
           "dir": "down",
           "places": 2
         },
-        "photoUrl": null,
+        "photoUrl": "https://cdn.pickleball.com/profile-images/1771429886910/Facetune_22-01-2026-13-45-11.jpeg?width=190&height=190&optimizer=image&saturation=0&face_crop=true",
         "gameMakerProfileUrl": null
       },
       {
@@ -1852,7 +1852,7 @@
           "dir": "down",
           "places": 2
         },
-        "photoUrl": null,
+        "photoUrl": "https://cdn.pickleball.com/profile-images/1771429886910/Facetune_22-01-2026-13-45-11.jpeg?width=190&height=190&optimizer=image&saturation=0&face_crop=true",
         "gameMakerProfileUrl": null
       },
       {
@@ -2247,20 +2247,20 @@
       "dupr": 3.596
     },
     {
-      "id": "dev-newsome",
-      "name": "Dev Newsome",
+      "id": "kyle-laramie",
+      "name": "Kyle Laramie",
       "seed": 11,
       "past30Days": 900,
       "allTime": 900,
-      "dupr": 4.577
+      "dupr": 5.033
     },
     {
-      "id": "kyle-laramie",
-      "name": "Kyle Laramie",
+      "id": "dev-newsome",
+      "name": "Dev Newsome",
       "seed": 12,
       "past30Days": 900,
       "allTime": 900,
-      "dupr": 5.033
+      "dupr": 4.577
     },
     {
       "id": "james-brown",
@@ -2279,9 +2279,17 @@
       "dupr": 4.388
     },
     {
+      "id": "john-tuason",
+      "name": "John Tuason",
+      "seed": 15,
+      "past30Days": 600,
+      "allTime": 600,
+      "dupr": 4.122
+    },
+    {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 15,
+      "seed": 16,
       "past30Days": 600,
       "allTime": 600,
       "dupr": 3.946
@@ -2289,18 +2297,10 @@
     {
       "id": "mayur-ostwal",
       "name": "Mayur Ostwal",
-      "seed": 16,
-      "past30Days": 600,
-      "allTime": 600,
-      "dupr": 2
-    },
-    {
-      "id": "john-tuason",
-      "name": "John Tuason",
       "seed": 17,
       "past30Days": 600,
       "allTime": 600,
-      "dupr": 4.122
+      "dupr": 2
     },
     {
       "id": "khoa-nguyen",
@@ -2343,36 +2343,36 @@
       "dupr": 3.764
     },
     {
-      "id": "derek-dallas",
-      "name": "Derek Dallas",
-      "seed": 23,
-      "past30Days": 250,
-      "allTime": 250,
-      "dupr": 4.142
-    },
-    {
       "id": "matt-fleming",
       "name": "Matt Fleming",
-      "seed": 24,
+      "seed": 23,
       "past30Days": 250,
       "allTime": 250,
       "dupr": 4.303
     },
     {
-      "id": "michael-randle",
-      "name": "Michael Randle",
-      "seed": 25,
-      "past30Days": 200,
-      "allTime": 200,
-      "dupr": 4.314
+      "id": "derek-dallas",
+      "name": "Derek Dallas",
+      "seed": 24,
+      "past30Days": 250,
+      "allTime": 250,
+      "dupr": 4.142
     },
     {
       "id": "austin-lin",
       "name": "Austin Lin",
-      "seed": 26,
+      "seed": 25,
       "past30Days": 200,
       "allTime": 200,
       "dupr": 4.33
+    },
+    {
+      "id": "michael-randle",
+      "name": "Michael Randle",
+      "seed": 26,
+      "past30Days": 200,
+      "allTime": 200,
+      "dupr": 4.314
     },
     {
       "id": "bekah-ola",
@@ -2479,9 +2479,17 @@
       "dupr": 4.459
     },
     {
+      "id": "steven-benedict",
+      "name": "Steven Benedict",
+      "seed": 40,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.433
+    },
+    {
       "id": "matt-landolt",
       "name": "Matt Landolt",
-      "seed": 40,
+      "seed": 41,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.423
@@ -2489,7 +2497,7 @@
     {
       "id": "josh-wilson",
       "name": "Josh Wilson",
-      "seed": 41,
+      "seed": 42,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.386
@@ -2497,7 +2505,7 @@
     {
       "id": "shiva-garimella",
       "name": "Shiva Garimella",
-      "seed": 42,
+      "seed": 43,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.106
@@ -2505,7 +2513,7 @@
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 43,
+      "seed": 44,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -2518,8 +2526,9 @@
         "date": "2026-09-24",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/329HPCJ10117202",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 12,
+        "registeredPlayerCount": 14,
         "registeredPlayerIds": [
+          "aniket-sharma",
           "brian-romine",
           "john-paden",
           "jon-harris",
@@ -2531,6 +2540,7 @@
           "preston-behlmann",
           "sean-liston",
           "shiva-garimella",
+          "steven-benedict",
           "tobi-ola"
         ]
       },
