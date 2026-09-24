@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-24T21:53:36.059Z",
+  "scrapedAt": "2026-09-24T22:27:57.542Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2258,9 +2258,17 @@
       "dupr": 4.106
     },
     {
+      "id": "randy-walters",
+      "name": "Randy Walters",
+      "seed": 43,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.091
+    },
+    {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 43,
+      "seed": 44,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -2268,7 +2276,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 44,
+      "seed": 45,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -2281,7 +2289,7 @@
         "date": "2026-09-24",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/329HPCJ10117202",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 17,
+        "registeredPlayerCount": 18,
         "registeredPlayerIds": [
           "aniket-sharma",
           "brett-mell",
@@ -2296,6 +2304,7 @@
           "matt-fleming",
           "orlando-paez",
           "preston-behlmann",
+          "randy-walters",
           "sean-liston",
           "shiva-garimella",
           "steven-benedict",
