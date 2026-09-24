@@ -3,7 +3,6 @@ import type { LeaderboardData } from "@/types/leaderboard";
 export interface PlayerProfile {
   name: string;
   photoUrl: string | null;
-  gameMakerProfileUrl: string | null;
 }
 
 // Player photos live on the ranking rows. Build a lookup so pages that only
@@ -21,7 +20,6 @@ export function buildPlayerProfileIndex(
         index.set(player.id, {
           name: player.name,
           photoUrl: player.photoUrl,
-          gameMakerProfileUrl: player.gameMakerProfileUrl,
         });
       }
     }

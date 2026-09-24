@@ -8,7 +8,7 @@ export const META_LABEL_ACCENT = `${META_LABEL} text-blue dark:text-blue-300`;
 export const META_LABEL_MUTED = `${META_LABEL} text-slate-400 dark:text-slate-500`;
 
 export type ActionSize = "sm" | "md";
-export type ActionVariant = "primary" | "secondary" | "quiet";
+export type ActionVariant = "primary" | "secondary" | "quiet" | "youtube";
 
 export function actionClass({
   className,
@@ -31,6 +31,8 @@ export function actionClass({
       "border-slate-300 bg-white text-ink hover:border-blue hover:text-blue dark:border-scoreboard dark:bg-ink dark:text-white dark:hover:border-blue-300 dark:hover:text-blue-300",
     variant === "quiet" &&
       "border-transparent bg-transparent px-0 text-blue hover:text-accent-500 dark:text-blue-300 dark:hover:text-blue-200",
+    variant === "youtube" &&
+      "border-red-300 bg-white text-red-700 hover:border-red-600 hover:bg-red-50 focus-visible:outline-red-600 dark:border-red-700 dark:bg-transparent dark:text-red-300 dark:hover:border-red-500 dark:hover:bg-red-950/40 dark:hover:text-red-200",
     className
   );
 }

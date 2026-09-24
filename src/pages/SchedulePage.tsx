@@ -13,6 +13,7 @@ import PodiumShowcase from "@/components/PodiumShowcase";
 import RegistrationLink from "@/components/RegistrationLink";
 import RegistrationSummary from "@/components/RegistrationSummary";
 import SectionHeading from "@/components/SectionHeading";
+import WatchLivestreamLink from "@/components/WatchLivestreamLink";
 import {
   eventAssignmentsRoute,
   eventRoute,
@@ -98,10 +99,12 @@ function PastEventCard({
   const winner = event.podium.find((player) => player.place === 1);
 
   return (
-    <EditorialLinkCard
-      href={eventRoute(event.id)}
-      className="grid grid-cols-[5.25rem_1fr] overflow-hidden rounded-none p-0 sm:grid-cols-[6rem_1fr] lg:grid-cols-[6rem_minmax(0,1fr)_17rem]"
-    >
+    <article className="relative grid grid-cols-[5.25rem_1fr] overflow-hidden border border-slate-200 bg-white transition-colors hover:border-blue/40 sm:grid-cols-[6rem_1fr] lg:grid-cols-[6rem_minmax(0,1fr)_20rem] dark:border-scoreboard dark:bg-ink dark:hover:border-blue/60">
+      <a
+        aria-label={`View results for ${event.date}`}
+        className="absolute inset-0 z-0 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue"
+        href={eventRoute(event.id)}
+      />
       <EventDateBadge date={event.date} />
       <div className="min-w-0 px-4 py-3.5 sm:px-5 sm:py-4">
         <p className={META_LABEL_MUTED}>Completed event</p>
@@ -138,14 +141,21 @@ function PastEventCard({
           </div>
         </dl>
       </div>
-      <div className="col-span-2 flex items-center border-t border-slate-100 bg-slate-50/60 px-4 py-3.5 sm:px-5 lg:col-span-1 lg:border-l lg:border-t-0 dark:border-slate-800 dark:bg-white/[0.02]">
+      <div className="col-span-2 flex flex-col justify-center gap-3 border-t border-slate-100 bg-slate-50/60 px-4 py-3.5 sm:px-5 lg:col-span-1 lg:border-l lg:border-t-0 dark:border-slate-800 dark:bg-white/[0.02]">
         <ArchiveWinner
           label="Event winner"
           player={winner}
           playerProfiles={playerProfiles}
         />
+        <div className="relative z-10 flex flex-wrap gap-2">
+          <ActionLink href={eventRoute(event.id)} size="sm" variant="secondary">
+            View results
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </ActionLink>
+          {event.youtubeUrl && <WatchLivestreamLink href={event.youtubeUrl} />}
+        </div>
       </div>
-    </EditorialLinkCard>
+    </article>
   );
 }
 

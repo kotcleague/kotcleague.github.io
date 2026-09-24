@@ -177,7 +177,6 @@ function PlayerContent({
               photoUrl={player.photoUrl}
               playerId={player.id}
               size="xl"
-              className="ring-1 ring-slate-200 ring-offset-4 ring-offset-white dark:ring-scoreboard dark:ring-offset-ink"
             />
             <div className="min-w-0 flex-1">
               <Eyebrow size="hero">Player profile</Eyebrow>

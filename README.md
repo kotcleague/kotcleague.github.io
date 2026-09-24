@@ -57,6 +57,11 @@ IDs for the initial assignments tool. Fetches use bounded retries and
 timeouts, and the generated file is replaced atomically only after every tab
 and cross-sheet event count has been validated.
 
+To link a past event to its YouTube livestream or recording, add a `YouTube
+URL` column to the `Past Events` tab and enter the matching URL on the event's
+row. The column and individual values are optional, and cells may contain
+either a pasted URL or linked text.
+
 The app uses a small hash-based route layer. Add routes and their document
 titles to `src/config/site.ts`, then render the page from `src/App.tsx`.
 Shareable detail routes use `#/schedule/YYYY-MM-DD` for events and

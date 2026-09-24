@@ -91,7 +91,6 @@ const COLUMNS = {
     name: "Name",
     inGroup: "In Group",
     dupr: "DUPR",
-    gameMakerProfileUrl: "Game Maker Profile URL",
     photoUrl: "Photo URL",
     points: "Points",
     duprRank: "DUPR Rank",
@@ -123,6 +122,7 @@ const COLUMNS = {
     first: "1st Place",
     second: "2nd Place",
     third: "3rd Place",
+    youtubeUrl: "YouTube URL",
   },
   pastMonths: {
     month: "Month",
@@ -769,7 +769,6 @@ function parseRankingTable(html, tabName, players) {
 
           // These now come from Player Data.
           photoUrl: null,
-          gameMakerProfileUrl: null,
         });
       });
 
@@ -779,9 +778,8 @@ function parseRankingTable(html, tabName, players) {
   throw new Error(`Could not find the ranking table for "${tabName}"`);
 }
 
-// A "Photo URL"/"Game Maker Profile URL" cell may hold a bare URL,
-// a hyperlink whose visible text differs from its href, or an
-// embedded image.
+// A "Photo URL" cell may hold a bare URL, a hyperlink whose visible
+// text differs from its href, or an embedded image.
 function readLinkCell(cell) {
   return (
     cell.find("a").attr("href") ??
@@ -790,8 +788,7 @@ function readLinkCell(cell) {
   );
 }
 
-// Parse the "Player Data" tab into per-player profile links keyed
-// by player id.
+// Parse the "Player Data" tab into per-player photos keyed by player id.
 function parsePlayerDataTable(html, players) {
   const $ = load(html);
   const profiles = new Map();
@@ -804,7 +801,7 @@ function parsePlayerDataTable(html, players) {
       header = findHeaderRow(
         $,
         table,
-        [columns.name, columns.photoUrl, columns.gameMakerProfileUrl],
+        [columns.name, columns.photoUrl],
         `"Player Data"`
       );
     } catch {
@@ -833,26 +830,14 @@ function parsePlayerDataTable(html, players) {
           normalizeHeader(columns.photoUrl)
         );
 
-        const gameMakerIndex = header.headerMap.get(
-          normalizeHeader(columns.gameMakerProfileUrl)
-        );
-
         const photo =
           photoIndex === undefined
             ? ""
             : readLinkCell(tableCells.eq(photoIndex));
 
-        const gameMakerProfile =
-          gameMakerIndex === undefined
-            ? ""
-            : readLinkCell(tableCells.eq(gameMakerIndex));
+        if (!photo) return;
 
-        if (!photo && !gameMakerProfile) return;
-
-        profiles.set(players.get(name), {
-          photo,
-          gameMakerProfile,
-        });
+        profiles.set(players.get(name), photo);
       });
   });
 
@@ -984,6 +969,16 @@ function parsePastEvents(html, players) {
         const id = parseDateId(dateText, '"Past Events"');
 
         const context = `"Past Events" row for ${id}`;
+        const tableCells = $(row).find("td");
+        const youtubeIndex = header.headerMap.get(
+          normalizeHeader(columns.youtubeUrl)
+        );
+        const youtubeText =
+          youtubeIndex === undefined ? "" : cells[youtubeIndex] ?? "";
+        const youtubeUrl =
+          youtubeIndex === undefined
+            ? youtubeText
+            : tableCells.eq(youtubeIndex).find("a").attr("href") ?? youtubeText;
 
         const first = getColumn(
           header.headerMap,
@@ -1057,6 +1052,7 @@ function parsePastEvents(html, players) {
             context
           ),
 
+          youtubeUrl: parseOptionalUrl(youtubeUrl, "YouTube", context),
           podium,
           results: [],
         });
@@ -1551,24 +1547,10 @@ async function scrapeSnapshot(gids, requiredTabs) {
 
     for (const ranking of Object.values(views)) {
       for (const player of ranking) {
-        const profile = profiles.get(player.id);
+        const photo = profiles.get(player.id);
 
-        if (!profile) continue;
-
-        if (profile.photo) {
-          player.photoUrl = parseOptionalUrl(
-            profile.photo,
-            "Photo",
-            player.name
-          );
-        }
-
-        if (profile.gameMakerProfile) {
-          player.gameMakerProfileUrl = parseOptionalUrl(
-            profile.gameMakerProfile,
-            "Game Maker Profile",
-            player.name
-          );
+        if (photo) {
+          player.photoUrl = parseOptionalUrl(photo, "Photo", player.name);
         }
       }
     }

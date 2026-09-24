@@ -32,7 +32,6 @@ export interface Player extends PerformanceStats {
   bronze: number;
   move: Movement;
   photoUrl: string | null;
-  gameMakerProfileUrl: string | null;
 }
 
 export interface SeededPlayer {
@@ -61,6 +60,7 @@ export interface EventResult extends PerformanceStats {
 export interface PastEvent {
   id: string;
   date: string;
+  youtubeUrl: string | null;
   playerCount: number;
   courts: number;
   games: number;
@@ -170,8 +170,7 @@ function isPlayer(value: unknown): value is Player {
     typeof value.bronze === "number" &&
     isPerformanceStats(value) &&
     isMovement(value.move) &&
-    isOptionalUrl(value.photoUrl) &&
-    isOptionalUrl(value.gameMakerProfileUrl)
+    isOptionalUrl(value.photoUrl)
   );
 }
 
@@ -213,6 +212,7 @@ function isPastEvent(value: unknown): value is PastEvent {
     isRecord(value) &&
     isDateId(value.id) &&
     value.date === value.id &&
+    isOptionalUrl(value.youtubeUrl) &&
     typeof value.playerCount === "number" &&
     typeof value.courts === "number" &&
     typeof value.games === "number" &&

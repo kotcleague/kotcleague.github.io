@@ -19,6 +19,7 @@ import PlayerIdentityLink from "@/components/PlayerIdentityLink";
 import PodiumShowcase from "@/components/PodiumShowcase";
 import SectionHeading from "@/components/SectionHeading";
 import TableShell from "@/components/TableShell";
+import WatchLivestreamLink from "@/components/WatchLivestreamLink";
 import { documentTitleForRoute, ROUTES } from "@/config/site";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import {
@@ -220,6 +221,9 @@ function EventContent({
         } ${event.rounds === 1 ? "round" : "rounds"} · ${formatInteger(
           event.maxPointsEarnable
         )} max points`}
+        footer={
+          event.youtubeUrl && <WatchLivestreamLink href={event.youtubeUrl} />
+        }
       >
         {formatLeagueDate(event.date)}
       </PageHeader>

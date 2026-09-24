@@ -12,6 +12,7 @@ import RegistrationLink from "@/components/RegistrationLink";
 import RegistrationSummary from "@/components/RegistrationSummary";
 import SectionHeading from "@/components/SectionHeading";
 import ViewTabs from "@/components/ViewTabs";
+import WatchLivestreamLink from "@/components/WatchLivestreamLink";
 import { eventAssignmentsRoute, eventRoute, ROUTES } from "@/config/site";
 import { buildPlayerProfileIndex, type PlayerProfile } from "@/lib/players";
 import { actionClass, META_LABEL_ACCENT } from "@/lib/styles";
@@ -133,7 +134,7 @@ function LatestResultsCard({
           <h3 className="text-lg font-bold">No results posted</h3>
         </div>
       )}
-      <div className="mt-4 flex">
+      <div className="mt-4 flex flex-wrap gap-2">
         <ActionLink
           href={event ? eventRoute(event.id) : ROUTES.schedule}
           size="sm"
@@ -142,6 +143,7 @@ function LatestResultsCard({
           {event ? "View full results" : "View past events"}
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </ActionLink>
+        {event?.youtubeUrl && <WatchLivestreamLink href={event.youtubeUrl} />}
       </div>
     </article>
   );
