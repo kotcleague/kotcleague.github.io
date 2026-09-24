@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-24T15:06:13.336Z",
+  "scrapedAt": "2026-09-24T15:42:50.125Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2372,10 +2372,12 @@
         "date": "2026-09-24",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/329HPCJ10117202",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 14,
+        "registeredPlayerCount": 16,
         "registeredPlayerIds": [
           "aniket-sharma",
+          "brett-mell",
           "brian-romine",
+          "dev-newsome",
           "john-paden",
           "jon-harris",
           "jon-richert",
