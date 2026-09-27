@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-26T22:50:00.876Z",
+  "scrapedAt": "2026-09-27T18:25:11.536Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2625,9 +2625,17 @@
       "dupr": 4.423
     },
     {
+      "id": "mike-scibona",
+      "name": "Mike Scibona",
+      "seed": 39,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.392
+    },
+    {
       "id": "josh-wilson",
       "name": "Josh Wilson",
-      "seed": 39,
+      "seed": 40,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.386
@@ -2635,7 +2643,7 @@
     {
       "id": "michael-randle",
       "name": "Michael Randle",
-      "seed": 40,
+      "seed": 41,
       "past30Days": 0,
       "allTime": 200,
       "dupr": 4.314
@@ -2643,7 +2651,7 @@
     {
       "id": "james-brown",
       "name": "James Brown",
-      "seed": 41,
+      "seed": 42,
       "past30Days": 0,
       "allTime": 750,
       "dupr": 4.292
@@ -2651,7 +2659,7 @@
     {
       "id": "derek-dallas",
       "name": "Derek Dallas",
-      "seed": 42,
+      "seed": 43,
       "past30Days": 0,
       "allTime": 250,
       "dupr": 4.142
@@ -2659,7 +2667,7 @@
     {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 43,
+      "seed": 44,
       "past30Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -2667,7 +2675,7 @@
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 44,
+      "seed": 45,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -2675,7 +2683,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 45,
+      "seed": 46,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -2692,6 +2700,7 @@
         "registeredPlayerIds": [
           "garrett-hallemeier",
           "kevin-reque",
+          "mike-scibona",
           "tobi-ola"
         ]
       },
