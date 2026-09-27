@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-27T18:25:11.536Z",
+  "scrapedAt": "2026-09-27T22:10:22.186Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2696,11 +2696,12 @@
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 4,
+        "registeredPlayerCount": 5,
         "registeredPlayerIds": [
           "garrett-hallemeier",
           "kevin-reque",
           "mike-scibona",
+          "sean-liston",
           "tobi-ola"
         ]
       },
@@ -2709,9 +2710,10 @@
         "date": "2026-10-08",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062576",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 2,
+        "registeredPlayerCount": 3,
         "registeredPlayerIds": [
           "kevin-reque",
+          "sean-liston",
           "tobi-ola"
         ]
       },
@@ -2720,9 +2722,10 @@
         "date": "2026-10-15",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062578",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 2,
+        "registeredPlayerCount": 3,
         "registeredPlayerIds": [
           "kevin-reque",
+          "sean-liston",
           "tobi-ola"
         ]
       },
@@ -2731,9 +2734,10 @@
         "date": "2026-10-22",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062580",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 2,
+        "registeredPlayerCount": 3,
         "registeredPlayerIds": [
           "kevin-reque",
+          "sean-liston",
           "tobi-ola"
         ]
       },
@@ -2742,8 +2746,9 @@
         "date": "2026-10-29",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062582",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 1,
+        "registeredPlayerCount": 2,
         "registeredPlayerIds": [
+          "sean-liston",
           "tobi-ola"
         ]
       }
