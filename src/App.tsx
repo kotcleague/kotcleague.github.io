@@ -6,6 +6,7 @@ import { useHashRoute } from "@/hooks/useHashRoute";
 import AssignmentBuilderPage from "@/pages/AssignmentBuilderPage";
 import DealsPage from "@/pages/DealsPage";
 import EventPage from "@/pages/EventPage";
+import ContactPage from "@/pages/ContactPage";
 import LeaderboardPage from "@/pages/LeaderboardPage";
 import PlayerPage from "@/pages/PlayerPage";
 import SchedulePage from "@/pages/SchedulePage";
@@ -37,6 +38,9 @@ export default function App() {
       break;
     case "format":
       content = <LeagueDetails leaderboardUrl={ROUTES.rankings} />;
+      break;
+    case "contact":
+      content = <ContactPage initialCategory={route.category} />;
       break;
     case "assignments":
       content = <AssignmentBuilderPage />;

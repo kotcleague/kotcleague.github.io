@@ -10,6 +10,67 @@ export interface AssignmentPlan {
   byeQueue: SeededPlayer[];
 }
 
+const DEFAULT_UNSEEDED_DUPR = 4;
+
+export function buildRegisteredPlayers(
+  seeding: SeededPlayer[],
+  registeredPlayerIds: string[],
+  unmatchedRegistrantNames: string[] = []
+): SeededPlayer[] {
+  const registeredIds = new Set(registeredPlayerIds);
+  const usedIds = new Set(seeding.map((player) => player.id));
+  const fallbackIds = new Set<string>();
+
+  const fallbackPlayers = unmatchedRegistrantNames.map((name, index) => {
+    const slug =
+      name
+        .normalize("NFKD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("en-US")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "") || "player";
+    let id = `court-reserve-${slug}`;
+    let suffix = 2;
+
+    while (usedIds.has(id)) {
+      id = `court-reserve-${slug}-${suffix}`;
+      suffix += 1;
+    }
+
+    usedIds.add(id);
+    fallbackIds.add(id);
+
+    return {
+      id,
+      name,
+      seed: seeding.length + index + 1,
+      past30Days: 0,
+      allTime: 0,
+      dupr: DEFAULT_UNSEEDED_DUPR,
+    };
+  });
+
+  const rankedPlayers = [...seeding, ...fallbackPlayers]
+    .sort((a, b) => {
+      const aIsFallback = fallbackIds.has(a.id);
+      const bIsFallback = fallbackIds.has(b.id);
+
+      if (!aIsFallback && !bIsFallback) return a.seed - b.seed;
+      if (a.past30Days !== b.past30Days) {
+        return b.past30Days - a.past30Days;
+      }
+      if (a.dupr !== b.dupr) return b.dupr - a.dupr;
+      if (aIsFallback !== bIsFallback) return aIsFallback ? 1 : -1;
+
+      return a.name.localeCompare(b.name);
+    })
+    .map((player, index) => ({ ...player, seed: index + 1 }));
+
+  return rankedPlayers.filter(
+    (player) => registeredIds.has(player.id) || fallbackIds.has(player.id)
+  );
+}
+
 export function buildAssignments(
   players: SeededPlayer[],
   courtLabels: string[] = []

@@ -3,9 +3,12 @@ export const ROUTES = {
   schedule: "#/schedule",
   pastMonths: "#/schedule/month",
   format: "#/format",
+  contact: "#/contact",
   assignments: "#/assignments",
   deals: "#/deals",
 } as const;
+
+export type ContactCategory = "join" | "question" | "feedback";
 
 export type AppRoute =
   | { page: "rankings" }
@@ -14,6 +17,7 @@ export type AppRoute =
   | { page: "event-assignments"; eventId: string }
   | { page: "player"; playerId: string }
   | { page: "format" }
+  | { page: "contact"; category: ContactCategory }
   | { page: "assignments" }
   | { page: "deals" };
 
@@ -35,6 +39,12 @@ export const NAV_ITEMS = [
     route: ROUTES.format,
     label: "Format",
     title: "KOTC League | Format",
+  },
+  {
+    page: "contact",
+    route: ROUTES.contact,
+    label: "Contact",
+    title: "KOTC League | Contact",
   },
 ] as const;
 
@@ -59,6 +69,10 @@ export function monthRoute(monthId: string) {
 
 export function playerRoute(playerId: string) {
   return `#/players/${encodeURIComponent(playerId)}`;
+}
+
+export function contactRoute(category: ContactCategory) {
+  return `${ROUTES.contact}?category=${category}`;
 }
 
 export function assignmentRoute(
@@ -160,6 +174,20 @@ export function parseHashRoute(hash: string): AppRoute {
   }
   if (path === ROUTES.format || path === `${ROUTES.format}/`) {
     return { page: "format" };
+  }
+  if (path === ROUTES.contact || path === `${ROUTES.contact}/`) {
+    const category = new URLSearchParams(hash.split("?")[1] ?? "").get(
+      "category"
+    );
+    return {
+      page: "contact",
+      category:
+        category === "join" ||
+        category === "question" ||
+        category === "feedback"
+          ? category
+          : "question",
+    };
   }
   if (path === ROUTES.assignments || path === `${ROUTES.assignments}/`) {
     return { page: "assignments" };

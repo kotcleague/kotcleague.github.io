@@ -23,6 +23,22 @@ npm run lint
 npm run format
 ```
 
+## Contact form
+
+The Contact page submits messages through Web3Forms so the recipient email is
+not published in the site. To configure it:
+
+1. Create a Web3Forms access key for the private recipient email.
+2. Enable hCaptcha for the form in the Web3Forms dashboard.
+3. Copy `.env.example` to `.env.local` and set the access key for local
+   development.
+4. Add a GitHub repository variable named `WEB3FORMS_ACCESS_KEY` for production
+   Pages builds.
+5. Restrict the form to the production domain in Web3Forms.
+
+The access key is a public form identifier and is included in the static
+JavaScript bundle; it does not reveal the recipient email address.
+
 ## Project structure
 
 - `src/pages/` contains page-level composition and data loading.
@@ -65,7 +81,8 @@ either a pasted URL or linked text.
 The app uses a small hash-based route layer. Add routes and their document
 titles to `src/config/site.ts`, then render the page from `src/App.tsx`.
 Shareable detail routes use `#/schedule/YYYY-MM-DD` for events and
-`#/players/player-id` for players. The league format lives at `#/format`.
+`#/players/player-id` for players. The league format lives at `#/format`, and
+the contact form lives at `#/contact`.
 
 Pushes to `main` build the site to Vite's ignored `dist/` directory and deploy
 that output through the GitHub Pages artifact workflow.

@@ -68,7 +68,7 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
                 Game Maker
               </RegistrationLink>
             )}
-            {event.registeredPlayerIds.length > 0 && (
+            {event.registeredPlayerCount > 0 && (
               <ActionLink
                 href={eventAssignmentsRoute(event.id)}
                 size="sm"

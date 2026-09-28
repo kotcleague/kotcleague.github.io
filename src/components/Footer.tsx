@@ -23,12 +23,20 @@ export default function Footer({ scrapedAt }: FooterProps) {
         <div className="space-y-1">
           {formatted && <p>Data updated {formatted}</p>}
         </div>
-        <a
-          href={ROUTES.rankings}
-          className="font-medium text-blue hover:underline dark:text-blue-300"
-        >
-          KOTC League
-        </a>
+        <div className="flex items-center gap-4 font-medium">
+          <a
+            href={ROUTES.contact}
+            className="text-blue hover:underline dark:text-blue-300"
+          >
+            Contact
+          </a>
+          <a
+            href={ROUTES.rankings}
+            className="text-blue hover:underline dark:text-blue-300"
+          >
+            KOTC League
+          </a>
+        </div>
       </div>
     </footer>
   );

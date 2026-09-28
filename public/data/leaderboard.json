@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-27T22:10:22.186Z",
+  "scrapedAt": "2026-09-28T21:30:32.281Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -421,7 +421,7 @@
           "dir": "none",
           "places": 0
         },
-        "photoUrl": null
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4aa801cd-26a8-4acb-a259-5ea9f0f69f84/2069f8d2-a36d-41c4-b1c9-4f300a0675db.jpg"
       },
       {
         "id": "libby-liston",
@@ -1158,7 +1158,7 @@
           "dir": "none",
           "places": 0
         },
-        "photoUrl": null
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4aa801cd-26a8-4acb-a259-5ea9f0f69f84/2069f8d2-a36d-41c4-b1c9-4f300a0675db.jpg"
       },
       {
         "id": "libby-liston",
@@ -2000,7 +2000,7 @@
           "dir": "none",
           "places": 0
         },
-        "photoUrl": null
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4aa801cd-26a8-4acb-a259-5ea9f0f69f84/2069f8d2-a36d-41c4-b1c9-4f300a0675db.jpg"
       },
       {
         "id": "libby-liston",
@@ -2696,14 +2696,16 @@
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 5,
+        "registeredPlayerCount": 6,
         "registeredPlayerIds": [
+          "brian-romine",
           "garrett-hallemeier",
           "kevin-reque",
           "mike-scibona",
           "sean-liston",
           "tobi-ola"
-        ]
+        ],
+        "unmatchedRegistrantNames": []
       },
       {
         "id": "2026-10-08",
@@ -2715,7 +2717,8 @@
           "kevin-reque",
           "sean-liston",
           "tobi-ola"
-        ]
+        ],
+        "unmatchedRegistrantNames": []
       },
       {
         "id": "2026-10-15",
@@ -2727,7 +2730,8 @@
           "kevin-reque",
           "sean-liston",
           "tobi-ola"
-        ]
+        ],
+        "unmatchedRegistrantNames": []
       },
       {
         "id": "2026-10-22",
@@ -2739,7 +2743,8 @@
           "kevin-reque",
           "sean-liston",
           "tobi-ola"
-        ]
+        ],
+        "unmatchedRegistrantNames": []
       },
       {
         "id": "2026-10-29",
@@ -2750,7 +2755,8 @@
         "registeredPlayerIds": [
           "sean-liston",
           "tobi-ola"
-        ]
+        ],
+        "unmatchedRegistrantNames": []
       }
     ],
     "past": [

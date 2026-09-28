@@ -1,4 +1,5 @@
 import {
+  BadgeCheck,
   CalendarDays,
   CircleDollarSign,
   Clock3,
@@ -20,6 +21,7 @@ import SectionHeading from "@/components/SectionHeading";
 import TableShell from "@/components/TableShell";
 import { formatInteger } from "@/lib/format";
 import { META_LABEL_ACCENT } from "@/lib/styles";
+import { contactRoute } from "@/config/site";
 
 interface LeagueDetailsProps {
   leaderboardUrl: string;
@@ -79,20 +81,21 @@ const LEAGUE_STEPS = [
     description: "Your final event finish determines your league points.",
   },
   {
-    title: "Compete for a free month",
-    description: "The top three at month's end play next month free.",
+    title: "Compete for monthly prizes",
+    description: "Prizes are determined each month.",
   },
+] as const;
+
+const ELIGIBILITY_PATHS = [
+  "A reliable DUPR rating of 4.0 or higher.",
+  "A top-20 finish in the previous month's league standings.",
+  "We allow exceptions for players who are a strong competitive fit.",
 ] as const;
 
 export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
   return (
     <main>
-      <PageHeader
-        eyebrow="King of the Court"
-        description="How league events run and how event results become leaderboard points."
-      >
-        League Format
-      </PageHeader>
+      <PageHeader eyebrow="King of the Court">League Format</PageHeader>
 
       <PageContent className="space-y-12">
         <section aria-labelledby="quick-facts">
@@ -139,6 +142,42 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                 Maker. KOTC events are not DUPR-rated.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="league-eligibility">
+          <SectionHeading
+            eyebrow="League eligibility"
+            id="league-eligibility"
+            prominent
+          >
+            Who can join
+          </SectionHeading>
+          <p className="mb-6 max-w-3xl text-sm leading-6 text-slate-500 dark:text-slate-400">
+            Meet any one of these requirements. We review eligibility monthly to
+            balance league size and competition.
+          </p>
+          <ul className="grid gap-3 sm:grid-cols-3">
+            {ELIGIBILITY_PATHS.map((path) => (
+              <li
+                key={path}
+                className="flex gap-3 border border-slate-200 bg-white p-4 text-sm leading-6 dark:border-scoreboard dark:bg-ink"
+              >
+                <BadgeCheck
+                  className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300"
+                  aria-hidden="true"
+                />
+                <span>{path}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+            <p className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+              Interested in joining the league?
+            </p>
+            <ActionLink href={contactRoute("join")} size="sm">
+              Request an invite
+            </ActionLink>
           </div>
         </section>
 
@@ -282,6 +321,26 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
               </EditorialTableBody>
             </table>
           </TableShell>
+        </section>
+
+        <section
+          className="flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800"
+          aria-labelledby="format-contact"
+        >
+          <div>
+            <h2
+              className="font-display text-2xl font-bold uppercase tracking-[0.02em]"
+              id="format-contact"
+            >
+              Questions or feedback?
+            </h2>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+              Send us a message.
+            </p>
+          </div>
+          <ActionLink href={contactRoute("question")} size="sm">
+            Contact us
+          </ActionLink>
         </section>
       </PageContent>
 

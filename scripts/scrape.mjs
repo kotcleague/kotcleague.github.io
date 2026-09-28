@@ -618,6 +618,7 @@ async function enrichUpcomingEvents(events, players) {
       event.id
     );
     const registeredPlayerIds = [];
+    const unmatchedRegistrantNames = [];
 
     for (const name of names) {
       const playerId = matchCourtReserveName(
@@ -628,6 +629,7 @@ async function enrichUpcomingEvents(events, players) {
       if (playerId) {
         registeredPlayerIds.push(playerId);
       } else {
+        unmatchedRegistrantNames.push(name);
         console.warn(
           `  Could not uniquely match Court Reserve registrant "${name}" for ${event.id}`
         );
@@ -636,6 +638,7 @@ async function enrichUpcomingEvents(events, players) {
 
     event.registeredPlayerCount = names.length;
     event.registeredPlayerIds = [...new Set(registeredPlayerIds)];
+    event.unmatchedRegistrantNames = [...new Set(unmatchedRegistrantNames)];
   }
 }
 
@@ -1150,6 +1153,7 @@ function parseUpcomingEvents(html) {
           gameMakerUrl: parseOptionalUrl(gameMakerUrl, "Game Maker", context),
           registeredPlayerCount: 0,
           registeredPlayerIds: [],
+          unmatchedRegistrantNames: [],
         });
       });
   });

@@ -8,7 +8,10 @@ import SectionHeading from "@/components/SectionHeading";
 import StatGrid from "@/components/StatGrid";
 import { ROUTES } from "@/config/site";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
-import { buildAssignments } from "@/lib/assignments";
+import {
+  buildAssignments,
+  buildRegisteredPlayers,
+} from "@/lib/assignments";
 import { formatLeagueDate } from "@/lib/format";
 import type { LeaderboardData } from "@/types/leaderboard";
 
@@ -20,8 +23,11 @@ function LoadedUpcomingEventAssignments({
   eventId: string;
 }) {
   const event = data.events.upcoming.find((item) => item.id === eventId);
-  const registeredIds = new Set(event?.registeredPlayerIds ?? []);
-  const players = data.seeding.filter((player) => registeredIds.has(player.id));
+  const players = buildRegisteredPlayers(
+    data.seeding,
+    event?.registeredPlayerIds ?? [],
+    event?.unmatchedRegistrantNames
+  );
   const assignmentPlan = buildAssignments(players);
 
   useDocumentTitle(

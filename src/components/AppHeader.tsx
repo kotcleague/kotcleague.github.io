@@ -23,7 +23,7 @@ function Navigation({ currentRoute, mobile = false }: NavigationProps) {
       )}
       aria-label={mobile ? "Mobile navigation" : "Primary navigation"}
     >
-      {NAV_ITEMS.map((item) => {
+      {NAV_ITEMS.filter((item) => item.page !== "contact").map((item) => {
         const isActive = navigationPageForRoute(currentRoute) === item.page;
 
         return (
