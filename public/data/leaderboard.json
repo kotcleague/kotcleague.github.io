@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-28T21:30:32.281Z",
+  "scrapedAt": "2026-09-28T23:19:32.912Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2696,11 +2696,12 @@
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 6,
+        "registeredPlayerCount": 7,
         "registeredPlayerIds": [
           "brian-romine",
           "garrett-hallemeier",
           "kevin-reque",
+          "matt-fleming",
           "mike-scibona",
           "sean-liston",
           "tobi-ola"
@@ -2712,11 +2713,10 @@
         "date": "2026-10-08",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062576",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 3,
+        "registeredPlayerCount": 2,
         "registeredPlayerIds": [
           "kevin-reque",
-          "sean-liston",
-          "tobi-ola"
+          "sean-liston"
         ],
         "unmatchedRegistrantNames": []
       },
