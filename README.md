@@ -29,12 +29,11 @@ The Contact page submits messages through Web3Forms so the recipient email is
 not published in the site. To configure it:
 
 1. Create a Web3Forms access key for the private recipient email.
-2. Enable hCaptcha for the form in the Web3Forms dashboard.
-3. Copy `.env.example` to `.env.local` and set the access key for local
+2. Copy `.env.example` to `.env.local` and set the access key for local
    development.
-4. Add a GitHub repository variable named `WEB3FORMS_ACCESS_KEY` for production
+3. Add a GitHub repository variable named `WEB3FORMS_ACCESS_KEY` for production
    Pages builds.
-5. Restrict the form to the production domain in Web3Forms.
+4. Restrict the form to the production domain in Web3Forms.
 
 The access key is a public form identifier and is included in the static
 JavaScript bundle; it does not reveal the recipient email address.
