@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-28T23:19:32.912Z",
+  "scrapedAt": "2026-09-28T23:50:08.674Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2665,9 +2665,17 @@
       "dupr": 4.142
     },
     {
+      "id": "kyle-weaver",
+      "name": "Kyle Weaver",
+      "seed": 44,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.121
+    },
+    {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 44,
+      "seed": 45,
       "past30Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -2675,7 +2683,7 @@
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 45,
+      "seed": 46,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -2683,7 +2691,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 46,
+      "seed": 47,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -2696,14 +2704,20 @@
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 7,
+        "registeredPlayerCount": 13,
         "registeredPlayerIds": [
+          "aniket-sharma",
+          "austin-lin",
           "brian-romine",
           "garrett-hallemeier",
           "kevin-reque",
+          "kyle-weaver",
+          "mat-sevilla",
           "matt-fleming",
           "mike-scibona",
+          "preston-behlmann",
           "sean-liston",
+          "shiva-garimella",
           "tobi-ola"
         ],
         "unmatchedRegistrantNames": []
