@@ -169,7 +169,7 @@ export default function LeaderboardPage() {
     <LeaderboardPageShell
       errorTitle="Failed to load leaderboard"
       header={
-        <PageHeader eyebrow="King of the Court">League Rankings</PageHeader>
+        <PageHeader eyebrow="King of the Court">Rankings</PageHeader>
       }
       loadingLabel="Loading leaderboard"
     >

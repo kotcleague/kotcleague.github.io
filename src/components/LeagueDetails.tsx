@@ -47,7 +47,7 @@ const LEAGUE_FACTS = [
   {
     icon: Users,
     label: "Players",
-    lines: ["4.0+ players", "Competitive play"],
+    lines: ["DUPR 4.0+", "Competitive Play"],
   },
   {
     icon: CalendarDays,
@@ -57,7 +57,7 @@ const LEAGUE_FACTS = [
   {
     icon: MapPin,
     label: "Where",
-    lines: ["KOTC League", "Chesterfield"],
+    lines: ["Paddle Up Pickball Club", "Chesterfield"],
   },
   {
     icon: CircleDollarSign,
@@ -95,7 +95,7 @@ const ELIGIBILITY_PATHS = [
 export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
   return (
     <main>
-      <PageHeader eyebrow="King of the Court">League Format</PageHeader>
+      <PageHeader eyebrow="King of the Court">Format</PageHeader>
 
       <PageContent className="space-y-12">
         <section aria-labelledby="quick-facts">
