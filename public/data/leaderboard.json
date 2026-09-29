@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-28T23:50:08.674Z",
+  "scrapedAt": "2026-09-29T08:29:51.264Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2704,7 +2704,7 @@
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 13,
+        "registeredPlayerCount": 15,
         "registeredPlayerIds": [
           "aniket-sharma",
           "austin-lin",
@@ -2714,13 +2714,16 @@
           "kyle-weaver",
           "mat-sevilla",
           "matt-fleming",
+          "michael-fan",
           "mike-scibona",
           "preston-behlmann",
           "sean-liston",
           "shiva-garimella",
           "tobi-ola"
         ],
-        "unmatchedRegistrantNames": []
+        "unmatchedRegistrantNames": [
+          "Sreekanth P."
+        ]
       },
       {
         "id": "2026-10-08",
