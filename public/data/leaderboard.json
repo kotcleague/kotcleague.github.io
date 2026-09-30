@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-09-29T20:46:55.774Z",
+  "scrapedAt": "2026-09-30T19:19:33.240Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2665,9 +2665,17 @@
       "dupr": 4.142
     },
     {
+      "id": "sharan-tej-kodumuru",
+      "name": "Sharan Tej Kodumuru",
+      "seed": 44,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.136
+    },
+    {
       "id": "kyle-weaver",
       "name": "Kyle Weaver",
-      "seed": 44,
+      "seed": 45,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.121
@@ -2675,7 +2683,7 @@
     {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 45,
+      "seed": 46,
       "past30Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -2683,7 +2691,7 @@
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 46,
+      "seed": 47,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -2691,7 +2699,7 @@
     {
       "id": "phil-mckenna",
       "name": "Phil Mckenna",
-      "seed": 47,
+      "seed": 48,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.979
@@ -2699,15 +2707,23 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 48,
+      "seed": 49,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
     },
     {
+      "id": "sai-ram-reddy-tipireddy",
+      "name": "Sai Ram Reddy Tipireddy",
+      "seed": 50,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 3.88
+    },
+    {
       "id": "sreekanth-peyyeti",
       "name": "Sreekanth Peyyeti",
-      "seed": 49,
+      "seed": 51,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.876
@@ -2720,12 +2736,13 @@
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 16,
+        "registeredPlayerCount": 19,
         "registeredPlayerIds": [
           "aniket-sharma",
           "austin-lin",
           "brian-romine",
           "garrett-hallemeier",
+          "john-paden",
           "kevin-reque",
           "kyle-weaver",
           "mat-sevilla",
@@ -2739,7 +2756,10 @@
           "sreekanth-peyyeti",
           "tobi-ola"
         ],
-        "unmatchedRegistrantNames": []
+        "unmatchedRegistrantNames": [
+          "Sai Ram Reddy T.",
+          "Sharan Tej K."
+        ]
       },
       {
         "id": "2026-10-08",
