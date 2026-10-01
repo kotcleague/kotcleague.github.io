@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-01T16:52:59.345Z",
+  "scrapedAt": "2026-10-01T18:53:58.242Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [],
@@ -1873,9 +1873,17 @@
       "dupr": 5.12
     },
     {
+      "id": "dominic-williams",
+      "name": "Dominic Williams",
+      "seed": 37,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.553
+    },
+    {
       "id": "chris-lee",
       "name": "Chris Lee",
-      "seed": 37,
+      "seed": 38,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.459
@@ -1883,7 +1891,7 @@
     {
       "id": "matt-landolt",
       "name": "Matt Landolt",
-      "seed": 38,
+      "seed": 39,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.423
@@ -1891,7 +1899,7 @@
     {
       "id": "mike-scibona",
       "name": "Mike Scibona",
-      "seed": 39,
+      "seed": 40,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.392
@@ -1899,7 +1907,7 @@
     {
       "id": "josh-wilson",
       "name": "Josh Wilson",
-      "seed": 40,
+      "seed": 41,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.386
@@ -1907,7 +1915,7 @@
     {
       "id": "michael-randle",
       "name": "Michael Randle",
-      "seed": 41,
+      "seed": 42,
       "past30Days": 0,
       "allTime": 200,
       "dupr": 4.314
@@ -1915,7 +1923,7 @@
     {
       "id": "james-brown",
       "name": "James Brown",
-      "seed": 42,
+      "seed": 43,
       "past30Days": 0,
       "allTime": 750,
       "dupr": 4.292
@@ -1923,7 +1931,7 @@
     {
       "id": "derek-dallas",
       "name": "Derek Dallas",
-      "seed": 43,
+      "seed": 44,
       "past30Days": 0,
       "allTime": 250,
       "dupr": 4.142
@@ -1931,7 +1939,7 @@
     {
       "id": "sharan-tej-kodumuru",
       "name": "Sharan Tej Kodumuru",
-      "seed": 44,
+      "seed": 45,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.136
@@ -1939,7 +1947,7 @@
     {
       "id": "kyle-weaver",
       "name": "Kyle Weaver",
-      "seed": 45,
+      "seed": 46,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.121
@@ -1947,7 +1955,7 @@
     {
       "id": "jarrett-menary",
       "name": "Jarrett Menary",
-      "seed": 46,
+      "seed": 47,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.112
@@ -1955,7 +1963,7 @@
     {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 47,
+      "seed": 48,
       "past30Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -1963,7 +1971,7 @@
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 48,
+      "seed": 49,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -1971,7 +1979,7 @@
     {
       "id": "phil-mckenna",
       "name": "Phil Mckenna",
-      "seed": 49,
+      "seed": 50,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.979
@@ -1979,7 +1987,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 50,
+      "seed": 51,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -1987,7 +1995,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 51,
+      "seed": 52,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -1995,7 +2003,7 @@
     {
       "id": "sreekanth-peyyeti",
       "name": "Sreekanth Peyyeti",
-      "seed": 52,
+      "seed": 53,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.876
@@ -2008,7 +2016,7 @@
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 19,
+        "registeredPlayerCount": 20,
         "registeredPlayerIds": [
           "aniket-sharma",
           "austin-lin",
@@ -2028,7 +2036,8 @@
           "shiva-garimella",
           "sreekanth-peyyeti",
           "tobi-ola",
-          "jarrett-menary"
+          "jarrett-menary",
+          "dominic-williams"
         ],
         "unmatchedRegistrantNames": []
       },
