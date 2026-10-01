@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-01T18:53:58.242Z",
+  "scrapedAt": "2026-10-01T20:54:55.898Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [],
@@ -1969,9 +1969,17 @@
       "dupr": 4.111
     },
     {
+      "id": "matthew-trokey",
+      "name": "Matthew Trokey",
+      "seed": 49,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.062
+    },
+    {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 49,
+      "seed": 50,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -1979,7 +1987,7 @@
     {
       "id": "phil-mckenna",
       "name": "Phil Mckenna",
-      "seed": 50,
+      "seed": 51,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.979
@@ -1987,7 +1995,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 51,
+      "seed": 52,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -1995,7 +2003,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 52,
+      "seed": 53,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -2003,7 +2011,7 @@
     {
       "id": "sreekanth-peyyeti",
       "name": "Sreekanth Peyyeti",
-      "seed": 53,
+      "seed": 54,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.876
@@ -2016,7 +2024,7 @@
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 20,
+        "registeredPlayerCount": 21,
         "registeredPlayerIds": [
           "aniket-sharma",
           "austin-lin",
@@ -2025,6 +2033,7 @@
           "john-paden",
           "kyle-weaver",
           "mat-sevilla",
+          "matthew-trokey",
           "michael-fan",
           "mike-scibona",
           "orlando-paez",
