@@ -9,7 +9,7 @@ import {
 } from "@/config/site";
 import KotcLeagueLogo from "@/components/KotcLeagueLogo";
 import ThemeToggle from "@/components/ThemeToggle";
-import { FOCUS_RING } from "@/lib/styles";
+import { FOCUS_RING, HEADER_ICON_BUTTON, PAGE_CONTAINER } from "@/lib/styles";
 
 interface NavigationProps {
   currentRoute: AppRoute;
@@ -42,6 +42,7 @@ function Navigation({
             aria-current={isActive ? "page" : undefined}
             className={clsx(
               "text-xs font-semibold uppercase tracking-[0.08em] transition-colors",
+              FOCUS_RING,
               mobile
                 ? "border-l-2 px-3 py-3 tracking-[0.12em]"
                 : "tracking-[0.14em]",
@@ -71,8 +72,14 @@ export default function AppHeader({ currentRoute }: AppHeaderProps) {
 
   return (
     <header className="bg-ink text-white">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
-        <a href={ROUTES.rankings} aria-label="KOTC League home">
+      <div
+        className={`${PAGE_CONTAINER} flex items-center justify-between py-4`}
+      >
+        <a
+          href={ROUTES.rankings}
+          aria-label="KOTC League home"
+          className={FOCUS_RING}
+        >
           <KotcLeagueLogo />
         </a>
         <div className="flex items-center gap-4">
@@ -80,7 +87,7 @@ export default function AppHeader({ currentRoute }: AppHeaderProps) {
           <ThemeToggle />
           <button
             type="button"
-            className={`flex h-10 w-10 cursor-pointer items-center justify-center border border-white/15 text-white/70 transition-colors hover:border-white/35 hover:text-white sm:hidden ${FOCUS_RING}`}
+            className={`${HEADER_ICON_BUTTON} sm:hidden`}
             aria-controls="mobile-navigation"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}

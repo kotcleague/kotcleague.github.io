@@ -3,6 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 import PlayerAvatar from "@/components/PlayerAvatar";
 import { playerRoute } from "@/config/site";
+import { FOCUS_RING } from "@/lib/styles";
 
 interface PlayerIdentityLinkProps
   extends Omit<ComponentPropsWithoutRef<"a">, "href"> {
@@ -26,7 +27,8 @@ export default function PlayerIdentityLink({
     <a
       href={playerRoute(playerId)}
       className={twMerge(
-        "flex min-w-0 items-center gap-3 text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue",
+        "flex min-w-0 items-center gap-3 text-inherit decoration-blue/40 underline-offset-4 hover:underline",
+        FOCUS_RING,
         className
       )}
       {...props}

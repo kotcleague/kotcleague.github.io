@@ -1,4 +1,5 @@
 import { ROUTES } from "@/config/site";
+import { FOCUS_RING, PAGE_CONTAINER } from "@/lib/styles";
 
 interface FooterProps {
   scrapedAt?: string;
@@ -19,20 +20,25 @@ export default function Footer({ scrapedAt }: FooterProps) {
 
   return (
     <footer className="border-t border-slate-200 bg-white dark:border-scoreboard dark:bg-ink print:hidden">
-      <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 dark:text-slate-500">
+      <div
+        className={`${PAGE_CONTAINER} flex flex-col gap-4 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between dark:text-slate-400`}
+      >
         <div className="space-y-1">
+          <p className="font-display text-lg font-semibold uppercase tracking-wider text-ink dark:text-white">
+            King of the Court
+          </p>
           {formatted && <p>Data updated {formatted}</p>}
         </div>
         <div className="flex items-center gap-4 font-medium">
           <a
             href={ROUTES.contact}
-            className="text-blue hover:underline dark:text-blue-300"
+            className={`text-blue underline-offset-4 hover:underline dark:text-blue-300 ${FOCUS_RING}`}
           >
             Contact
           </a>
           <a
             href={ROUTES.rankings}
-            className="text-blue hover:underline dark:text-blue-300"
+            className={`text-blue underline-offset-4 hover:underline dark:text-blue-300 ${FOCUS_RING}`}
           >
             KOTC League
           </a>

@@ -3,12 +3,18 @@ import { useEffect, useState, type FormEvent } from "react";
 import Footer from "@/components/Footer";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
+import SectionHeading from "@/components/SectionHeading";
 import type { ContactCategory } from "@/config/site";
-import { actionClass, FOCUS_RING, META_LABEL } from "@/lib/styles";
+import {
+  actionClass,
+  FIELD_CLASS,
+  FIELD_LABEL,
+  META_LABEL,
+  PANEL_ACCENT,
+  PANEL_SURFACE,
+} from "@/lib/styles";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-
-const FIELD_CLASS = `w-full border border-slate-300 bg-white px-3 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-slate-400 focus:border-blue dark:border-slate-700 dark:bg-ink dark:text-white dark:placeholder:text-slate-500 ${FOCUS_RING}`;
 
 const CATEGORY_OPTIONS = [
   {
@@ -126,7 +132,6 @@ export default function ContactPage({ initialCategory }: ContactPageProps) {
         );
       }
       form.reset();
-      form.reset();
       setStatus({
         state: "success",
         message:
@@ -158,11 +163,14 @@ export default function ContactPage({ initialCategory }: ContactPageProps) {
       </PageHeader>
 
       <PageContent>
-        <section className="max-w-3xl" aria-labelledby="contact-form-heading">
-          <h2 className="sr-only" id="contact-form-heading">
+        <section
+          className={`max-w-3xl p-4 sm:p-6 ${PANEL_SURFACE} ${PANEL_ACCENT}`}
+          aria-labelledby="contact-form-heading"
+        >
+          <SectionHeading eyebrow="Get in touch" id="contact-form-heading">
             Send a message
-          </h2>
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          </SectionHeading>
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <fieldset>
               <legend
                 className={`${META_LABEL} mb-3 text-slate-500 dark:text-slate-400`}
@@ -198,9 +206,7 @@ export default function ContactPage({ initialCategory }: ContactPageProps) {
 
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="block">
-                <span
-                  className={`${META_LABEL} mb-2 block text-slate-500 dark:text-slate-400`}
-                >
+                <span className={FIELD_LABEL}>
                   Name {requiresContact ? <RequiredMark /> : "(optional)"}
                 </span>
                 <input
@@ -211,9 +217,7 @@ export default function ContactPage({ initialCategory }: ContactPageProps) {
                 />
               </label>
               <label className="block">
-                <span
-                  className={`${META_LABEL} mb-2 block text-slate-500 dark:text-slate-400`}
-                >
+                <span className={FIELD_LABEL}>
                   Reply email{" "}
                   {requiresContact ? <RequiredMark /> : "(optional)"}
                 </span>
@@ -229,9 +233,7 @@ export default function ContactPage({ initialCategory }: ContactPageProps) {
 
             {category === "join" && (
               <label className="block">
-                <span
-                  className={`${META_LABEL} mb-2 block text-slate-500 dark:text-slate-400`}
-                >
+                <span className={FIELD_LABEL}>
                   DUPR rating or profile URL (optional)
                 </span>
                 <input
@@ -243,9 +245,7 @@ export default function ContactPage({ initialCategory }: ContactPageProps) {
             )}
 
             <label className="block">
-              <span
-                className={`${META_LABEL} mb-2 block text-slate-500 dark:text-slate-400`}
-              >
+              <span className={FIELD_LABEL}>
                 {category === "join"
                   ? "Message (optional)"
                   : category === "question"

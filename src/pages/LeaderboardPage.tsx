@@ -1,21 +1,28 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import ActionLink from "@/components/ActionLink";
+import Card from "@/components/Card";
 import EventCardDetails from "@/components/EventCardDetails";
 import EventDateBadge from "@/components/EventDateBadge";
+import EventRegistrationActions from "@/components/EventRegistrationActions";
 import LeaderboardTable from "@/components/LeaderboardTable";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import PlayerAvatar from "@/components/PlayerAvatar";
-import RegistrationLink from "@/components/RegistrationLink";
 import RegistrationSummary from "@/components/RegistrationSummary";
 import SectionHeading from "@/components/SectionHeading";
-import ViewTabs from "@/components/ViewTabs";
+import ViewTabs, { RANKING_VIEW_LABELS } from "@/components/ViewTabs";
 import WatchLivestreamLink from "@/components/WatchLivestreamLink";
-import { eventAssignmentsRoute, eventRoute, ROUTES } from "@/config/site";
+import { eventRoute, ROUTES } from "@/config/site";
 import { buildPlayerProfileIndex, type PlayerProfile } from "@/lib/players";
-import { actionClass, META_LABEL_ACCENT } from "@/lib/styles";
+import { formatInteger } from "@/lib/format";
+import {
+  actionClass,
+  META_LABEL_ACCENT,
+  PANEL_ACCENT,
+  PANEL_SURFACE,
+} from "@/lib/styles";
 import type {
   PastEvent,
   RankingView,
@@ -55,29 +62,8 @@ function UpcomingEventCard({ event }: { event?: UpcomingEvent }) {
               </h3>
             </EventCardDetails>
           </div>
-          <div className="mt-4 flex flex-col gap-3">
-            <div className="grid gap-1 sm:flex sm:flex-wrap sm:items-center sm:gap-2">
-              {event.courtReserveUrl && (
-                <RegistrationLink href={event.courtReserveUrl} compact>
-                  Register
-                </RegistrationLink>
-              )}
-              {event.gameMakerUrl && (
-                <RegistrationLink href={event.gameMakerUrl} compact>
-                  Game Maker
-                </RegistrationLink>
-              )}
-              {event.registeredPlayerCount > 0 && (
-                <ActionLink
-                  href={eventAssignmentsRoute(event.id)}
-                  size="sm"
-                  variant="secondary"
-                >
-                  Initial assignments
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </ActionLink>
-              )}
-            </div>
+          <div className="mt-4">
+            <EventRegistrationActions event={event} />
           </div>
         </>
       ) : (
@@ -169,50 +155,80 @@ export default function LeaderboardPage() {
     <LeaderboardPageShell
       errorTitle="Failed to load leaderboard"
       header={
-        <PageHeader eyebrow="King of the Court">Rankings</PageHeader>
+        <PageHeader
+          actions={<ViewTabs selected={selectedView} onSelect={selectView} />}
+          eyebrow="King of the Court"
+        >
+          Rankings
+        </PageHeader>
       }
       loadingLabel="Loading leaderboard"
     >
       {(data) => {
         const playerProfiles = buildPlayerProfileIndex(data);
+        const players = data.views[selectedView];
+        const visiblePlayers = players.slice(0, visiblePlayerCount);
+        const viewLabel = RANKING_VIEW_LABELS[selectedView];
 
         return (
           <PageContent>
-            <div className="pb-5">
-              <ViewTabs selected={selectedView} onSelect={selectView} />
-            </div>
-
-            <LeaderboardTable
-              players={data.views[selectedView].slice(0, visiblePlayerCount)}
-            />
-            {visiblePlayerCount < data.views[selectedView].length && (
-              <div className="mt-5 flex justify-center">
-                <button
-                  type="button"
-                  className={actionClass({ size: "sm", variant: "secondary" })}
-                  onClick={() =>
-                    setVisiblePlayerCount((count) => count + PLAYERS_PER_PAGE)
-                  }
+            <Card
+              className={`overflow-hidden ${PANEL_ACCENT}`}
+              aria-labelledby="standings-heading"
+            >
+              <SectionHeading
+                className="mb-0 p-4 sm:p-6"
+                eyebrow="League standings"
+                id="standings-heading"
+              >
+                {viewLabel}
+              </SectionHeading>
+              <LeaderboardTable label={viewLabel} players={visiblePlayers} />
+              <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 px-4 py-4 sm:px-6 dark:border-scoreboard">
+                <p
+                  className="text-xs tabular-nums text-slate-500 dark:text-slate-400"
+                  role="status"
                 >
-                  Show more
-                </button>
+                  Showing{" "}
+                  <span className="font-semibold text-ink dark:text-slate-200">
+                    {formatInteger(visiblePlayers.length)}
+                  </span>{" "}
+                  of {formatInteger(players.length)} players
+                </p>
+                {visiblePlayerCount < players.length && (
+                  <button
+                    type="button"
+                    className={actionClass({
+                      size: "sm",
+                      variant: "secondary",
+                    })}
+                    onClick={() =>
+                      setVisiblePlayerCount((count) => count + PLAYERS_PER_PAGE)
+                    }
+                  >
+                    Show more
+                    <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
+                  </button>
+                )}
               </div>
-            )}
+            </Card>
 
             <section className="mt-10" aria-labelledby="league-updates-heading">
-              <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
-                <SectionHeading
-                  eyebrow="Around the league"
-                  id="league-updates-heading"
-                >
-                  Events and results
-                </SectionHeading>
-                <ActionLink href={ROUTES.schedule} size="sm" variant="quiet">
-                  Full schedule
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </ActionLink>
-              </div>
-              <div className="grid overflow-hidden border border-slate-200 bg-white lg:grid-cols-2 dark:border-scoreboard dark:bg-ink">
+              <SectionHeading
+                eyebrow="Around the league"
+                id="league-updates-heading"
+                action={
+                  <ActionLink href={ROUTES.schedule} size="sm" variant="quiet">
+                    Full schedule
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </ActionLink>
+                }
+              >
+                Events and results
+              </SectionHeading>
+              <div
+                className={`grid overflow-hidden lg:grid-cols-2 ${PANEL_SURFACE}`}
+              >
                 <UpcomingEventCard
                   event={[...data.events.upcoming].sort(byDateAscending)[0]}
                 />
@@ -228,7 +244,9 @@ export default function LeaderboardPage() {
             </section>
 
             <section className="mt-10" aria-labelledby="deals-promo-heading">
-              <div className="flex flex-col gap-4 border border-slate-200 bg-white p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6 dark:border-scoreboard dark:bg-ink">
+              <div
+                className={`flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6 ${PANEL_SURFACE}`}
+              >
                 <div>
                   <p className={META_LABEL_ACCENT}>Player perks</p>
                   <h2

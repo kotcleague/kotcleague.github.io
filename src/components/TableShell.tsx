@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from "react";
 import { twMerge } from "tailwind-merge";
+import { PANEL_SURFACE } from "@/lib/styles";
 
 export default function TableShell({
   className,
@@ -8,7 +9,8 @@ export default function TableShell({
   return (
     <div
       className={twMerge(
-        "overflow-x-auto overscroll-x-contain border border-slate-200 bg-white dark:border-scoreboard dark:bg-ink",
+        PANEL_SURFACE,
+        "overflow-x-auto overscroll-x-contain",
         className
       )}
       {...props}

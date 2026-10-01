@@ -1,4 +1,5 @@
-import { tabClass } from "@/lib/styles";
+import { twMerge } from "tailwind-merge";
+import { TAB_LIST, tabClass } from "@/lib/styles";
 
 interface PageTab {
   active: boolean;
@@ -16,13 +17,16 @@ export default function PageTabs({
   return (
     <nav
       aria-label={ariaLabel}
-      className="scrollbar-hide inline-flex max-w-full overflow-x-auto border border-slate-200 bg-white p-1 dark:border-scoreboard dark:bg-ink"
+      className={twMerge(TAB_LIST, "flex w-full sm:inline-flex sm:w-auto")}
     >
       {tabs.map((tab) => (
         <a
           key={tab.href}
           href={tab.href}
-          className={tabClass(tab.active)}
+          className={twMerge(
+            tabClass(tab.active),
+            "min-w-0 flex-1 whitespace-normal px-2 text-[0.6rem] leading-tight tracking-[0.06em] sm:flex-none sm:whitespace-nowrap sm:px-4 sm:text-xs sm:tracking-[0.1em]"
+          )}
           aria-current={tab.active ? "page" : undefined}
         >
           {tab.label}

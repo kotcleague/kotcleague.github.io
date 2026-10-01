@@ -1,27 +1,24 @@
 import { ArrowRight, Grid2X2, Users } from "lucide-react";
 import ActionLink from "@/components/ActionLink";
 import ArchiveWinner from "@/components/ArchiveWinner";
+import Card from "@/components/Card";
 import EmptyState from "@/components/EmptyState";
 import EditorialLinkCard from "@/components/EditorialLinkCard";
 import EventCardDetails from "@/components/EventCardDetails";
 import EventDateBadge from "@/components/EventDateBadge";
+import EventRegistrationActions from "@/components/EventRegistrationActions";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import PageTabs from "@/components/PageTabs";
 import PodiumShowcase from "@/components/PodiumShowcase";
-import RegistrationLink from "@/components/RegistrationLink";
 import RegistrationSummary from "@/components/RegistrationSummary";
 import SectionHeading from "@/components/SectionHeading";
+import StatGrid from "@/components/StatGrid";
 import WatchLivestreamLink from "@/components/WatchLivestreamLink";
-import {
-  eventAssignmentsRoute,
-  eventRoute,
-  monthRoute,
-  ROUTES,
-} from "@/config/site";
+import { eventRoute, monthRoute, ROUTES } from "@/config/site";
 import { buildPlayerProfileIndex, type PlayerProfile } from "@/lib/players";
-import { META_LABEL_ACCENT, META_LABEL_MUTED } from "@/lib/styles";
+import { META_LABEL_ACCENT, META_LABEL_MUTED, PANEL_INSET } from "@/lib/styles";
 import type {
   LeaderboardData,
   PastEvent,
@@ -37,7 +34,7 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
   const hasRegistration = Boolean(event.courtReserveUrl || event.gameMakerUrl);
 
   return (
-    <article className="grid grid-cols-[5.25rem_1fr] overflow-hidden border border-slate-200 bg-white transition-colors hover:border-blue/40 lg:grid-cols-[6rem_minmax(14rem,1fr)_auto] dark:border-scoreboard dark:bg-ink dark:hover:border-blue/60">
+    <Card className="grid grid-cols-[5.25rem_minmax(0,1fr)] overflow-hidden lg:grid-cols-[6rem_minmax(14rem,1fr)_auto]">
       <EventDateBadge date={event.date} />
       <EventCardDetails
         className="px-4 py-4 sm:px-5"
@@ -55,37 +52,18 @@ function UpcomingEventRow({ event }: { event: UpcomingEvent }) {
           )}
         </h3>
       </EventCardDetails>
-      <div className="col-span-2 flex flex-col gap-3 border-t border-slate-100 bg-slate-50/70 px-4 py-3.5 sm:px-5 lg:col-span-1 lg:min-w-[19rem] lg:flex-row lg:items-center lg:justify-end lg:border-l lg:border-t-0 dark:border-slate-800 dark:bg-white/[0.025]">
+      <div
+        className={`col-span-2 flex flex-col gap-3 border-t px-4 py-3.5 sm:px-5 lg:col-span-1 lg:min-w-[19rem] lg:flex-row lg:items-center lg:justify-end lg:border-l lg:border-t-0 ${PANEL_INSET}`}
+      >
         {hasRegistration ? (
-          <div className="grid w-full gap-1 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:gap-2">
-            {event.courtReserveUrl && (
-              <RegistrationLink href={event.courtReserveUrl} compact>
-                Register
-              </RegistrationLink>
-            )}
-            {event.gameMakerUrl && (
-              <RegistrationLink href={event.gameMakerUrl} compact>
-                Game Maker
-              </RegistrationLink>
-            )}
-            {event.registeredPlayerCount > 0 && (
-              <ActionLink
-                href={eventAssignmentsRoute(event.id)}
-                size="sm"
-                variant="secondary"
-              >
-                Initial assignments
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </ActionLink>
-            )}
-          </div>
+          <EventRegistrationActions event={event} />
         ) : (
           <span className="border border-slate-300 px-3 py-1.5 text-sm font-semibold uppercase tracking-wide text-slate-400 dark:border-slate-700 dark:text-slate-500">
             Registration coming soon
           </span>
         )}
       </div>
-    </article>
+    </Card>
   );
 }
 
@@ -99,7 +77,7 @@ function PastEventCard({
   const winner = event.podium.find((player) => player.place === 1);
 
   return (
-    <article className="relative grid grid-cols-[5.25rem_1fr] overflow-hidden border border-slate-200 bg-white transition-colors hover:border-blue/40 sm:grid-cols-[6rem_1fr] lg:grid-cols-[6rem_minmax(0,1fr)_20rem] dark:border-scoreboard dark:bg-ink dark:hover:border-blue/60">
+    <Card className="group relative grid grid-cols-[5.25rem_minmax(0,1fr)] overflow-hidden transition-colors hover:border-blue/40 focus-within:border-blue sm:grid-cols-[6rem_minmax(0,1fr)] lg:grid-cols-[6rem_minmax(0,1fr)_20rem] dark:hover:border-blue/60">
       <a
         aria-label={`View results for ${event.date}`}
         className="absolute inset-0 z-0 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue"
@@ -141,7 +119,9 @@ function PastEventCard({
           </div>
         </dl>
       </div>
-      <div className="col-span-2 flex flex-col justify-center gap-3 border-t border-slate-100 bg-slate-50/60 px-4 py-3.5 sm:px-5 lg:col-span-1 lg:border-l lg:border-t-0 dark:border-slate-800 dark:bg-white/[0.02]">
+      <div
+        className={`col-span-2 flex flex-col justify-center gap-3 border-t px-4 py-3.5 sm:px-5 lg:col-span-1 lg:border-l lg:border-t-0 ${PANEL_INSET}`}
+      >
         <ArchiveWinner
           label="Event winner"
           player={winner}
@@ -155,7 +135,7 @@ function PastEventCard({
           {event.youtubeUrl && <WatchLivestreamLink href={event.youtubeUrl} />}
         </div>
       </div>
-    </article>
+    </Card>
   );
 }
 
@@ -171,7 +151,7 @@ function PastMonthCard({
   return (
     <EditorialLinkCard
       href={monthRoute(month.id)}
-      className="overflow-hidden rounded-none p-0"
+      className="overflow-hidden p-0"
     >
       <div className="p-5 sm:p-6">
         <p className={META_LABEL_ACCENT}>Monthly archive</p>
@@ -180,22 +160,19 @@ function PastMonthCard({
             {month.label}
           </h3>
         </div>
-        <div className="mt-5 grid grid-cols-2 border-y border-slate-100 py-4 dark:border-slate-800">
-          <div>
-            <p className={META_LABEL_MUTED}>Events</p>
-            <p className="font-display mt-1 text-xl font-bold tabular-nums">
-              {month.eventCount}
-            </p>
-          </div>
-          <div>
-            <p className={META_LABEL_MUTED}>Players</p>
-            <p className="font-display mt-1 text-xl font-bold tabular-nums">
-              {month.playerCount}
-            </p>
-          </div>
-        </div>
+        <StatGrid
+          className="mt-5 border-b-0 pb-0"
+          columns={2}
+          compact
+          items={[
+            { label: "Events", value: month.eventCount },
+            { label: "Players", value: month.playerCount },
+          ]}
+        />
       </div>
-      <div className="flex items-center border-t border-slate-100 bg-slate-50/60 px-5 py-4 sm:px-6 dark:border-slate-800 dark:bg-white/[0.02]">
+      <div
+        className={`flex items-center border-t px-5 py-4 sm:px-6 ${PANEL_INSET}`}
+      >
         <ArchiveWinner
           label="Month champion"
           player={champion}
@@ -229,7 +206,9 @@ function ScheduleTabs({ pastMonths }: { pastMonths: boolean }) {
 function UpcomingEventsView({ events }: { events: UpcomingEvent[] }) {
   return (
     <section aria-labelledby="upcoming-events">
-      <SectionHeading id="upcoming-events">Upcoming events</SectionHeading>
+      <SectionHeading id="upcoming-events" eyebrow="On the calendar">
+        Upcoming events
+      </SectionHeading>
       {events.length > 0 ? (
         <div className="space-y-3">
           {events.map((event) => (
@@ -237,9 +216,7 @@ function UpcomingEventsView({ events }: { events: UpcomingEvent[] }) {
           ))}
         </div>
       ) : (
-        <EmptyState className="py-12 text-sm text-slate-500 dark:text-slate-400">
-          No upcoming events have been posted yet.
-        </EmptyState>
+        <EmptyState>No upcoming events have been posted yet.</EmptyState>
       )}
     </section>
   );
@@ -254,7 +231,9 @@ function PastMonthsView({
 }) {
   return (
     <section aria-labelledby="past-months">
-      <SectionHeading id="past-months">Past months</SectionHeading>
+      <SectionHeading id="past-months" eyebrow="League archive">
+        Past months
+      </SectionHeading>
       {months.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-2">
           {months.map((month) => (
@@ -266,9 +245,7 @@ function PastMonthsView({
           ))}
         </div>
       ) : (
-        <EmptyState className="py-12 text-sm text-slate-500 dark:text-slate-400">
-          No past months have been posted yet.
-        </EmptyState>
+        <EmptyState>No past months have been posted yet.</EmptyState>
       )}
     </section>
   );
@@ -286,11 +263,7 @@ function PastMonthView({
   const month = data.events.months.find((item) => item.id === monthId);
 
   if (!month) {
-    return (
-      <EmptyState className="py-12 text-sm text-slate-500 dark:text-slate-400">
-        This month is not available.
-      </EmptyState>
-    );
+    return <EmptyState>This month is not available.</EmptyState>;
   }
 
   const events = month.eventIds
@@ -321,9 +294,7 @@ function PastMonthView({
               ))}
             </div>
           ) : (
-            <EmptyState className="py-12 text-sm text-slate-500 dark:text-slate-400">
-              No events have been posted for this month.
-            </EmptyState>
+            <EmptyState>No events have been posted for this month.</EmptyState>
           )}
         </section>
       </div>
@@ -364,7 +335,12 @@ export default function SchedulePage({
             );
           }
         ) : (
-          <PageHeader eyebrow="King of the Court">Schedule</PageHeader>
+          <PageHeader
+            actions={<ScheduleTabs pastMonths={pastMonths} />}
+            eyebrow="King of the Court"
+          >
+            Schedule
+          </PageHeader>
         )
       }
       loadingLabel="Loading schedule"
@@ -375,7 +351,6 @@ export default function SchedulePage({
         return (
           <PageContent>
             <div className="space-y-8">
-              {!monthId && <ScheduleTabs pastMonths={pastMonths} />}
               {monthId ? (
                 <PastMonthView
                   data={data}

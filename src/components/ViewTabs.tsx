@@ -1,5 +1,6 @@
 import type { RankingView } from "@/types/leaderboard";
-import { tabClass } from "@/lib/styles";
+import { TAB_LIST, tabClass } from "@/lib/styles";
+import { twMerge } from "tailwind-merge";
 
 interface ViewTabsProps {
   selected: RankingView;
@@ -10,23 +11,36 @@ const currentMonthName = new Date().toLocaleDateString("en-US", {
   month: "long",
 });
 
-const VIEWS: { value: RankingView; label: string }[] = [
-  { value: "past-30-days", label: "Past 30 Days" },
-  { value: "current-month", label: currentMonthName },
-  { value: "all-time", label: "All Time" },
-];
+export const RANKING_VIEW_LABELS: Record<RankingView, string> = {
+  "past-30-days": "Past 30 Days",
+  "current-month": currentMonthName,
+  "all-time": "All Time",
+};
+
+const VIEWS: RankingView[] = ["past-30-days", "current-month", "all-time"];
 
 export default function ViewTabs({ selected, onSelect }: ViewTabsProps) {
   return (
-    <div className="scrollbar-hide inline-flex max-w-full overflow-x-auto border border-slate-200 bg-white p-1 dark:border-scoreboard dark:bg-ink">
-      {VIEWS.map((v) => (
+    <div
+      className={twMerge(
+        TAB_LIST,
+        "grid w-full grid-cols-3 sm:inline-flex sm:w-auto"
+      )}
+      role="group"
+      aria-label="Ranking period"
+    >
+      {VIEWS.map((view) => (
         <button
-          key={v.value}
-          onClick={() => onSelect(v.value)}
-          aria-pressed={selected === v.value}
-          className={tabClass(selected === v.value)}
+          type="button"
+          key={view}
+          onClick={() => onSelect(view)}
+          aria-pressed={selected === view}
+          className={twMerge(
+            tabClass(selected === view),
+            "px-1 text-[0.6rem] tracking-[0.06em] sm:px-4 sm:text-xs sm:tracking-[0.1em]"
+          )}
         >
-          {v.label}
+          {RANKING_VIEW_LABELS[view]}
         </button>
       ))}
     </div>

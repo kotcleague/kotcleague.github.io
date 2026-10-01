@@ -1,7 +1,22 @@
 import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 interface PlacementBadgeProps {
+  className?: string;
   place: number;
+}
+
+export function placementAccentClass(place: number) {
+  switch (place) {
+    case 1:
+      return "border-gold";
+    case 2:
+      return "border-silver";
+    case 3:
+      return "border-bronze";
+    default:
+      return "border-transparent";
+  }
 }
 
 export function placementBadgeClass(place: number) {
@@ -17,12 +32,18 @@ export function placementBadgeClass(place: number) {
   }
 }
 
-export default function PlacementBadge({ place }: PlacementBadgeProps) {
+export default function PlacementBadge({
+  className,
+  place,
+}: PlacementBadgeProps) {
   return (
     <span
-      className={clsx(
-        "font-display inline-flex h-8 min-w-8 shrink-0 items-center justify-center px-1 text-lg font-bold tabular-nums",
-        placementBadgeClass(place)
+      className={twMerge(
+        clsx(
+          "font-display inline-flex h-8 min-w-8 shrink-0 items-center justify-center px-1 text-lg font-bold tabular-nums",
+          placementBadgeClass(place)
+        ),
+        className
       )}
     >
       {place}

@@ -6,6 +6,16 @@ export const META_LABEL =
   "text-[0.7rem] font-semibold uppercase tracking-[0.12em]";
 export const META_LABEL_ACCENT = `${META_LABEL} text-blue dark:text-blue-300`;
 export const META_LABEL_MUTED = `${META_LABEL} text-slate-400 dark:text-slate-500`;
+export const PAGE_CONTAINER = "mx-auto w-full max-w-5xl px-4 sm:px-6";
+export const PANEL_SURFACE =
+  "border border-slate-200 bg-white dark:border-scoreboard dark:bg-ink";
+export const PANEL_ACCENT = "border-t-2 border-t-blue dark:border-t-blue-300";
+export const PANEL_INSET =
+  "border-slate-200 bg-slate-50/70 dark:border-scoreboard dark:bg-scoreboard/20";
+export const FIELD_CLASS = `w-full min-h-11 border border-slate-300 bg-white px-3 py-2.5 text-sm text-ink transition-colors placeholder:text-slate-400 focus:border-blue dark:border-slate-700 dark:bg-ink dark:text-white dark:placeholder:text-slate-500 ${FOCUS_RING}`;
+export const FIELD_LABEL = `${META_LABEL} mb-2 block text-slate-500 dark:text-slate-400`;
+export const HEADER_ICON_BUTTON = `flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center border border-white/15 text-white/70 transition-colors hover:border-white/35 hover:text-white ${FOCUS_RING}`;
+export const TAB_LIST = `scrollbar-hide inline-flex max-w-full overflow-x-auto p-1 ${PANEL_SURFACE}`;
 
 export type ActionSize = "sm" | "md";
 export type ActionVariant = "primary" | "secondary" | "quiet" | "youtube";

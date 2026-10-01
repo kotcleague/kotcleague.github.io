@@ -165,11 +165,7 @@ function ResultsTable({
                     playerId={result.playerId}
                   />
                 </EditorialTableCell>
-                <EditorialTableCell
-                  alignment="right"
-                  numeric
-                  className="font-display text-lg font-bold text-blue dark:text-blue-300"
-                >
+                <EditorialTableCell alignment="right" score>
                   {formatInteger(result.points)}
                 </EditorialTableCell>
                 <EditorialTableCell alignment="right" numeric>
@@ -242,7 +238,7 @@ function EventContent({
             title="Top finishers"
           />
           <section aria-labelledby="event-standings">
-            <SectionHeading id="event-standings">
+            <SectionHeading id="event-standings" eyebrow="Event results">
               Final standings
             </SectionHeading>
             {event.results.length > 0 ? (

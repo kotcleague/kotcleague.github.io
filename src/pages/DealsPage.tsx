@@ -1,9 +1,10 @@
 import ActionLink from "@/components/ActionLink";
+import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
 import SectionHeading from "@/components/SectionHeading";
-import { META_LABEL_ACCENT } from "@/lib/styles";
+import { META_LABEL_ACCENT, PANEL_INSET } from "@/lib/styles";
 
 interface Deal {
   category: string;
@@ -54,7 +55,7 @@ const DEALS: Deal[] = [
 
 function DealCard({ deal }: { deal: Deal }) {
   return (
-    <article className="grid grid-cols-[6.5rem_minmax(0,1fr)] overflow-hidden border border-slate-200 bg-white sm:grid-cols-[8rem_minmax(0,1fr)_10rem] dark:border-scoreboard dark:bg-ink">
+    <Card className="grid grid-cols-[6.5rem_minmax(0,1fr)] overflow-hidden sm:grid-cols-[8rem_minmax(0,1fr)_10rem]">
       <div className="overflow-hidden border-r border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
         <img
           src={deal.imageUrl}
@@ -71,7 +72,9 @@ function DealCard({ deal }: { deal: Deal }) {
           {deal.description}
         </p>
       </div>
-      <div className="col-span-2 flex items-center justify-between gap-4 border-t border-slate-100 bg-slate-50/70 px-4 py-3 sm:col-span-1 sm:flex-col sm:items-stretch sm:justify-center sm:border-l sm:border-t-0 dark:border-slate-800 dark:bg-white/[0.025]">
+      <div
+        className={`col-span-2 flex items-center justify-between gap-4 border-t px-4 py-3 sm:col-span-1 sm:flex-col sm:items-stretch sm:justify-center sm:border-l sm:border-t-0 ${PANEL_INSET}`}
+      >
         <div className="sm:text-center">
           <p className="font-display text-xl font-bold text-blue dark:text-blue-300">
             {deal.discount}
@@ -94,7 +97,7 @@ function DealCard({ deal }: { deal: Deal }) {
           See product
         </ActionLink>
       </div>
-    </article>
+    </Card>
   );
 }
 
@@ -110,14 +113,17 @@ export default function DealsPage() {
 
       <PageContent>
         <section aria-labelledby="deals-heading">
-          <div className="mb-5 flex items-end justify-between gap-4">
-            <SectionHeading eyebrow="Current offers" id="deals-heading">
-              Gear for the court
-            </SectionHeading>
-            <p className="shrink-0 pb-1 text-sm text-slate-500 dark:text-slate-400">
-              3 court picks
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="Current offers"
+            id="deals-heading"
+            action={
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                {DEALS.length} court picks
+              </p>
+            }
+          >
+            Gear for the court
+          </SectionHeading>
 
           <div className="grid gap-3">
             {DEALS.map((deal) => (
@@ -127,8 +133,8 @@ export default function DealsPage() {
         </section>
 
         <p className="mt-5 max-w-2xl text-xs leading-5 text-slate-400 dark:text-slate-500">
-          No pressure to buy. These are simply partner discounts we think players
-          may find useful.
+          No pressure to buy. These are simply partner discounts we think
+          players may find useful.
         </p>
       </PageContent>
 

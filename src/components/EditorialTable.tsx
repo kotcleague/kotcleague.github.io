@@ -20,7 +20,7 @@ export function EditorialTableHead({
   return (
     <thead
       className={twMerge(
-        "border-b border-blue/70 bg-scoreboard text-xs font-semibold uppercase tracking-wider text-white dark:border-blue dark:text-slate-100",
+        "border-y border-slate-200 bg-slate-50/80 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-slate-500 dark:border-scoreboard dark:bg-scoreboard/40 dark:text-slate-400",
         className
       )}
       {...props}
@@ -41,6 +41,7 @@ export function EditorialTableHeaderCell({
 }: EditorialTableHeaderCellProps) {
   return (
     <th
+      scope="col"
       className={twMerge(
         clsx(
           "align-middle",
@@ -61,7 +62,7 @@ export function EditorialTableBody({
   return (
     <tbody
       className={twMerge(
-        "divide-y divide-slate-200 dark:divide-slate-800",
+        "divide-y divide-slate-100 dark:divide-slate-800",
         className
       )}
       {...props}
@@ -73,6 +74,7 @@ interface EditorialTableCellProps extends ComponentPropsWithoutRef<"td"> {
   alignment?: TableCellAlignment;
   density?: TableDensity;
   numeric?: boolean;
+  score?: boolean;
 }
 
 export function EditorialTableCell({
@@ -80,6 +82,7 @@ export function EditorialTableCell({
   className,
   density = "default",
   numeric = false,
+  score = false,
   ...props
 }: EditorialTableCellProps) {
   return (
@@ -91,7 +94,9 @@ export function EditorialTableCell({
             ? "px-2 py-3 sm:px-4 sm:py-4"
             : "px-3 py-3 sm:px-5 sm:py-4",
           alignmentClass(alignment),
-          numeric && "tabular-nums"
+          (numeric || score) && "tabular-nums",
+          score &&
+            "bg-blue/[0.035] font-display text-xl font-semibold text-blue sm:text-2xl dark:bg-blue/[0.06] dark:text-blue-300"
         ),
         className
       )}
@@ -107,7 +112,7 @@ export function EditorialTableRow({
   return (
     <tr
       className={twMerge(
-        "transition-colors hover:bg-blue/[0.035] dark:hover:bg-blue/[0.08]",
+        "transition-colors hover:bg-blue/[0.035] focus-within:bg-blue/[0.035] dark:hover:bg-blue/[0.08] dark:focus-within:bg-blue/[0.08]",
         className
       )}
       {...props}

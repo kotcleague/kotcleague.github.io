@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import Card from "@/components/Card";
 import CourtAssignmentDisplay from "@/components/CourtAssignmentDisplay";
+import EmptyState from "@/components/EmptyState";
 import LeaderboardPageShell from "@/components/LeaderboardPageShell";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
@@ -20,7 +21,13 @@ import {
   assignmentRoute,
 } from "@/config/site";
 import { assignmentText, buildAssignments } from "@/lib/assignments";
-import { actionClass, META_LABEL } from "@/lib/styles";
+import {
+  actionClass,
+  FIELD_CLASS,
+  FIELD_LABEL,
+  PANEL_ACCENT,
+  FOCUS_RING,
+} from "@/lib/styles";
 import type { SeededPlayer } from "@/types/leaderboard";
 
 function PlayerPicker({
@@ -47,7 +54,7 @@ function PlayerPicker({
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Search players"
-        className="mb-3 w-full border border-slate-300 bg-transparent px-3 py-2 text-sm outline-none focus:border-blue dark:border-slate-700"
+        className={`${FIELD_CLASS} mb-3`}
       />
       <div className="max-h-80 overflow-y-auto border-y border-slate-200 dark:border-slate-800">
         {filtered.map((player) => (
@@ -59,7 +66,7 @@ function PlayerPicker({
               type="checkbox"
               checked={selected.has(player.id)}
               onChange={() => onToggle(player.id)}
-              className="h-4 w-4 accent-blue"
+              className={`h-4 w-4 accent-blue ${FOCUS_RING}`}
             />
             <span className="flex-1 font-semibold">{player.name}</span>
             <span className="text-xs tabular-nums text-slate-400">
@@ -67,6 +74,14 @@ function PlayerPicker({
             </span>
           </label>
         ))}
+        {filtered.length === 0 && (
+          <p
+            className="px-2 py-6 text-sm text-slate-500 dark:text-slate-400"
+            role="status"
+          >
+            No players match your search.
+          </p>
+        )}
       </div>
     </div>
   );
@@ -197,42 +212,41 @@ export default function AssignmentBuilderPage() {
               }
             >
               {showAttendance && (
-                <Card className="p-4 sm:p-5 print:hidden">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <SectionHeading>Attendance</SectionHeading>
-                      <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                        {selectedPlayers.length} of {players.length} selected
-                      </p>
-                    </div>
-                    <div className="flex gap-2">
-                      <button
-                        type="button"
-                        onClick={selectAll}
-                        className={actionClass({
-                          size: "sm",
-                          variant: "quiet",
-                        })}
-                      >
-                        All
-                      </button>
-                      <button
-                        type="button"
-                        onClick={clearAll}
-                        className={actionClass({
-                          size: "sm",
-                          variant: "quiet",
-                        })}
-                      >
-                        Clear
-                      </button>
-                    </div>
-                  </div>
+                <Card
+                  className={`self-start p-4 sm:p-5 print:hidden ${PANEL_ACCENT}`}
+                >
+                  <SectionHeading
+                    eyebrow="Player selection"
+                    description={`${selectedPlayers.length} of ${players.length} selected`}
+                    action={
+                      <div className="flex gap-2">
+                        <button
+                          type="button"
+                          onClick={selectAll}
+                          className={actionClass({
+                            size: "sm",
+                            variant: "quiet",
+                          })}
+                        >
+                          All
+                        </button>
+                        <button
+                          type="button"
+                          onClick={clearAll}
+                          className={actionClass({
+                            size: "sm",
+                            variant: "quiet",
+                          })}
+                        >
+                          Clear
+                        </button>
+                      </div>
+                    }
+                  >
+                    Attendance
+                  </SectionHeading>
                   <div className="mt-5">
-                    <label
-                      className={`${META_LABEL} mb-2 block text-slate-500 dark:text-slate-400`}
-                      htmlFor="court-numbers"
-                    >
+                    <label className={FIELD_LABEL} htmlFor="court-numbers">
                       Court numbers
                     </label>
                     <input
@@ -248,7 +262,7 @@ export default function AssignmentBuilderPage() {
                         persistUrl(selectedIds, labels);
                       }}
                       placeholder="e.g. 1, 2, 3"
-                      className="mb-4 w-full border border-slate-300 bg-transparent px-3 py-2 text-sm outline-none focus:border-blue dark:border-slate-700"
+                      className={`${FIELD_CLASS} mb-4`}
                     />
                     <PlayerPicker
                       players={players}
@@ -337,13 +351,13 @@ export default function AssignmentBuilderPage() {
                 {selectedPlayers.length > 0 ? (
                   <CourtAssignmentDisplay plan={assignmentPlan} />
                 ) : (
-                  <Card className="p-8 text-center text-sm text-slate-500 dark:text-slate-400">
+                  <EmptyState>
                     <RotateCcw
                       className="mx-auto mb-3 h-5 w-5"
                       aria-hidden="true"
                     />
                     Select attending players to generate the first round.
-                  </Card>
+                  </EmptyState>
                 )}
               </section>
             </div>

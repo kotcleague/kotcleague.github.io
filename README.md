@@ -48,6 +48,23 @@ JavaScript bundle; it does not reveal the recipient email address.
 - `scripts/scrape.mjs` fetches the published Google Sheet and writes
   `public/data/leaderboard.json`.
 
+## Shared UI
+
+Use `PageHeader` and `PageContent` for page layout, and `SectionHeading` for
+section titles, descriptions, and trailing actions. Player profiles use the
+same header with its optional `media` slot.
+
+`Card`, `EditorialLinkCard`, and `TableShell` share the surface styles in
+`src/lib/styles.ts`, alongside panel accents, inset surfaces, fields, and
+controls. Use `EditorialTable` cells with `score` for highlighted league
+points, `StatGrid` for metric groups, and `PlacementBadge` / `LeagueMedals`
+for standings. `EventRegistrationActions` keeps registration links consistent
+on the rankings and schedule pages.
+
+Keep these shared components responsive and provide light and dark variants.
+Court assignment grids respond to their container width so they also fit the
+builder's narrower workspace.
+
 ## Default player avatars
 
 Players without a profile photo get a deterministic generated avatar: a

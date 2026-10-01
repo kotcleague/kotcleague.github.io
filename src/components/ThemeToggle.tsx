@@ -1,6 +1,6 @@
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme, type Theme } from "@/hooks/useTheme";
-import { FOCUS_RING } from "@/lib/styles";
+import { HEADER_ICON_BUTTON } from "@/lib/styles";
 
 const THEME_OPTIONS: Record<Theme, { icon: typeof Sun; label: string }> = {
   light: { icon: Sun, label: "Light mode" },
@@ -15,12 +15,13 @@ export default function ThemeToggle() {
 
   return (
     <button
+      type="button"
       onClick={toggle}
       aria-label={label}
       title={label}
-      className={`flex h-10 w-10 cursor-pointer items-center justify-center border border-white/15 text-white/70 transition-colors hover:border-white/35 hover:text-white ${FOCUS_RING}`}
+      className={HEADER_ICON_BUTTON}
     >
-      <Icon className="h-5 w-5" />
+      <Icon className="h-5 w-5" aria-hidden="true" />
     </button>
   );
 }

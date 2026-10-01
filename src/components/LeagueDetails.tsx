@@ -20,7 +20,12 @@ import PageHeader from "@/components/PageHeader";
 import SectionHeading from "@/components/SectionHeading";
 import TableShell from "@/components/TableShell";
 import { formatInteger } from "@/lib/format";
-import { META_LABEL_ACCENT } from "@/lib/styles";
+import {
+  META_LABEL_ACCENT,
+  PANEL_ACCENT,
+  PANEL_INSET,
+  PANEL_SURFACE,
+} from "@/lib/styles";
 import { contactRoute } from "@/config/site";
 
 interface LeagueDetailsProps {
@@ -99,21 +104,20 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
 
       <PageContent className="space-y-12">
         <section aria-labelledby="quick-facts">
-          <SectionHeading
-            eyebrow="League essentials"
-            id="quick-facts"
-            prominent
-          >
+          <SectionHeading eyebrow="League essentials" id="quick-facts">
             At a glance
           </SectionHeading>
-          <div className="border-y border-slate-200 dark:border-slate-800">
+          <div className={`${PANEL_SURFACE} ${PANEL_ACCENT}`}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
               {LEAGUE_FACTS.map(({ icon: Icon, label, lines, note }) => (
                 <div
                   key={label}
                   className="flex items-start gap-3 border-b border-slate-200 px-4 py-5 last:border-b-0 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:last:border-r-0 dark:border-slate-800"
                 >
-                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300" />
+                  <Icon
+                    className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300"
+                    aria-hidden="true"
+                  />
                   <div>
                     <span className={`${META_LABEL_ACCENT} block`}>
                       {label}
@@ -134,8 +138,13 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
                 </div>
               ))}
             </div>
-            <div className="flex items-start gap-3 border-t border-slate-200 px-4 py-4 dark:border-slate-800">
-              <Clock3 className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300" />
+            <div
+              className={`flex items-start gap-3 border-t px-4 py-4 ${PANEL_INSET}`}
+            >
+              <Clock3
+                className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300"
+                aria-hidden="true"
+              />
               <p className="text-sm leading-5 text-slate-600 dark:text-slate-300">
                 <strong className="text-ink dark:text-white">Scoring:</strong>{" "}
                 rally scoring to 21, win by 1, no freeze. Enter scores in Game
@@ -149,19 +158,15 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
           <SectionHeading
             eyebrow="League eligibility"
             id="league-eligibility"
-            prominent
+            description="Meet any one of these requirements. We review eligibility monthly to balance league size and competition."
           >
             Who can join
           </SectionHeading>
-          <p className="mb-6 max-w-3xl text-sm leading-6 text-slate-500 dark:text-slate-400">
-            Meet any one of these requirements. We review eligibility monthly to
-            balance league size and competition.
-          </p>
           <ul className="grid gap-3 sm:grid-cols-3">
             {ELIGIBILITY_PATHS.map((path) => (
               <li
                 key={path}
-                className="flex gap-3 border border-slate-200 bg-white p-4 text-sm leading-6 dark:border-scoreboard dark:bg-ink"
+                className={`flex gap-3 p-4 text-sm leading-6 ${PANEL_SURFACE}`}
               >
                 <BadgeCheck
                   className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300"
@@ -182,15 +187,14 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
         </section>
 
         <section aria-labelledby="league-flow">
-          <SectionHeading eyebrow="League flow" id="league-flow" prominent>
+          <SectionHeading eyebrow="League flow" id="league-flow">
             How it works
           </SectionHeading>
-          <ol className="grid grid-cols-1 gap-5 border-y border-slate-200 py-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 dark:border-slate-800">
+          <ol
+            className={`grid grid-cols-1 gap-5 p-5 sm:grid-cols-2 lg:grid-cols-4 ${PANEL_SURFACE}`}
+          >
             {LEAGUE_STEPS.map((step, index) => (
-              <li
-                key={step.title}
-                className="relative flex gap-3 lg:px-5 lg:first:pl-0 lg:last:pr-0"
-              >
+              <li key={step.title} className="flex gap-3">
                 <span className="font-display flex h-7 w-7 shrink-0 items-center justify-center border border-blue/30 bg-blue/[0.06] text-sm font-bold text-blue dark:border-blue/50 dark:bg-blue/10 dark:text-blue-300">
                   {index + 1}
                 </span>
@@ -219,17 +223,10 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
           <SectionHeading
             eyebrow="Game Maker points"
             id="points-reference"
-            prominent
+            description="Use this as a reference, not a rulebook. Court 1 is worth the most; each lower court is worth about 71% of the court above it. Game Maker orders event standings by GM points, then win percentage, head-to-head, point differential, and head-to-head point differential."
           >
             Points by court
           </SectionHeading>
-          <p className="mb-6 max-w-3xl text-sm leading-6 text-slate-500 dark:text-slate-400">
-            Use this as a reference, not a rulebook. Court 1 is worth the most;
-            each lower court is worth about 71% of the court above it. Game
-            Maker orders event standings by GM points, then win percentage,
-            head-to-head, point differential, and head-to-head point
-            differential.
-          </p>
           <TableShell>
             <table className="w-full">
               <EditorialTableHead>
@@ -266,15 +263,10 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
           <SectionHeading
             eyebrow="Leaderboard points"
             id="leaderboard-points"
-            prominent
+            description="Awards scale with the number of courts. First place earns the maximum; second earns 80%; third earns 60%; awards then decrease through the rest of the field."
           >
             Points by finish
           </SectionHeading>
-          <p className="mb-6 max-w-3xl text-sm leading-6 text-slate-500 dark:text-slate-400">
-            Awards scale with the number of courts. First place earns the
-            maximum; second earns 80%; third earns 60%; awards then decrease
-            through the rest of the field.
-          </p>
           <TableShell className="overflow-hidden">
             <table className="w-full table-fixed">
               <EditorialTableHead>

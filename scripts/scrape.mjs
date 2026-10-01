@@ -521,6 +521,19 @@ function matchCourtReserveName(name, players) {
 
   const candidates = players.filter((player) => {
     const playerTokens = normalizePlayerName(player.name);
+
+    if (tokens.length === playerTokens.length && tokens.length > 2) {
+      const givenNamesMatch = tokens
+        .slice(0, -1)
+        .every((token, index) => token === playerTokens[index]);
+      const lastName = playerTokens.at(-1);
+      const lastNameMatches =
+        tokens.at(-1) === lastName ||
+        (tokens.at(-1)?.length === 1 && tokens.at(-1) === lastName?.[0]);
+
+      return givenNamesMatch && lastNameMatches;
+    }
+
     if (tokens.length !== 2 || playerTokens.length < 2) return false;
 
     const firstMatches =

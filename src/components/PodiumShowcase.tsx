@@ -2,12 +2,14 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 
 import Card from "@/components/Card";
-import PlacementBadge from "@/components/PlacementBadge";
+import PlacementBadge, {
+  placementAccentClass,
+} from "@/components/PlacementBadge";
 import PlayerAvatar from "@/components/PlayerAvatar";
 import SectionHeading from "@/components/SectionHeading";
 import { playerRoute } from "@/config/site";
 import type { PlayerProfile } from "@/lib/players";
-import { META_LABEL_MUTED } from "@/lib/styles";
+import { FOCUS_RING, META_LABEL_MUTED } from "@/lib/styles";
 import type { PlayerReference } from "@/types/leaderboard";
 
 interface PodiumShowcaseProps<T extends PlayerReference> {
@@ -41,15 +43,18 @@ export default function PodiumShowcase<T extends PlayerReference>({
 
   return (
     <section aria-labelledby={id}>
-      <SectionHeading id={id}>{title}</SectionHeading>
-      <Card className="grid overflow-hidden rounded-none p-0 sm:grid-cols-3">
+      <SectionHeading id={id} eyebrow="On the podium">
+        {title}
+      </SectionHeading>
+      <Card className="grid overflow-hidden p-0 sm:grid-cols-3">
         {podium.map((entry, index) => (
           <div
             key={entry.playerId}
             className={clsx(
-              "min-w-0 p-5",
+              "min-w-0 border-t-2 p-5",
               index > 0 &&
-                "border-t border-slate-100 sm:border-l sm:border-t-0 dark:border-slate-800",
+                "sm:border-l sm:border-l-slate-100 dark:sm:border-l-slate-800",
+              placementAccentClass(entry.place),
               entry.place === 1 && "bg-amber-50/35 dark:bg-amber-400/[0.025]"
             )}
           >
@@ -69,16 +74,16 @@ export default function PodiumShowcase<T extends PlayerReference>({
                 </div>
                 <a
                   href={playerRoute(entry.playerId)}
-                  className="mt-2 block truncate text-base font-bold text-inherit hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+                  className={`mt-2 block break-words text-base font-bold text-inherit underline-offset-4 hover:underline ${FOCUS_RING}`}
                 >
                   {entry.name}
                 </a>
               </div>
             </div>
             {(renderSummary || renderMeta) && (
-              <div className="mt-4 flex items-baseline justify-between gap-3 border-t border-slate-100 pt-3 dark:border-slate-800">
+              <div className="mt-4 flex flex-wrap items-baseline justify-between gap-3 border-t border-slate-100 pt-3 dark:border-slate-800">
                 {renderSummary && (
-                  <p className="font-display text-lg font-bold tabular-nums text-blue dark:text-blue-300">
+                  <p className="font-display text-2xl font-semibold tabular-nums text-blue dark:text-blue-300">
                     {renderSummary(entry)}
                   </p>
                 )}

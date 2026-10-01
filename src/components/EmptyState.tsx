@@ -1,5 +1,6 @@
-import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 import type { ReactNode } from "react";
+import { PANEL_SURFACE } from "@/lib/styles";
 
 interface EmptyStateProps {
   children: ReactNode;
@@ -9,8 +10,9 @@ interface EmptyStateProps {
 export default function EmptyState({ children, className }: EmptyStateProps) {
   return (
     <div
-      className={clsx(
-        "border border-slate-200 bg-white text-center dark:border-scoreboard dark:bg-ink",
+      className={twMerge(
+        PANEL_SURFACE,
+        "px-4 py-12 text-center text-sm text-slate-500 dark:text-slate-400",
         className
       )}
     >
