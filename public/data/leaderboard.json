@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-01T05:52:30.095Z",
+  "scrapedAt": "2026-10-01T15:23:15.339Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [],
@@ -1614,7 +1614,7 @@
       "seed": 4,
       "past30Days": 2300,
       "allTime": 2300,
-      "dupr": 4.622
+      "dupr": 4.698
     },
     {
       "id": "garrett-hallemeier",
@@ -1630,7 +1630,7 @@
       "seed": 6,
       "past30Days": 2000,
       "allTime": 3200,
-      "dupr": 4.397
+      "dupr": 4.391
     },
     {
       "id": "michael-fan",
@@ -1742,7 +1742,7 @@
       "seed": 20,
       "past30Days": 400,
       "allTime": 400,
-      "dupr": 4.611
+      "dupr": 4.633
     },
     {
       "id": "libby-liston",
@@ -1774,7 +1774,7 @@
       "seed": 24,
       "past30Days": 250,
       "allTime": 1150,
-      "dupr": 4.577
+      "dupr": 4.663
     },
     {
       "id": "austin-lin",
@@ -1806,7 +1806,7 @@
       "seed": 28,
       "past30Days": 125,
       "allTime": 125,
-      "dupr": 4.559
+      "dupr": 4.644
     },
     {
       "id": "mat-sevilla",
@@ -1870,7 +1870,7 @@
       "seed": 36,
       "past30Days": 0,
       "allTime": 0,
-      "dupr": 5.106
+      "dupr": 5.12
     },
     {
       "id": "chris-lee",
@@ -1945,9 +1945,17 @@
       "dupr": 4.121
     },
     {
+      "id": "jarrett-menary",
+      "name": "Jarrett Menary",
+      "seed": 46,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.112
+    },
+    {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 46,
+      "seed": 47,
       "past30Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -1955,7 +1963,7 @@
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 47,
+      "seed": 48,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -1963,7 +1971,7 @@
     {
       "id": "phil-mckenna",
       "name": "Phil Mckenna",
-      "seed": 48,
+      "seed": 49,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.979
@@ -1971,7 +1979,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 49,
+      "seed": 50,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -1979,7 +1987,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 50,
+      "seed": 51,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -1987,7 +1995,7 @@
     {
       "id": "sreekanth-peyyeti",
       "name": "Sreekanth Peyyeti",
-      "seed": 51,
+      "seed": 52,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.876
@@ -2000,7 +2008,7 @@
         "date": "2026-10-01",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 20,
+        "registeredPlayerCount": 21,
         "registeredPlayerIds": [
           "aniket-sharma",
           "austin-lin",
@@ -2021,7 +2029,8 @@
           "sharan-tej-kodumuru",
           "shiva-garimella",
           "sreekanth-peyyeti",
-          "tobi-ola"
+          "tobi-ola",
+          "jarrett-menary"
         ],
         "unmatchedRegistrantNames": []
       },
