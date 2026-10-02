@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-02T05:36:14.962Z",
+  "scrapedAt": "2026-10-02T08:35:45.778Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2847,37 +2847,6 @@
   ],
   "events": {
     "upcoming": [
-      {
-        "id": "2026-10-01",
-        "date": "2026-10-01",
-        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/FSV32D310117242",
-        "gameMakerUrl": null,
-        "registeredPlayerCount": 21,
-        "registeredPlayerIds": [
-          "aniket-sharma",
-          "austin-lin",
-          "brian-romine",
-          "garrett-hallemeier",
-          "john-paden",
-          "kyle-weaver",
-          "mat-sevilla",
-          "matthew-trokey",
-          "michael-fan",
-          "mike-scibona",
-          "orlando-paez",
-          "phil-mckenna",
-          "preston-behlmann",
-          "sai-ram-reddy-tipireddy",
-          "sean-liston",
-          "sharan-tej-kodumuru",
-          "shiva-garimella",
-          "sreekanth-peyyeti",
-          "tobi-ola",
-          "dominic-williams",
-          "jarrett-menary"
-        ],
-        "unmatchedRegistrantNames": []
-      },
       {
         "id": "2026-10-08",
         "date": "2026-10-08",
