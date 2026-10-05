@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-04T23:10:21.101Z",
+  "scrapedAt": "2026-10-05T02:00:37.151Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2409,7 +2409,7 @@
       "name": "Tobi Ola",
       "seed": 1,
       "past30Days": 5000,
-      "allTime": 0,
+      "allTime": 5300,
       "dupr": 4.525
     },
     {
@@ -2417,7 +2417,7 @@
       "name": "Garrett Hallemeier",
       "seed": 2,
       "past30Days": 4300,
-      "allTime": 0,
+      "allTime": 4300,
       "dupr": 4.597
     },
     {
@@ -2425,7 +2425,7 @@
       "name": "Chase Blickhan",
       "seed": 3,
       "past30Days": 3700,
-      "allTime": 0,
+      "allTime": 3700,
       "dupr": 4.931
     },
     {
@@ -2433,7 +2433,7 @@
       "name": "Sean Liston",
       "seed": 4,
       "past30Days": 3400,
-      "allTime": 0,
+      "allTime": 3400,
       "dupr": 4.019
     },
     {
@@ -2441,7 +2441,7 @@
       "name": "Preston Behlmann",
       "seed": 5,
       "past30Days": 2700,
-      "allTime": 0,
+      "allTime": 2700,
       "dupr": 4.698
     },
     {
@@ -2449,7 +2449,7 @@
       "name": "Michael Fan",
       "seed": 6,
       "past30Days": 2700,
-      "allTime": 0,
+      "allTime": 2700,
       "dupr": 4.28
     },
     {
@@ -2457,7 +2457,7 @@
       "name": "John Paden",
       "seed": 7,
       "past30Days": 2350,
-      "allTime": 0,
+      "allTime": 2350,
       "dupr": 4.577
     },
     {
@@ -2465,7 +2465,7 @@
       "name": "Brian Romine",
       "seed": 8,
       "past30Days": 2125,
-      "allTime": 0,
+      "allTime": 2125,
       "dupr": 4.388
     },
     {
@@ -2473,7 +2473,7 @@
       "name": "Jon Harris",
       "seed": 9,
       "past30Days": 2000,
-      "allTime": 0,
+      "allTime": 3200,
       "dupr": 4.391
     },
     {
@@ -2481,7 +2481,7 @@
       "name": "Jon Richert",
       "seed": 10,
       "past30Days": 1850,
-      "allTime": 0,
+      "allTime": 1975,
       "dupr": 4.509
     },
     {
@@ -2489,7 +2489,7 @@
       "name": "Brett Mell",
       "seed": 11,
       "past30Days": 1600,
-      "allTime": 0,
+      "allTime": 1600,
       "dupr": 4.841
     },
     {
@@ -2497,7 +2497,7 @@
       "name": "Aniket Sharma",
       "seed": 12,
       "past30Days": 1400,
-      "allTime": 0,
+      "allTime": 1400,
       "dupr": 4.633
     },
     {
@@ -2505,7 +2505,7 @@
       "name": "Orlando Paez",
       "seed": 13,
       "past30Days": 1225,
-      "allTime": 0,
+      "allTime": 1725,
       "dupr": 4.294
     },
     {
@@ -2513,7 +2513,7 @@
       "name": "Kyle Laramie",
       "seed": 14,
       "past30Days": 900,
-      "allTime": 0,
+      "allTime": 900,
       "dupr": 5.033
     },
     {
@@ -2521,7 +2521,7 @@
       "name": "Sam Ngo",
       "seed": 15,
       "past30Days": 880,
-      "allTime": 0,
+      "allTime": 1030,
       "dupr": 3.596
     },
     {
@@ -2529,7 +2529,7 @@
       "name": "Dominic Williams",
       "seed": 16,
       "past30Days": 600,
-      "allTime": 0,
+      "allTime": 600,
       "dupr": 4.553
     },
     {
@@ -2537,7 +2537,7 @@
       "name": "John Tuason",
       "seed": 17,
       "past30Days": 600,
-      "allTime": 0,
+      "allTime": 600,
       "dupr": 4.122
     },
     {
@@ -2545,7 +2545,7 @@
       "name": "Mayur Ostwal",
       "seed": 18,
       "past30Days": 600,
-      "allTime": 0,
+      "allTime": 600,
       "dupr": 2
     },
     {
@@ -2553,7 +2553,7 @@
       "name": "Steven Benedict",
       "seed": 19,
       "past30Days": 500,
-      "allTime": 0,
+      "allTime": 500,
       "dupr": 4.433
     },
     {
@@ -2561,7 +2561,7 @@
       "name": "Khoa Nguyen",
       "seed": 20,
       "past30Days": 500,
-      "allTime": 0,
+      "allTime": 500,
       "dupr": 2
     },
     {
@@ -2569,7 +2569,7 @@
       "name": "Kevin Reque",
       "seed": 21,
       "past30Days": 450,
-      "allTime": 0,
+      "allTime": 450,
       "dupr": 4.274
     },
     {
@@ -2577,7 +2577,7 @@
       "name": "Libby Liston",
       "seed": 22,
       "past30Days": 400,
-      "allTime": 0,
+      "allTime": 400,
       "dupr": 2
     },
     {
@@ -2585,7 +2585,7 @@
       "name": "Austin Lin",
       "seed": 23,
       "past30Days": 350,
-      "allTime": 0,
+      "allTime": 350,
       "dupr": 4.33
     },
     {
@@ -2593,7 +2593,7 @@
       "name": "Shiva Garimella",
       "seed": 24,
       "past30Days": 350,
-      "allTime": 0,
+      "allTime": 350,
       "dupr": 4.106
     },
     {
@@ -2601,7 +2601,7 @@
       "name": "Matt Fleming",
       "seed": 25,
       "past30Days": 330,
-      "allTime": 0,
+      "allTime": 330,
       "dupr": 4.303
     },
     {
@@ -2609,7 +2609,7 @@
       "name": "Mat Sevilla",
       "seed": 26,
       "past30Days": 325,
-      "allTime": 0,
+      "allTime": 725,
       "dupr": 4.476
     },
     {
@@ -2617,7 +2617,7 @@
       "name": "Sreekanth Peyyeti",
       "seed": 27,
       "past30Days": 300,
-      "allTime": 0,
+      "allTime": 300,
       "dupr": 3.876
     },
     {
@@ -2625,7 +2625,7 @@
       "name": "Matthew Johnson",
       "seed": 28,
       "past30Days": 300,
-      "allTime": 0,
+      "allTime": 300,
       "dupr": 3.764
     },
     {
@@ -2633,7 +2633,7 @@
       "name": "Dev Newsome",
       "seed": 29,
       "past30Days": 250,
-      "allTime": 0,
+      "allTime": 1150,
       "dupr": 4.663
     },
     {
@@ -2641,7 +2641,7 @@
       "name": "Bekah Ola",
       "seed": 30,
       "past30Days": 200,
-      "allTime": 0,
+      "allTime": 200,
       "dupr": 4.248
     },
     {
@@ -2649,7 +2649,7 @@
       "name": "Todd Wahl",
       "seed": 31,
       "past30Days": 200,
-      "allTime": 0,
+      "allTime": 200,
       "dupr": 4.009
     },
     {
@@ -2657,7 +2657,7 @@
       "name": "Brooks Toth",
       "seed": 32,
       "past30Days": 125,
-      "allTime": 0,
+      "allTime": 125,
       "dupr": 4.644
     },
     {
@@ -2665,7 +2665,7 @@
       "name": "Mike Scibona",
       "seed": 33,
       "past30Days": 100,
-      "allTime": 0,
+      "allTime": 100,
       "dupr": 4.392
     },
     {
@@ -2673,7 +2673,7 @@
       "name": "Matthew Hultman",
       "seed": 34,
       "past30Days": 100,
-      "allTime": 0,
+      "allTime": 100,
       "dupr": 4.245
     },
     {
@@ -2681,7 +2681,7 @@
       "name": "Luke Bovee",
       "seed": 35,
       "past30Days": 100,
-      "allTime": 0,
+      "allTime": 100,
       "dupr": 4.011
     },
     {
@@ -2689,7 +2689,7 @@
       "name": "Ryan Niedermayer",
       "seed": 36,
       "past30Days": 80,
-      "allTime": 0,
+      "allTime": 80,
       "dupr": 4.202
     },
     {
@@ -2697,7 +2697,7 @@
       "name": "Jarrett Menary",
       "seed": 37,
       "past30Days": 80,
-      "allTime": 0,
+      "allTime": 80,
       "dupr": 4.112
     },
     {
@@ -2705,7 +2705,7 @@
       "name": "Randy Walters",
       "seed": 38,
       "past30Days": 60,
-      "allTime": 0,
+      "allTime": 60,
       "dupr": 4.091
     },
     {
@@ -2713,7 +2713,7 @@
       "name": "Matthew Trokey",
       "seed": 39,
       "past30Days": 60,
-      "allTime": 0,
+      "allTime": 60,
       "dupr": 4.062
     },
     {
@@ -2721,7 +2721,7 @@
       "name": "Nick Borger",
       "seed": 40,
       "past30Days": 60,
-      "allTime": 0,
+      "allTime": 60,
       "dupr": 4.059
     },
     {
@@ -2729,7 +2729,7 @@
       "name": "Phil Mckenna",
       "seed": 41,
       "past30Days": 50,
-      "allTime": 0,
+      "allTime": 50,
       "dupr": 3.979
     },
     {
@@ -2737,7 +2737,7 @@
       "name": "Sharan Tej Kodumuru",
       "seed": 42,
       "past30Days": 40,
-      "allTime": 0,
+      "allTime": 40,
       "dupr": 4.136
     },
     {
@@ -2745,7 +2745,7 @@
       "name": "Kyle Weaver",
       "seed": 43,
       "past30Days": 30,
-      "allTime": 0,
+      "allTime": 30,
       "dupr": 4.121
     },
     {
@@ -2753,7 +2753,7 @@
       "name": "Sai Ram Reddy",
       "seed": 44,
       "past30Days": 25,
-      "allTime": 0,
+      "allTime": 25,
       "dupr": 2
     },
     {
@@ -2793,7 +2793,7 @@
       "name": "Michael Randle",
       "seed": 49,
       "past30Days": 0,
-      "allTime": 0,
+      "allTime": 200,
       "dupr": 4.314
     },
     {
@@ -2801,7 +2801,7 @@
       "name": "James Brown",
       "seed": 50,
       "past30Days": 0,
-      "allTime": 0,
+      "allTime": 750,
       "dupr": 4.292
     },
     {
@@ -2809,7 +2809,7 @@
       "name": "Derek Dallas",
       "seed": 51,
       "past30Days": 0,
-      "allTime": 0,
+      "allTime": 250,
       "dupr": 4.142
     },
     {
@@ -2817,7 +2817,7 @@
       "name": "Ivan Gutierrez",
       "seed": 52,
       "past30Days": 0,
-      "allTime": 0,
+      "allTime": 1500,
       "dupr": 4.111
     },
     {
@@ -2833,7 +2833,7 @@
       "name": "Preston Langlois",
       "seed": 54,
       "past30Days": 0,
-      "allTime": 0,
+      "allTime": 600,
       "dupr": 3.946
     },
     {
@@ -2852,11 +2852,12 @@
         "date": "2026-10-08",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062576",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 4,
+        "registeredPlayerCount": 5,
         "registeredPlayerIds": [
           "austin-lin",
           "garrett-hallemeier",
           "kevin-reque",
+          "mike-scibona",
           "sean-liston"
         ],
         "unmatchedRegistrantNames": []
