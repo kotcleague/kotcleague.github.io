@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-05T02:00:37.151Z",
+  "scrapedAt": "2026-10-06T00:49:19.063Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2805,9 +2805,17 @@
       "dupr": 4.292
     },
     {
+      "id": "jeff-ross",
+      "name": "Jeff Ross",
+      "seed": 51,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.226
+    },
+    {
       "id": "derek-dallas",
       "name": "Derek Dallas",
-      "seed": 51,
+      "seed": 52,
       "past30Days": 0,
       "allTime": 250,
       "dupr": 4.142
@@ -2815,7 +2823,7 @@
     {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 52,
+      "seed": 53,
       "past30Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -2823,7 +2831,7 @@
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 53,
+      "seed": 54,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -2831,7 +2839,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 54,
+      "seed": 55,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -2839,7 +2847,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 55,
+      "seed": 56,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -2852,13 +2860,16 @@
         "date": "2026-10-08",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062576",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 5,
+        "registeredPlayerCount": 8,
         "registeredPlayerIds": [
           "austin-lin",
+          "chase-blickhan",
           "garrett-hallemeier",
           "kevin-reque",
           "mike-scibona",
-          "sean-liston"
+          "sean-liston",
+          "shiva-garimella",
+          "jeff-ross"
         ],
         "unmatchedRegistrantNames": []
       },
