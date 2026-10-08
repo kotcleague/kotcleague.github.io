@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-08T15:36:41.001Z",
+  "scrapedAt": "2026-10-08T20:51:43.756Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2860,12 +2860,15 @@
         "date": "2026-10-08",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062576",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 9,
+        "registeredPlayerCount": 12,
         "registeredPlayerIds": [
           "austin-lin",
+          "brian-romine",
           "chase-blickhan",
           "garrett-hallemeier",
           "john-paden",
+          "jon-harris",
+          "jon-richert",
           "kevin-reque",
           "luke-bovee",
           "mike-scibona",
