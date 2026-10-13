@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-12T22:58:56.988Z",
+  "scrapedAt": "2026-10-13T19:17:01.374Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -3036,9 +3036,10 @@
         "date": "2026-10-15",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062578",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 8,
+        "registeredPlayerCount": 9,
         "registeredPlayerIds": [
           "austin-lin",
+          "brian-romine",
           "jarrett-menary",
           "kevin-reque",
           "mat-sevilla",
