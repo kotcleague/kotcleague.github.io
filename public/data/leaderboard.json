@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-13T23:18:41.969Z",
+  "scrapedAt": "2026-10-14T10:12:19.096Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -3036,7 +3036,7 @@
         "date": "2026-10-15",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062578",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 10,
+        "registeredPlayerCount": 9,
         "registeredPlayerIds": [
           "aniket-sharma",
           "austin-lin",
@@ -3046,8 +3046,7 @@
           "mat-sevilla",
           "ryan-niedermayer",
           "sean-liston",
-          "tobi-ola",
-          "jeff-ross"
+          "tobi-ola"
         ],
         "unmatchedRegistrantNames": []
       },
