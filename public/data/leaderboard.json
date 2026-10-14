@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-14T15:08:43.791Z",
+  "scrapedAt": "2026-10-14T23:13:53.330Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2981,9 +2981,17 @@
       "dupr": 4.245
     },
     {
+      "id": "otto-may",
+      "name": "Otto May",
+      "seed": 52,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.217
+    },
+    {
       "id": "derek-dallas",
       "name": "Derek Dallas",
-      "seed": 52,
+      "seed": 53,
       "past30Days": 0,
       "allTime": 250,
       "dupr": 4.142
@@ -2991,7 +2999,7 @@
     {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 53,
+      "seed": 54,
       "past30Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -2999,7 +3007,7 @@
     {
       "id": "nick-borger",
       "name": "Nick Borger",
-      "seed": 54,
+      "seed": 55,
       "past30Days": 0,
       "allTime": 60,
       "dupr": 4.059
@@ -3007,7 +3015,7 @@
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 55,
+      "seed": 56,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.05
@@ -3015,7 +3023,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 56,
+      "seed": 57,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -3023,7 +3031,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 57,
+      "seed": 58,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -3046,11 +3054,10 @@
           "mat-sevilla",
           "ryan-niedermayer",
           "sean-liston",
-          "tobi-ola"
+          "tobi-ola",
+          "otto-may"
         ],
-        "unmatchedRegistrantNames": [
-          "Otto M."
-        ]
+        "unmatchedRegistrantNames": []
       },
       {
         "id": "2026-10-22",
