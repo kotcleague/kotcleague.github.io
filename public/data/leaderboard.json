@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-14T23:24:00.614Z",
+  "scrapedAt": "2026-10-15T01:29:44.223Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2933,8 +2933,8 @@
       "dupr": 4.644
     },
     {
-      "id": "chris-lee",
-      "name": "Chris Lee",
+      "id": "christopher-lee",
+      "name": "Christopher Lee",
       "seed": 46,
       "past30Days": 0,
       "allTime": 0,
@@ -3058,17 +3058,16 @@
           "austin-lin",
           "brian-romine",
           "chris-goff",
+          "christopher-lee",
           "jarrett-menary",
           "kevin-reque",
           "mat-sevilla",
+          "otto-may",
           "ryan-niedermayer",
           "sean-liston",
-          "tobi-ola",
-          "otto-may"
+          "tobi-ola"
         ],
-        "unmatchedRegistrantNames": [
-          "Christopher L."
-        ]
+        "unmatchedRegistrantNames": []
       },
       {
         "id": "2026-10-22",
