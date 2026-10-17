@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-16T22:51:22.773Z",
+  "scrapedAt": "2026-10-17T01:19:10.169Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -3186,13 +3186,14 @@
         "date": "2026-10-22",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062580",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 9,
+        "registeredPlayerCount": 10,
         "registeredPlayerIds": [
           "brian-romine",
           "christopher-lee",
           "jarrett-menary",
           "kevin-reque",
           "mat-sevilla",
+          "otto-may",
           "preston-behlmann",
           "sean-liston",
           "shiva-garimella",
