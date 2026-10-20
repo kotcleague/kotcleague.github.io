@@ -100,5 +100,67 @@ Shareable detail routes use `#/schedule/YYYY-MM-DD` for events and
 `#/players/player-id` for players. The league format lives at `#/format`, and
 the contact form lives at `#/contact`.
 
+## Club match and October qualification standings
+
+The November 1, 2026 Paddle Up vs Club 65 match is maintained in
+`src/config/specialEvent.ts` and has a shareable details page at
+`#/schedule/paddle-up-vs-club-65-2026`. Its Rankings teaser and Schedule entry
+remain visible through the event date in America/Chicago; the details URL
+remains available afterward. Below the club-vs-club header, the event has three
+sections: At a glance, the six-row game lineup, and October
+standings. Partner rotation is explained with the lineup; the invitation
+process is explained with the standings instead of separate sections. The
+event and Format page share `QuickFacts`; the event uses its compact variant with
+the original small blue labels. Its fact boxes show players, date/time, venue,
+and format, with scoring and the DreamBreaker explained in the Rules note.
+The snapshot retains all players; source links lead to full leaderboards. Both clubs stay side by
+side on narrow screens; points are hidden when an individual standings card
+has less than 17rem of content width, keeping full player names readable.
+This club match is separate from
+scraped league registration, player profiles, and results.
+
+The details page loads both clubs' October 2026 qualification snapshots from
+`public/data/club-match-2026.json`. To refresh them:
+
+```bash
+npx playwright install chromium
+npm run scrape
+npm run scrape:qualification
+npm run test:qualification
+```
+
+RekPlay is client-rendered. The scraper opens the public
+[Club 65 session](https://www.rekplay.com/live/dtzk1o), explicitly selects
+**Overall** (the page defaults to Week 2), verifies the selected tab and Monthly
+Winners heading, then reads the published ranks, ties, weekly scores, totals,
+records, and qualification notes. It preserves Club 65's own scoring and strips
+trailing asterisks from player names, retaining their eligibility meaning
+as separate metadata without adding the marker back to displayed names. It does
+not combine it with Paddle Up's points. Paddle Up data comes from the validated
+current-month league output. Standings are not confirmed rosters.
+
+The hourly workflow installs Chromium and runs both scrapers, committing and
+redeploying only when substantive data changes. Snapshots are validated and
+replaced atomically. Qualification failures are reported as workflow failures
+after allowing regular league updates to publish; previous qualification data
+is retained. Capture timestamps remain in the snapshot data but are not displayed
+on the event page.
+
+Capture is restricted to October 2026 in America/Chicago. After October 31,
+the last successful October snapshots are retained and labeled as saved
+snapshots, not guaranteed final standings. A missing snapshot after rollover is
+an error, never a reason to substitute November rankings. Verify final
+invitations against each club's source.
+
+On systems unsupported by Playwright's bundled Chromium, an installed compatible
+Chromium browser can be used explicitly, for example:
+
+```bash
+PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH="/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge" npm run scrape:qualification
+```
+
+The same environment variable applies to `npm run test:qualification`. Linux CI
+uses Playwright's bundled Chromium (`npx playwright install --with-deps chromium`).
+
 Pushes to `main` build the site to Vite's ignored `dist/` directory and deploy
 that output through the GitHub Pages artifact workflow.

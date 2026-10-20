@@ -11,6 +11,7 @@ import LeaderboardPage from "@/pages/LeaderboardPage";
 import PlayerPage from "@/pages/PlayerPage";
 import SchedulePage from "@/pages/SchedulePage";
 import UpcomingEventAssignmentsPage from "@/pages/UpcomingEventAssignmentsPage";
+import SpecialEventPage from "@/pages/SpecialEventPage";
 
 export default function App() {
   const route = useHashRoute();
@@ -22,6 +23,9 @@ export default function App() {
 
   let content;
   switch (route.page) {
+    case "club-match":
+      content = <SpecialEventPage />;
+      break;
     case "schedule":
       content = (
         <SchedulePage monthId={route.monthId} pastMonths={route.pastMonths} />

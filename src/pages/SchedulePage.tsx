@@ -16,6 +16,8 @@ import RegistrationSummary from "@/components/RegistrationSummary";
 import SectionHeading from "@/components/SectionHeading";
 import StatGrid from "@/components/StatGrid";
 import WatchLivestreamLink from "@/components/WatchLivestreamLink";
+import SpecialEventCard from "@/components/SpecialEventCard";
+import { CLUB_MATCH, showClubMatch } from "@/config/specialEvent";
 import { eventRoute, monthRoute, ROUTES } from "@/config/site";
 import { buildPlayerProfileIndex, type PlayerProfile } from "@/lib/players";
 import { META_LABEL_ACCENT, META_LABEL_MUTED, PANEL_INSET } from "@/lib/styles";
@@ -204,16 +206,31 @@ function ScheduleTabs({ pastMonths }: { pastMonths: boolean }) {
 }
 
 function UpcomingEventsView({ events }: { events: UpcomingEvent[] }) {
+  const entries = [
+    ...events.map((event) => ({
+      kind: "league" as const,
+      date: event.date,
+      event,
+    })),
+    ...(showClubMatch()
+      ? [{ kind: "club-match" as const, date: CLUB_MATCH.date }]
+      : []),
+  ].sort((left, right) => left.date.localeCompare(right.date));
+
   return (
     <section aria-labelledby="upcoming-events">
       <SectionHeading id="upcoming-events" eyebrow="On the calendar">
         Upcoming events
       </SectionHeading>
-      {events.length > 0 ? (
+      {entries.length > 0 ? (
         <div className="space-y-3">
-          {events.map((event) => (
-            <UpcomingEventRow key={event.id} event={event} />
-          ))}
+          {entries.map((entry) =>
+            entry.kind === "club-match" ? (
+              <SpecialEventCard key={CLUB_MATCH.id} />
+            ) : (
+              <UpcomingEventRow key={entry.event.id} event={entry.event} />
+            )
+          )}
         </div>
       ) : (
         <EmptyState>No upcoming events have been posted yet.</EmptyState>

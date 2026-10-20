@@ -12,6 +12,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
     "scrape": "node scripts/scrape.mjs",
+    "scrape:qualification": "node scripts/scrape-qualification.mjs",
+    "test:qualification": "node --test scripts/qualification.test.mjs",
     "add-player-photo": "node scripts/add-player-photo.mjs",
     "preview": "vite preview"
   },
@@ -32,6 +34,7 @@
     "eslint": "^8.50.0",
     "globals": "^16.5.0",
     "prettier": "^2.8.8",
+    "playwright": "^1.56.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.52.0",

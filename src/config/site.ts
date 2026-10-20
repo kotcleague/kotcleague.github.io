@@ -1,3 +1,5 @@
+import { CLUB_MATCH } from "@/config/specialEvent";
+
 export const ROUTES = {
   rankings: "#/",
   schedule: "#/schedule",
@@ -6,6 +8,7 @@ export const ROUTES = {
   contact: "#/contact",
   assignments: "#/assignments",
   deals: "#/deals",
+  clubMatch: `#/schedule/${CLUB_MATCH.id}`,
 } as const;
 
 export type ContactCategory = "join" | "question" | "feedback";
@@ -14,6 +17,7 @@ export type AppRoute =
   | { page: "rankings" }
   | { page: "schedule"; monthId?: string; pastMonths?: boolean }
   | { page: "event"; eventId: string }
+  | { page: "club-match" }
   | { page: "event-assignments"; eventId: string }
   | { page: "player"; playerId: string }
   | { page: "format" }
@@ -131,6 +135,7 @@ export function assignmentPlayerIdsFromHash(hash: string) {
 }
 
 export function navigationPageForRoute(route: AppRoute): NavigationPage | null {
+  if (route.page === "club-match") return "schedule";
   if (route.page === "player") return "rankings";
   if (route.page === "event" || route.page === "event-assignments") {
     return "schedule";
@@ -141,6 +146,9 @@ export function navigationPageForRoute(route: AppRoute): NavigationPage | null {
 }
 
 export function documentTitleForRoute(route: AppRoute) {
+  if (route.page === "club-match") {
+    return `${CLUB_MATCH.title} | November 1, 2026`;
+  }
   if (route.page === "deals") {
     return "KOTC League | Pickleball Deals";
   }
@@ -159,6 +167,9 @@ export function documentTitleForRoute(route: AppRoute) {
 export function parseHashRoute(hash: string): AppRoute {
   const path = hash.split("?")[0];
 
+  if (path === ROUTES.clubMatch || path === `${ROUTES.clubMatch}/`) {
+    return { page: "club-match" };
+  }
   if (path === "" || path === ROUTES.rankings) {
     return { page: "rankings" };
   }

@@ -14,6 +14,8 @@ import RegistrationSummary from "@/components/RegistrationSummary";
 import SectionHeading from "@/components/SectionHeading";
 import ViewTabs, { RANKING_VIEW_LABELS } from "@/components/ViewTabs";
 import WatchLivestreamLink from "@/components/WatchLivestreamLink";
+import SpecialEventCard from "@/components/SpecialEventCard";
+import { showClubMatch } from "@/config/specialEvent";
 import { eventRoute, ROUTES } from "@/config/site";
 import { buildPlayerProfileIndex, type PlayerProfile } from "@/lib/players";
 import { formatInteger } from "@/lib/format";
@@ -226,6 +228,11 @@ export default function LeaderboardPage() {
               >
                 Events and results
               </SectionHeading>
+              {showClubMatch() && (
+                <div className="mb-4">
+                  <SpecialEventCard compact />
+                </div>
+              )}
               <div
                 className={`grid overflow-hidden lg:grid-cols-2 ${PANEL_SURFACE}`}
               >

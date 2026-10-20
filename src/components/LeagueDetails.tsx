@@ -2,7 +2,6 @@ import {
   BadgeCheck,
   CalendarDays,
   CircleDollarSign,
-  Clock3,
   MapPin,
   Users,
 } from "lucide-react";
@@ -17,15 +16,11 @@ import {
 import Footer from "@/components/Footer";
 import PageContent from "@/components/PageContent";
 import PageHeader from "@/components/PageHeader";
+import QuickFacts from "@/components/QuickFacts";
 import SectionHeading from "@/components/SectionHeading";
 import TableShell from "@/components/TableShell";
 import { formatInteger } from "@/lib/format";
-import {
-  META_LABEL_ACCENT,
-  PANEL_ACCENT,
-  PANEL_INSET,
-  PANEL_SURFACE,
-} from "@/lib/styles";
+import { PANEL_SURFACE } from "@/lib/styles";
 import { contactRoute } from "@/config/site";
 
 interface LeagueDetailsProps {
@@ -102,61 +97,23 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
     <main>
       <PageHeader eyebrow="King of the Court">Format</PageHeader>
 
-      <PageContent className="space-y-12">
+      <PageContent className="space-y-8 sm:space-y-10">
         <section aria-labelledby="quick-facts">
-          <SectionHeading eyebrow="League essentials" id="quick-facts">
-            At a glance
-          </SectionHeading>
-          <div className={`${PANEL_SURFACE} ${PANEL_ACCENT}`}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-              {LEAGUE_FACTS.map(({ icon: Icon, label, lines, note }) => (
-                <div
-                  key={label}
-                  className="flex items-start gap-3 border-b border-slate-200 px-4 py-5 last:border-b-0 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:last:border-r-0 dark:border-slate-800"
-                >
-                  <Icon
-                    className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300"
-                    aria-hidden="true"
-                  />
-                  <div>
-                    <span className={`${META_LABEL_ACCENT} block`}>
-                      {label}
-                    </span>
-                    <span className="mt-1 block text-sm font-semibold leading-5">
-                      {lines.map((line) => (
-                        <span className="block" key={line}>
-                          {line}
-                        </span>
-                      ))}
-                    </span>
-                    {note && (
-                      <span className="mt-1 block text-xs text-slate-500 dark:text-slate-400">
-                        {note}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div
-              className={`flex items-start gap-3 border-t px-4 py-4 ${PANEL_INSET}`}
-            >
-              <Clock3
-                className="mt-0.5 h-5 w-5 shrink-0 text-blue dark:text-blue-300"
-                aria-hidden="true"
-              />
+          <SectionHeading id="quick-facts">At a glance</SectionHeading>
+          <QuickFacts
+            facts={LEAGUE_FACTS}
+            footer={
               <p className="text-sm leading-5 text-slate-600 dark:text-slate-300">
                 <strong className="text-ink dark:text-white">Scoring:</strong>{" "}
                 rally scoring to 21, win by 1, no freeze. Enter scores in Game
                 Maker. KOTC events are not DUPR-rated.
               </p>
-            </div>
-          </div>
+            }
+          />
         </section>
 
         <section aria-labelledby="league-eligibility">
           <SectionHeading
-            eyebrow="League eligibility"
             id="league-eligibility"
             description="Meet any one of these requirements. We review eligibility monthly to balance league size and competition."
           >
@@ -187,9 +144,7 @@ export default function LeagueDetails({ leaderboardUrl }: LeagueDetailsProps) {
         </section>
 
         <section aria-labelledby="league-flow">
-          <SectionHeading eyebrow="League flow" id="league-flow">
-            How it works
-          </SectionHeading>
+          <SectionHeading id="league-flow">How it works</SectionHeading>
           <ol
             className={`grid grid-cols-1 gap-5 p-5 sm:grid-cols-2 lg:grid-cols-4 ${PANEL_SURFACE}`}
           >
