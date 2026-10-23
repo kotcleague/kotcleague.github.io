@@ -3,7 +3,7 @@
   "clubs": {
     "paddle-up": {
       "source": "https://kotcleague.github.io/#/",
-      "capturedAt": "2026-10-19T22:13:07.622Z",
+      "capturedAt": "2026-10-23T03:30:48.159Z",
       "notes": [
         "Paddle Up October league points. Each club uses its own scoring system."
       ],
@@ -11,17 +11,17 @@
         {
           "rank": "1",
           "name": "Brian Romine",
-          "points": 3950
+          "points": 5150
         },
         {
           "rank": "2",
           "name": "Tobi Ola",
-          "points": 3400
+          "points": 4900
         },
         {
           "rank": "3",
           "name": "John Paden",
-          "points": 2700
+          "points": 3300
         },
         {
           "rank": "4",
@@ -35,136 +35,151 @@
         },
         {
           "rank": "6",
+          "name": "Michael Fan",
+          "points": 1700
+        },
+        {
+          "rank": "7",
+          "name": "Otto May",
+          "points": 1350
+        },
+        {
+          "rank": "8",
+          "name": "Sean Liston",
+          "points": 1275
+        },
+        {
+          "rank": "9",
           "name": "Mike Scibona",
           "points": 1050
         },
         {
-          "rank": "7",
+          "rank": "10",
+          "name": "Mat Sevilla",
+          "points": 950
+        },
+        {
+          "rank": "11",
           "name": "Jeff Ross",
           "points": 900
         },
         {
-          "rank": "8",
-          "name": "Michael Fan",
-          "points": 800
-        },
-        {
-          "rank": "9",
-          "name": "Sean Liston",
-          "points": 775
-        },
-        {
-          "rank": "10",
+          "rank": "12",
           "name": "Matt Fleming",
           "points": 750
         },
         {
-          "rank": "11",
-          "name": "Mat Sevilla",
-          "points": 700
+          "rank": "13",
+          "name": "Jarrett Menary",
+          "points": 605
         },
         {
-          "rank": "12",
+          "rank": "14",
           "name": "Dominic Williams",
           "points": 600
         },
         {
-          "rank": "13",
+          "rank": "15",
           "name": "Luke Bovee",
           "points": 600
         },
         {
-          "rank": "14",
-          "name": "Otto May",
-          "points": 600
-        },
-        {
-          "rank": "15",
+          "rank": "16",
           "name": "Matt Landolt",
           "points": 500
         },
         {
-          "rank": "16",
+          "rank": "17",
+          "name": "Shiva Garimella",
+          "points": 450
+        },
+        {
+          "rank": "18",
           "name": "Chase Blickhan",
           "points": 400
         },
         {
-          "rank": "17",
+          "rank": "19",
           "name": "Dan Green",
           "points": 400
         },
         {
-          "rank": "18",
+          "rank": "20",
           "name": "Preston Behlmann",
           "points": 400
         },
         {
-          "rank": "19",
+          "rank": "21",
           "name": "Austin Lin",
           "points": 350
         },
         {
-          "rank": "20",
+          "rank": "22",
           "name": "Chris Goff",
           "points": 300
         },
         {
-          "rank": "21",
+          "rank": "23",
+          "name": "Chris Lee",
+          "points": 300
+        },
+        {
+          "rank": "24",
           "name": "Sreekanth Peyyeti",
           "points": 300
         },
         {
-          "rank": "22",
+          "rank": "25",
           "name": "Jon Richert",
           "points": 250
         },
         {
-          "rank": "23",
+          "rank": "26",
           "name": "Ryan Niedermayer",
           "points": 250
         },
         {
-          "rank": "24",
-          "name": "Shiva Garimella",
-          "points": 250
+          "rank": "27",
+          "name": "Kevin Folkl",
+          "points": 150
         },
         {
-          "rank": "25",
-          "name": "Jarrett Menary",
-          "points": 205
-        },
-        {
-          "rank": "26",
+          "rank": "28",
           "name": "Tim Long",
           "points": 150
         },
         {
-          "rank": "27",
+          "rank": "29",
+          "name": "Michael Randle",
+          "points": 125
+        },
+        {
+          "rank": "30",
           "name": "Orlando Paez",
           "points": 125
         },
         {
-          "rank": "28",
+          "rank": "31",
           "name": "Matthew Trokey",
           "points": 60
         },
         {
-          "rank": "29",
+          "rank": "32",
           "name": "Phil Mckenna",
           "points": 50
         },
         {
-          "rank": "30",
+          "rank": "33",
           "name": "Sharan Tej Kodumuru",
           "points": 40
         },
         {
-          "rank": "31",
+          "rank": "34",
           "name": "Kyle Weaver",
           "points": 30
         },
         {
-          "rank": "32",
+          "rank": "35",
           "name": "Sai Ram Reddy",
           "points": 25
         }
