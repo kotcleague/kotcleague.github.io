@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-23T03:30:48.159Z",
+  "scrapedAt": "2026-10-23T07:31:37.487Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -3273,29 +3273,6 @@
   ],
   "events": {
     "upcoming": [
-      {
-        "id": "2026-10-22",
-        "date": "2026-10-22",
-        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062580",
-        "gameMakerUrl": null,
-        "registeredPlayerCount": 13,
-        "registeredPlayerIds": [
-          "brian-romine",
-          "christopher-lee",
-          "jarrett-menary",
-          "john-paden",
-          "kevin-folkl",
-          "kevin-reque",
-          "mat-sevilla",
-          "michael-fan",
-          "michael-randle",
-          "otto-may",
-          "sean-liston",
-          "shiva-garimella",
-          "tobi-ola"
-        ],
-        "unmatchedRegistrantNames": []
-      },
       {
         "id": "2026-10-29",
         "date": "2026-10-29",
