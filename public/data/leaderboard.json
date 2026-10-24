@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-24T18:08:44.684Z",
+  "scrapedAt": "2026-10-24T23:13:23.622Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -3159,9 +3159,17 @@
       "dupr": 4.292
     },
     {
+      "id": "daton-rippley",
+      "name": "Daton Rippley",
+      "seed": 48,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.289
+    },
+    {
       "id": "bekah-ola",
       "name": "Bekah Ola",
-      "seed": 48,
+      "seed": 49,
       "past30Days": 0,
       "allTime": 200,
       "dupr": 4.248
@@ -3169,7 +3177,7 @@
     {
       "id": "matthew-hultman",
       "name": "Matthew Hultman",
-      "seed": 49,
+      "seed": 50,
       "past30Days": 0,
       "allTime": 100,
       "dupr": 4.245
@@ -3177,7 +3185,7 @@
     {
       "id": "derek-dallas",
       "name": "Derek Dallas",
-      "seed": 50,
+      "seed": 51,
       "past30Days": 0,
       "allTime": 250,
       "dupr": 4.142
@@ -3185,7 +3193,7 @@
     {
       "id": "john-tuason",
       "name": "John Tuason",
-      "seed": 51,
+      "seed": 52,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 4.122
@@ -3193,7 +3201,7 @@
     {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 52,
+      "seed": 53,
       "past30Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -3201,7 +3209,7 @@
     {
       "id": "nick-borger",
       "name": "Nick Borger",
-      "seed": 53,
+      "seed": 54,
       "past30Days": 0,
       "allTime": 60,
       "dupr": 4.059
@@ -3209,7 +3217,7 @@
     {
       "id": "todd-wahl",
       "name": "Todd Wahl",
-      "seed": 54,
+      "seed": 55,
       "past30Days": 0,
       "allTime": 200,
       "dupr": 4.009
@@ -3217,7 +3225,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 55,
+      "seed": 56,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -3225,7 +3233,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 56,
+      "seed": 57,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -3233,7 +3241,7 @@
     {
       "id": "matthew-johnson",
       "name": "Matthew Johnson",
-      "seed": 57,
+      "seed": 58,
       "past30Days": 0,
       "allTime": 300,
       "dupr": 3.764
@@ -3241,7 +3249,7 @@
     {
       "id": "sam-ngo",
       "name": "Sam Ngo",
-      "seed": 58,
+      "seed": 59,
       "past30Days": 0,
       "allTime": 1030,
       "dupr": 3.596
@@ -3249,7 +3257,7 @@
     {
       "id": "mayur-ostwal",
       "name": "Mayur Ostwal",
-      "seed": 59,
+      "seed": 60,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 2
@@ -3257,7 +3265,7 @@
     {
       "id": "khoa-nguyen",
       "name": "Khoa Nguyen",
-      "seed": 60,
+      "seed": 61,
       "past30Days": 0,
       "allTime": 500,
       "dupr": 2
@@ -3265,7 +3273,7 @@
     {
       "id": "libby-liston",
       "name": "Libby Liston",
-      "seed": 61,
+      "seed": 62,
       "past30Days": 0,
       "allTime": 400,
       "dupr": 2
@@ -3284,11 +3292,28 @@
           "christopher-lee",
           "garrett-hallemeier",
           "sean-liston",
-          "tobi-ola"
+          "tobi-ola",
+          "daton-rippley"
         ],
-        "unmatchedRegistrantNames": [
-          "Daton R."
-        ]
+        "unmatchedRegistrantNames": []
+      },
+      {
+        "id": "2026-11-04",
+        "date": "2026-11-04",
+        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/8LJEBET10117112",
+        "gameMakerUrl": null,
+        "registeredPlayerCount": 0,
+        "registeredPlayerIds": [],
+        "unmatchedRegistrantNames": []
+      },
+      {
+        "id": "2026-11-11",
+        "date": "2026-11-11",
+        "courtReserveUrl": null,
+        "gameMakerUrl": null,
+        "registeredPlayerCount": 0,
+        "registeredPlayerIds": [],
+        "unmatchedRegistrantNames": []
       }
     ],
     "past": [
