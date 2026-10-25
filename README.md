@@ -102,7 +102,7 @@ the contact form lives at `#/contact`.
 
 ## Club match and October qualification standings
 
-The November 1, 2026 Paddle Up vs Club 65 match is maintained in
+The November 8, 2026 Paddle Up vs Club 65 match is maintained in
 `src/config/specialEvent.ts` and has a shareable details page at
 `#/schedule/paddle-up-vs-club-65-2026`. Its Rankings teaser and Schedule entry
 remain visible through the event date in America/Chicago; the details URL

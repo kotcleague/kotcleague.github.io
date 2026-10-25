@@ -20,7 +20,7 @@ export default function SpecialEventCard({
         <p className={META_LABEL_ACCENT}>Club match</p>
         <h3 className="mt-2 text-lg font-bold">Paddle Up vs Club 65</h3>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          November 1, 2026 · {CLUB_MATCH.time} · Paddle Up Chesterfield
+          November 8, 2026 · {CLUB_MATCH.time} · Paddle Up Chesterfield
         </p>
         {compact && (
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">

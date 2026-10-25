@@ -27,7 +27,7 @@ const EVENT_FACTS = [
   {
     icon: CalendarDays,
     label: "When",
-    lines: ["Sunday, November 1, 2026", `${CLUB_MATCH.time} CT`],
+    lines: ["Sunday, November 8, 2026", `${CLUB_MATCH.time} CT`],
   },
   {
     icon: MapPin,

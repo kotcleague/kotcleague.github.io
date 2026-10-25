@@ -147,7 +147,7 @@ export function navigationPageForRoute(route: AppRoute): NavigationPage | null {
 
 export function documentTitleForRoute(route: AppRoute) {
   if (route.page === "club-match") {
-    return `${CLUB_MATCH.title} | November 1, 2026`;
+    return `${CLUB_MATCH.title} | November 8, 2026`;
   }
   if (route.page === "deals") {
     return "KOTC League | Pickleball Deals";

@@ -62,7 +62,7 @@ const LEAGUE_FACTS = [
   {
     icon: CircleDollarSign,
     label: "Cost",
-    lines: ["Members $9", "Non-members $19"],
+    lines: ["Members $12", "Guests $32"],
     note: "Plus tax",
   },
 ];
