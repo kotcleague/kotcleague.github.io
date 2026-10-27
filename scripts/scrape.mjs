@@ -9,6 +9,8 @@ import {
 } from "fs";
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
+import { fetchCourtReserveRegistrants } from "./lib/courtreserve.mjs";
+import { HttpError, isRetryableFetchError } from "./lib/http.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = resolve(
@@ -145,22 +147,6 @@ const PERFORMANCE_FIELDS = [
   ["pointsAgainst", "PA"],
   ["pointDifferential", "Point diff %"],
 ];
-
-class HttpError extends Error {
-  constructor(response) {
-    super(`HTTP ${response.status} ${response.statusText}`);
-    this.status = response.status;
-  }
-}
-
-function isRetryableFetchError(error) {
-  return (
-    error instanceof TypeError ||
-    error?.name === "AbortError" ||
-    (error instanceof HttpError &&
-      (error.status === 408 || error.status === 429 || error.status >= 500))
-  );
-}
 
 function wait(milliseconds) {
   return new Promise((resolvePromise) =>
@@ -547,77 +533,6 @@ function matchCourtReserveName(name, players) {
   });
 
   return candidates.length === 1 ? candidates[0].id : null;
-}
-
-async function fetchCourtReserveRegistrants(url, context) {
-  let lastError;
-
-  for (let attempt = 1; attempt <= FETCH_ATTEMPTS; attempt += 1) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-
-    try {
-      const pageResponse = await fetch(url, { signal: controller.signal });
-      if (!pageResponse.ok) throw new HttpError(pageResponse);
-
-      const pageHtml = await pageResponse.text();
-      const endpointMatch =
-        /https:\/\/events\.courtreserve\.com\/Online\/EventsApi\/ApiDetails\?id=\d+&amp;[^']+/.exec(
-          pageHtml
-        );
-
-      if (!endpointMatch) {
-        throw new Error("Court Reserve details endpoint was not found");
-      }
-
-      const endpoint = endpointMatch[0].replaceAll("&amp;", "&");
-      const cookies =
-        pageResponse.headers
-          .getSetCookie?.()
-          .map((cookie) => cookie.split(";", 1)[0])
-          .join("; ") ?? "";
-      const detailsResponse = await fetch(endpoint, {
-        headers: {
-          cookie: cookies,
-          referer: url,
-        },
-        signal: controller.signal,
-      });
-
-      if (!detailsResponse.ok) throw new HttpError(detailsResponse);
-
-      const $ = load(await detailsResponse.text());
-      const table = $('[data-testid="registrants-table"]');
-
-      if (table.length === 0) {
-        return [];
-      }
-
-      return table
-        .find('[data-testid="name"]')
-        .map((_, element) => $(element).text().trim())
-        .get()
-        .filter(Boolean);
-    } catch (error) {
-      lastError = error;
-      if (attempt === FETCH_ATTEMPTS || !isRetryableFetchError(error)) break;
-
-      const delay = RETRY_BASE_DELAY_MS * 2 ** (attempt - 1);
-      console.warn(
-        `  Court Reserve attempt ${attempt}/${FETCH_ATTEMPTS} for ${context} failed (${error.message}); retrying in ${delay}ms...`
-      );
-      await wait(delay);
-    } finally {
-      clearTimeout(timeout);
-    }
-  }
-
-  throw new Error(
-    `Failed to fetch Court Reserve registrants for ${context}: ${
-      lastError?.message ?? "unknown error"
-    }`,
-    { cause: lastError }
-  );
 }
 
 async function enrichUpcomingEvents(events, players) {

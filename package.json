@@ -14,6 +14,7 @@
     "scrape": "node scripts/scrape.mjs",
     "scrape:qualification": "node scripts/scrape-qualification.mjs",
     "test:qualification": "node --test scripts/qualification.test.mjs",
+    "test:courtreserve": "node --test scripts/courtreserve.test.mjs",
     "add-player-photo": "node scripts/add-player-photo.mjs",
     "preview": "vite preview"
   },

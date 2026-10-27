@@ -89,6 +89,23 @@ IDs for the initial assignments tool. Fetches use bounded retries and
 timeouts, and the generated file is replaced atomically only after every tab
 and cross-sheet event count has been validated.
 
+CourtReserve scraping supports event links using either
+`/Online/Events/Details/<club-id>?resId=<reservation-id>` or
+`/Online/Events/Details/<club-id>/<event-code>`. It establishes an anonymous
+session with the event page, then requests CourtReserve's public details
+endpoint with session cookies and a Referer. No login or browser installation
+is needed for regular league scraping. Responses must contain valid event
+details, and registrant rows must agree with the published registrant count.
+An event with no registrants tab or table is treated as empty only after the
+event details have been validated; portal shells, login pages, and malformed
+responses fail the scrape rather than publishing a false zero count.
+
+Run the focused HTTP and parsing regression tests with:
+
+```bash
+npm run test:courtreserve
+```
+
 To link a past event to its YouTube livestream or recording, add a `YouTube
 URL` column to the `Past Events` tab and enter the matching URL on the event's
 row. The column and individual values are optional, and cells may contain
