@@ -3,7 +3,7 @@
   "clubs": {
     "paddle-up": {
       "source": "https://kotcleague.github.io/#/",
-      "capturedAt": "2026-10-23T03:30:48.159Z",
+      "capturedAt": "2026-10-27T00:40:19.819Z",
       "notes": [
         "Paddle Up October league points. Each club uses its own scoring system."
       ],
@@ -120,7 +120,7 @@
         },
         {
           "rank": "23",
-          "name": "Chris Lee",
+          "name": "Christopher Lee",
           "points": 300
         },
         {
@@ -187,10 +187,10 @@
     },
     "club-65": {
       "source": "https://www.rekplay.com/live/dtzk1o",
-      "capturedAt": "2026-10-22T07:41:54.477Z",
+      "capturedAt": "2026-10-27T00:40:55.131Z",
       "notes": [
         "Points: a first win is 1 and each win in a row after it 1.5; a first loss is 0 and each loss in a row after it -0.5. Streaks start over every week.",
-        "Total Points count each player's best 3 weeks. * = has not played 3 weeks yet, so the total can still change; these players are listed after those who have.",
+        "Total Points count each player's best 3 weeks. * = has not played 3 weeks yet, so the total can still change. The table is ordered by total points.",
         "W = wins, L = losses, +/- = points scored minus points allowed.",
         "Ties are settled by points, then point differential (+/-), then head-to-head. T = still tied."
       ],
@@ -212,96 +212,6 @@
         },
         {
           "rank": "2",
-          "name": "Ramy Shoela",
-          "incompleteWeeks": false,
-          "weeklyPoints": [
-            7,
-            2.5,
-            1,
-            null
-          ],
-          "points": 10.5,
-          "wins": 10,
-          "losses": 9,
-          "differential": 19
-        },
-        {
-          "rank": "3",
-          "name": "Ihtesham Gohar",
-          "incompleteWeeks": false,
-          "weeklyPoints": [
-            1.5,
-            4,
-            3,
-            null
-          ],
-          "points": 8.5,
-          "wins": 9,
-          "losses": 10,
-          "differential": -1
-        },
-        {
-          "rank": "4",
-          "name": "Matt Nelke",
-          "incompleteWeeks": false,
-          "weeklyPoints": [
-            5,
-            1,
-            2.5,
-            null
-          ],
-          "points": 8.5,
-          "wins": 9,
-          "losses": 10,
-          "differential": -14
-        },
-        {
-          "rank": "5",
-          "name": "Kevin Feeney",
-          "incompleteWeeks": false,
-          "weeklyPoints": [
-            2.5,
-            4,
-            -1,
-            null
-          ],
-          "points": 5.5,
-          "wins": 8,
-          "losses": 11,
-          "differential": -26
-        },
-        {
-          "rank": "6",
-          "name": "Andrew Shapiro",
-          "incompleteWeeks": false,
-          "weeklyPoints": [
-            1.5,
-            2.5,
-            -0.5,
-            null
-          ],
-          "points": 3.5,
-          "wins": 6,
-          "losses": 13,
-          "differential": -42
-        },
-        {
-          "rank": "7",
-          "name": "Jack Hutchings",
-          "incompleteWeeks": false,
-          "weeklyPoints": [
-            3,
-            -3,
-            3.5,
-            null
-          ],
-          "points": 3.5,
-          "wins": 6,
-          "losses": 13,
-          "differential": -48
-        },
-        {
-          "rank": "8",
           "name": "John Van Matre",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -316,7 +226,7 @@
           "differential": 46
         },
         {
-          "rank": "9",
+          "rank": "3",
           "name": "Preston Behlmann",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -331,7 +241,7 @@
           "differential": 44
         },
         {
-          "rank": "10",
+          "rank": "4",
           "name": "Eli McCully",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -346,7 +256,52 @@
           "differential": 35
         },
         {
-          "rank": "11",
+          "rank": "5",
+          "name": "Ramy Shoela",
+          "incompleteWeeks": false,
+          "weeklyPoints": [
+            7,
+            2.5,
+            1,
+            null
+          ],
+          "points": 10.5,
+          "wins": 10,
+          "losses": 9,
+          "differential": 19
+        },
+        {
+          "rank": "6",
+          "name": "Ihtesham Gohar",
+          "incompleteWeeks": false,
+          "weeklyPoints": [
+            1.5,
+            4,
+            3,
+            null
+          ],
+          "points": 8.5,
+          "wins": 9,
+          "losses": 10,
+          "differential": -1
+        },
+        {
+          "rank": "7",
+          "name": "Matt Nelke",
+          "incompleteWeeks": false,
+          "weeklyPoints": [
+            5,
+            1,
+            2.5,
+            null
+          ],
+          "points": 8.5,
+          "wins": 9,
+          "losses": 10,
+          "differential": -14
+        },
+        {
+          "rank": "8",
           "name": "Adam Elgarably",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -361,7 +316,7 @@
           "differential": 13
         },
         {
-          "rank": "12",
+          "rank": "9",
           "name": "Brian Munie",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -376,7 +331,7 @@
           "differential": 28
         },
         {
-          "rank": "13",
+          "rank": "10",
           "name": "Zach Corson",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -391,7 +346,7 @@
           "differential": 10
         },
         {
-          "rank": "14",
+          "rank": "11",
           "name": "Brad Nobel",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -406,7 +361,7 @@
           "differential": 4
         },
         {
-          "rank": "15",
+          "rank": "12",
           "name": "Tyler Bussman",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -421,7 +376,7 @@
           "differential": 3
         },
         {
-          "rank": "16",
+          "rank": "13",
           "name": "Jeff Ross",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -436,7 +391,7 @@
           "differential": -3
         },
         {
-          "rank": "17",
+          "rank": "14",
           "name": "Jon Harris",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -451,7 +406,22 @@
           "differential": -16
         },
         {
-          "rank": "18",
+          "rank": "15",
+          "name": "Kevin Feeney",
+          "incompleteWeeks": false,
+          "weeklyPoints": [
+            2.5,
+            4,
+            -1,
+            null
+          ],
+          "points": 5.5,
+          "wins": 8,
+          "losses": 11,
+          "differential": -26
+        },
+        {
+          "rank": "16",
           "name": "Nick Brown",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -466,7 +436,7 @@
           "differential": 25
         },
         {
-          "rank": "19",
+          "rank": "17",
           "name": "Tyler Firth",
           "incompleteWeeks": true,
           "weeklyPoints": [
@@ -479,6 +449,36 @@
           "wins": 4,
           "losses": 2,
           "differential": 8
+        },
+        {
+          "rank": "18",
+          "name": "Andrew Shapiro",
+          "incompleteWeeks": false,
+          "weeklyPoints": [
+            1.5,
+            2.5,
+            -0.5,
+            null
+          ],
+          "points": 3.5,
+          "wins": 6,
+          "losses": 13,
+          "differential": -42
+        },
+        {
+          "rank": "19",
+          "name": "Jack Hutchings",
+          "incompleteWeeks": false,
+          "weeklyPoints": [
+            3,
+            -3,
+            3.5,
+            null
+          ],
+          "points": 3.5,
+          "wins": 6,
+          "losses": 13,
+          "differential": -48
         },
         {
           "rank": "20",

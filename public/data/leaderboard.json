@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-25T19:06:33.796Z",
+  "scrapedAt": "2026-10-27T00:40:19.819Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -466,9 +466,9 @@
         "photoUrl": null
       },
       {
-        "id": "chris-lee",
+        "id": "christopher-lee",
         "rank": 23,
-        "name": "Chris Lee",
+        "name": "Christopher Lee",
         "points": 300,
         "gold": 0,
         "silver": 0,
@@ -1203,9 +1203,9 @@
         "photoUrl": null
       },
       {
-        "id": "chris-lee",
+        "id": "christopher-lee",
         "rank": 23,
-        "name": "Chris Lee",
+        "name": "Christopher Lee",
         "points": 300,
         "gold": 0,
         "silver": 0,
@@ -2318,9 +2318,9 @@
         "photoUrl": null
       },
       {
-        "id": "chris-lee",
+        "id": "christopher-lee",
         "rank": 41,
-        "name": "Chris Lee",
+        "name": "Christopher Lee",
         "points": 300,
         "gold": 0,
         "silver": 0,
@@ -2846,9 +2846,17 @@
       "dupr": 4.33
     },
     {
+      "id": "christopher-lee",
+      "name": "Christopher Lee",
+      "seed": 22,
+      "past30Days": 300,
+      "allTime": 300,
+      "dupr": 4.459
+    },
+    {
       "id": "chris-goff",
       "name": "Chris Goff",
-      "seed": 22,
+      "seed": 23,
       "past30Days": 300,
       "allTime": 300,
       "dupr": 4.445
@@ -2856,18 +2864,10 @@
     {
       "id": "sreekanth-peyyeti",
       "name": "Sreekanth Peyyeti",
-      "seed": 23,
-      "past30Days": 300,
-      "allTime": 300,
-      "dupr": 3.876
-    },
-    {
-      "id": "chris-lee",
-      "name": "Chris Lee",
       "seed": 24,
       "past30Days": 300,
       "allTime": 300,
-      "dupr": 2
+      "dupr": 3.876
     },
     {
       "id": "jon-richert",
@@ -2998,17 +2998,9 @@
       "dupr": 4.644
     },
     {
-      "id": "christopher-lee",
-      "name": "Christopher Lee",
-      "seed": 41,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4.459
-    },
-    {
       "id": "steven-benedict",
       "name": "Steven Benedict",
-      "seed": 42,
+      "seed": 41,
       "past30Days": 0,
       "allTime": 500,
       "dupr": 4.433
@@ -3016,7 +3008,7 @@
     {
       "id": "jon-harris",
       "name": "Jon Harris",
-      "seed": 43,
+      "seed": 42,
       "past30Days": 0,
       "allTime": 3200,
       "dupr": 4.391
@@ -3024,7 +3016,7 @@
     {
       "id": "josh-wilson",
       "name": "Josh Wilson",
-      "seed": 44,
+      "seed": 43,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.386
@@ -3032,7 +3024,7 @@
     {
       "id": "james-brown",
       "name": "James Brown",
-      "seed": 45,
+      "seed": 44,
       "past30Days": 0,
       "allTime": 750,
       "dupr": 4.292
@@ -3040,7 +3032,7 @@
     {
       "id": "daton-rippley",
       "name": "Daton Rippley",
-      "seed": 46,
+      "seed": 45,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.289
@@ -3048,7 +3040,7 @@
     {
       "id": "kevin-reque",
       "name": "Kevin Reque",
-      "seed": 47,
+      "seed": 46,
       "past30Days": 0,
       "allTime": 450,
       "dupr": 4.274
@@ -3056,7 +3048,7 @@
     {
       "id": "bekah-ola",
       "name": "Bekah Ola",
-      "seed": 48,
+      "seed": 47,
       "past30Days": 0,
       "allTime": 200,
       "dupr": 4.248
@@ -3064,7 +3056,7 @@
     {
       "id": "matthew-hultman",
       "name": "Matthew Hultman",
-      "seed": 49,
+      "seed": 48,
       "past30Days": 0,
       "allTime": 100,
       "dupr": 4.245
@@ -3072,7 +3064,7 @@
     {
       "id": "derek-dallas",
       "name": "Derek Dallas",
-      "seed": 50,
+      "seed": 49,
       "past30Days": 0,
       "allTime": 250,
       "dupr": 4.142
@@ -3080,7 +3072,7 @@
     {
       "id": "john-tuason",
       "name": "John Tuason",
-      "seed": 51,
+      "seed": 50,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 4.122
@@ -3088,7 +3080,7 @@
     {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 52,
+      "seed": 51,
       "past30Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -3096,7 +3088,7 @@
     {
       "id": "randy-walters",
       "name": "Randy Walters",
-      "seed": 53,
+      "seed": 52,
       "past30Days": 0,
       "allTime": 60,
       "dupr": 4.091
@@ -3104,7 +3096,7 @@
     {
       "id": "nick-borger",
       "name": "Nick Borger",
-      "seed": 54,
+      "seed": 53,
       "past30Days": 0,
       "allTime": 60,
       "dupr": 4.059
@@ -3112,7 +3104,7 @@
     {
       "id": "todd-wahl",
       "name": "Todd Wahl",
-      "seed": 55,
+      "seed": 54,
       "past30Days": 0,
       "allTime": 200,
       "dupr": 4.009
@@ -3120,7 +3112,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 56,
+      "seed": 55,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -3128,7 +3120,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 57,
+      "seed": 56,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -3136,7 +3128,7 @@
     {
       "id": "matthew-johnson",
       "name": "Matthew Johnson",
-      "seed": 58,
+      "seed": 57,
       "past30Days": 0,
       "allTime": 300,
       "dupr": 3.764
@@ -3144,7 +3136,7 @@
     {
       "id": "sam-ngo",
       "name": "Sam Ngo",
-      "seed": 59,
+      "seed": 58,
       "past30Days": 0,
       "allTime": 1030,
       "dupr": 3.596
@@ -3152,7 +3144,7 @@
     {
       "id": "mayur-ostwal",
       "name": "Mayur Ostwal",
-      "seed": 60,
+      "seed": 59,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 2
@@ -3160,7 +3152,7 @@
     {
       "id": "khoa-nguyen",
       "name": "Khoa Nguyen",
-      "seed": 61,
+      "seed": 60,
       "past30Days": 0,
       "allTime": 500,
       "dupr": 2
@@ -3168,7 +3160,7 @@
     {
       "id": "libby-liston",
       "name": "Libby Liston",
-      "seed": 62,
+      "seed": 61,
       "past30Days": 0,
       "allTime": 400,
       "dupr": 2
@@ -3181,16 +3173,17 @@
         "date": "2026-10-29",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062582",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 8,
+        "registeredPlayerCount": 9,
         "registeredPlayerIds": [
           "aniket-sharma",
+          "brian-romine",
           "christopher-lee",
+          "daton-rippley",
           "garrett-hallemeier",
           "mat-sevilla",
           "otto-may",
           "sean-liston",
-          "tobi-ola",
-          "daton-rippley"
+          "tobi-ola"
         ],
         "unmatchedRegistrantNames": []
       },
@@ -3403,8 +3396,8 @@
             "pointDifferential": 1.5
           },
           {
-            "playerId": "chris-lee",
-            "name": "Chris Lee",
+            "playerId": "christopher-lee",
+            "name": "Christopher Lee",
             "points": 300,
             "place": 8,
             "courts": 3,
