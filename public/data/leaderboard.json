@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-28T16:01:56.342Z",
+  "scrapedAt": "2026-10-28T21:03:47.903Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -3173,13 +3173,14 @@
         "date": "2026-10-29",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062582",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 11,
+        "registeredPlayerCount": 12,
         "registeredPlayerIds": [
           "aniket-sharma",
           "brian-romine",
           "christopher-lee",
           "daton-rippley",
           "garrett-hallemeier",
+          "john-paden",
           "john-tuason",
           "mat-sevilla",
           "otto-may",
