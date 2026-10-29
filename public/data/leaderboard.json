@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-29T07:04:09.030Z",
+  "scrapedAt": "2026-10-29T20:17:13.425Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -3062,9 +3062,17 @@
       "dupr": 4.245
     },
     {
+      "id": "matt-goodwin",
+      "name": "Matt Goodwin",
+      "seed": 49,
+      "past30Days": 0,
+      "allTime": 0,
+      "dupr": 4.242
+    },
+    {
       "id": "derek-dallas",
       "name": "Derek Dallas",
-      "seed": 49,
+      "seed": 50,
       "past30Days": 0,
       "allTime": 250,
       "dupr": 4.142
@@ -3072,7 +3080,7 @@
     {
       "id": "john-tuason",
       "name": "John Tuason",
-      "seed": 50,
+      "seed": 51,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 4.122
@@ -3080,7 +3088,7 @@
     {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 51,
+      "seed": 52,
       "past30Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -3088,7 +3096,7 @@
     {
       "id": "randy-walters",
       "name": "Randy Walters",
-      "seed": 52,
+      "seed": 53,
       "past30Days": 0,
       "allTime": 60,
       "dupr": 4.091
@@ -3096,7 +3104,7 @@
     {
       "id": "nick-borger",
       "name": "Nick Borger",
-      "seed": 53,
+      "seed": 54,
       "past30Days": 0,
       "allTime": 60,
       "dupr": 4.059
@@ -3104,7 +3112,7 @@
     {
       "id": "todd-wahl",
       "name": "Todd Wahl",
-      "seed": 54,
+      "seed": 55,
       "past30Days": 0,
       "allTime": 200,
       "dupr": 4.009
@@ -3112,7 +3120,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 55,
+      "seed": 56,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -3120,7 +3128,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 56,
+      "seed": 57,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -3128,7 +3136,7 @@
     {
       "id": "matthew-johnson",
       "name": "Matthew Johnson",
-      "seed": 57,
+      "seed": 58,
       "past30Days": 0,
       "allTime": 300,
       "dupr": 3.764
@@ -3136,7 +3144,7 @@
     {
       "id": "sam-ngo",
       "name": "Sam Ngo",
-      "seed": 58,
+      "seed": 59,
       "past30Days": 0,
       "allTime": 1030,
       "dupr": 3.596
@@ -3144,7 +3152,7 @@
     {
       "id": "mayur-ostwal",
       "name": "Mayur Ostwal",
-      "seed": 59,
+      "seed": 60,
       "past30Days": 0,
       "allTime": 600,
       "dupr": 2
@@ -3152,7 +3160,7 @@
     {
       "id": "khoa-nguyen",
       "name": "Khoa Nguyen",
-      "seed": 60,
+      "seed": 61,
       "past30Days": 0,
       "allTime": 500,
       "dupr": 2
@@ -3160,7 +3168,7 @@
     {
       "id": "libby-liston",
       "name": "Libby Liston",
-      "seed": 61,
+      "seed": 62,
       "past30Days": 0,
       "allTime": 400,
       "dupr": 2
@@ -3173,20 +3181,19 @@
         "date": "2026-10-29",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117?resId=60062582",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 12,
+        "registeredPlayerCount": 11,
         "registeredPlayerIds": [
           "brian-romine",
-          "christopher-lee",
           "daton-rippley",
           "garrett-hallemeier",
           "john-paden",
           "john-tuason",
           "mat-sevilla",
           "matt-fleming",
+          "matt-goodwin",
           "otto-may",
           "sean-liston",
-          "tobi-ola",
-          "todd-wahl"
+          "tobi-ola"
         ],
         "unmatchedRegistrantNames": []
       },
