@@ -1,1497 +1,25 @@
 {
-  "scrapedAt": "2026-10-29T21:59:44.110Z",
+  "scrapedAt": "2026-10-30T04:31:02.813Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
-    "current-month": [
-      {
-        "id": "brian-romine",
-        "rank": 1,
-        "name": "Brian Romine",
-        "points": 5150,
-        "gold": 1,
-        "silver": 2,
-        "bronze": 0,
-        "gameMakerPoints": 19833,
-        "wins": 20,
-        "losses": 8,
-        "winRate": 71,
-        "pointsEarned": 535,
-        "pointsAgainst": 481,
-        "pointDifferential": 5.3,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "tobi-ola",
-        "rank": 2,
-        "name": "Tobi Ola",
-        "points": 4900,
-        "gold": 2,
-        "silver": 0,
-        "bronze": 1,
-        "gameMakerPoints": 16398,
-        "wins": 17,
-        "losses": 4,
-        "winRate": 81,
-        "pointsEarned": 425,
-        "pointsAgainst": 324,
-        "pointDifferential": 13.5,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/a37ce612-3baa-48a8-9b54-17b43bb72141/89116d89-478d-493e-b53e-9a36d22367ca.jpg"
-      },
-      {
-        "id": "john-paden",
-        "rank": 3,
-        "name": "John Paden",
-        "points": 3300,
-        "gold": 0,
-        "silver": 1,
-        "bronze": 1,
-        "gameMakerPoints": 11571,
-        "wins": 12,
-        "losses": 8,
-        "winRate": 60,
-        "pointsEarned": 371,
-        "pointsAgainst": 366,
-        "pointDifferential": 0.7,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "aniket-sharma",
-        "rank": 4,
-        "name": "Aniket Sharma",
-        "points": 2500,
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 9260,
-        "wins": 11,
-        "losses": 3,
-        "winRate": 79,
-        "pointsEarned": 284,
-        "pointsAgainst": 224,
-        "pointDifferential": 11.8,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4aa801cd-26a8-4acb-a259-5ea9f0f69f84/2069f8d2-a36d-41c4-b1c9-4f300a0675db.jpg"
-      },
-      {
-        "id": "garrett-hallemeier",
-        "rank": 5,
-        "name": "Garrett Hallemeier",
-        "points": 2300,
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0,
-        "gameMakerPoints": 6513,
-        "wins": 7,
-        "losses": 6,
-        "winRate": 54,
-        "pointsEarned": 235,
-        "pointsAgainst": 235,
-        "pointDifferential": 0,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "michael-fan",
-        "rank": 6,
-        "name": "Michael Fan",
-        "points": 1700,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1,
-        "gameMakerPoints": 5704,
-        "wins": 7,
-        "losses": 6,
-        "winRate": 54,
-        "pointsEarned": 248,
-        "pointsAgainst": 230,
-        "pointDifferential": 3.8,
-        "move": {
-          "dir": "up",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "otto-may",
-        "rank": 7,
-        "name": "Otto May",
-        "points": 1350,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 6970,
-        "wins": 8,
-        "losses": 7,
-        "winRate": 53,
-        "pointsEarned": 278,
-        "pointsAgainst": 279,
-        "pointDifferential": -0.2,
-        "move": {
-          "dir": "up",
-          "places": 5
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "sean-liston",
-        "rank": 8,
-        "name": "Sean Liston",
-        "points": 1275,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 8101,
-        "wins": 8,
-        "losses": 20,
-        "winRate": 29,
-        "pointsEarned": 478,
-        "pointsAgainst": 539,
-        "pointDifferential": -6,
-        "move": {
-          "dir": "up",
-          "places": 1
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4c367c1d-91bb-45ad-a881-a681422d61d1/24dea6f2-9886-4642-a444-a94ebdcbc0d3.jpg"
-      },
-      {
-        "id": "mike-scibona",
-        "rank": 9,
-        "name": "Mike Scibona",
-        "points": 1050,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 6954,
-        "wins": 10,
-        "losses": 11,
-        "winRate": 48,
-        "pointsEarned": 378,
-        "pointsAgainst": 403,
-        "pointDifferential": -3.2,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "mat-sevilla",
-        "rank": 10,
-        "name": "Mat Sevilla",
-        "points": 950,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 7536,
-        "wins": 10,
-        "losses": 11,
-        "winRate": 48,
-        "pointsEarned": 393,
-        "pointsAgainst": 405,
-        "pointDifferential": -1.5,
-        "move": {
-          "dir": "up",
-          "places": 1
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/14a659bd-dd4a-43ee-849f-c3317c2b4a42/6fd6e0a3-01fa-4f25-b47a-98a4301a6440.jpg"
-      },
-      {
-        "id": "jeff-ross",
-        "rank": 11,
-        "name": "Jeff Ross",
-        "points": 900,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1,
-        "gameMakerPoints": 3980,
-        "wins": 5,
-        "losses": 2,
-        "winRate": 71,
-        "pointsEarned": 136,
-        "pointsAgainst": 119,
-        "pointDifferential": 6.7,
-        "move": {
-          "dir": "down",
-          "places": 4
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "matt-fleming",
-        "rank": 12,
-        "name": "Matt Fleming",
-        "points": 750,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 4262,
-        "wins": 4,
-        "losses": 4,
-        "winRate": 50,
-        "pointsEarned": 140,
-        "pointsAgainst": 150,
-        "pointDifferential": -3.4,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": "https://cdn.pickleball.com/profile-images/1766099689318/IMG_6190.jpeg?width=190&height=190&optimizer=image&saturation=0&face_crop=true"
-      },
-      {
-        "id": "jarrett-menary",
-        "rank": 13,
-        "name": "Jarrett Menary",
-        "points": 605,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 6004,
-        "wins": 9,
-        "losses": 12,
-        "winRate": 43,
-        "pointsEarned": 396,
-        "pointsAgainst": 396,
-        "pointDifferential": 0,
-        "move": {
-          "dir": "up",
-          "places": 12
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "dominic-williams",
-        "rank": 14,
-        "name": "Dominic Williams",
-        "points": 600,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2035,
-        "wins": 3,
-        "losses": 3,
-        "winRate": 50,
-        "pointsEarned": 110,
-        "pointsAgainst": 108,
-        "pointDifferential": 0.9,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "luke-bovee",
-        "rank": 15,
-        "name": "Luke Bovee",
-        "points": 600,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 3157,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57,
-        "pointsEarned": 133,
-        "pointsAgainst": 121,
-        "pointDifferential": 4.7,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "matt-landolt",
-        "rank": 16,
-        "name": "Matt Landolt",
-        "points": 500,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 3123,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57,
-        "pointsEarned": 127,
-        "pointsAgainst": 120,
-        "pointDifferential": 2.8,
-        "move": {
-          "dir": "down",
-          "places": 1
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "shiva-garimella",
-        "rank": 17,
-        "name": "Shiva Garimella",
-        "points": 450,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 3658,
-        "wins": 4,
-        "losses": 9,
-        "winRate": 31,
-        "pointsEarned": 210,
-        "pointsAgainst": 267,
-        "pointDifferential": -11.9,
-        "move": {
-          "dir": "up",
-          "places": 5
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "chase-blickhan",
-        "rank": 18,
-        "name": "Chase Blickhan",
-        "points": 400,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2870,
-        "wins": 3,
-        "losses": 4,
-        "winRate": 43,
-        "pointsEarned": 126,
-        "pointsAgainst": 134,
-        "pointDifferential": -3.1,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "dan-green",
-        "rank": 19,
-        "name": "Dan Green",
-        "points": 400,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2997,
-        "wins": 4,
-        "losses": 4,
-        "winRate": 50,
-        "pointsEarned": 152,
-        "pointsAgainst": 148,
-        "pointDifferential": 1.3,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "preston-behlmann",
-        "rank": 20,
-        "name": "Preston Behlmann",
-        "points": 400,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1911,
-        "wins": 2,
-        "losses": 4,
-        "winRate": 33,
-        "pointsEarned": 108,
-        "pointsAgainst": 122,
-        "pointDifferential": -6.1,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "austin-lin",
-        "rank": 21,
-        "name": "Austin Lin",
-        "points": 350,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 3776,
-        "wins": 6,
-        "losses": 7,
-        "winRate": 46,
-        "pointsEarned": 244,
-        "pointsAgainst": 243,
-        "pointDifferential": 0.2,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "chris-goff",
-        "rank": 22,
-        "name": "Chris Goff",
-        "points": 300,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2833,
-        "wins": 4,
-        "losses": 4,
-        "winRate": 50,
-        "pointsEarned": 143,
-        "pointsAgainst": 162,
-        "pointDifferential": -6.2,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "christopher-lee",
-        "rank": 23,
-        "name": "Christopher Lee",
-        "points": 300,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2895,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57,
-        "pointsEarned": 136,
-        "pointsAgainst": 137,
-        "pointDifferential": -0.4,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "sreekanth-peyyeti",
-        "rank": 24,
-        "name": "Sreekanth Peyyeti",
-        "points": 300,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1788,
-        "wins": 4,
-        "losses": 1,
-        "winRate": 80,
-        "pointsEarned": 100,
-        "pointsAgainst": 71,
-        "pointDifferential": 17,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "jon-richert",
-        "rank": 25,
-        "name": "Jon Richert",
-        "points": 250,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2649,
-        "wins": 3,
-        "losses": 4,
-        "winRate": 43,
-        "pointsEarned": 127,
-        "pointsAgainst": 123,
-        "pointDifferential": 1.6,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "ryan-niedermayer",
-        "rank": 26,
-        "name": "Ryan Niedermayer",
-        "points": 250,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2425,
-        "wins": 3,
-        "losses": 5,
-        "winRate": 38,
-        "pointsEarned": 152,
-        "pointsAgainst": 156,
-        "pointDifferential": -1.3,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "kevin-folkl",
-        "rank": 27,
-        "name": "Kevin Folkl",
-        "points": 150,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1571,
-        "wins": 2,
-        "losses": 5,
-        "winRate": 29,
-        "pointsEarned": 127,
-        "pointsAgainst": 129,
-        "pointDifferential": -0.8,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "tim-long",
-        "rank": 28,
-        "name": "Tim Long",
-        "points": 150,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1735,
-        "wins": 2,
-        "losses": 5,
-        "winRate": 29,
-        "pointsEarned": 111,
-        "pointsAgainst": 130,
-        "pointDifferential": -7.9,
-        "move": {
-          "dir": "down",
-          "places": 1
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "michael-randle",
-        "rank": 29,
-        "name": "Michael Randle",
-        "points": 125,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1571,
-        "wins": 2,
-        "losses": 5,
-        "winRate": 29,
-        "pointsEarned": 119,
-        "pointsAgainst": 136,
-        "pointDifferential": -6.7,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "orlando-paez",
-        "rank": 30,
-        "name": "Orlando Paez",
-        "points": 125,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1453,
-        "wins": 3,
-        "losses": 3,
-        "winRate": 50,
-        "pointsEarned": 109,
-        "pointsAgainst": 113,
-        "pointDifferential": -1.8,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/555b2883-53ae-429e-8db1-aa72e197c15b/48ab3a0d-3491-4aa6-baa5-a24cc3be582b.jpg"
-      },
-      {
-        "id": "matthew-trokey",
-        "rank": 31,
-        "name": "Matthew Trokey",
-        "points": 60,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1010,
-        "wins": 3,
-        "losses": 2,
-        "winRate": 60,
-        "pointsEarned": 95,
-        "pointsAgainst": 82,
-        "pointDifferential": 7.3,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "phil-mckenna",
-        "rank": 32,
-        "name": "Phil Mckenna",
-        "points": 50,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 697,
-        "wins": 2,
-        "losses": 3,
-        "winRate": 40,
-        "pointsEarned": 85,
-        "pointsAgainst": 98,
-        "pointDifferential": -7.1,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "sharan-tej-kodumuru",
-        "rank": 33,
-        "name": "Sharan Tej Kodumuru",
-        "points": 40,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 510,
-        "wins": 1,
-        "losses": 4,
-        "winRate": 20,
-        "pointsEarned": 86,
-        "pointsAgainst": 95,
-        "pointDifferential": -5,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "kyle-weaver",
-        "rank": 34,
-        "name": "Kyle Weaver",
-        "points": 30,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 510,
-        "wins": 1,
-        "losses": 4,
-        "winRate": 20,
-        "pointsEarned": 82,
-        "pointsAgainst": 101,
-        "pointDifferential": -10.4,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "sai-ram-reddy",
-        "rank": 35,
-        "name": "Sai Ram Reddy",
-        "points": 25,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 260,
-        "wins": 0,
-        "losses": 5,
-        "winRate": 0,
-        "pointsEarned": 73,
-        "pointsAgainst": 105,
-        "pointDifferential": -18,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      }
-    ],
-    "past-30-days": [
-      {
-        "id": "brian-romine",
-        "rank": 1,
-        "name": "Brian Romine",
-        "points": 5150,
-        "gold": 1,
-        "silver": 2,
-        "bronze": 0,
-        "gameMakerPoints": 19833,
-        "wins": 20,
-        "losses": 8,
-        "winRate": 71,
-        "pointsEarned": 535,
-        "pointsAgainst": 481,
-        "pointDifferential": 5.3,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "tobi-ola",
-        "rank": 2,
-        "name": "Tobi Ola",
-        "points": 4900,
-        "gold": 2,
-        "silver": 0,
-        "bronze": 1,
-        "gameMakerPoints": 16398,
-        "wins": 17,
-        "losses": 4,
-        "winRate": 81,
-        "pointsEarned": 425,
-        "pointsAgainst": 324,
-        "pointDifferential": 13.5,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/a37ce612-3baa-48a8-9b54-17b43bb72141/89116d89-478d-493e-b53e-9a36d22367ca.jpg"
-      },
-      {
-        "id": "john-paden",
-        "rank": 3,
-        "name": "John Paden",
-        "points": 3300,
-        "gold": 0,
-        "silver": 1,
-        "bronze": 1,
-        "gameMakerPoints": 11571,
-        "wins": 12,
-        "losses": 8,
-        "winRate": 60,
-        "pointsEarned": 371,
-        "pointsAgainst": 366,
-        "pointDifferential": 0.7,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "aniket-sharma",
-        "rank": 4,
-        "name": "Aniket Sharma",
-        "points": 2500,
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 9260,
-        "wins": 11,
-        "losses": 3,
-        "winRate": 79,
-        "pointsEarned": 284,
-        "pointsAgainst": 224,
-        "pointDifferential": 11.8,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4aa801cd-26a8-4acb-a259-5ea9f0f69f84/2069f8d2-a36d-41c4-b1c9-4f300a0675db.jpg"
-      },
-      {
-        "id": "garrett-hallemeier",
-        "rank": 5,
-        "name": "Garrett Hallemeier",
-        "points": 2300,
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0,
-        "gameMakerPoints": 6513,
-        "wins": 7,
-        "losses": 6,
-        "winRate": 54,
-        "pointsEarned": 235,
-        "pointsAgainst": 235,
-        "pointDifferential": 0,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "michael-fan",
-        "rank": 6,
-        "name": "Michael Fan",
-        "points": 1700,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1,
-        "gameMakerPoints": 5704,
-        "wins": 7,
-        "losses": 6,
-        "winRate": 54,
-        "pointsEarned": 248,
-        "pointsAgainst": 230,
-        "pointDifferential": 3.8,
-        "move": {
-          "dir": "up",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "otto-may",
-        "rank": 7,
-        "name": "Otto May",
-        "points": 1350,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 6970,
-        "wins": 8,
-        "losses": 7,
-        "winRate": 53,
-        "pointsEarned": 278,
-        "pointsAgainst": 279,
-        "pointDifferential": -0.2,
-        "move": {
-          "dir": "up",
-          "places": 5
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "sean-liston",
-        "rank": 8,
-        "name": "Sean Liston",
-        "points": 1275,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 8101,
-        "wins": 8,
-        "losses": 20,
-        "winRate": 29,
-        "pointsEarned": 478,
-        "pointsAgainst": 539,
-        "pointDifferential": -6,
-        "move": {
-          "dir": "up",
-          "places": 1
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4c367c1d-91bb-45ad-a881-a681422d61d1/24dea6f2-9886-4642-a444-a94ebdcbc0d3.jpg"
-      },
-      {
-        "id": "mike-scibona",
-        "rank": 9,
-        "name": "Mike Scibona",
-        "points": 1050,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 6954,
-        "wins": 10,
-        "losses": 11,
-        "winRate": 48,
-        "pointsEarned": 378,
-        "pointsAgainst": 403,
-        "pointDifferential": -3.2,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "mat-sevilla",
-        "rank": 10,
-        "name": "Mat Sevilla",
-        "points": 950,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 7536,
-        "wins": 10,
-        "losses": 11,
-        "winRate": 48,
-        "pointsEarned": 393,
-        "pointsAgainst": 405,
-        "pointDifferential": -1.5,
-        "move": {
-          "dir": "up",
-          "places": 1
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/14a659bd-dd4a-43ee-849f-c3317c2b4a42/6fd6e0a3-01fa-4f25-b47a-98a4301a6440.jpg"
-      },
-      {
-        "id": "jeff-ross",
-        "rank": 11,
-        "name": "Jeff Ross",
-        "points": 900,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1,
-        "gameMakerPoints": 3980,
-        "wins": 5,
-        "losses": 2,
-        "winRate": 71,
-        "pointsEarned": 136,
-        "pointsAgainst": 119,
-        "pointDifferential": 6.7,
-        "move": {
-          "dir": "down",
-          "places": 4
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "matt-fleming",
-        "rank": 12,
-        "name": "Matt Fleming",
-        "points": 750,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 4262,
-        "wins": 4,
-        "losses": 4,
-        "winRate": 50,
-        "pointsEarned": 140,
-        "pointsAgainst": 150,
-        "pointDifferential": -3.4,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": "https://cdn.pickleball.com/profile-images/1766099689318/IMG_6190.jpeg?width=190&height=190&optimizer=image&saturation=0&face_crop=true"
-      },
-      {
-        "id": "jarrett-menary",
-        "rank": 13,
-        "name": "Jarrett Menary",
-        "points": 605,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 6004,
-        "wins": 9,
-        "losses": 12,
-        "winRate": 43,
-        "pointsEarned": 396,
-        "pointsAgainst": 396,
-        "pointDifferential": 0,
-        "move": {
-          "dir": "up",
-          "places": 12
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "dominic-williams",
-        "rank": 14,
-        "name": "Dominic Williams",
-        "points": 600,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2035,
-        "wins": 3,
-        "losses": 3,
-        "winRate": 50,
-        "pointsEarned": 110,
-        "pointsAgainst": 108,
-        "pointDifferential": 0.9,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "luke-bovee",
-        "rank": 15,
-        "name": "Luke Bovee",
-        "points": 600,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 3157,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57,
-        "pointsEarned": 133,
-        "pointsAgainst": 121,
-        "pointDifferential": 4.7,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "matt-landolt",
-        "rank": 16,
-        "name": "Matt Landolt",
-        "points": 500,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 3123,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57,
-        "pointsEarned": 127,
-        "pointsAgainst": 120,
-        "pointDifferential": 2.8,
-        "move": {
-          "dir": "down",
-          "places": 1
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "shiva-garimella",
-        "rank": 17,
-        "name": "Shiva Garimella",
-        "points": 450,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 3658,
-        "wins": 4,
-        "losses": 9,
-        "winRate": 31,
-        "pointsEarned": 210,
-        "pointsAgainst": 267,
-        "pointDifferential": -11.9,
-        "move": {
-          "dir": "up",
-          "places": 5
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "chase-blickhan",
-        "rank": 18,
-        "name": "Chase Blickhan",
-        "points": 400,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2870,
-        "wins": 3,
-        "losses": 4,
-        "winRate": 43,
-        "pointsEarned": 126,
-        "pointsAgainst": 134,
-        "pointDifferential": -3.1,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "dan-green",
-        "rank": 19,
-        "name": "Dan Green",
-        "points": 400,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2997,
-        "wins": 4,
-        "losses": 4,
-        "winRate": 50,
-        "pointsEarned": 152,
-        "pointsAgainst": 148,
-        "pointDifferential": 1.3,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "preston-behlmann",
-        "rank": 20,
-        "name": "Preston Behlmann",
-        "points": 400,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1911,
-        "wins": 2,
-        "losses": 4,
-        "winRate": 33,
-        "pointsEarned": 108,
-        "pointsAgainst": 122,
-        "pointDifferential": -6.1,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "austin-lin",
-        "rank": 21,
-        "name": "Austin Lin",
-        "points": 350,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 3776,
-        "wins": 6,
-        "losses": 7,
-        "winRate": 46,
-        "pointsEarned": 244,
-        "pointsAgainst": 243,
-        "pointDifferential": 0.2,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "chris-goff",
-        "rank": 22,
-        "name": "Chris Goff",
-        "points": 300,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2833,
-        "wins": 4,
-        "losses": 4,
-        "winRate": 50,
-        "pointsEarned": 143,
-        "pointsAgainst": 162,
-        "pointDifferential": -6.2,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "christopher-lee",
-        "rank": 23,
-        "name": "Christopher Lee",
-        "points": 300,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2895,
-        "wins": 4,
-        "losses": 3,
-        "winRate": 57,
-        "pointsEarned": 136,
-        "pointsAgainst": 137,
-        "pointDifferential": -0.4,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "sreekanth-peyyeti",
-        "rank": 24,
-        "name": "Sreekanth Peyyeti",
-        "points": 300,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1788,
-        "wins": 4,
-        "losses": 1,
-        "winRate": 80,
-        "pointsEarned": 100,
-        "pointsAgainst": 71,
-        "pointDifferential": 17,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "jon-richert",
-        "rank": 25,
-        "name": "Jon Richert",
-        "points": 250,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2649,
-        "wins": 3,
-        "losses": 4,
-        "winRate": 43,
-        "pointsEarned": 127,
-        "pointsAgainst": 123,
-        "pointDifferential": 1.6,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "ryan-niedermayer",
-        "rank": 26,
-        "name": "Ryan Niedermayer",
-        "points": 250,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 2425,
-        "wins": 3,
-        "losses": 5,
-        "winRate": 38,
-        "pointsEarned": 152,
-        "pointsAgainst": 156,
-        "pointDifferential": -1.3,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "kevin-folkl",
-        "rank": 27,
-        "name": "Kevin Folkl",
-        "points": 150,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1571,
-        "wins": 2,
-        "losses": 5,
-        "winRate": 29,
-        "pointsEarned": 127,
-        "pointsAgainst": 129,
-        "pointDifferential": -0.8,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "tim-long",
-        "rank": 28,
-        "name": "Tim Long",
-        "points": 150,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1735,
-        "wins": 2,
-        "losses": 5,
-        "winRate": 29,
-        "pointsEarned": 111,
-        "pointsAgainst": 130,
-        "pointDifferential": -7.9,
-        "move": {
-          "dir": "down",
-          "places": 1
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "michael-randle",
-        "rank": 29,
-        "name": "Michael Randle",
-        "points": 125,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1571,
-        "wins": 2,
-        "losses": 5,
-        "winRate": 29,
-        "pointsEarned": 119,
-        "pointsAgainst": 136,
-        "pointDifferential": -6.7,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "orlando-paez",
-        "rank": 30,
-        "name": "Orlando Paez",
-        "points": 125,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1453,
-        "wins": 3,
-        "losses": 3,
-        "winRate": 50,
-        "pointsEarned": 109,
-        "pointsAgainst": 113,
-        "pointDifferential": -1.8,
-        "move": {
-          "dir": "down",
-          "places": 2
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/555b2883-53ae-429e-8db1-aa72e197c15b/48ab3a0d-3491-4aa6-baa5-a24cc3be582b.jpg"
-      },
-      {
-        "id": "matthew-trokey",
-        "rank": 31,
-        "name": "Matthew Trokey",
-        "points": 60,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 1010,
-        "wins": 3,
-        "losses": 2,
-        "winRate": 60,
-        "pointsEarned": 95,
-        "pointsAgainst": 82,
-        "pointDifferential": 7.3,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "phil-mckenna",
-        "rank": 32,
-        "name": "Phil Mckenna",
-        "points": 50,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 697,
-        "wins": 2,
-        "losses": 3,
-        "winRate": 40,
-        "pointsEarned": 85,
-        "pointsAgainst": 98,
-        "pointDifferential": -7.1,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "sharan-tej-kodumuru",
-        "rank": 33,
-        "name": "Sharan Tej Kodumuru",
-        "points": 40,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 510,
-        "wins": 1,
-        "losses": 4,
-        "winRate": 20,
-        "pointsEarned": 86,
-        "pointsAgainst": 95,
-        "pointDifferential": -5,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "kyle-weaver",
-        "rank": 34,
-        "name": "Kyle Weaver",
-        "points": 30,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 510,
-        "wins": 1,
-        "losses": 4,
-        "winRate": 20,
-        "pointsEarned": 82,
-        "pointsAgainst": 101,
-        "pointDifferential": -10.4,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "sai-ram-reddy",
-        "rank": 35,
-        "name": "Sai Ram Reddy",
-        "points": 25,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 260,
-        "wins": 0,
-        "losses": 5,
-        "winRate": 0,
-        "pointsEarned": 73,
-        "pointsAgainst": 105,
-        "pointDifferential": -18,
-        "move": {
-          "dir": "down",
-          "places": 3
-        },
-        "photoUrl": null
-      }
-    ],
+    "current-month": [],
+    "past-30-days": [],
     "all-time": [
       {
         "id": "tobi-ola",
         "rank": 1,
         "name": "Tobi Ola",
-        "points": 7700,
+        "points": 8300,
         "gold": 2,
         "silver": 1,
         "bronze": 2,
-        "gameMakerPoints": 31748,
-        "wins": 35,
-        "losses": 14,
-        "winRate": 71,
-        "pointsEarned": 818,
-        "pointsAgainst": 671,
-        "pointDifferential": 9.9,
+        "gameMakerPoints": 35493,
+        "wins": 39,
+        "losses": 17,
+        "winRate": 70,
+        "pointsEarned": 945,
+        "pointsAgainst": 802,
+        "pointDifferential": 8.2,
         "move": {
           "dir": "none",
           "places": 0
@@ -1502,17 +30,17 @@
         "id": "brian-romine",
         "rank": 2,
         "name": "Brian Romine",
-        "points": 6025,
+        "points": 6175,
         "gold": 1,
         "silver": 2,
         "bronze": 0,
-        "gameMakerPoints": 25526,
-        "wins": 27,
-        "losses": 20,
-        "winRate": 57,
-        "pointsEarned": 881,
-        "pointsAgainst": 832,
-        "pointDifferential": 2.9,
+        "gameMakerPoints": 27277,
+        "wins": 29,
+        "losses": 25,
+        "winRate": 54,
+        "pointsEarned": 1009,
+        "pointsAgainst": 973,
+        "pointDifferential": 1.8,
         "move": {
           "dir": "none",
           "places": 0
@@ -1523,17 +51,17 @@
         "id": "garrett-hallemeier",
         "rank": 3,
         "name": "Garrett Hallemeier",
-        "points": 4600,
-        "gold": 1,
+        "points": 6100,
+        "gold": 2,
         "silver": 1,
         "bronze": 0,
-        "gameMakerPoints": 15750,
-        "wins": 18,
-        "losses": 9,
-        "winRate": 67,
-        "pointsEarned": 518,
-        "pointsAgainst": 471,
-        "pointDifferential": 4.8,
+        "gameMakerPoints": 20603,
+        "wins": 23,
+        "losses": 11,
+        "winRate": 68,
+        "pointsEarned": 657,
+        "pointsAgainst": 591,
+        "pointDifferential": 5.3,
         "move": {
           "dir": "none",
           "places": 0
@@ -1541,46 +69,46 @@
         "photoUrl": null
       },
       {
-        "id": "sean-liston",
-        "rank": 4,
-        "name": "Sean Liston",
-        "points": 4175,
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 23445,
-        "wins": 25,
-        "losses": 31,
-        "winRate": 45,
-        "pointsEarned": 1006,
-        "pointsAgainst": 1024,
-        "pointDifferential": -0.9,
-        "move": {
-          "dir": "up",
-          "places": 1
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4c367c1d-91bb-45ad-a881-a681422d61d1/24dea6f2-9886-4642-a444-a94ebdcbc0d3.jpg"
-      },
-      {
         "id": "john-paden",
-        "rank": 5,
+        "rank": 4,
         "name": "John Paden",
-        "points": 4150,
+        "points": 5350,
         "gold": 0,
-        "silver": 1,
+        "silver": 2,
         "bronze": 1,
-        "gameMakerPoints": 15091,
-        "wins": 17,
-        "losses": 12,
-        "winRate": 59,
-        "pointsEarned": 530,
-        "pointsAgainst": 531,
-        "pointDifferential": -0.1,
+        "gameMakerPoints": 19659,
+        "wins": 22,
+        "losses": 14,
+        "winRate": 61,
+        "pointsEarned": 672,
+        "pointsAgainst": 652,
+        "pointDifferential": 1.5,
         "move": {
           "dir": "up",
           "places": 1
         },
         "photoUrl": null
+      },
+      {
+        "id": "sean-liston",
+        "rank": 5,
+        "name": "Sean Liston",
+        "points": 4425,
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0,
+        "gameMakerPoints": 25670,
+        "wins": 28,
+        "losses": 35,
+        "winRate": 44,
+        "pointsEarned": 1143,
+        "pointsAgainst": 1160,
+        "pointDifferential": -0.7,
+        "move": {
+          "dir": "down",
+          "places": 1
+        },
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4c367c1d-91bb-45ad-a881-a681422d61d1/24dea6f2-9886-4642-a444-a94ebdcbc0d3.jpg"
       },
       {
         "id": "chase-blickhan",
@@ -1598,8 +126,8 @@
         "pointsAgainst": 476,
         "pointDifferential": 4.8,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -1619,8 +147,8 @@
         "pointsAgainst": 589,
         "pointDifferential": 2.6,
         "move": {
-          "dir": "up",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -1640,8 +168,8 @@
         "pointsAgainst": 226,
         "pointDifferential": 6.2,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -1661,8 +189,8 @@
         "pointsAgainst": 346,
         "pointDifferential": 9.3,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4aa801cd-26a8-4acb-a259-5ea9f0f69f84/2069f8d2-a36d-41c4-b1c9-4f300a0675db.jpg"
       },
@@ -1682,14 +210,35 @@
         "pointsAgainst": 365,
         "pointDifferential": 1.6,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null
+      },
+      {
+        "id": "brett-mell",
+        "rank": 11,
+        "name": "Brett Mell",
+        "points": 2500,
+        "gold": 0,
+        "silver": 1,
+        "bronze": 1,
+        "gameMakerPoints": 9218,
+        "wins": 11,
+        "losses": 3,
+        "winRate": 79,
+        "pointsEarned": 283,
+        "pointsAgainst": 211,
+        "pointDifferential": 14.6,
+        "move": {
+          "dir": "up",
+          "places": 2
         },
         "photoUrl": null
       },
       {
         "id": "jon-richert",
-        "rank": 11,
+        "rank": 12,
         "name": "Jon Richert",
         "points": 2225,
         "gold": 0,
@@ -1703,14 +252,56 @@
         "pointsAgainst": 501,
         "pointDifferential": -1.4,
         "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "down",
+          "places": 1
+        },
+        "photoUrl": null
+      },
+      {
+        "id": "mat-sevilla",
+        "rank": 13,
+        "name": "Mat Sevilla",
+        "points": 2225,
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0,
+        "gameMakerPoints": 15726,
+        "wins": 20,
+        "losses": 22,
+        "winRate": 48,
+        "pointsEarned": 647,
+        "pointsAgainst": 665,
+        "pointDifferential": -1.4,
+        "move": {
+          "dir": "up",
+          "places": 3
+        },
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/14a659bd-dd4a-43ee-849f-c3317c2b4a42/6fd6e0a3-01fa-4f25-b47a-98a4301a6440.jpg"
+      },
+      {
+        "id": "otto-may",
+        "rank": 14,
+        "name": "Otto May",
+        "points": 1750,
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0,
+        "gameMakerPoints": 9644,
+        "wins": 11,
+        "losses": 11,
+        "winRate": 50,
+        "pointsEarned": 409,
+        "pointsAgainst": 416,
+        "pointDifferential": -0.8,
+        "move": {
+          "dir": "up",
+          "places": 2
         },
         "photoUrl": null
       },
       {
         "id": "orlando-paez",
-        "rank": 12,
+        "rank": 15,
         "name": "Orlando Paez",
         "points": 1725,
         "gold": 0,
@@ -1724,35 +315,35 @@
         "pointsAgainst": 510,
         "pointDifferential": -2.8,
         "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "down",
+          "places": 3
         },
         "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/555b2883-53ae-429e-8db1-aa72e197c15b/48ab3a0d-3491-4aa6-baa5-a24cc3be582b.jpg"
       },
       {
-        "id": "brett-mell",
-        "rank": 13,
-        "name": "Brett Mell",
-        "points": 1600,
+        "id": "matt-fleming",
+        "rank": 16,
+        "name": "Matt Fleming",
+        "points": 1580,
         "gold": 0,
-        "silver": 1,
+        "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 5140,
-        "wins": 6,
-        "losses": 1,
-        "winRate": 86,
-        "pointsEarned": 142,
-        "pointsAgainst": 101,
-        "pointDifferential": 16.9,
+        "gameMakerPoints": 11211,
+        "wins": 14,
+        "losses": 15,
+        "winRate": 48,
+        "pointsEarned": 516,
+        "pointsAgainst": 553,
+        "pointDifferential": -3.5,
         "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "up",
+          "places": 2
         },
-        "photoUrl": null
+        "photoUrl": "https://cdn.pickleball.com/profile-images/1766099689318/IMG_6190.jpeg?width=190&height=190&optimizer=image&saturation=0&face_crop=true"
       },
       {
         "id": "ivan-gutierrez",
-        "rank": 14,
+        "rank": 17,
         "name": "Ivan Gutierrez",
         "points": 1500,
         "gold": 1,
@@ -1766,56 +357,14 @@
         "pointsAgainst": 1,
         "pointDifferential": 0,
         "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "mat-sevilla",
-        "rank": 15,
-        "name": "Mat Sevilla",
-        "points": 1475,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 11753,
-        "wins": 16,
-        "losses": 19,
-        "winRate": 46,
-        "pointsEarned": 518,
-        "pointsAgainst": 534,
-        "pointDifferential": -1.5,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/14a659bd-dd4a-43ee-849f-c3317c2b4a42/6fd6e0a3-01fa-4f25-b47a-98a4301a6440.jpg"
-      },
-      {
-        "id": "otto-may",
-        "rank": 16,
-        "name": "Otto May",
-        "points": 1350,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 6970,
-        "wins": 8,
-        "losses": 7,
-        "winRate": 53,
-        "pointsEarned": 278,
-        "pointsAgainst": 279,
-        "pointDifferential": -0.2,
-        "move": {
-          "dir": "up",
-          "places": 8
+          "dir": "down",
+          "places": 3
         },
         "photoUrl": null
       },
       {
         "id": "dev-newsome",
-        "rank": 17,
+        "rank": 18,
         "name": "Dev Newsome",
         "points": 1150,
         "gold": 0,
@@ -1835,27 +384,6 @@
         "photoUrl": null
       },
       {
-        "id": "matt-fleming",
-        "rank": 18,
-        "name": "Matt Fleming",
-        "points": 1080,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 7466,
-        "wins": 10,
-        "losses": 12,
-        "winRate": 45,
-        "pointsEarned": 380,
-        "pointsAgainst": 423,
-        "pointDifferential": -5.4,
-        "move": {
-          "dir": "down",
-          "places": 1
-        },
-        "photoUrl": "https://cdn.pickleball.com/profile-images/1766099689318/IMG_6190.jpeg?width=190&height=190&optimizer=image&saturation=0&face_crop=true"
-      },
-      {
         "id": "mike-scibona",
         "rank": 19,
         "name": "Mike Scibona",
@@ -1871,8 +399,8 @@
         "pointsAgainst": 403,
         "pointDifferential": -3.2,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -1892,8 +420,8 @@
         "pointsAgainst": 505,
         "pointDifferential": -7.2,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -1913,14 +441,35 @@
         "pointsAgainst": 119,
         "pointDifferential": 6.7,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null
+      },
+      {
+        "id": "john-tuason",
+        "rank": 22,
+        "name": "John Tuason",
+        "points": 900,
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0,
+        "gameMakerPoints": 5524,
+        "wins": 7,
+        "losses": 6,
+        "winRate": 54,
+        "pointsEarned": 231,
+        "pointsAgainst": 242,
+        "pointDifferential": -2.3,
+        "move": {
+          "dir": "up",
+          "places": 5
         },
         "photoUrl": null
       },
       {
         "id": "kyle-laramie",
-        "rank": 22,
+        "rank": 23,
         "name": "Kyle Laramie",
         "points": 900,
         "gold": 0,
@@ -1934,14 +483,14 @@
         "pointsAgainst": 122,
         "pointDifferential": 7.6,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
       {
         "id": "james-brown",
-        "rank": 23,
+        "rank": 24,
         "name": "James Brown",
         "points": 750,
         "gold": 0,
@@ -1962,7 +511,7 @@
       },
       {
         "id": "luke-bovee",
-        "rank": 24,
+        "rank": 25,
         "name": "Luke Bovee",
         "points": 700,
         "gold": 0,
@@ -1983,7 +532,7 @@
       },
       {
         "id": "jarrett-menary",
-        "rank": 25,
+        "rank": 26,
         "name": "Jarrett Menary",
         "points": 605,
         "gold": 0,
@@ -1997,14 +546,14 @@
         "pointsAgainst": 396,
         "pointDifferential": 0,
         "move": {
-          "dir": "up",
-          "places": 17
+          "dir": "down",
+          "places": 1
         },
         "photoUrl": null
       },
       {
         "id": "dominic-williams",
-        "rank": 26,
+        "rank": 27,
         "name": "Dominic Williams",
         "points": 600,
         "gold": 0,
@@ -2019,28 +568,7 @@
         "pointDifferential": 0.9,
         "move": {
           "dir": "down",
-          "places": 2
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "john-tuason",
-        "rank": 27,
-        "name": "John Tuason",
-        "points": 600,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 3242,
-        "wins": 4,
-        "losses": 2,
-        "winRate": 67,
-        "pointsEarned": 113,
-        "pointsAgainst": 110,
-        "pointDifferential": 1.3,
-        "move": {
-          "dir": "down",
-          "places": 2
+          "places": 1
         },
         "photoUrl": null
       },
@@ -2061,7 +589,7 @@
         "pointDifferential": 3.9,
         "move": {
           "dir": "down",
-          "places": 2
+          "places": 1
         },
         "photoUrl": null
       },
@@ -2082,7 +610,7 @@
         "pointDifferential": 0,
         "move": {
           "dir": "down",
-          "places": 2
+          "places": 1
         },
         "photoUrl": null
       },
@@ -2102,8 +630,8 @@
         "pointsAgainst": 371,
         "pointDifferential": -1.2,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2123,8 +651,8 @@
         "pointsAgainst": 402,
         "pointDifferential": -10.7,
         "move": {
-          "dir": "up",
-          "places": 6
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2144,8 +672,8 @@
         "pointsAgainst": 114,
         "pointDifferential": 5,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2165,8 +693,8 @@
         "pointsAgainst": 120,
         "pointDifferential": 2.8,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2186,8 +714,8 @@
         "pointsAgainst": 122,
         "pointDifferential": -1.2,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2207,8 +735,8 @@
         "pointsAgainst": 223,
         "pointDifferential": 0.4,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/db9639fd-9386-4b92-bc4d-dfdaa2f63e5f/5a568a22-0449-4a2a-b435-eb6d5be009c2.jpg"
       },
@@ -2228,8 +756,8 @@
         "pointsAgainst": 148,
         "pointDifferential": 1.3,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2249,8 +777,8 @@
         "pointsAgainst": 135,
         "pointDifferential": -9.8,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2270,8 +798,8 @@
         "pointsAgainst": 235,
         "pointDifferential": -3.5,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2291,8 +819,8 @@
         "pointsAgainst": 137,
         "pointDifferential": -6.6,
         "move": {
-          "dir": "up",
-          "places": 4
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2312,8 +840,8 @@
         "pointsAgainst": 162,
         "pointDifferential": -6.2,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2354,8 +882,8 @@
         "pointsAgainst": 126,
         "pointDifferential": 0,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": "https://cdn.pickleball.com/profile-images/1771429886910/Facetune_22-01-2026-13-45-11.jpeg?width=190&height=190&optimizer=image&saturation=0&face_crop=true"
       },
@@ -2375,8 +903,8 @@
         "pointsAgainst": 71,
         "pointDifferential": 17,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2396,8 +924,8 @@
         "pointsAgainst": 1,
         "pointDifferential": 0,
         "move": {
-          "dir": "down",
-          "places": 3
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -2417,14 +945,35 @@
         "pointsAgainst": 141,
         "pointDifferential": -19.5,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null
+      },
+      {
+        "id": "daton-rippley",
+        "rank": 46,
+        "name": "Daton Rippley",
+        "points": 200,
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0,
+        "gameMakerPoints": 1874,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 29,
+        "pointsEarned": 125,
+        "pointsAgainst": 132,
+        "pointDifferential": -2.7,
+        "move": {
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
       {
         "id": "todd-wahl",
-        "rank": 46,
+        "rank": 47,
         "name": "Todd Wahl",
         "points": 200,
         "gold": 0,
@@ -2438,14 +987,14 @@
         "pointsAgainst": 96,
         "pointDifferential": -12.3,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
       {
         "id": "kevin-folkl",
-        "rank": 47,
+        "rank": 48,
         "name": "Kevin Folkl",
         "points": 150,
         "gold": 0,
@@ -2459,14 +1008,14 @@
         "pointsAgainst": 129,
         "pointDifferential": -0.8,
         "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "down",
+          "places": 1
         },
         "photoUrl": null
       },
       {
         "id": "tim-long",
-        "rank": 48,
+        "rank": 49,
         "name": "Tim Long",
         "points": 150,
         "gold": 0,
@@ -2487,7 +1036,7 @@
       },
       {
         "id": "brooks-toth",
-        "rank": 49,
+        "rank": 50,
         "name": "Brooks Toth",
         "points": 125,
         "gold": 0,
@@ -2502,13 +1051,34 @@
         "pointDifferential": -1,
         "move": {
           "dir": "down",
-          "places": 2
+          "places": 1
+        },
+        "photoUrl": null
+      },
+      {
+        "id": "matt-goodwin",
+        "rank": 51,
+        "name": "Matt Goodwin",
+        "points": 125,
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0,
+        "gameMakerPoints": 1612,
+        "wins": 2,
+        "losses": 5,
+        "winRate": 29,
+        "pointsEarned": 109,
+        "pointsAgainst": 141,
+        "pointDifferential": -12.8,
+        "move": {
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
       {
         "id": "matthew-hultman",
-        "rank": 50,
+        "rank": 52,
         "name": "Matthew Hultman",
         "points": 100,
         "gold": 0,
@@ -2529,7 +1099,7 @@
       },
       {
         "id": "matthew-trokey",
-        "rank": 51,
+        "rank": 53,
         "name": "Matthew Trokey",
         "points": 60,
         "gold": 0,
@@ -2550,7 +1120,7 @@
       },
       {
         "id": "nick-borger",
-        "rank": 52,
+        "rank": 54,
         "name": "Nick Borger",
         "points": 60,
         "gold": 0,
@@ -2571,7 +1141,7 @@
       },
       {
         "id": "randy-walters",
-        "rank": 53,
+        "rank": 55,
         "name": "Randy Walters",
         "points": 60,
         "gold": 0,
@@ -2592,7 +1162,7 @@
       },
       {
         "id": "phil-mckenna",
-        "rank": 54,
+        "rank": 56,
         "name": "Phil Mckenna",
         "points": 50,
         "gold": 0,
@@ -2613,7 +1183,7 @@
       },
       {
         "id": "sharan-tej-kodumuru",
-        "rank": 55,
+        "rank": 57,
         "name": "Sharan Tej Kodumuru",
         "points": 40,
         "gold": 0,
@@ -2634,7 +1204,7 @@
       },
       {
         "id": "kyle-weaver",
-        "rank": 56,
+        "rank": 58,
         "name": "Kyle Weaver",
         "points": 30,
         "gold": 0,
@@ -2655,7 +1225,7 @@
       },
       {
         "id": "sai-ram-reddy",
-        "rank": 57,
+        "rank": 59,
         "name": "Sai Ram Reddy",
         "points": 25,
         "gold": 0,
@@ -2678,105 +1248,113 @@
   },
   "seeding": [
     {
-      "id": "brian-romine",
-      "name": "Brian Romine",
-      "seed": 1,
-      "past30Days": 5150,
-      "allTime": 6025,
-      "dupr": 4.388
-    },
-    {
       "id": "tobi-ola",
       "name": "Tobi Ola",
-      "seed": 2,
-      "past30Days": 4900,
-      "allTime": 7700,
+      "seed": 1,
+      "past30Days": 5500,
+      "allTime": 8300,
       "dupr": 4.525
+    },
+    {
+      "id": "brian-romine",
+      "name": "Brian Romine",
+      "seed": 2,
+      "past30Days": 5300,
+      "allTime": 6175,
+      "dupr": 4.388
     },
     {
       "id": "john-paden",
       "name": "John Paden",
       "seed": 3,
-      "past30Days": 3300,
-      "allTime": 4150,
+      "past30Days": 4500,
+      "allTime": 5350,
       "dupr": 4.577
+    },
+    {
+      "id": "garrett-hallemeier",
+      "name": "Garrett Hallemeier",
+      "seed": 4,
+      "past30Days": 3800,
+      "allTime": 6100,
+      "dupr": 4.597
     },
     {
       "id": "aniket-sharma",
       "name": "Aniket Sharma",
-      "seed": 4,
+      "seed": 5,
       "past30Days": 2500,
       "allTime": 2900,
       "dupr": 4.633
     },
     {
-      "id": "garrett-hallemeier",
-      "name": "Garrett Hallemeier",
-      "seed": 5,
-      "past30Days": 2300,
-      "allTime": 4600,
-      "dupr": 4.597
+      "id": "otto-may",
+      "name": "Otto May",
+      "seed": 6,
+      "past30Days": 1750,
+      "allTime": 1750,
+      "dupr": 4.217
+    },
+    {
+      "id": "mat-sevilla",
+      "name": "Mat Sevilla",
+      "seed": 7,
+      "past30Days": 1700,
+      "allTime": 2225,
+      "dupr": 4.476
     },
     {
       "id": "michael-fan",
       "name": "Michael Fan",
-      "seed": 6,
+      "seed": 8,
       "past30Days": 1700,
       "allTime": 3600,
       "dupr": 4.28
     },
     {
-      "id": "otto-may",
-      "name": "Otto May",
-      "seed": 7,
-      "past30Days": 1350,
-      "allTime": 1350,
-      "dupr": 4.217
-    },
-    {
       "id": "sean-liston",
       "name": "Sean Liston",
-      "seed": 8,
-      "past30Days": 1275,
-      "allTime": 4175,
+      "seed": 9,
+      "past30Days": 1525,
+      "allTime": 4425,
       "dupr": 4.019
+    },
+    {
+      "id": "matt-fleming",
+      "name": "Matt Fleming",
+      "seed": 10,
+      "past30Days": 1250,
+      "allTime": 1580,
+      "dupr": 4.303
     },
     {
       "id": "mike-scibona",
       "name": "Mike Scibona",
-      "seed": 9,
+      "seed": 11,
       "past30Days": 1050,
       "allTime": 1050,
       "dupr": 4.392
     },
     {
-      "id": "mat-sevilla",
-      "name": "Mat Sevilla",
-      "seed": 10,
-      "past30Days": 950,
-      "allTime": 1475,
-      "dupr": 4.476
+      "id": "brett-mell",
+      "name": "Brett Mell",
+      "seed": 12,
+      "past30Days": 900,
+      "allTime": 2500,
+      "dupr": 4.841
     },
     {
       "id": "jeff-ross",
       "name": "Jeff Ross",
-      "seed": 11,
+      "seed": 13,
       "past30Days": 900,
       "allTime": 900,
       "dupr": 4.226
     },
     {
-      "id": "matt-fleming",
-      "name": "Matt Fleming",
-      "seed": 12,
-      "past30Days": 750,
-      "allTime": 1080,
-      "dupr": 4.303
-    },
-    {
       "id": "jarrett-menary",
       "name": "Jarrett Menary",
-      "seed": 13,
+      "seed": 14,
       "past30Days": 605,
       "allTime": 605,
       "dupr": 4.112
@@ -2784,7 +1362,7 @@
     {
       "id": "dominic-williams",
       "name": "Dominic Williams",
-      "seed": 14,
+      "seed": 15,
       "past30Days": 600,
       "allTime": 600,
       "dupr": 4.553
@@ -2792,7 +1370,7 @@
     {
       "id": "luke-bovee",
       "name": "Luke Bovee",
-      "seed": 15,
+      "seed": 16,
       "past30Days": 600,
       "allTime": 700,
       "dupr": 4.011
@@ -2800,7 +1378,7 @@
     {
       "id": "matt-landolt",
       "name": "Matt Landolt",
-      "seed": 16,
+      "seed": 17,
       "past30Days": 500,
       "allTime": 500,
       "dupr": 4.423
@@ -2808,7 +1386,7 @@
     {
       "id": "shiva-garimella",
       "name": "Shiva Garimella",
-      "seed": 17,
+      "seed": 18,
       "past30Days": 450,
       "allTime": 550,
       "dupr": 4.106
@@ -2816,7 +1394,7 @@
     {
       "id": "chase-blickhan",
       "name": "Chase Blickhan",
-      "seed": 18,
+      "seed": 19,
       "past30Days": 400,
       "allTime": 4100,
       "dupr": 4.931
@@ -2824,7 +1402,7 @@
     {
       "id": "preston-behlmann",
       "name": "Preston Behlmann",
-      "seed": 19,
+      "seed": 20,
       "past30Days": 400,
       "allTime": 2700,
       "dupr": 4.698
@@ -2832,7 +1410,7 @@
     {
       "id": "dan-green",
       "name": "Dan Green",
-      "seed": 20,
+      "seed": 21,
       "past30Days": 400,
       "allTime": 400,
       "dupr": 4.398
@@ -2840,7 +1418,7 @@
     {
       "id": "austin-lin",
       "name": "Austin Lin",
-      "seed": 21,
+      "seed": 22,
       "past30Days": 350,
       "allTime": 550,
       "dupr": 4.33
@@ -2848,7 +1426,7 @@
     {
       "id": "christopher-lee",
       "name": "Christopher Lee",
-      "seed": 22,
+      "seed": 23,
       "past30Days": 300,
       "allTime": 300,
       "dupr": 4.459
@@ -2856,15 +1434,23 @@
     {
       "id": "chris-goff",
       "name": "Chris Goff",
-      "seed": 23,
+      "seed": 24,
       "past30Days": 300,
       "allTime": 300,
       "dupr": 4.445
     },
     {
+      "id": "john-tuason",
+      "name": "John Tuason",
+      "seed": 25,
+      "past30Days": 300,
+      "allTime": 900,
+      "dupr": 4.122
+    },
+    {
       "id": "sreekanth-peyyeti",
       "name": "Sreekanth Peyyeti",
-      "seed": 24,
+      "seed": 26,
       "past30Days": 300,
       "allTime": 300,
       "dupr": 3.876
@@ -2872,7 +1458,7 @@
     {
       "id": "jon-richert",
       "name": "Jon Richert",
-      "seed": 25,
+      "seed": 27,
       "past30Days": 250,
       "allTime": 2225,
       "dupr": 4.509
@@ -2880,15 +1466,23 @@
     {
       "id": "ryan-niedermayer",
       "name": "Ryan Niedermayer",
-      "seed": 26,
+      "seed": 28,
       "past30Days": 250,
       "allTime": 330,
       "dupr": 4.202
     },
     {
+      "id": "daton-rippley",
+      "name": "Daton Rippley",
+      "seed": 29,
+      "past30Days": 200,
+      "allTime": 200,
+      "dupr": 4.289
+    },
+    {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 27,
+      "seed": 30,
       "past30Days": 150,
       "allTime": 150,
       "dupr": 4.05
@@ -2896,7 +1490,7 @@
     {
       "id": "tim-long",
       "name": "Tim Long",
-      "seed": 28,
+      "seed": 31,
       "past30Days": 150,
       "allTime": 150,
       "dupr": 2
@@ -2904,7 +1498,7 @@
     {
       "id": "michael-randle",
       "name": "Michael Randle",
-      "seed": 29,
+      "seed": 32,
       "past30Days": 125,
       "allTime": 325,
       "dupr": 4.314
@@ -2912,15 +1506,23 @@
     {
       "id": "orlando-paez",
       "name": "Orlando Paez",
-      "seed": 30,
+      "seed": 33,
       "past30Days": 125,
       "allTime": 1725,
       "dupr": 4.294
     },
     {
+      "id": "matt-goodwin",
+      "name": "Matt Goodwin",
+      "seed": 34,
+      "past30Days": 125,
+      "allTime": 125,
+      "dupr": 4.242
+    },
+    {
       "id": "matthew-trokey",
       "name": "Matthew Trokey",
-      "seed": 31,
+      "seed": 35,
       "past30Days": 60,
       "allTime": 60,
       "dupr": 4.062
@@ -2928,7 +1530,7 @@
     {
       "id": "phil-mckenna",
       "name": "Phil Mckenna",
-      "seed": 32,
+      "seed": 36,
       "past30Days": 50,
       "allTime": 50,
       "dupr": 3.979
@@ -2936,7 +1538,7 @@
     {
       "id": "sharan-tej-kodumuru",
       "name": "Sharan Tej Kodumuru",
-      "seed": 33,
+      "seed": 37,
       "past30Days": 40,
       "allTime": 40,
       "dupr": 4.136
@@ -2944,7 +1546,7 @@
     {
       "id": "kyle-weaver",
       "name": "Kyle Weaver",
-      "seed": 34,
+      "seed": 38,
       "past30Days": 30,
       "allTime": 30,
       "dupr": 4.121
@@ -2952,7 +1554,7 @@
     {
       "id": "sai-ram-reddy",
       "name": "Sai Ram Reddy",
-      "seed": 35,
+      "seed": 39,
       "past30Days": 25,
       "allTime": 25,
       "dupr": 2
@@ -2960,7 +1562,7 @@
     {
       "id": "jason-rule",
       "name": "Jason Rule",
-      "seed": 36,
+      "seed": 40,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 5.12
@@ -2968,23 +1570,15 @@
     {
       "id": "kyle-laramie",
       "name": "Kyle Laramie",
-      "seed": 37,
+      "seed": 41,
       "past30Days": 0,
       "allTime": 900,
       "dupr": 5.033
     },
     {
-      "id": "brett-mell",
-      "name": "Brett Mell",
-      "seed": 38,
-      "past30Days": 0,
-      "allTime": 1600,
-      "dupr": 4.841
-    },
-    {
       "id": "dev-newsome",
       "name": "Dev Newsome",
-      "seed": 39,
+      "seed": 42,
       "past30Days": 0,
       "allTime": 1150,
       "dupr": 4.663
@@ -2992,7 +1586,7 @@
     {
       "id": "brooks-toth",
       "name": "Brooks Toth",
-      "seed": 40,
+      "seed": 43,
       "past30Days": 0,
       "allTime": 125,
       "dupr": 4.644
@@ -3000,7 +1594,7 @@
     {
       "id": "steven-benedict",
       "name": "Steven Benedict",
-      "seed": 41,
+      "seed": 44,
       "past30Days": 0,
       "allTime": 500,
       "dupr": 4.433
@@ -3008,7 +1602,7 @@
     {
       "id": "jon-harris",
       "name": "Jon Harris",
-      "seed": 42,
+      "seed": 45,
       "past30Days": 0,
       "allTime": 3200,
       "dupr": 4.391
@@ -3016,7 +1610,7 @@
     {
       "id": "josh-wilson",
       "name": "Josh Wilson",
-      "seed": 43,
+      "seed": 46,
       "past30Days": 0,
       "allTime": 0,
       "dupr": 4.386
@@ -3024,23 +1618,15 @@
     {
       "id": "james-brown",
       "name": "James Brown",
-      "seed": 44,
+      "seed": 47,
       "past30Days": 0,
       "allTime": 750,
       "dupr": 4.292
     },
     {
-      "id": "daton-rippley",
-      "name": "Daton Rippley",
-      "seed": 45,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4.289
-    },
-    {
       "id": "kevin-reque",
       "name": "Kevin Reque",
-      "seed": 46,
+      "seed": 48,
       "past30Days": 0,
       "allTime": 450,
       "dupr": 4.274
@@ -3048,7 +1634,7 @@
     {
       "id": "bekah-ola",
       "name": "Bekah Ola",
-      "seed": 47,
+      "seed": 49,
       "past30Days": 0,
       "allTime": 200,
       "dupr": 4.248
@@ -3056,34 +1642,18 @@
     {
       "id": "matthew-hultman",
       "name": "Matthew Hultman",
-      "seed": 48,
+      "seed": 50,
       "past30Days": 0,
       "allTime": 100,
       "dupr": 4.245
     },
     {
-      "id": "matt-goodwin",
-      "name": "Matt Goodwin",
-      "seed": 49,
-      "past30Days": 0,
-      "allTime": 0,
-      "dupr": 4.242
-    },
-    {
       "id": "derek-dallas",
       "name": "Derek Dallas",
-      "seed": 50,
+      "seed": 51,
       "past30Days": 0,
       "allTime": 250,
       "dupr": 4.142
-    },
-    {
-      "id": "john-tuason",
-      "name": "John Tuason",
-      "seed": 51,
-      "past30Days": 0,
-      "allTime": 600,
-      "dupr": 4.122
     },
     {
       "id": "ivan-gutierrez",
@@ -3282,6 +1852,203 @@
     ],
     "past": [
       {
+        "id": "2026-10-29",
+        "date": "2026-10-29",
+        "playerCount": 12,
+        "courts": 3,
+        "games": 21,
+        "maxPointsEarnable": 1500,
+        "rounds": 7,
+        "youtubeUrl": null,
+        "podium": [
+          {
+            "place": 1,
+            "playerId": "garrett-hallemeier",
+            "name": "Garrett Hallemeier"
+          },
+          {
+            "place": 2,
+            "playerId": "john-paden",
+            "name": "John Paden"
+          },
+          {
+            "place": 3,
+            "playerId": "brett-mell",
+            "name": "Brett Mell"
+          }
+        ],
+        "results": [
+          {
+            "playerId": "garrett-hallemeier",
+            "name": "Garrett Hallemeier",
+            "points": 1500,
+            "place": 1,
+            "courts": 3,
+            "gameMakerPoints": 4853,
+            "wins": 5,
+            "losses": 2,
+            "winRate": 71.42,
+            "pointsEarned": 139,
+            "pointsAgainst": 120,
+            "pointDifferential": 7.33
+          },
+          {
+            "playerId": "john-paden",
+            "name": "John Paden",
+            "points": 1200,
+            "place": 2,
+            "courts": 3,
+            "gameMakerPoints": 4568,
+            "wins": 5,
+            "losses": 2,
+            "winRate": 71.42,
+            "pointsEarned": 142,
+            "pointsAgainst": 121,
+            "pointDifferential": 7.98
+          },
+          {
+            "playerId": "brett-mell",
+            "name": "Brett Mell",
+            "points": 900,
+            "place": 3,
+            "courts": 3,
+            "gameMakerPoints": 4078,
+            "wins": 5,
+            "losses": 2,
+            "winRate": 71.42,
+            "pointsEarned": 141,
+            "pointsAgainst": 110,
+            "pointDifferential": 12.35
+          },
+          {
+            "playerId": "mat-sevilla",
+            "name": "Mat Sevilla",
+            "points": 750,
+            "place": 4,
+            "courts": 3,
+            "gameMakerPoints": 3973,
+            "wins": 4,
+            "losses": 3,
+            "winRate": 57.14,
+            "pointsEarned": 129,
+            "pointsAgainst": 131,
+            "pointDifferential": -0.77
+          },
+          {
+            "playerId": "tobi-ola",
+            "name": "Tobi Ola",
+            "points": 600,
+            "place": 5,
+            "courts": 3,
+            "gameMakerPoints": 3745,
+            "wins": 4,
+            "losses": 3,
+            "winRate": 57.14,
+            "pointsEarned": 127,
+            "pointsAgainst": 131,
+            "pointDifferential": -1.56
+          },
+          {
+            "playerId": "matt-fleming",
+            "name": "Matt Fleming",
+            "points": 500,
+            "place": 6,
+            "courts": 3,
+            "gameMakerPoints": 3745,
+            "wins": 4,
+            "losses": 3,
+            "winRate": 57.14,
+            "pointsEarned": 136,
+            "pointsAgainst": 130,
+            "pointDifferential": 2.25
+          },
+          {
+            "playerId": "otto-may",
+            "name": "Otto May",
+            "points": 400,
+            "place": 7,
+            "courts": 3,
+            "gameMakerPoints": 2674,
+            "wins": 3,
+            "losses": 4,
+            "winRate": 42.85,
+            "pointsEarned": 131,
+            "pointsAgainst": 137,
+            "pointDifferential": -2.24
+          },
+          {
+            "playerId": "john-tuason",
+            "name": "John Tuason",
+            "points": 300,
+            "place": 8,
+            "courts": 3,
+            "gameMakerPoints": 2282,
+            "wins": 3,
+            "losses": 4,
+            "winRate": 42.85,
+            "pointsEarned": 118,
+            "pointsAgainst": 132,
+            "pointDifferential": -5.6
+          },
+          {
+            "playerId": "sean-liston",
+            "name": "Sean Liston",
+            "points": 250,
+            "place": 9,
+            "courts": 3,
+            "gameMakerPoints": 2225,
+            "wins": 3,
+            "losses": 4,
+            "winRate": 42.85,
+            "pointsEarned": 137,
+            "pointsAgainst": 136,
+            "pointDifferential": 0.36
+          },
+          {
+            "playerId": "daton-rippley",
+            "name": "Daton Rippley",
+            "points": 200,
+            "place": 10,
+            "courts": 3,
+            "gameMakerPoints": 1874,
+            "wins": 2,
+            "losses": 5,
+            "winRate": 28.57,
+            "pointsEarned": 125,
+            "pointsAgainst": 132,
+            "pointDifferential": -2.73
+          },
+          {
+            "playerId": "brian-romine",
+            "name": "Brian Romine",
+            "points": 150,
+            "place": 11,
+            "courts": 3,
+            "gameMakerPoints": 1751,
+            "wins": 2,
+            "losses": 5,
+            "winRate": 28.57,
+            "pointsEarned": 128,
+            "pointsAgainst": 141,
+            "pointDifferential": -4.84
+          },
+          {
+            "playerId": "matt-goodwin",
+            "name": "Matt Goodwin",
+            "points": 125,
+            "place": 12,
+            "courts": 3,
+            "gameMakerPoints": 1612,
+            "wins": 2,
+            "losses": 5,
+            "winRate": 28.57,
+            "pointsEarned": 109,
+            "pointsAgainst": 141,
+            "pointDifferential": -12.8
+          }
+        ]
+      },
+      {
         "id": "2026-10-22",
         "date": "2026-10-22",
         "playerCount": 12,
@@ -3289,7 +2056,7 @@
         "games": 21,
         "maxPointsEarnable": 1500,
         "rounds": 7,
-        "youtubeUrl": "https://www.youtube.com/watch?v=AaHU9ujbUj0",
+        "youtubeUrl": null,
         "podium": [
           {
             "place": 1,
@@ -5371,13 +4138,13 @@
         "podium": [
           {
             "place": 1,
-            "playerId": "brian-romine",
-            "name": "Brian Romine"
+            "playerId": "tobi-ola",
+            "name": "Tobi Ola"
           },
           {
             "place": 2,
-            "playerId": "tobi-ola",
-            "name": "Tobi Ola"
+            "playerId": "brian-romine",
+            "name": "Brian Romine"
           },
           {
             "place": 3,
@@ -5385,9 +4152,10 @@
             "name": "John Paden"
           }
         ],
-        "eventCount": 4,
-        "playerCount": 35,
+        "eventCount": 5,
+        "playerCount": 39,
         "eventIds": [
+          "2026-10-29",
           "2026-10-22",
           "2026-10-15",
           "2026-10-08",
