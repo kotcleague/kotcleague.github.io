@@ -9,9 +9,13 @@ import {
   leagueCalendarDate,
   parseQualificationData,
   qualificationIsOpen,
+  qualificationUsesLastMonth,
 } from "../src/lib/qualification.mjs";
 import {
   createQualificationSnapshot,
+  createNovemberQualificationSnapshot,
+  parsePaddleUpLastMonth,
+  readPaddleUpLastMonth,
   parseClub65Table,
   readClub65Overall,
   writeQualificationSnapshot,
@@ -89,6 +93,171 @@ test("Chicago calendar gates October capture and November retention at midnight"
         now
       ),
     /October/
+  );
+});
+
+test("Last Month is usable only during November in Chicago", () => {
+  assert.equal(
+    qualificationUsesLastMonth(new Date("2026-11-01T04:59:59Z")),
+    false
+  );
+  assert.equal(
+    qualificationUsesLastMonth(new Date("2026-11-01T05:00:00Z")),
+    true
+  );
+  assert.equal(
+    qualificationUsesLastMonth(new Date("2026-12-01T05:59:59Z")),
+    true
+  );
+  assert.equal(
+    qualificationUsesLastMonth(new Date("2026-12-01T06:00:00Z")),
+    false
+  );
+});
+
+const lastMonthHtml = (
+  rows = [
+    ["9", " Player One ", "5000"],
+    ["10", "Player Two", "4000"],
+  ]
+) =>
+  `<table><tbody><tr><td>Points</td><td>Player</td><td>Ranking</td></tr>${rows
+    .map(
+      ([rank, name, points]) =>
+        `<tr><td>${points}</td><td>${name}</td><td>${rank}</td></tr>`
+    )
+    .join("")}<tr><td></td><td></td><td></td></tr></tbody></table>`;
+const novemberNow = new Date("2026-11-01T23:00:00Z");
+
+test("Last Month parser locates reordered columns and rejects invalid or empty rows", () => {
+  assert.deepEqual(parsePaddleUpLastMonth(lastMonthHtml()), [
+    { rank: "9", name: "Player One", points: 5000 },
+    { rank: "10", name: "Player Two", points: 4000 },
+  ]);
+  for (const html of [
+    "<h1>Log in</h1>",
+    lastMonthHtml([]),
+    lastMonthHtml([["1", "Player", ""]]),
+    lastMonthHtml([["1", "Player", "NaN"]]),
+    lastMonthHtml([["0", "Player", "500"]]),
+    lastMonthHtml([["1", "", "500"]]),
+  ]) {
+    assert.throws(() => parsePaddleUpLastMonth(html));
+  }
+});
+
+test("discovers Last Month dynamically, records October provenance and rejects rollover before fetching", async () => {
+  const calls = [];
+  const data = await readPaddleUpLastMonth(novemberNow, async (url) => {
+    calls.push(url);
+    return calls.length === 1
+      ? 'items.push({name: "Last Month", gid: "12345"})'
+      : lastMonthHtml();
+  });
+  assert.equal(calls.length, 2);
+  assert.match(calls[1], /gid=12345&cacheBust=/);
+  assert.equal(data.sourceTab, "Last Month");
+  assert.equal(data.standingsMonth, "2026-10");
+  assert.equal(data.capturedAt, novemberNow.toISOString());
+  await assert.rejects(
+    readPaddleUpLastMonth(new Date("2026-12-01T12:00:00Z"), async () =>
+      assert.fail("Must not fetch November data")
+    ),
+    /only during November/
+  );
+  await assert.rejects(
+    readPaddleUpLastMonth(novemberNow, async () => ""),
+    /tab is missing/
+  );
+  await assert.rejects(
+    readPaddleUpLastMonth(novemberNow, async () => {
+      throw new Error("Fetch failed");
+    }),
+    /Fetch failed/
+  );
+});
+
+test("November refresh replaces only Paddle Up unless Club 65's October period is confirmed", async () => {
+  const paddleUp = await readPaddleUpLastMonth(novemberNow, async (url) =>
+    url.includes("/sheet?")
+      ? lastMonthHtml()
+      : 'items.push({name: "Last Month", gid: "12345"})'
+  );
+  const previous = snapshot();
+  const result = createNovemberQualificationSnapshot(
+    previous,
+    paddleUp,
+    novemberNow
+  );
+  assert.deepEqual(result.clubs["club-65"], previous.clubs["club-65"]);
+  assert.deepEqual(
+    result.clubs["paddle-up"].rows,
+    parsePaddleUpLastMonth(lastMonthHtml())
+  );
+  const refreshed = createNovemberQualificationSnapshot(
+    previous,
+    paddleUp,
+    novemberNow,
+    parseClub65Table({ grids: [headers, ...cells], notes })
+  );
+  assert.equal(refreshed.clubs["club-65"].monthConfirmed, true);
+  assert.equal(
+    refreshed.clubs["club-65"].capturedAt,
+    novemberNow.toISOString()
+  );
+  const unconfirmed = structuredClone(refreshed);
+  delete unconfirmed.clubs["club-65"].monthConfirmed;
+  assert.throws(() => parseQualificationData(unconfirmed), /club-65/);
+  const wrongPeriod = structuredClone(result);
+  wrongPeriod.clubs["paddle-up"].sourceTab = "Current Month";
+  assert.throws(() => parseQualificationData(wrongPeriod), /paddle-up/);
+  const unknownPeriod = structuredClone(result);
+  delete unknownPeriod.clubs["paddle-up"].standingsMonth;
+  assert.throws(() => parseQualificationData(unknownPeriod), /paddle-up/);
+  assert.throws(
+    () =>
+      createNovemberQualificationSnapshot(
+        previous,
+        paddleUp,
+        new Date("2026-12-02T12:00:00Z")
+      ),
+    /November/
+  );
+  const directory = mkdtempSync(join(tmpdir(), "kotc-november-"));
+  const path = join(directory, "snapshot.json");
+  try {
+    writeQualificationSnapshot(path, previous);
+    assert.equal(writeQualificationSnapshot(path, result), true);
+    const next = structuredClone(result);
+    next.clubs["paddle-up"].capturedAt = "2026-11-02T12:00:00Z";
+    assert.equal(writeQualificationSnapshot(path, next), false);
+    assert.equal(
+      JSON.parse(readFileSync(path, "utf8")).clubs["paddle-up"].capturedAt,
+      novemberNow.toISOString()
+    );
+  } finally {
+    rmSync(directory, { recursive: true });
+  }
+});
+
+test("accepts published additive scoring without requiring best-three eligibility notes", () => {
+  const additiveNotes = [
+    "Total Points add up every week each player has played.",
+    "Ties are settled by points, then point differential (+/-), then head-to-head. T = still tied.",
+  ];
+  const result = parseClub65Table({
+    grids: [headers, ...cells],
+    notes: additiveNotes,
+  });
+  assert.deepEqual(result.notes, additiveNotes);
+  assert.equal(result.rows[0].points, 8);
+  assert.throws(
+    () =>
+      parseClub65Table({
+        grids: [headers, ...cells],
+        notes: ["New unknown scoring.", additiveNotes[1]],
+      }),
+    /scoring notes changed/
   );
 });
 

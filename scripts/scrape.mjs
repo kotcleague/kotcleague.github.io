@@ -10,7 +10,15 @@ import {
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import { fetchCourtReserveRegistrants } from "./lib/courtreserve.mjs";
-import { HttpError, isRetryableFetchError } from "./lib/http.mjs";
+import { fetchHtml } from "./lib/http.mjs";
+import {
+  SHEET_BASE as BASE,
+  parseTabGids,
+  normalizeHeader,
+  readRowCells,
+  findHeaderRow,
+  getColumn,
+} from "./lib/google-sheet.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = resolve(
@@ -21,13 +29,6 @@ const OUTPUT_PATH = resolve(
   "leaderboard.json"
 );
 
-// Published "King of the Court League" Google Sheet.
-const PUBLISH_ID =
-  "2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj";
-const BASE = `https://docs.google.com/spreadsheets/d/e/${PUBLISH_ID}/pubhtml`;
-const FETCH_ATTEMPTS = 3;
-const FETCH_TIMEOUT_MS = 15_000;
-const RETRY_BASE_DELAY_MS = 1_000;
 const SNAPSHOT_ATTEMPTS = 3;
 const SNAPSHOT_RETRY_DELAY_MS = 2_000;
 
@@ -154,60 +155,6 @@ function wait(milliseconds) {
   );
 }
 
-async function fetchHtml(url, context) {
-  let lastError;
-  let attemptsMade = 0;
-
-  for (let attempt = 1; attempt <= FETCH_ATTEMPTS; attempt += 1) {
-    attemptsMade = attempt;
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-
-    try {
-      const response = await fetch(url, { signal: controller.signal });
-      if (!response.ok) throw new HttpError(response);
-
-      const html = await response.text();
-      if (!html.trim()) throw new Error("Received an empty response");
-      return html;
-    } catch (error) {
-      lastError = error;
-      if (attempt === FETCH_ATTEMPTS || !isRetryableFetchError(error)) break;
-
-      const delay = RETRY_BASE_DELAY_MS * 2 ** (attempt - 1);
-      console.warn(
-        `  Fetch attempt ${attempt}/${FETCH_ATTEMPTS} for ${context} failed (${error.message}); retrying in ${delay}ms...`
-      );
-      await wait(delay);
-    } finally {
-      clearTimeout(timeout);
-    }
-  }
-
-  throw new Error(
-    `Failed to fetch ${context} after ${attemptsMade} attempt${
-      attemptsMade === 1 ? "" : "s"
-    }: ${lastError?.message ?? "unknown error"}`,
-    { cause: lastError }
-  );
-}
-
-// Read the published tab menu and map each tab name to its gid.
-// Google builds the tab menu with JavaScript, so the mapping lives in a series
-// of `items.push({name: "...", ..., gid: "..."})` calls rather than in the DOM.
-function parseTabGids(html) {
-  const gids = {};
-  const re = /items\.push\(\{name:\s*"((?:[^"\\]|\\.)*)"[^}]*?gid:\s*"(\d+)"/g;
-  let match;
-
-  while ((match = re.exec(html)) !== null) {
-    const name = JSON.parse(`"${match[1].replace(/\\x26/g, "&")}"`);
-    gids[name] = match[2];
-  }
-
-  return gids;
-}
-
 // Turn a movement cell's text into a structured value.
 // "●" / "" => none, "▲5" => up 5, "▼1" => down 1.
 function parseMovement(text) {
@@ -265,75 +212,6 @@ function parsePerformanceStats(cells, context, percentageFields = []) {
       return [key, parseValue(cells[index], label, context)];
     })
   );
-}
-
-function normalizeHeader(value) {
-  return String(value ?? "")
-    .trim()
-    .replace(/\s+/g, " ")
-    .toLocaleLowerCase("en-US");
-}
-
-function readRowCells($, row) {
-  return $(row)
-    .find("td")
-    .map((_, td) => $(td).text().trim())
-    .get();
-}
-
-// Build a map such as:
-// {
-//   "player": 2,
-//   "points": 3,
-//   "wins": 5
-// }
-function buildHeaderMap(cells) {
-  const map = new Map();
-
-  cells.forEach((cell, index) => {
-    const header = normalizeHeader(cell);
-
-    if (header && !map.has(header)) {
-      map.set(header, index);
-    }
-  });
-
-  return map;
-}
-
-// Find the row containing the expected column headers.
-// This allows the actual data columns to be in any order.
-function findHeaderRow($, table, requiredColumns, context) {
-  const required = requiredColumns.map(normalizeHeader);
-  const rows = $(table).find("tbody tr");
-
-  for (let i = 0; i < rows.length; i += 1) {
-    const cells = readRowCells($, rows[i]);
-    const headerMap = buildHeaderMap(cells);
-
-    if (required.every((column) => headerMap.has(column))) {
-      return {
-        row: rows[i],
-        headerMap,
-      };
-    }
-  }
-
-  throw new Error(
-    `Could not find the header row for ${context}. Expected columns: ${requiredColumns.join(
-      ", "
-    )}`
-  );
-}
-
-function getColumn(headerMap, cells, columnName, context) {
-  const index = headerMap.get(normalizeHeader(columnName));
-
-  if (index === undefined) {
-    throw new Error(`Missing column "${columnName}" in ${context}`);
-  }
-
-  return cells[index] ?? "";
 }
 
 function assertSheetTable(html, tabName) {

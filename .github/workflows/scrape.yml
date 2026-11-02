@@ -26,13 +26,16 @@ jobs:
         run: npm ci
 
       - name: Run scraper
-        run: npm run scrape
+        run: |
+          npm run test:courtreserve
+          npm run scrape
 
       - name: Capture October qualification standings
         id: qualification
         continue-on-error: true
         run: |
           npx playwright install --with-deps chromium
+          npm run test:qualification
           npm run scrape:qualification
 
       - name: Validate site build

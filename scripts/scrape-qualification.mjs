@@ -6,9 +6,12 @@ import {
   CLUB_65_SOURCE,
   parseQualificationData,
   qualificationIsOpen,
+  qualificationUsesLastMonth,
 } from "../src/lib/qualification.mjs";
 import {
   createQualificationSnapshot,
+  createNovemberQualificationSnapshot,
+  readPaddleUpLastMonth,
   readClub65Overall,
   writeQualificationSnapshot,
 } from "./lib/qualification.mjs";
@@ -21,7 +24,16 @@ const outputPath = resolve(dataDirectory, "club-match-2026.json");
 
 async function scrape() {
   const now = new Date();
-  if (!qualificationIsOpen(now)) {
+  const confirmClub65 = process.argv.includes("--confirm-club65-october");
+  if (process.argv.slice(2).some((arg) => arg !== "--confirm-club65-october")) {
+    throw new Error("Unknown qualification scraper argument");
+  }
+  if (confirmClub65 && !qualificationUsesLastMonth(now)) {
+    throw new Error(
+      "Manual Club 65 October confirmation is supported only during November 2026"
+    );
+  }
+  if (!qualificationIsOpen(now) && !qualificationUsesLastMonth(now)) {
     if (!existsSync(outputPath)) {
       throw new Error(
         "October qualification snapshot is missing; cannot capture another month's standings"
@@ -29,15 +41,39 @@ async function scrape() {
     }
     parseQualificationData(JSON.parse(readFileSync(outputPath, "utf8")));
     console.log(
-      "Outside October 2026; retaining saved October qualification standings."
+      "Outside October/November 2026; retaining saved October qualification standings."
     );
     return;
   }
 
-  const leaderboard = JSON.parse(
-    readFileSync(resolve(dataDirectory, "leaderboard.json"), "utf8")
-  );
-  if (!qualificationIsOpen(new Date(leaderboard.scrapedAt))) {
+  const lastMonth = qualificationUsesLastMonth(now);
+  const previous = lastMonth
+    ? parseQualificationData(JSON.parse(readFileSync(outputPath, "utf8")))
+    : null;
+  const paddleUp = lastMonth ? await readPaddleUpLastMonth(now) : null;
+  if (lastMonth && !confirmClub65) {
+    const snapshot = createNovemberQualificationSnapshot(
+      previous,
+      paddleUp,
+      new Date()
+    );
+    const changed = writeQualificationSnapshot(outputPath, snapshot);
+    console.log(
+      changed
+        ? `Wrote ${outputPath}`
+        : "No change in October qualification standings."
+    );
+    console.log(
+      "Paddle Up refreshed from Last Month; saved Club 65 October standings retained."
+    );
+    return;
+  }
+  const leaderboard = lastMonth
+    ? null
+    : JSON.parse(
+        readFileSync(resolve(dataDirectory, "leaderboard.json"), "utf8")
+      );
+  if (!lastMonth && !qualificationIsOpen(new Date(leaderboard.scrapedAt))) {
     throw new Error(
       "Run npm run scrape first: Paddle Up source is not from October 2026"
     );
@@ -69,11 +105,14 @@ async function scrape() {
         await page.close();
       }
     }
-    const snapshot = createQualificationSnapshot(
-      leaderboard,
-      club65,
-      new Date()
-    );
+    const snapshot = lastMonth
+      ? createNovemberQualificationSnapshot(
+          previous,
+          paddleUp,
+          new Date(),
+          club65
+        )
+      : createQualificationSnapshot(leaderboard, club65, new Date());
     mkdirSync(dataDirectory, { recursive: true });
     const changed = writeQualificationSnapshot(outputPath, snapshot);
     console.log(

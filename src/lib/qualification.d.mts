@@ -2,6 +2,7 @@ export const QUALIFICATION_MONTH: "2026-10";
 export const CLUB_65_SOURCE: string;
 export function leagueCalendarDate(now?: Date): string;
 export function qualificationIsOpen(now?: Date): boolean;
+export function qualificationUsesLastMonth(now?: Date): boolean;
 
 export interface QualificationRow {
   rank: string;
@@ -20,6 +21,9 @@ export interface Club65Row extends QualificationRow {
 export interface ClubSnapshot<Row extends QualificationRow = QualificationRow> {
   source: string;
   capturedAt: string;
+  standingsMonth?: "2026-10";
+  sourceTab?: "Current Month" | "Last Month";
+  monthConfirmed?: true;
   notes: string[];
   rows: Row[];
 }

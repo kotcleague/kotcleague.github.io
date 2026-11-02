@@ -153,8 +153,11 @@ Winners heading, then reads the published ranks, ties, weekly scores, totals,
 records, and qualification notes. It preserves Club 65's own scoring and strips
 trailing asterisks from player names, retaining their eligibility meaning
 as separate metadata without adding the marker back to displayed names. It does
-not combine it with Paddle Up's points. Paddle Up data comes from the validated
-current-month league output. Standings are not confirmed rosters.
+not combine it with Paddle Up's points. Both the original best-three-weeks
+scoring note and the current all-weeks scoring note are supported; published
+totals are retained without recalculation. Paddle Up data comes from the
+validated current-month league output during October and the published
+**Last Month** sheet during November. Standings are not confirmed rosters.
 
 The hourly workflow installs Chromium and runs both scrapers, committing and
 redeploying only when substantive data changes. Snapshots are validated and
@@ -163,10 +166,25 @@ after allowing regular league updates to publish; previous qualification data
 is retained. Capture timestamps remain in the snapshot data but are not displayed
 on the event page.
 
-Capture is restricted to October 2026 in America/Chicago. After October 31,
-the last successful October snapshots are retained and labeled as saved
-snapshots, not guaranteed final standings. A missing snapshot after rollover is
-an error, never a reason to substitute November rankings. Verify final
+During November 2026 in America/Chicago, the hourly scraper discovers the
+**Last Month** tab and refreshes Paddle Up's October standings directly from
+the published sheet. Its source link points to that tab; metadata records
+October as the standings month separately from the November capture date.
+Saved Club 65 data is retained by default because RekPlay does not explicitly
+label its month. After confirming the live session still represents October,
+refresh both clubs explicitly:
+
+```bash
+npm run scrape:qualification -- --confirm-club65-october
+```
+
+That confirmation is recorded in the Club 65 snapshot and is not passed by
+the hourly workflow. The option is accepted only during November 2026. After
+November ends, both saved snapshots are retained: Last Month would then
+represent November and must not replace October. Missing or invalid saved
+snapshots and missing or malformed Last Month data are errors, never reasons
+to substitute current-month rankings. The UI continues to label these as
+saved October standings, not guaranteed final invitations. Verify final
 invitations against each club's source.
 
 On systems unsupported by Playwright's bundled Chromium, an installed compatible

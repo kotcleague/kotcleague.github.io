@@ -17,6 +17,10 @@ export function qualificationIsOpen(now = new Date()) {
   return leagueCalendarDate(now).slice(0, 7) === QUALIFICATION_MONTH;
 }
 
+export function qualificationUsesLastMonth(now = new Date()) {
+  return leagueCalendarDate(now).slice(0, 7) === "2026-11";
+}
+
 function isRecord(value) {
   return value !== null && typeof value === "object" && !Array.isArray(value);
 }
@@ -48,7 +52,23 @@ export function parseQualificationData(value) {
       (id === "club-65" && club.source !== CLUB_65_SOURCE) ||
       typeof club.capturedAt !== "string" ||
       !Number.isFinite(Date.parse(club.capturedAt)) ||
-      !qualificationIsOpen(new Date(club.capturedAt)) ||
+      (club.standingsMonth !== undefined &&
+        club.standingsMonth !== QUALIFICATION_MONTH) ||
+      (club.sourceTab !== undefined &&
+        (id !== "paddle-up" ||
+          !["Current Month", "Last Month"].includes(club.sourceTab))) ||
+      (club.monthConfirmed !== undefined &&
+        (id !== "club-65" || club.monthConfirmed !== true)) ||
+      !(
+        qualificationIsOpen(new Date(club.capturedAt)) ||
+        (qualificationUsesLastMonth(new Date(club.capturedAt)) &&
+          club.standingsMonth === QUALIFICATION_MONTH &&
+          (id === "paddle-up"
+            ? club.sourceTab === "Last Month"
+            : club.monthConfirmed === true))
+      ) ||
+      (club.sourceTab === "Last Month" &&
+        !qualificationUsesLastMonth(new Date(club.capturedAt))) ||
       !Array.isArray(club.notes) ||
       !club.notes.every((note) => typeof note === "string" && note.trim()) ||
       !Array.isArray(club.rows) ||
