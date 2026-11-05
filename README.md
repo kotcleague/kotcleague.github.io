@@ -137,65 +137,32 @@ This club match is separate from
 scraped league registration, player profiles, and results.
 
 The details page loads both clubs' October 2026 qualification snapshots from
-`public/data/club-match-2026.json`. To refresh them:
+`public/data/club-match-2026.json`. These event-specific values are permanently
+frozen at the verified October standings: 39 Paddle Up players and 32 Club 65
+players, captured on November 2, 2026 UTC. They are saved standings, not
+confirmed invitations.
+
+To validate the frozen data:
 
 ```bash
-npx playwright install chromium
-npm run scrape
 npm run scrape:qualification
-npm run test:qualification
+npm run test:qualification:frozen
 ```
 
-RekPlay is client-rendered. The scraper opens the public
-[Club 65 session](https://www.rekplay.com/live/dtzk1o), explicitly selects
-**Overall** (the page defaults to Week 2), verifies the selected tab and Monthly
-Winners heading, then reads the published ranks, ties, weekly scores, totals,
-records, and qualification notes. It preserves Club 65's own scoring and strips
-trailing asterisks from player names, retaining their eligibility meaning
-as separate metadata without adding the marker back to displayed names. It does
-not combine it with Paddle Up's points. Both the original best-three-weeks
-scoring note and the current all-weeks scoring note are supported; published
-totals are retained without recalculation. Paddle Up data comes from the
-validated current-month league output during October and the published
-**Last Month** sheet during November. Standings are not confirmed rosters.
+Despite its historical name, `scrape:qualification` is now validation-only.
+It never fetches sources, launches a browser, or writes data, regardless of
+the current date. Old refresh flags are rejected. The hourly workflow updates
+and commits only regular league data; it does not stage or modify this event's
+snapshot. Both scraping and deployment workflows reject invalid or missing
+frozen data, including unresolved merge-conflict markers, before publishing.
 
-The hourly workflow installs Chromium and runs both scrapers, committing and
-redeploying only when substantive data changes. Snapshots are validated and
-replaced atomically. Qualification failures are reported as workflow failures
-after allowing regular league updates to publish; previous qualification data
-is retained. Capture timestamps remain in the snapshot data but are not displayed
-on the event page.
-
-During November 2026 in America/Chicago, the hourly scraper discovers the
-**Last Month** tab and refreshes Paddle Up's October standings directly from
-the published sheet. Its source link points to that tab; metadata records
-October as the standings month separately from the November capture date.
-Saved Club 65 data is retained by default because RekPlay does not explicitly
-label its month. After confirming the live session still represents October,
-refresh both clubs explicitly:
-
-```bash
-npm run scrape:qualification -- --confirm-club65-october
-```
-
-That confirmation is recorded in the Club 65 snapshot and is not passed by
-the hourly workflow. The option is accepted only during November 2026. After
-November ends, both saved snapshots are retained: Last Month would then
-represent November and must not replace October. Missing or invalid saved
-snapshots and missing or malformed Last Month data are errors, never reasons
-to substitute current-month rankings. The UI continues to label these as
-saved October standings, not guaranteed final invitations. Verify final
-invitations against each club's source.
-
-On systems unsupported by Playwright's bundled Chromium, an installed compatible
-Chromium browser can be used explicitly, for example:
-
-```bash
-PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH="/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge" npm run scrape:qualification
-```
-
-The same environment variable applies to `npm run test:qualification`. Linux CI
-uses Playwright's bundled Chromium (`npx playwright install --with-deps chromium`).
+Paddle Up's values came from the published **Last Month** sheet while it
+represented October. Club 65's values came from the verified **Overall**
+monthly table in the [Club 65 session](https://www.rekplay.com/live/dtzk1o),
+with the session's October period confirmed manually. Each club's published
+scoring is retained separately. Source links are historical provenance:
+those live sources may change, but this event's saved values will not.
+Capture timestamps are retained in the data but are not displayed.
 
 Pushes to `main` build the site to Vite's ignored `dist/` directory and deploy
 that output through the GitHub Pages artifact workflow.

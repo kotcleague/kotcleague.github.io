@@ -30,12 +30,9 @@ jobs:
           npm run test:courtreserve
           npm run scrape
 
-      - name: Capture October qualification standings
-        id: qualification
-        continue-on-error: true
+      - name: Validate frozen October qualification standings
         run: |
-          npx playwright install --with-deps chromium
-          npm run test:qualification
+          npm run test:qualification:frozen
           npm run scrape:qualification
 
       - name: Validate site build
@@ -45,10 +42,7 @@ jobs:
         id: changes
         run: |
           git add public/data/leaderboard.json
-          if [ -f public/data/club-match-2026.json ]; then
-            git add public/data/club-match-2026.json
-          fi
-          git diff --cached --quiet -- public/data/leaderboard.json public/data/club-match-2026.json && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
+          git diff --cached --quiet -- public/data/leaderboard.json && echo "changed=false" >> "$GITHUB_OUTPUT" || echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -63,11 +57,3 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run build-pages.yml --ref "${{ github.ref_name }}"
-
-      - name: Report qualification scrape failure
-        if: always() && steps.qualification.outcome == 'failure'
-        run: |
-          echo "::error::October qualification scraping failed. Any previous snapshot was retained; regular league updates were allowed to publish."
-          echo "## October qualification scrape failed" >> "$GITHUB_STEP_SUMMARY"
-          echo "Check the qualification step logs. Any prior snapshot was retained. Regular league updates were allowed to publish." >> "$GITHUB_STEP_SUMMARY"
-          exit 1
