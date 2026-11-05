@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-02T04:50:49.956Z",
+  "scrapedAt": "2026-11-05T04:42:33.978Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [],
@@ -2382,16 +2382,21 @@
         "date": "2026-11-05",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/8LJEBET10117112",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 1,
+        "registeredPlayerCount": 6,
         "registeredPlayerIds": [
-          "sean-liston"
+          "christopher-lee",
+          "mat-sevilla",
+          "matt-fleming",
+          "michael-randle",
+          "sean-liston",
+          "tobi-ola"
         ],
         "unmatchedRegistrantNames": []
       },
       {
         "id": "2026-11-12",
         "date": "2026-11-12",
-        "courtReserveUrl": null,
+        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/GEDWK1610117128",
         "gameMakerUrl": null,
         "registeredPlayerCount": 0,
         "registeredPlayerIds": [],
