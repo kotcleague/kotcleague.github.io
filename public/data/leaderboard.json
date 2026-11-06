@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-05T18:45:29.721Z",
+  "scrapedAt": "2026-11-06T00:17:07.289Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [],
@@ -2382,9 +2382,12 @@
         "date": "2026-11-05",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/8LJEBET10117112",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 7,
+        "registeredPlayerCount": 10,
         "registeredPlayerIds": [
           "christopher-lee",
+          "derek-dallas",
+          "jarrett-menary",
+          "jon-harris",
           "mat-sevilla",
           "matt-fleming",
           "michael-fan",
