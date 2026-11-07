@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-06T04:26:19.603Z",
+  "scrapedAt": "2026-11-07T00:56:55.949Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2593,8 +2593,12 @@
         "date": "2026-11-12",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/GEDWK1610117128",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 0,
-        "registeredPlayerIds": [],
+        "registeredPlayerCount": 3,
+        "registeredPlayerIds": [
+          "garrett-hallemeier",
+          "sean-liston",
+          "tobi-ola"
+        ],
         "unmatchedRegistrantNames": []
       },
       {
