@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-08T10:22:45.771Z",
+  "scrapedAt": "2026-11-08T17:04:19.794Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -2446,11 +2446,12 @@
         "date": "2026-11-12",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/GEDWK1610117128",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 6,
+        "registeredPlayerCount": 7,
         "registeredPlayerIds": [
           "daton-rippley",
           "garrett-hallemeier",
           "kevin-folkl",
+          "kevin-reque",
           "preston-langlois",
           "sean-liston",
           "tobi-ola"
