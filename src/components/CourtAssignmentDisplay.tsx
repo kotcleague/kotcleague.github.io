@@ -29,7 +29,7 @@ function MatchTeam({
               {player.name}
             </span>
             <span className="flex flex-col items-end text-[10px] leading-tight tabular-nums text-slate-400">
-              <span>{player.past30Days.toLocaleString()} pts</span>
+              <span>{player.past60Days.toLocaleString()} pts</span>
               <span>DUPR {player.dupr.toFixed(3)}</span>
             </span>
           </div>

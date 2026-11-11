@@ -44,7 +44,7 @@ export function buildRegisteredPlayers(
       id,
       name,
       seed: seeding.length + index + 1,
-      past30Days: 0,
+      past60Days: 0,
       allTime: 0,
       dupr: DEFAULT_UNSEEDED_DUPR,
     };
@@ -56,8 +56,8 @@ export function buildRegisteredPlayers(
       const bIsFallback = fallbackIds.has(b.id);
 
       if (!aIsFallback && !bIsFallback) return a.seed - b.seed;
-      if (a.past30Days !== b.past30Days) {
-        return b.past30Days - a.past30Days;
+      if (a.past60Days !== b.past60Days) {
+        return b.past60Days - a.past60Days;
       }
       if (a.dupr !== b.dupr) return b.dupr - a.dupr;
       if (aIsFallback !== bIsFallback) return aIsFallback ? 1 : -1;
@@ -95,7 +95,7 @@ export function assignmentText(plan: AssignmentPlan) {
           .map(
             (player) =>
               `${player.name} (#${player.seed}, ${
-                player.past30Days
+                player.past60Days
               } pts, DUPR ${player.dupr.toFixed(3)})`
           )
           .slice(0, 2)

@@ -51,7 +51,7 @@ function LoadedUpcomingEventAssignments({
     <>
       <PageHeader
         eyebrow="Initial court assignments"
-        description="Seeding is first determined by past 30 day rankings then by DUPR."
+        description="Seeding is first determined by past 60 day rankings then by DUPR."
         footer={
           <StatGrid
             className="border-b-0 pb-0"

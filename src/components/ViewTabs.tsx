@@ -1,4 +1,4 @@
-import type { RankingView } from "@/types/leaderboard";
+import { RANKING_VIEWS, type RankingView } from "@/types/leaderboard";
 import { TAB_LIST, tabClass } from "@/lib/styles";
 import { twMerge } from "tailwind-merge";
 
@@ -12,12 +12,10 @@ const currentMonthName = new Date().toLocaleDateString("en-US", {
 });
 
 export const RANKING_VIEW_LABELS: Record<RankingView, string> = {
-  "past-30-days": "Past 30 Days",
+  "past-60-days": "Past 60 Days",
   "current-month": currentMonthName,
-  "all-time": "All Time",
+  "last-month": "Last Month",
 };
-
-const VIEWS: RankingView[] = ["past-30-days", "current-month", "all-time"];
 
 export default function ViewTabs({ selected, onSelect }: ViewTabsProps) {
   return (
@@ -29,7 +27,7 @@ export default function ViewTabs({ selected, onSelect }: ViewTabsProps) {
       role="group"
       aria-label="Ranking period"
     >
-      {VIEWS.map((view) => (
+      {RANKING_VIEWS.map((view) => (
         <button
           type="button"
           key={view}

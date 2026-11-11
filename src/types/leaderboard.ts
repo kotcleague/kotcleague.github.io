@@ -1,10 +1,11 @@
 export const RANKING_VIEWS = [
+  "past-60-days",
   "current-month",
-  "past-30-days",
-  "all-time",
+  "last-month",
 ] as const;
 
 export type RankingView = (typeof RANKING_VIEWS)[number];
+export type RankingDataView = RankingView | "all-time";
 export type MovementDir = "up" | "down" | "none";
 
 export interface Movement {
@@ -38,7 +39,7 @@ export interface SeededPlayer {
   id: string;
   name: string;
   seed: number;
-  past30Days: number;
+  past60Days: number;
   allTime: number;
   dupr: number;
 }
@@ -92,7 +93,7 @@ export interface PastMonth {
 export interface LeaderboardData {
   scrapedAt: string;
   source: string;
-  views: Record<RankingView, Player[]>;
+  views: Record<RankingDataView, Player[]>;
   seeding: SeededPlayer[];
   events: {
     upcoming: UpcomingEvent[];
@@ -190,7 +191,7 @@ function isSeededPlayer(value: unknown): value is SeededPlayer {
     isPlayerId(value.id) &&
     typeof value.name === "string" &&
     typeof value.seed === "number" &&
-    typeof value.past30Days === "number" &&
+    typeof value.past60Days === "number" &&
     typeof value.allTime === "number" &&
     typeof value.dupr === "number"
   );
@@ -295,7 +296,8 @@ export function parseLeaderboardData(value: unknown): LeaderboardData {
     typeof value.source !== "string" ||
     !isRecord(views) ||
     !isArrayOf(views["current-month"], isPlayer) ||
-    !isArrayOf(views["past-30-days"], isPlayer) ||
+    !isArrayOf(views["past-60-days"], isPlayer) ||
+    !isArrayOf(views["last-month"], isPlayer) ||
     !isArrayOf(views["all-time"], isPlayer) ||
     !isArrayOf(seeding, isSeededPlayer) ||
     !isRecord(events) ||
@@ -311,7 +313,8 @@ export function parseLeaderboardData(value: unknown): LeaderboardData {
     source: value.source,
     views: {
       "current-month": views["current-month"],
-      "past-30-days": views["past-30-days"],
+      "past-60-days": views["past-60-days"],
+      "last-month": views["last-month"],
       "all-time": views["all-time"],
     },
     seeding,

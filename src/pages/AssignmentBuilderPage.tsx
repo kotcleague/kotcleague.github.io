@@ -116,7 +116,7 @@ export default function AssignmentBuilderPage() {
         <PageHeader
           eyebrow="Admin tool"
           className="print:hidden"
-          description="Seeding is first determined by past 30 day rankings then by DUPR"
+          description="Seeding is first determined by past 60 day rankings then by DUPR"
         >
           Court Assignments
         </PageHeader>

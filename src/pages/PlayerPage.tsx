@@ -251,7 +251,7 @@ function LoadedPlayerPage({
   data: LeaderboardData;
   playerId: string;
 }) {
-  const player = data.views["past-30-days"].find(
+  const player = data.views["past-60-days"].find(
     (item) => item.id === playerId
   );
   const history = data.events.past.flatMap((event) => {
@@ -271,7 +271,7 @@ function LoadedPlayerPage({
         actionHref={ROUTES.rankings}
         actionLabel="Back to rankings"
         title="No recent ranking"
-        message="This player does not have a published ranking from the past 30 days."
+        message="This player does not have a published ranking from the past 60 days."
       />
     );
   }

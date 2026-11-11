@@ -35,7 +35,8 @@ const SNAPSHOT_RETRY_DELAY_MS = 2_000;
 // Ranking sheet tab name -> site view slug.
 const VIEWS = {
   "Current Month": "current-month",
-  "Past 30 Days": "past-30-days",
+  "Past 60 Days": "past-60-days",
+  "Last Month": "last-month",
   "All Time": "all-time",
 };
 
@@ -103,7 +104,7 @@ const COLUMNS = {
   seeding: {
     seed: "Seed",
     player: "Player",
-    past30Days: "Past 30 Days",
+    past60Days: "Past 60 Days",
     allTime: "All Time",
     dupr: "DUPR",
   },
@@ -668,7 +669,7 @@ function parseSeedingTable(html, players) {
         [
           columns.seed,
           columns.player,
-          columns.past30Days,
+          columns.past60Days,
           columns.allTime,
           columns.dupr,
         ],
@@ -704,9 +705,9 @@ function parseSeedingTable(html, players) {
           id: players.get(name),
           name,
           seed: parseRequiredNumber(seedText, "seed", context),
-          past30Days: parseRequiredNumber(
-            getColumn(header.headerMap, cells, columns.past30Days, context),
-            "Past 30 Days points",
+          past60Days: parseRequiredNumber(
+            getColumn(header.headerMap, cells, columns.past60Days, context),
+            "Past 60 Days points",
             context
           ),
           allTime: parseRequiredNumber(

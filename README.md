@@ -81,8 +81,15 @@ so it is reachable at `/avatar-preview.html` on the deployed site (and at
 `http://localhost:5173/avatar-preview.html` in dev). It is not linked from the
 app's navigation.
 
-The scraper consumes the `Current Month`, `Past 30 Days`, `All Time`, `Past
-Events`, `Upcoming Events`, and `Event Log` tabs. It joins event summaries to
+The ranking tabs show `Past 60 Days` (the default), the current month's name,
+and `Last Month`, using the corresponding published sheet tabs. `All Time`
+rankings are still scraped for internal use and validation but are not shown
+as a ranking tab. Player profiles use `Past 60 Days` rankings. Court assignments
+preserve the `Seeding` sheet's seed order and read its `Past 60 Days` points
+column; that sheet's points and seed calculations must use the 60-day period.
+
+The scraper consumes the `Current Month`, `Past 60 Days`, `Last Month`, `All
+Time`, `Past Events`, `Upcoming Events`, and `Event Log` tabs. It joins event summaries to
 nightly results by date and assigns stable URL IDs to players. Upcoming Court
 Reserve links are also read to publish registration counts and matched player
 IDs for the initial assignments tool. Fetches use bounded retries and

@@ -144,7 +144,7 @@ function byDateAscending<T extends { date: string }>(left: T, right: T) {
 const PLAYERS_PER_PAGE = 10;
 
 export default function LeaderboardPage() {
-  const [selectedView, setSelectedView] = useState<RankingView>("past-30-days");
+  const [selectedView, setSelectedView] = useState<RankingView>("past-60-days");
   const [visiblePlayerCount, setVisiblePlayerCount] =
     useState(PLAYERS_PER_PAGE);
 
