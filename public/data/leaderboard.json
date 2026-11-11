@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-11T14:30:56.764Z",
+  "scrapedAt": "2026-11-11T21:57:41.349Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -3816,9 +3816,17 @@
       "dupr": 4.245
     },
     {
+      "id": "ramy-shoela",
+      "name": "Ramy Shoela",
+      "seed": 59,
+      "past60Days": 0,
+      "allTime": 0,
+      "dupr": 4.113
+    },
+    {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 59,
+      "seed": 60,
       "past60Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -3826,7 +3834,7 @@
     {
       "id": "nick-borger",
       "name": "Nick Borger",
-      "seed": 60,
+      "seed": 61,
       "past60Days": 0,
       "allTime": 60,
       "dupr": 4.059
@@ -3834,7 +3842,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 61,
+      "seed": 62,
       "past60Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -3842,7 +3850,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 62,
+      "seed": 63,
       "past60Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -3855,24 +3863,26 @@
         "date": "2026-11-12",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/GEDWK1610117128",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 13,
+        "registeredPlayerCount": 16,
         "registeredPlayerIds": [
           "brian-romine",
           "daton-rippley",
-          "dev-newsome",
+          "derek-dallas",
           "garrett-hallemeier",
           "jarrett-menary",
           "john-tuason",
+          "jon-harris",
+          "jon-richert",
           "kevin-folkl",
           "kevin-reque",
           "mat-sevilla",
           "michael-randle",
+          "otto-may",
+          "ramy-shoela",
           "sean-liston",
           "tobi-ola"
         ],
-        "unmatchedRegistrantNames": [
-          "Ramy S."
-        ]
+        "unmatchedRegistrantNames": []
       },
       {
         "id": "2026-11-19",
