@@ -82,7 +82,8 @@ so it is reachable at `/avatar-preview.html` on the deployed site (and at
 app's navigation.
 
 The ranking tabs show `Past 60 Days` (the default), the current month's name,
-and `Last Month`, using the corresponding published sheet tabs. `All Time`
+and the previous month's name, using the `Current Month` and `Last Month`
+published sheet tabs for the calendar months. `All Time`
 rankings are still scraped for internal use and validation but are not shown
 as a ranking tab. Player profiles use `Past 60 Days` rankings. Court assignments
 preserve the `Seeding` sheet's seed order and read its `Past 60 Days` points

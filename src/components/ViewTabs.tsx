@@ -7,14 +7,22 @@ interface ViewTabsProps {
   onSelect: (view: RankingView) => void;
 }
 
-const currentMonthName = new Date().toLocaleDateString("en-US", {
+const today = new Date();
+const currentMonthName = today.toLocaleDateString("en-US", {
+  month: "long",
+});
+const lastMonthName = new Date(
+  today.getFullYear(),
+  today.getMonth() - 1,
+  1
+).toLocaleDateString("en-US", {
   month: "long",
 });
 
 export const RANKING_VIEW_LABELS: Record<RankingView, string> = {
   "past-60-days": "Past 60 Days",
   "current-month": currentMonthName,
-  "last-month": "Last Month",
+  "last-month": lastMonthName,
 };
 
 export default function ViewTabs({ selected, onSelect }: ViewTabsProps) {
