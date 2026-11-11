@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-11T03:07:00.573Z",
+  "scrapedAt": "2026-11-11T14:30:56.764Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -3855,7 +3855,7 @@
         "date": "2026-11-12",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/GEDWK1610117128",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 10,
+        "registeredPlayerCount": 13,
         "registeredPlayerIds": [
           "brian-romine",
           "daton-rippley",
@@ -3865,10 +3865,14 @@
           "john-tuason",
           "kevin-folkl",
           "kevin-reque",
+          "mat-sevilla",
+          "michael-randle",
           "sean-liston",
           "tobi-ola"
         ],
-        "unmatchedRegistrantNames": []
+        "unmatchedRegistrantNames": [
+          "Ramy S."
+        ]
       },
       {
         "id": "2026-11-19",
