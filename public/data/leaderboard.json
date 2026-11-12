@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-11T21:57:41.349Z",
+  "scrapedAt": "2026-11-12T19:11:39.844Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -3800,9 +3800,17 @@
       "dupr": 4.386
     },
     {
+      "id": "farhad-saifuddin",
+      "name": "Farhad Saifuddin",
+      "seed": 57,
+      "past60Days": 0,
+      "allTime": 0,
+      "dupr": 4.304
+    },
+    {
       "id": "james-brown",
       "name": "James Brown",
-      "seed": 57,
+      "seed": 58,
       "past60Days": 0,
       "allTime": 750,
       "dupr": 4.292
@@ -3810,7 +3818,7 @@
     {
       "id": "matthew-hultman",
       "name": "Matthew Hultman",
-      "seed": 58,
+      "seed": 59,
       "past60Days": 0,
       "allTime": 100,
       "dupr": 4.245
@@ -3818,7 +3826,7 @@
     {
       "id": "ramy-shoela",
       "name": "Ramy Shoela",
-      "seed": 59,
+      "seed": 60,
       "past60Days": 0,
       "allTime": 0,
       "dupr": 4.113
@@ -3826,7 +3834,7 @@
     {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 60,
+      "seed": 61,
       "past60Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -3834,7 +3842,7 @@
     {
       "id": "nick-borger",
       "name": "Nick Borger",
-      "seed": 61,
+      "seed": 62,
       "past60Days": 0,
       "allTime": 60,
       "dupr": 4.059
@@ -3842,7 +3850,7 @@
     {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 62,
+      "seed": 63,
       "past60Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -3850,7 +3858,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 63,
+      "seed": 64,
       "past60Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -3863,11 +3871,12 @@
         "date": "2026-11-12",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/GEDWK1610117128",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 16,
+        "registeredPlayerCount": 17,
         "registeredPlayerIds": [
           "brian-romine",
           "daton-rippley",
           "derek-dallas",
+          "farhad-saifuddin",
           "garrett-hallemeier",
           "jarrett-menary",
           "john-tuason",
