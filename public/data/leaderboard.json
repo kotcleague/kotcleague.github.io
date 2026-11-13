@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-13T04:56:44.557Z",
+  "scrapedAt": "2026-11-13T07:57:31.508Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -11,13 +11,13 @@
         "gold": 2,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 2,
+        "gameMakerPoints": 13915,
         "wins": 14,
         "losses": 1,
         "winRate": 93,
-        "pointsEarned": 2,
-        "pointsAgainst": 2,
-        "pointDifferential": 0,
+        "pointsEarned": 311,
+        "pointsAgainst": 254,
+        "pointDifferential": 10.1,
         "move": {
           "dir": "none",
           "places": 0
@@ -32,13 +32,13 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 4830,
         "wins": 5,
         "losses": 2,
         "winRate": 71,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 143,
+        "pointsAgainst": 126,
+        "pointDifferential": 6.3,
         "move": {
           "dir": "none",
           "places": 0
@@ -53,13 +53,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 2,
+        "gameMakerPoints": 5685,
         "wins": 6,
         "losses": 8,
         "winRate": 43,
-        "pointsEarned": 2,
-        "pointsAgainst": 2,
-        "pointDifferential": 0,
+        "pointsEarned": 269,
+        "pointsAgainst": 266,
+        "pointDifferential": 0.6,
         "move": {
           "dir": "up",
           "places": 5
@@ -74,13 +74,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 4030,
         "wins": 4,
         "losses": 3,
         "winRate": 57,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 130,
+        "pointsAgainst": 133,
+        "pointDifferential": -1.1,
         "move": {
           "dir": "none",
           "places": 0
@@ -95,13 +95,13 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0,
-        "gameMakerPoints": 2,
+        "gameMakerPoints": 7995,
         "wins": 9,
         "losses": 5,
         "winRate": 64,
-        "pointsEarned": 2,
-        "pointsAgainst": 2,
-        "pointDifferential": 0,
+        "pointsEarned": 277,
+        "pointsAgainst": 260,
+        "pointDifferential": 3.2,
         "move": {
           "dir": "down",
           "places": 3
@@ -116,12 +116,12 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 3483,
         "wins": 4,
         "losses": 3,
         "winRate": 57,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
+        "pointsEarned": 142,
+        "pointsAgainst": 142,
         "pointDifferential": 0,
         "move": {
           "dir": "none",
@@ -137,13 +137,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 3198,
         "wins": 4,
         "losses": 3,
         "winRate": 57,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 137,
+        "pointsAgainst": 138,
+        "pointDifferential": -0.4,
         "move": {
           "dir": "none",
           "places": 0
@@ -158,13 +158,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 3401,
         "wins": 3,
         "losses": 4,
         "winRate": 43,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 130,
+        "pointsAgainst": 129,
+        "pointDifferential": 0.4,
         "move": {
           "dir": "down",
           "places": 4
@@ -179,13 +179,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 3173,
         "wins": 3,
         "losses": 4,
         "winRate": 43,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 132,
+        "pointsAgainst": 137,
+        "pointDifferential": -1.9,
         "move": {
           "dir": "down",
           "places": 5
@@ -200,13 +200,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 2443,
         "wins": 4,
         "losses": 2,
         "winRate": 67,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 124,
+        "pointsAgainst": 102,
+        "pointDifferential": 9.7,
         "move": {
           "dir": "none",
           "places": 0
@@ -221,12 +221,12 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 2,
+        "gameMakerPoints": 4861,
         "wins": 6,
         "losses": 8,
         "winRate": 43,
-        "pointsEarned": 2,
-        "pointsAgainst": 2,
+        "pointsEarned": 265,
+        "pointsAgainst": 265,
         "pointDifferential": 0,
         "move": {
           "dir": "down",
@@ -242,13 +242,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 2,
+        "gameMakerPoints": 4225,
         "wins": 5,
         "losses": 8,
         "winRate": 38,
-        "pointsEarned": 2,
-        "pointsAgainst": 2,
-        "pointDifferential": 0,
+        "pointsEarned": 227,
+        "pointsAgainst": 258,
+        "pointDifferential": -6.4,
         "move": {
           "dir": "down",
           "places": 6
@@ -263,13 +263,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 3116,
         "wins": 3,
         "losses": 4,
         "winRate": 43,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 127,
+        "pointsAgainst": 143,
+        "pointDifferential": -5.9,
         "move": {
           "dir": "down",
           "places": 8
@@ -284,13 +284,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 2364,
         "wins": 3,
         "losses": 4,
         "winRate": 43,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 130,
+        "pointsAgainst": 135,
+        "pointDifferential": -1.9,
         "move": {
           "dir": "none",
           "places": 0
@@ -305,13 +305,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 2345,
         "wins": 4,
         "losses": 2,
         "winRate": 67,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 122,
+        "pointsAgainst": 103,
+        "pointDifferential": 8.4,
         "move": {
           "dir": "none",
           "places": 0
@@ -326,13 +326,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 1875,
         "wins": 3,
         "losses": 4,
         "winRate": 43,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 126,
+        "pointsAgainst": 137,
+        "pointDifferential": -4.2,
         "move": {
           "dir": "none",
           "places": 0
@@ -347,13 +347,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 1487,
         "wins": 1,
         "losses": 5,
         "winRate": 17,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 111,
+        "pointsAgainst": 126,
+        "pointDifferential": -6.3,
         "move": {
           "dir": "down",
           "places": 8
@@ -368,13 +368,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 1080,
         "wins": 2,
         "losses": 4,
         "winRate": 33,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 108,
+        "pointsAgainst": 115,
+        "pointDifferential": -3.1,
         "move": {
           "dir": "none",
           "places": 0
@@ -389,13 +389,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 715,
         "wins": 1,
         "losses": 4,
         "winRate": 20,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 92,
+        "pointsAgainst": 101,
+        "pointDifferential": -4.7,
         "move": {
           "dir": "none",
           "places": 0
@@ -410,13 +410,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 467,
         "wins": 0,
         "losses": 6,
         "winRate": 0,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 93,
+        "pointsAgainst": 126,
+        "pointDifferential": -15.1,
         "move": {
           "dir": "none",
           "places": 0
@@ -433,13 +433,13 @@
         "gold": 4,
         "silver": 1,
         "bronze": 2,
-        "gameMakerPoints": 30090,
+        "gameMakerPoints": 44003,
         "wins": 45,
         "losses": 12,
         "winRate": 79,
-        "pointsEarned": 822,
-        "pointsAgainst": 684,
-        "pointDifferential": 9.2,
+        "pointsEarned": 1131,
+        "pointsAgainst": 936,
+        "pointDifferential": 9.4,
         "move": {
           "dir": "none",
           "places": 0
@@ -454,13 +454,13 @@
         "gold": 1,
         "silver": 3,
         "bronze": 0,
-        "gameMakerPoints": 24285,
+        "gameMakerPoints": 29114,
         "wins": 30,
         "losses": 24,
         "winRate": 56,
-        "pointsEarned": 877,
-        "pointsAgainst": 862,
-        "pointDifferential": 0.9,
+        "pointsEarned": 1019,
+        "pointsAgainst": 987,
+        "pointDifferential": 1.6,
         "move": {
           "dir": "none",
           "places": 0
@@ -475,13 +475,13 @@
         "gold": 2,
         "silver": 1,
         "bronze": 1,
-        "gameMakerPoints": 16997,
+        "gameMakerPoints": 21026,
         "wins": 22,
         "losses": 12,
         "winRate": 65,
-        "pointsEarned": 519,
-        "pointsAgainst": 477,
-        "pointDifferential": 4.2,
+        "pointsEarned": 648,
+        "pointsAgainst": 609,
+        "pointDifferential": 3.1,
         "move": {
           "dir": "none",
           "places": 0
@@ -517,13 +517,13 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 24041,
+        "gameMakerPoints": 28900,
         "wins": 31,
         "losses": 39,
         "winRate": 44,
-        "pointsEarned": 1018,
-        "pointsAgainst": 1038,
-        "pointDifferential": -1,
+        "pointsEarned": 1281,
+        "pointsAgainst": 1301,
+        "pointDifferential": -0.8,
         "move": {
           "dir": "none",
           "places": 0
@@ -580,13 +580,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1,
-        "gameMakerPoints": 12955,
+        "gameMakerPoints": 16355,
         "wins": 20,
         "losses": 22,
         "winRate": 48,
-        "pointsEarned": 647,
-        "pointsAgainst": 665,
-        "pointDifferential": -1.4,
+        "pointsEarned": 776,
+        "pointsAgainst": 793,
+        "pointDifferential": -1.1,
         "move": {
           "dir": "none",
           "places": 0
@@ -622,13 +622,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1,
-        "gameMakerPoints": 8616,
+        "gameMakerPoints": 10102,
         "wins": 11,
         "losses": 15,
         "winRate": 42,
-        "pointsEarned": 380,
-        "pointsAgainst": 352,
-        "pointDifferential": 3.8,
+        "pointsEarned": 490,
+        "pointsAgainst": 477,
+        "pointDifferential": 1.3,
         "move": {
           "dir": "none",
           "places": 0
@@ -643,13 +643,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 9645,
+        "gameMakerPoints": 12008,
         "wins": 14,
         "losses": 15,
         "winRate": 48,
-        "pointsEarned": 410,
-        "pointsAgainst": 417,
-        "pointDifferential": -0.8,
+        "pointsEarned": 539,
+        "pointsAgainst": 551,
+        "pointDifferential": -1.1,
         "move": {
           "dir": "up",
           "places": 1
@@ -664,13 +664,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 7203,
+        "gameMakerPoints": 10685,
         "wins": 12,
         "losses": 15,
         "winRate": 44,
-        "pointsEarned": 354,
-        "pointsAgainst": 375,
-        "pointDifferential": -2.9,
+        "pointsEarned": 495,
+        "pointsAgainst": 516,
+        "pointDifferential": -2.1,
         "move": {
           "dir": "up",
           "places": 3
@@ -685,13 +685,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 9260,
+        "gameMakerPoints": 12432,
         "wins": 13,
         "losses": 16,
         "winRate": 45,
-        "pointsEarned": 390,
-        "pointsAgainst": 418,
-        "pointDifferential": -3.5,
+        "pointsEarned": 521,
+        "pointsAgainst": 554,
+        "pointDifferential": -3.1,
         "move": {
           "dir": "down",
           "places": 2
@@ -727,13 +727,13 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0,
-        "gameMakerPoints": 6006,
+        "gameMakerPoints": 13999,
         "wins": 18,
         "losses": 17,
         "winRate": 51,
-        "pointsEarned": 398,
-        "pointsAgainst": 398,
-        "pointDifferential": 0,
+        "pointsEarned": 673,
+        "pointsAgainst": 656,
+        "pointDifferential": 1.3,
         "move": {
           "dir": "down",
           "places": 1
@@ -748,13 +748,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 5525,
+        "gameMakerPoints": 8722,
         "wins": 11,
         "losses": 9,
         "winRate": 55,
-        "pointsEarned": 232,
-        "pointsAgainst": 243,
-        "pointDifferential": -2.3,
+        "pointsEarned": 368,
+        "pointsAgainst": 380,
+        "pointDifferential": -1.6,
         "move": {
           "dir": "up",
           "places": 1
@@ -769,13 +769,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 2,
+        "gameMakerPoints": 5685,
         "wins": 6,
         "losses": 8,
         "winRate": 43,
-        "pointsEarned": 2,
-        "pointsAgainst": 2,
-        "pointDifferential": 0,
+        "pointsEarned": 269,
+        "pointsAgainst": 266,
+        "pointDifferential": 0.6,
         "move": {
           "dir": "up",
           "places": 23
@@ -874,13 +874,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 2896,
+        "gameMakerPoints": 6011,
         "wins": 7,
         "losses": 7,
         "winRate": 50,
-        "pointsEarned": 137,
-        "pointsAgainst": 138,
-        "pointDifferential": -0.4,
+        "pointsEarned": 263,
+        "pointsAgainst": 280,
+        "pointDifferential": -3.1,
         "move": {
           "dir": "down",
           "places": 1
@@ -958,13 +958,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1573,
+        "gameMakerPoints": 5796,
         "wins": 7,
         "losses": 13,
         "winRate": 35,
-        "pointsEarned": 121,
-        "pointsAgainst": 138,
-        "pointDifferential": -6.6,
+        "pointsEarned": 346,
+        "pointsAgainst": 394,
+        "pointDifferential": -6.5,
         "move": {
           "dir": "up",
           "places": 5
@@ -1063,13 +1063,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 2443,
         "wins": 4,
         "losses": 2,
         "winRate": 67,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 124,
+        "pointsAgainst": 102,
+        "pointDifferential": 9.7,
         "move": {
           "dir": "none",
           "places": 0
@@ -1189,13 +1189,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1572,
+        "gameMakerPoints": 3446,
         "wins": 5,
         "losses": 9,
         "winRate": 36,
-        "pointsEarned": 128,
-        "pointsAgainst": 130,
-        "pointDifferential": -0.8,
+        "pointsEarned": 253,
+        "pointsAgainst": 266,
+        "pointDifferential": -2.5,
         "move": {
           "dir": "up",
           "places": 8
@@ -1252,13 +1252,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1875,
+        "gameMakerPoints": 2954,
         "wins": 4,
         "losses": 9,
         "winRate": 31,
-        "pointsEarned": 126,
-        "pointsAgainst": 133,
-        "pointDifferential": -2.7,
+        "pointsEarned": 233,
+        "pointsAgainst": 247,
+        "pointDifferential": -2.9,
         "move": {
           "dir": "up",
           "places": 1
@@ -1273,13 +1273,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 2345,
         "wins": 4,
         "losses": 2,
         "winRate": 67,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 122,
+        "pointsAgainst": 103,
+        "pointDifferential": 8.4,
         "move": {
           "dir": "none",
           "places": 0
@@ -1441,13 +1441,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 715,
         "wins": 1,
         "losses": 4,
         "winRate": 20,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 92,
+        "pointsAgainst": 101,
+        "pointDifferential": -4.7,
         "move": {
           "dir": "none",
           "places": 0
@@ -1504,13 +1504,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 467,
         "wins": 0,
         "losses": 6,
         "winRate": 0,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 93,
+        "pointsAgainst": 126,
+        "pointDifferential": -15.1,
         "move": {
           "dir": "none",
           "places": 0
@@ -2432,13 +2432,13 @@
         "gold": 4,
         "silver": 1,
         "bronze": 2,
-        "gameMakerPoints": 35495,
+        "gameMakerPoints": 49408,
         "wins": 53,
         "losses": 18,
         "winRate": 75,
-        "pointsEarned": 947,
-        "pointsAgainst": 804,
-        "pointDifferential": 8.2,
+        "pointsEarned": 1256,
+        "pointsAgainst": 1056,
+        "pointDifferential": 8.7,
         "move": {
           "dir": "none",
           "places": 0
@@ -2453,13 +2453,13 @@
         "gold": 1,
         "silver": 3,
         "bronze": 0,
-        "gameMakerPoints": 27278,
+        "gameMakerPoints": 32107,
         "wins": 34,
         "losses": 27,
         "winRate": 56,
-        "pointsEarned": 1010,
-        "pointsAgainst": 974,
-        "pointDifferential": 1.8,
+        "pointsEarned": 1152,
+        "pointsAgainst": 1099,
+        "pointDifferential": 2.4,
         "move": {
           "dir": "none",
           "places": 0
@@ -2474,13 +2474,13 @@
         "gold": 2,
         "silver": 1,
         "bronze": 1,
-        "gameMakerPoints": 20604,
+        "gameMakerPoints": 24633,
         "wins": 27,
         "losses": 14,
         "winRate": 66,
-        "pointsEarned": 658,
-        "pointsAgainst": 592,
-        "pointDifferential": 5.3,
+        "pointsEarned": 787,
+        "pointsAgainst": 724,
+        "pointDifferential": 4.2,
         "move": {
           "dir": "none",
           "places": 0
@@ -2516,13 +2516,13 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 25672,
+        "gameMakerPoints": 30531,
         "wins": 34,
         "losses": 43,
         "winRate": 44,
-        "pointsEarned": 1145,
-        "pointsAgainst": 1162,
-        "pointDifferential": -0.7,
+        "pointsEarned": 1408,
+        "pointsAgainst": 1425,
+        "pointDifferential": -0.6,
         "move": {
           "dir": "none",
           "places": 0
@@ -2558,13 +2558,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 3,
-        "gameMakerPoints": 15699,
+        "gameMakerPoints": 17185,
         "wins": 18,
         "losses": 21,
         "winRate": 46,
-        "pointsEarned": 622,
-        "pointsAgainst": 590,
-        "pointDifferential": 2.6,
+        "pointsEarned": 732,
+        "pointsAgainst": 715,
+        "pointDifferential": 1.2,
         "move": {
           "dir": "none",
           "places": 0
@@ -2579,13 +2579,13 @@
         "gold": 0,
         "silver": 3,
         "bronze": 0,
-        "gameMakerPoints": 13774,
+        "gameMakerPoints": 16118,
         "wins": 17,
         "losses": 9,
         "winRate": 65,
-        "pointsEarned": 257,
-        "pointsAgainst": 227,
-        "pointDifferential": 6.2,
+        "pointsEarned": 378,
+        "pointsAgainst": 329,
+        "pointDifferential": 6.9,
         "move": {
           "dir": "none",
           "places": 0
@@ -2600,13 +2600,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 13237,
+        "gameMakerPoints": 16719,
         "wins": 19,
         "losses": 22,
         "winRate": 46,
-        "pointsEarned": 488,
-        "pointsAgainst": 502,
-        "pointDifferential": -1.4,
+        "pointsEarned": 629,
+        "pointsAgainst": 643,
+        "pointDifferential": -1.1,
         "move": {
           "dir": "up",
           "places": 4
@@ -2642,13 +2642,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1,
-        "gameMakerPoints": 15727,
+        "gameMakerPoints": 19127,
         "wins": 23,
         "losses": 26,
         "winRate": 47,
-        "pointsEarned": 648,
-        "pointsAgainst": 666,
-        "pointDifferential": -1.4,
+        "pointsEarned": 777,
+        "pointsAgainst": 794,
+        "pointDifferential": -1.1,
         "move": {
           "dir": "down",
           "places": 1
@@ -2705,13 +2705,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 9645,
+        "gameMakerPoints": 12008,
         "wins": 14,
         "losses": 15,
         "winRate": 48,
-        "pointsEarned": 410,
-        "pointsAgainst": 417,
-        "pointDifferential": -0.8,
+        "pointsEarned": 539,
+        "pointsAgainst": 551,
+        "pointDifferential": -1.1,
         "move": {
           "dir": "up",
           "places": 1
@@ -2726,13 +2726,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 11212,
+        "gameMakerPoints": 14384,
         "wins": 17,
         "losses": 19,
         "winRate": 47,
-        "pointsEarned": 517,
-        "pointsAgainst": 554,
-        "pointDifferential": -3.5,
+        "pointsEarned": 648,
+        "pointsAgainst": 690,
+        "pointDifferential": -3.1,
         "move": {
           "dir": "down",
           "places": 1
@@ -2768,13 +2768,13 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0,
-        "gameMakerPoints": 6006,
+        "gameMakerPoints": 13999,
         "wins": 18,
         "losses": 17,
         "winRate": 51,
-        "pointsEarned": 398,
-        "pointsAgainst": 398,
-        "pointDifferential": 0,
+        "pointsEarned": 673,
+        "pointsAgainst": 656,
+        "pointDifferential": 1.3,
         "move": {
           "dir": "up",
           "places": 1
@@ -2810,13 +2810,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 5525,
+        "gameMakerPoints": 8722,
         "wins": 11,
         "losses": 9,
         "winRate": 55,
-        "pointsEarned": 232,
-        "pointsAgainst": 243,
-        "pointDifferential": -2.3,
+        "pointsEarned": 368,
+        "pointsAgainst": 380,
+        "pointDifferential": -1.6,
         "move": {
           "dir": "up",
           "places": 4
@@ -2831,13 +2831,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 2179,
+        "gameMakerPoints": 7862,
         "wins": 8,
         "losses": 13,
         "winRate": 38,
-        "pointsEarned": 3,
-        "pointsAgainst": 3,
-        "pointDifferential": 0,
+        "pointsEarned": 270,
+        "pointsAgainst": 267,
+        "pointDifferential": 0.6,
         "move": {
           "dir": "up",
           "places": 17
@@ -2978,12 +2978,12 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 3732,
+        "gameMakerPoints": 7955,
         "wins": 9,
         "losses": 18,
         "winRate": 33,
-        "pointsEarned": 122,
-        "pointsAgainst": 139,
+        "pointsEarned": 347,
+        "pointsAgainst": 395,
         "pointDifferential": -6.5,
         "move": {
           "dir": "up",
@@ -2999,13 +2999,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 2896,
+        "gameMakerPoints": 6011,
         "wins": 7,
         "losses": 7,
         "winRate": 50,
-        "pointsEarned": 137,
-        "pointsAgainst": 138,
-        "pointDifferential": -0.4,
+        "pointsEarned": 263,
+        "pointsAgainst": 280,
+        "pointDifferential": -3.1,
         "move": {
           "dir": "down",
           "places": 2
@@ -3188,13 +3188,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 2443,
         "wins": 4,
         "losses": 2,
         "winRate": 67,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 124,
+        "pointsAgainst": 102,
+        "pointDifferential": 9.7,
         "move": {
           "dir": "none",
           "places": 0
@@ -3293,13 +3293,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1572,
+        "gameMakerPoints": 3446,
         "wins": 5,
         "losses": 9,
         "winRate": 36,
-        "pointsEarned": 128,
-        "pointsAgainst": 130,
-        "pointDifferential": -0.8,
+        "pointsEarned": 253,
+        "pointsAgainst": 266,
+        "pointDifferential": -2.5,
         "move": {
           "dir": "up",
           "places": 6
@@ -3356,13 +3356,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1875,
+        "gameMakerPoints": 2954,
         "wins": 4,
         "losses": 9,
         "winRate": 31,
-        "pointsEarned": 126,
-        "pointsAgainst": 133,
-        "pointDifferential": -2.7,
+        "pointsEarned": 233,
+        "pointsAgainst": 247,
+        "pointDifferential": -2.9,
         "move": {
           "dir": "up",
           "places": 1
@@ -3545,13 +3545,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 715,
         "wins": 1,
         "losses": 4,
         "winRate": 20,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 92,
+        "pointsAgainst": 101,
+        "pointDifferential": -4.7,
         "move": {
           "dir": "none",
           "places": 0
@@ -3629,13 +3629,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1,
+        "gameMakerPoints": 467,
         "wins": 0,
         "losses": 6,
         "winRate": 0,
-        "pointsEarned": 1,
-        "pointsAgainst": 1,
-        "pointDifferential": 0,
+        "pointsEarned": 93,
+        "pointsAgainst": 126,
+        "pointDifferential": -15.1,
         "move": {
           "dir": "none",
           "places": 0
@@ -3730,441 +3730,513 @@
   },
   "seeding": [
     {
-      "id": "jason-rule",
-      "name": "Jason Rule",
+      "id": "tobi-ola",
+      "name": "Tobi Ola",
       "seed": 1,
-      "past60Days": 0,
-      "allTime": 0,
-      "dupr": 5.12
+      "past60Days": 10500,
+      "allTime": 11300,
+      "dupr": 4.525
     },
     {
-      "id": "kyle-laramie",
-      "name": "Kyle Laramie",
+      "id": "brian-romine",
+      "name": "Brian Romine",
       "seed": 2,
-      "past60Days": 0,
-      "allTime": 900,
-      "dupr": 5.033
-    },
-    {
-      "id": "chase-blickhan",
-      "name": "Chase Blickhan",
-      "seed": 3,
-      "past60Days": 0,
-      "allTime": 4100,
-      "dupr": 4.931
-    },
-    {
-      "id": "brett-mell",
-      "name": "Brett Mell",
-      "seed": 4,
-      "past60Days": 0,
-      "allTime": 2500,
-      "dupr": 4.841
-    },
-    {
-      "id": "preston-behlmann",
-      "name": "Preston Behlmann",
-      "seed": 5,
-      "past60Days": 0,
-      "allTime": 2700,
-      "dupr": 4.698
-    },
-    {
-      "id": "dev-newsome",
-      "name": "Dev Newsome",
-      "seed": 6,
-      "past60Days": 0,
-      "allTime": 1150,
-      "dupr": 4.663
-    },
-    {
-      "id": "brooks-toth",
-      "name": "Brooks Toth",
-      "seed": 7,
-      "past60Days": 0,
-      "allTime": 125,
-      "dupr": 4.644
-    },
-    {
-      "id": "aniket-sharma",
-      "name": "Aniket Sharma",
-      "seed": 8,
-      "past60Days": 0,
-      "allTime": 2900,
-      "dupr": 4.633
+      "past60Days": 7175,
+      "allTime": 7775,
+      "dupr": 4.388
     },
     {
       "id": "garrett-hallemeier",
       "name": "Garrett Hallemeier",
-      "seed": 9,
-      "past60Days": 0,
+      "seed": 3,
+      "past60Days": 6500,
       "allTime": 7300,
       "dupr": 4.597
     },
     {
       "id": "john-paden",
       "name": "John Paden",
-      "seed": 10,
-      "past60Days": 0,
+      "seed": 4,
+      "past60Days": 5300,
       "allTime": 5350,
       "dupr": 4.577
     },
     {
-      "id": "dominic-williams",
-      "name": "Dominic Williams",
-      "seed": 11,
-      "past60Days": 0,
-      "allTime": 600,
-      "dupr": 4.553
+      "id": "sean-liston",
+      "name": "Sean Liston",
+      "seed": 5,
+      "past60Days": 4775,
+      "allTime": 4925,
+      "dupr": 4.019
     },
     {
-      "id": "tobi-ola",
-      "name": "Tobi Ola",
-      "seed": 12,
-      "past60Days": 0,
-      "allTime": 11300,
-      "dupr": 4.525
+      "id": "aniket-sharma",
+      "name": "Aniket Sharma",
+      "seed": 6,
+      "past60Days": 2900,
+      "allTime": 2900,
+      "dupr": 4.633
     },
     {
-      "id": "jon-richert",
-      "name": "Jon Richert",
-      "seed": 13,
-      "past60Days": 0,
-      "allTime": 3025,
-      "dupr": 4.509
+      "id": "brett-mell",
+      "name": "Brett Mell",
+      "seed": 7,
+      "past60Days": 2500,
+      "allTime": 2500,
+      "dupr": 4.841
     },
     {
       "id": "mat-sevilla",
       "name": "Mat Sevilla",
-      "seed": 14,
-      "past60Days": 0,
+      "seed": 8,
+      "past60Days": 2425,
       "allTime": 2825,
       "dupr": 4.476
     },
     {
+      "id": "preston-behlmann",
+      "name": "Preston Behlmann",
+      "seed": 9,
+      "past60Days": 2400,
+      "allTime": 2700,
+      "dupr": 4.698
+    },
+    {
+      "id": "michael-fan",
+      "name": "Michael Fan",
+      "seed": 10,
+      "past60Days": 2250,
+      "allTime": 3750,
+      "dupr": 4.28
+    },
+    {
+      "id": "otto-may",
+      "name": "Otto May",
+      "seed": 11,
+      "past60Days": 2150,
+      "allTime": 2150,
+      "dupr": 4.217
+    },
+    {
+      "id": "jon-richert",
+      "name": "Jon Richert",
+      "seed": 12,
+      "past60Days": 1900,
+      "allTime": 3025,
+      "dupr": 4.509
+    },
+    {
+      "id": "matt-fleming",
+      "name": "Matt Fleming",
+      "seed": 13,
+      "past60Days": 1830,
+      "allTime": 2080,
+      "dupr": 4.303
+    },
+    {
+      "id": "chase-blickhan",
+      "name": "Chase Blickhan",
+      "seed": 14,
+      "past60Days": 1600,
+      "allTime": 4100,
+      "dupr": 4.931
+    },
+    {
+      "id": "jarrett-menary",
+      "name": "Jarrett Menary",
+      "seed": 15,
+      "past60Days": 1555,
+      "allTime": 1555,
+      "dupr": 4.112
+    },
+    {
+      "id": "john-tuason",
+      "name": "John Tuason",
+      "seed": 16,
+      "past60Days": 1500,
+      "allTime": 1500,
+      "dupr": 4.122
+    },
+    {
+      "id": "derek-dallas",
+      "name": "Derek Dallas",
+      "seed": 17,
+      "past60Days": 1200,
+      "allTime": 1450,
+      "dupr": 4.142
+    },
+    {
+      "id": "mike-scibona",
+      "name": "Mike Scibona",
+      "seed": 18,
+      "past60Days": 1050,
+      "allTime": 1050,
+      "dupr": 4.392
+    },
+    {
+      "id": "kyle-laramie",
+      "name": "Kyle Laramie",
+      "seed": 19,
+      "past60Days": 900,
+      "allTime": 900,
+      "dupr": 5.033
+    },
+    {
+      "id": "jeff-ross",
+      "name": "Jeff Ross",
+      "seed": 20,
+      "past60Days": 900,
+      "allTime": 900,
+      "dupr": 4.226
+    },
+    {
+      "id": "orlando-paez",
+      "name": "Orlando Paez",
+      "seed": 21,
+      "past60Days": 825,
+      "allTime": 1725,
+      "dupr": 4.294
+    },
+    {
       "id": "christopher-lee",
       "name": "Christopher Lee",
-      "seed": 15,
-      "past60Days": 0,
+      "seed": 22,
+      "past60Days": 700,
       "allTime": 700,
       "dupr": 4.459
     },
     {
-      "id": "chris-goff",
-      "name": "Chris Goff",
-      "seed": 16,
-      "past60Days": 0,
-      "allTime": 300,
-      "dupr": 4.445
+      "id": "luke-bovee",
+      "name": "Luke Bovee",
+      "seed": 23,
+      "past60Days": 700,
+      "allTime": 700,
+      "dupr": 4.011
+    },
+    {
+      "id": "dominic-williams",
+      "name": "Dominic Williams",
+      "seed": 24,
+      "past60Days": 600,
+      "allTime": 600,
+      "dupr": 4.553
+    },
+    {
+      "id": "mayur-ostwal",
+      "name": "Mayur Ostwal",
+      "seed": 25,
+      "past60Days": 600,
+      "allTime": 600,
+      "dupr": 2
+    },
+    {
+      "id": "michael-randle",
+      "name": "Michael Randle",
+      "seed": 26,
+      "past60Days": 550,
+      "allTime": 750,
+      "dupr": 4.314
+    },
+    {
+      "id": "shiva-garimella",
+      "name": "Shiva Garimella",
+      "seed": 27,
+      "past60Days": 550,
+      "allTime": 550,
+      "dupr": 4.106
+    },
+    {
+      "id": "sam-ngo",
+      "name": "Sam Ngo",
+      "seed": 28,
+      "past60Days": 550,
+      "allTime": 1030,
+      "dupr": 3.596
     },
     {
       "id": "steven-benedict",
       "name": "Steven Benedict",
-      "seed": 17,
-      "past60Days": 0,
+      "seed": 29,
+      "past60Days": 500,
       "allTime": 500,
       "dupr": 4.433
     },
     {
       "id": "matt-landolt",
       "name": "Matt Landolt",
-      "seed": 18,
-      "past60Days": 0,
+      "seed": 30,
+      "past60Days": 500,
       "allTime": 500,
       "dupr": 4.423
     },
     {
-      "id": "dan-green",
-      "name": "Dan Green",
-      "seed": 19,
-      "past60Days": 0,
-      "allTime": 400,
-      "dupr": 4.398
-    },
-    {
-      "id": "mike-scibona",
-      "name": "Mike Scibona",
-      "seed": 20,
-      "past60Days": 0,
-      "allTime": 1050,
-      "dupr": 4.392
-    },
-    {
-      "id": "jon-harris",
-      "name": "Jon Harris",
-      "seed": 21,
-      "past60Days": 0,
-      "allTime": 3500,
-      "dupr": 4.391
-    },
-    {
-      "id": "brian-romine",
-      "name": "Brian Romine",
-      "seed": 22,
-      "past60Days": 0,
-      "allTime": 7775,
-      "dupr": 4.388
-    },
-    {
-      "id": "josh-wilson",
-      "name": "Josh Wilson",
-      "seed": 23,
-      "past60Days": 0,
-      "allTime": 0,
-      "dupr": 4.386
-    },
-    {
-      "id": "austin-lin",
-      "name": "Austin Lin",
-      "seed": 24,
-      "past60Days": 0,
-      "allTime": 550,
-      "dupr": 4.33
-    },
-    {
-      "id": "michael-randle",
-      "name": "Michael Randle",
-      "seed": 25,
-      "past60Days": 0,
-      "allTime": 750,
-      "dupr": 4.314
-    },
-    {
-      "id": "farhad-saifuddin",
-      "name": "Farhad Saifuddin",
-      "seed": 26,
-      "past60Days": 0,
-      "allTime": 80,
-      "dupr": 4.304
-    },
-    {
-      "id": "matt-fleming",
-      "name": "Matt Fleming",
-      "seed": 27,
-      "past60Days": 0,
-      "allTime": 2080,
-      "dupr": 4.303
-    },
-    {
-      "id": "orlando-paez",
-      "name": "Orlando Paez",
-      "seed": 28,
-      "past60Days": 0,
-      "allTime": 1725,
-      "dupr": 4.294
-    },
-    {
-      "id": "james-brown",
-      "name": "James Brown",
-      "seed": 29,
-      "past60Days": 0,
-      "allTime": 750,
-      "dupr": 4.292
-    },
-    {
-      "id": "daton-rippley",
-      "name": "Daton Rippley",
-      "seed": 30,
-      "past60Days": 0,
-      "allTime": 300,
-      "dupr": 4.289
-    },
-    {
-      "id": "michael-fan",
-      "name": "Michael Fan",
+      "id": "ramy-shoela",
+      "name": "Ramy Shoela",
       "seed": 31,
-      "past60Days": 0,
-      "allTime": 3750,
-      "dupr": 4.28
+      "past60Days": 500,
+      "allTime": 500,
+      "dupr": 4.113
+    },
+    {
+      "id": "khoa-nguyen",
+      "name": "Khoa Nguyen",
+      "seed": 32,
+      "past60Days": 500,
+      "allTime": 500,
+      "dupr": 2
     },
     {
       "id": "kevin-reque",
       "name": "Kevin Reque",
-      "seed": 32,
-      "past60Days": 0,
+      "seed": 33,
+      "past60Days": 450,
       "allTime": 450,
       "dupr": 4.274
     },
     {
-      "id": "bekah-ola",
-      "name": "Bekah Ola",
-      "seed": 33,
-      "past60Days": 0,
-      "allTime": 200,
-      "dupr": 4.248
-    },
-    {
-      "id": "matthew-hultman",
-      "name": "Matthew Hultman",
+      "id": "dan-green",
+      "name": "Dan Green",
       "seed": 34,
-      "past60Days": 0,
-      "allTime": 100,
-      "dupr": 4.245
+      "past60Days": 400,
+      "allTime": 400,
+      "dupr": 4.398
     },
     {
-      "id": "matt-goodwin",
-      "name": "Matt Goodwin",
+      "id": "libby-liston",
+      "name": "Libby Liston",
       "seed": 35,
-      "past60Days": 0,
-      "allTime": 125,
-      "dupr": 4.242
+      "past60Days": 400,
+      "allTime": 400,
+      "dupr": 2
     },
     {
-      "id": "jeff-ross",
-      "name": "Jeff Ross",
+      "id": "austin-lin",
+      "name": "Austin Lin",
       "seed": 36,
-      "past60Days": 0,
-      "allTime": 900,
-      "dupr": 4.226
+      "past60Days": 350,
+      "allTime": 550,
+      "dupr": 4.33
     },
     {
-      "id": "otto-may",
-      "name": "Otto May",
+      "id": "kevin-folkl",
+      "name": "Kevin Folkl",
       "seed": 37,
-      "past60Days": 0,
-      "allTime": 2150,
-      "dupr": 4.217
+      "past60Days": 350,
+      "allTime": 350,
+      "dupr": 4.05
     },
     {
       "id": "ryan-niedermayer",
       "name": "Ryan Niedermayer",
       "seed": 38,
-      "past60Days": 0,
+      "past60Days": 330,
       "allTime": 330,
       "dupr": 4.202
     },
     {
-      "id": "derek-dallas",
-      "name": "Derek Dallas",
+      "id": "chris-goff",
+      "name": "Chris Goff",
       "seed": 39,
-      "past60Days": 0,
-      "allTime": 1450,
-      "dupr": 4.142
+      "past60Days": 300,
+      "allTime": 300,
+      "dupr": 4.445
     },
     {
-      "id": "sharan-tej-kodumuru",
-      "name": "Sharan Tej Kodumuru",
+      "id": "jon-harris",
+      "name": "Jon Harris",
       "seed": 40,
-      "past60Days": 0,
-      "allTime": 40,
-      "dupr": 4.136
+      "past60Days": 300,
+      "allTime": 3500,
+      "dupr": 4.391
     },
     {
-      "id": "john-tuason",
-      "name": "John Tuason",
+      "id": "daton-rippley",
+      "name": "Daton Rippley",
       "seed": 41,
-      "past60Days": 0,
-      "allTime": 1500,
-      "dupr": 4.122
+      "past60Days": 300,
+      "allTime": 300,
+      "dupr": 4.289
     },
     {
-      "id": "kyle-weaver",
-      "name": "Kyle Weaver",
+      "id": "sreekanth-peyyeti",
+      "name": "Sreekanth Peyyeti",
       "seed": 42,
-      "past60Days": 0,
-      "allTime": 30,
-      "dupr": 4.121
+      "past60Days": 300,
+      "allTime": 300,
+      "dupr": 3.876
     },
     {
-      "id": "ramy-shoela",
-      "name": "Ramy Shoela",
+      "id": "matthew-johnson",
+      "name": "Matthew Johnson",
       "seed": 43,
-      "past60Days": 0,
-      "allTime": 500,
-      "dupr": 4.113
+      "past60Days": 300,
+      "allTime": 300,
+      "dupr": 3.764
     },
     {
-      "id": "jarrett-menary",
-      "name": "Jarrett Menary",
+      "id": "dev-newsome",
+      "name": "Dev Newsome",
       "seed": 44,
-      "past60Days": 0,
-      "allTime": 1555,
-      "dupr": 4.112
+      "past60Days": 250,
+      "allTime": 1150,
+      "dupr": 4.663
     },
     {
-      "id": "ivan-gutierrez",
-      "name": "Ivan Gutierrez",
+      "id": "bekah-ola",
+      "name": "Bekah Ola",
       "seed": 45,
-      "past60Days": 0,
-      "allTime": 1500,
-      "dupr": 4.111
+      "past60Days": 200,
+      "allTime": 200,
+      "dupr": 4.248
     },
     {
-      "id": "shiva-garimella",
-      "name": "Shiva Garimella",
+      "id": "todd-wahl",
+      "name": "Todd Wahl",
       "seed": 46,
-      "past60Days": 0,
-      "allTime": 550,
-      "dupr": 4.106
+      "past60Days": 200,
+      "allTime": 200,
+      "dupr": 4.009
+    },
+    {
+      "id": "tim-long",
+      "name": "Tim Long",
+      "seed": 47,
+      "past60Days": 150,
+      "allTime": 150,
+      "dupr": 2
+    },
+    {
+      "id": "matt-goodwin",
+      "name": "Matt Goodwin",
+      "seed": 48,
+      "past60Days": 125,
+      "allTime": 125,
+      "dupr": 4.242
+    },
+    {
+      "id": "farhad-saifuddin",
+      "name": "Farhad Saifuddin",
+      "seed": 49,
+      "past60Days": 80,
+      "allTime": 80,
+      "dupr": 4.304
     },
     {
       "id": "randy-walters",
       "name": "Randy Walters",
-      "seed": 47,
-      "past60Days": 0,
+      "seed": 50,
+      "past60Days": 60,
       "allTime": 60,
       "dupr": 4.091
     },
     {
       "id": "matthew-trokey",
       "name": "Matthew Trokey",
-      "seed": 48,
-      "past60Days": 0,
+      "seed": 51,
+      "past60Days": 60,
       "allTime": 60,
       "dupr": 4.062
     },
     {
+      "id": "rick-phung",
+      "name": "Rick Phung",
+      "seed": 52,
+      "past60Days": 60,
+      "allTime": 60,
+      "dupr": 2
+    },
+    {
+      "id": "phil-mckenna",
+      "name": "Phil Mckenna",
+      "seed": 53,
+      "past60Days": 50,
+      "allTime": 50,
+      "dupr": 3.979
+    },
+    {
+      "id": "sharan-tej-kodumuru",
+      "name": "Sharan Tej Kodumuru",
+      "seed": 54,
+      "past60Days": 40,
+      "allTime": 40,
+      "dupr": 4.136
+    },
+    {
+      "id": "kyle-weaver",
+      "name": "Kyle Weaver",
+      "seed": 55,
+      "past60Days": 30,
+      "allTime": 30,
+      "dupr": 4.121
+    },
+    {
+      "id": "sai-ram-reddy",
+      "name": "Sai Ram Reddy",
+      "seed": 56,
+      "past60Days": 25,
+      "allTime": 25,
+      "dupr": 2
+    },
+    {
+      "id": "jason-rule",
+      "name": "Jason Rule",
+      "seed": 57,
+      "past60Days": 0,
+      "allTime": 0,
+      "dupr": 5.12
+    },
+    {
+      "id": "brooks-toth",
+      "name": "Brooks Toth",
+      "seed": 58,
+      "past60Days": 0,
+      "allTime": 125,
+      "dupr": 4.644
+    },
+    {
+      "id": "josh-wilson",
+      "name": "Josh Wilson",
+      "seed": 59,
+      "past60Days": 0,
+      "allTime": 0,
+      "dupr": 4.386
+    },
+    {
+      "id": "james-brown",
+      "name": "James Brown",
+      "seed": 60,
+      "past60Days": 0,
+      "allTime": 750,
+      "dupr": 4.292
+    },
+    {
+      "id": "matthew-hultman",
+      "name": "Matthew Hultman",
+      "seed": 61,
+      "past60Days": 0,
+      "allTime": 100,
+      "dupr": 4.245
+    },
+    {
+      "id": "ivan-gutierrez",
+      "name": "Ivan Gutierrez",
+      "seed": 62,
+      "past60Days": 0,
+      "allTime": 1500,
+      "dupr": 4.111
+    },
+    {
       "id": "nick-borger",
       "name": "Nick Borger",
-      "seed": 49,
+      "seed": 63,
       "past60Days": 0,
       "allTime": 60,
       "dupr": 4.059
     },
     {
-      "id": "kevin-folkl",
-      "name": "Kevin Folkl",
-      "seed": 50,
-      "past60Days": 0,
-      "allTime": 350,
-      "dupr": 4.05
-    },
-    {
-      "id": "sean-liston",
-      "name": "Sean Liston",
-      "seed": 51,
-      "past60Days": 0,
-      "allTime": 4925,
-      "dupr": 4.019
-    },
-    {
-      "id": "luke-bovee",
-      "name": "Luke Bovee",
-      "seed": 52,
-      "past60Days": 0,
-      "allTime": 700,
-      "dupr": 4.011
-    },
-    {
-      "id": "todd-wahl",
-      "name": "Todd Wahl",
-      "seed": 53,
-      "past60Days": 0,
-      "allTime": 200,
-      "dupr": 4.009
-    },
-    {
-      "id": "phil-mckenna",
-      "name": "Phil Mckenna",
-      "seed": 54,
-      "past60Days": 0,
-      "allTime": 50,
-      "dupr": 3.979
-    },
-    {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 55,
+      "seed": 64,
       "past60Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -4172,119 +4244,23 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 56,
+      "seed": 65,
       "past60Days": 0,
       "allTime": 0,
       "dupr": 3.88
-    },
-    {
-      "id": "sreekanth-peyyeti",
-      "name": "Sreekanth Peyyeti",
-      "seed": 57,
-      "past60Days": 0,
-      "allTime": 300,
-      "dupr": 3.876
-    },
-    {
-      "id": "matthew-johnson",
-      "name": "Matthew Johnson",
-      "seed": 58,
-      "past60Days": 0,
-      "allTime": 300,
-      "dupr": 3.764
-    },
-    {
-      "id": "sam-ngo",
-      "name": "Sam Ngo",
-      "seed": 59,
-      "past60Days": 0,
-      "allTime": 1030,
-      "dupr": 3.596
-    },
-    {
-      "id": "mayur-ostwal",
-      "name": "Mayur Ostwal",
-      "seed": 60,
-      "past60Days": 0,
-      "allTime": 600,
-      "dupr": 2
-    },
-    {
-      "id": "khoa-nguyen",
-      "name": "Khoa Nguyen",
-      "seed": 61,
-      "past60Days": 0,
-      "allTime": 500,
-      "dupr": 2
-    },
-    {
-      "id": "libby-liston",
-      "name": "Libby Liston",
-      "seed": 62,
-      "past60Days": 0,
-      "allTime": 400,
-      "dupr": 2
-    },
-    {
-      "id": "sai-ram-reddy",
-      "name": "Sai Ram Reddy",
-      "seed": 63,
-      "past60Days": 0,
-      "allTime": 25,
-      "dupr": 2
-    },
-    {
-      "id": "tim-long",
-      "name": "Tim Long",
-      "seed": 64,
-      "past60Days": 0,
-      "allTime": 150,
-      "dupr": 2
-    },
-    {
-      "id": "rick-phung",
-      "name": "Rick Phung",
-      "seed": 65,
-      "past60Days": 0,
-      "allTime": 60,
-      "dupr": 2
     }
   ],
   "events": {
     "upcoming": [
       {
-        "id": "2026-11-12",
-        "date": "2026-11-12",
-        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/GEDWK1610117128",
-        "gameMakerUrl": null,
-        "registeredPlayerCount": 16,
-        "registeredPlayerIds": [
-          "brian-romine",
-          "daton-rippley",
-          "derek-dallas",
-          "farhad-saifuddin",
-          "garrett-hallemeier",
-          "jarrett-menary",
-          "john-tuason",
-          "jon-harris",
-          "jon-richert",
-          "kevin-folkl",
-          "kevin-reque",
-          "michael-randle",
-          "otto-may",
-          "ramy-shoela",
-          "sean-liston",
-          "tobi-ola"
-        ],
-        "unmatchedRegistrantNames": []
-      },
-      {
         "id": "2026-11-19",
         "date": "2026-11-19",
-        "courtReserveUrl": null,
+        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/LATT65J10117144",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 0,
-        "registeredPlayerIds": [],
+        "registeredPlayerCount": 1,
+        "registeredPlayerIds": [
+          "tobi-ola"
+        ],
         "unmatchedRegistrantNames": []
       },
       {
@@ -4308,15 +4284,6 @@
       {
         "id": "2026-12-17",
         "date": "2026-12-17",
-        "courtReserveUrl": null,
-        "gameMakerUrl": null,
-        "registeredPlayerCount": 0,
-        "registeredPlayerIds": [],
-        "unmatchedRegistrantNames": []
-      },
-      {
-        "id": "2026-12-24",
-        "date": "2026-12-24",
         "courtReserveUrl": null,
         "gameMakerUrl": null,
         "registeredPlayerCount": 0,
@@ -4367,13 +4334,13 @@
             "points": 2000,
             "place": 1,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 7000,
             "wins": 7,
             "losses": 0,
             "winRate": 100,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 147,
+            "pointsAgainst": 113,
+            "pointDifferential": 13.07
           },
           {
             "playerId": "brian-romine",
@@ -4381,13 +4348,13 @@
             "points": 1600,
             "place": 2,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 4830,
             "wins": 5,
             "losses": 2,
             "winRate": 71.42,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 143,
+            "pointsAgainst": 126,
+            "pointDifferential": 6.31
           },
           {
             "playerId": "garrett-hallemeier",
@@ -4395,13 +4362,13 @@
             "points": 1200,
             "place": 3,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 4030,
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 130,
+            "pointsAgainst": 133,
+            "pointDifferential": -1.15
           },
           {
             "playerId": "derek-dallas",
@@ -4409,13 +4376,13 @@
             "points": 1000,
             "place": 4,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 3483,
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 133,
+            "pointsAgainst": 131,
+            "pointDifferential": 0.75
           },
           {
             "playerId": "jon-richert",
@@ -4423,12 +4390,12 @@
             "points": 800,
             "place": 5,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 3483,
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
+            "pointsEarned": 142,
+            "pointsAgainst": 142,
             "pointDifferential": 0
           },
           {
@@ -4437,13 +4404,13 @@
             "points": 600,
             "place": 6,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 3198,
             "wins": 4,
             "losses": 3,
             "winRate": 57.14,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 137,
+            "pointsAgainst": 138,
+            "pointDifferential": -0.37
           },
           {
             "playerId": "ramy-shoela",
@@ -4451,13 +4418,13 @@
             "points": 500,
             "place": 7,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 2443,
             "wins": 4,
             "losses": 2,
             "winRate": 66.66,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 124,
+            "pointsAgainst": 102,
+            "pointDifferential": 9.73
           },
           {
             "playerId": "otto-may",
@@ -4465,13 +4432,13 @@
             "points": 400,
             "place": 8,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 2364,
             "wins": 3,
             "losses": 4,
             "winRate": 42.85,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 130,
+            "pointsAgainst": 135,
+            "pointDifferential": -1.89
           },
           {
             "playerId": "jon-harris",
@@ -4479,13 +4446,13 @@
             "points": 300,
             "place": 9,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 2345,
             "wins": 4,
             "losses": 2,
             "winRate": 66.66,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 122,
+            "pointsAgainst": 103,
+            "pointDifferential": 8.44
           },
           {
             "playerId": "sean-liston",
@@ -4493,13 +4460,13 @@
             "points": 250,
             "place": 10,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 1973,
             "wins": 3,
             "losses": 4,
             "winRate": 42.85,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 135,
+            "pointsAgainst": 129,
+            "pointDifferential": 2.27
           },
           {
             "playerId": "kevin-folkl",
@@ -4507,13 +4474,13 @@
             "points": 200,
             "place": 11,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 1875,
             "wins": 3,
             "losses": 4,
             "winRate": 42.85,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 126,
+            "pointsAgainst": 137,
+            "pointDifferential": -4.19
           },
           {
             "playerId": "jarrett-menary",
@@ -4521,13 +4488,13 @@
             "points": 150,
             "place": 12,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 1365,
             "wins": 2,
             "losses": 4,
             "winRate": 33.33,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 112,
+            "pointsAgainst": 117,
+            "pointDifferential": -2.19
           },
           {
             "playerId": "michael-randle",
@@ -4535,13 +4502,13 @@
             "points": 125,
             "place": 13,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 1109,
             "wins": 2,
             "losses": 4,
             "winRate": 33.33,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 90,
+            "pointsAgainst": 116,
+            "pointDifferential": -12.63
           },
           {
             "playerId": "daton-rippley",
@@ -4549,13 +4516,13 @@
             "points": 100,
             "place": 14,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 1080,
             "wins": 2,
             "losses": 4,
             "winRate": 33.33,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 108,
+            "pointsAgainst": 115,
+            "pointDifferential": -3.14
           },
           {
             "playerId": "farhad-saifuddin",
@@ -4563,13 +4530,13 @@
             "points": 80,
             "place": 15,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 715,
             "wins": 1,
             "losses": 4,
             "winRate": 20,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 92,
+            "pointsAgainst": 101,
+            "pointDifferential": -4.67
           },
           {
             "playerId": "rick-phung",
@@ -4577,13 +4544,13 @@
             "points": 60,
             "place": 16,
             "courts": 4,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 467,
             "wins": 0,
             "losses": 6,
             "winRate": 0,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 93,
+            "pointsAgainst": 126,
+            "pointDifferential": -15.07
           }
         ]
       },
@@ -4620,13 +4587,13 @@
             "points": 1000,
             "place": 1,
             "courts": 2,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 6915,
             "wins": 7,
             "losses": 1,
             "winRate": 87.5,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 164,
+            "pointsAgainst": 141,
+            "pointDifferential": 7.54
           },
           {
             "playerId": "jarrett-menary",
@@ -4634,13 +4601,13 @@
             "points": 800,
             "place": 2,
             "courts": 2,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 6630,
             "wins": 7,
             "losses": 1,
             "winRate": 87.5,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 165,
+            "pointsAgainst": 143,
+            "pointDifferential": 7.14
           },
           {
             "playerId": "mat-sevilla",
@@ -4648,13 +4615,13 @@
             "points": 600,
             "place": 3,
             "courts": 2,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 3401,
             "wins": 3,
             "losses": 4,
             "winRate": 42.85,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 130,
+            "pointsAgainst": 129,
+            "pointDifferential": 0.38
           },
           {
             "playerId": "matt-fleming",
@@ -4662,13 +4629,13 @@
             "points": 500,
             "place": 4,
             "courts": 2,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 3173,
             "wins": 3,
             "losses": 4,
             "winRate": 42.85,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 132,
+            "pointsAgainst": 137,
+            "pointDifferential": -1.86
           },
           {
             "playerId": "christopher-lee",
@@ -4676,13 +4643,13 @@
             "points": 400,
             "place": 5,
             "courts": 2,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 3116,
             "wins": 3,
             "losses": 4,
             "winRate": 42.85,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 127,
+            "pointsAgainst": 143,
+            "pointDifferential": -5.93
           },
           {
             "playerId": "michael-randle",
@@ -4690,13 +4657,13 @@
             "points": 300,
             "place": 6,
             "courts": 2,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 3116,
             "wins": 3,
             "losses": 4,
             "winRate": 42.85,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 137,
+            "pointsAgainst": 142,
+            "pointDifferential": -1.8
           },
           {
             "playerId": "sean-liston",
@@ -4704,13 +4671,13 @@
             "points": 250,
             "place": 7,
             "courts": 2,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 2888,
             "wins": 3,
             "losses": 4,
             "winRate": 42.85,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 130,
+            "pointsAgainst": 136,
+            "pointDifferential": -2.26
           },
           {
             "playerId": "derek-dallas",
@@ -4718,13 +4685,13 @@
             "points": 200,
             "place": 8,
             "courts": 2,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 2202,
             "wins": 2,
             "losses": 5,
             "winRate": 28.57,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 136,
+            "pointsAgainst": 135,
+            "pointDifferential": 0.36
           },
           {
             "playerId": "michael-fan",
@@ -4732,13 +4699,13 @@
             "points": 150,
             "place": 9,
             "courts": 2,
-            "gameMakerPoints": 1,
+            "gameMakerPoints": 1487,
             "wins": 1,
             "losses": 5,
             "winRate": 16.66,
-            "pointsEarned": 1,
-            "pointsAgainst": 1,
-            "pointDifferential": 0
+            "pointsEarned": 111,
+            "pointsAgainst": 126,
+            "pointDifferential": -6.33
           }
         ]
       },
