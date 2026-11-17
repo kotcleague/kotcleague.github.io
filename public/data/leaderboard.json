@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-16T02:06:38.596Z",
+  "scrapedAt": "2026-11-17T13:25:30.055Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -450,38 +450,17 @@
         "id": "brian-romine",
         "rank": 2,
         "name": "Brian Romine",
-        "points": 7175,
+        "points": 7050,
         "gold": 1,
         "silver": 3,
         "bronze": 0,
-        "gameMakerPoints": 29114,
-        "wins": 30,
-        "losses": 24,
-        "winRate": 56,
-        "pointsEarned": 1019,
-        "pointsAgainst": 987,
-        "pointDifferential": 1.6,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "garrett-hallemeier",
-        "rank": 3,
-        "name": "Garrett Hallemeier",
-        "points": 6500,
-        "gold": 2,
-        "silver": 1,
-        "bronze": 1,
-        "gameMakerPoints": 21026,
-        "wins": 22,
-        "losses": 12,
-        "winRate": 65,
-        "pointsEarned": 648,
-        "pointsAgainst": 609,
-        "pointDifferential": 3.1,
+        "gameMakerPoints": 28114,
+        "wins": 29,
+        "losses": 20,
+        "winRate": 59,
+        "pointsEarned": 937,
+        "pointsAgainst": 885,
+        "pointDifferential": 2.9,
         "move": {
           "dir": "none",
           "places": 0
@@ -490,7 +469,7 @@
       },
       {
         "id": "john-paden",
-        "rank": 4,
+        "rank": 3,
         "name": "John Paden",
         "points": 5300,
         "gold": 0,
@@ -504,8 +483,29 @@
         "pointsAgainst": 610,
         "pointDifferential": 2.6,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "none",
+          "places": 0
+        },
+        "photoUrl": null
+      },
+      {
+        "id": "garrett-hallemeier",
+        "rank": 4,
+        "name": "Garrett Hallemeier",
+        "points": 5000,
+        "gold": 1,
+        "silver": 1,
+        "bronze": 1,
+        "gameMakerPoints": 15396,
+        "wins": 16,
+        "losses": 11,
+        "winRate": 59,
+        "pointsEarned": 504,
+        "pointsAgainst": 488,
+        "pointDifferential": 1.6,
+        "move": {
+          "dir": "none",
+          "places": 0
         },
         "photoUrl": null
       },
@@ -513,20 +513,20 @@
         "id": "sean-liston",
         "rank": 5,
         "name": "Sean Liston",
-        "points": 3775,
+        "points": 3025,
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 22985,
-        "wins": 25,
-        "losses": 38,
-        "winRate": 40,
-        "pointsEarned": 1141,
-        "pointsAgainst": 1195,
-        "pointDifferential": -2.3,
+        "gameMakerPoints": 18955,
+        "wins": 21,
+        "losses": 35,
+        "winRate": 38,
+        "pointsEarned": 1015,
+        "pointsAgainst": 1066,
+        "pointDifferential": -2.5,
         "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "up",
+          "places": 1
         },
         "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4c367c1d-91bb-45ad-a881-a681422d61d1/24dea6f2-9886-4642-a444-a94ebdcbc0d3.jpg"
       },
@@ -546,8 +546,8 @@
         "pointsAgainst": 346,
         "pointDifferential": 9.3,
         "move": {
-          "dir": "none",
-          "places": 0
+          "dir": "down",
+          "places": 1
         },
         "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/4aa801cd-26a8-4acb-a259-5ea9f0f69f84/2069f8d2-a36d-41c4-b1c9-4f300a0675db.jpg"
       },
@@ -615,29 +615,8 @@
         "photoUrl": null
       },
       {
-        "id": "michael-fan",
-        "rank": 10,
-        "name": "Michael Fan",
-        "points": 2250,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1,
-        "gameMakerPoints": 10102,
-        "wins": 11,
-        "losses": 15,
-        "winRate": 42,
-        "pointsEarned": 490,
-        "pointsAgainst": 477,
-        "pointDifferential": 1.3,
-        "move": {
-          "dir": "none",
-          "places": 0
-        },
-        "photoUrl": null
-      },
-      {
         "id": "otto-may",
-        "rank": 11,
+        "rank": 10,
         "name": "Otto May",
         "points": 2150,
         "gold": 0,
@@ -652,34 +631,34 @@
         "pointDifferential": -1.1,
         "move": {
           "dir": "up",
+          "places": 2
+        },
+        "photoUrl": null
+      },
+      {
+        "id": "michael-fan",
+        "rank": 11,
+        "name": "Michael Fan",
+        "points": 1850,
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1,
+        "gameMakerPoints": 7191,
+        "wins": 8,
+        "losses": 11,
+        "winRate": 42,
+        "pointsEarned": 359,
+        "pointsAgainst": 356,
+        "pointDifferential": 0.4,
+        "move": {
+          "dir": "down",
           "places": 1
         },
         "photoUrl": null
       },
       {
-        "id": "jon-richert",
-        "rank": 12,
-        "name": "Jon Richert",
-        "points": 1900,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 10685,
-        "wins": 12,
-        "losses": 15,
-        "winRate": 44,
-        "pointsEarned": 495,
-        "pointsAgainst": 516,
-        "pointDifferential": -2.1,
-        "move": {
-          "dir": "up",
-          "places": 3
-        },
-        "photoUrl": null
-      },
-      {
         "id": "matt-fleming",
-        "rank": 13,
+        "rank": 12,
         "name": "Matt Fleming",
         "points": 1830,
         "gold": 0,
@@ -694,34 +673,34 @@
         "pointDifferential": -3.1,
         "move": {
           "dir": "down",
-          "places": 2
+          "places": 1
         },
         "photoUrl": "https://cdn.pickleball.com/profile-images/1766099689318/IMG_6190.jpeg?width=190&height=190&optimizer=image&saturation=0&face_crop=true"
       },
       {
-        "id": "chase-blickhan",
-        "rank": 14,
-        "name": "Chase Blickhan",
-        "points": 1600,
+        "id": "jon-richert",
+        "rank": 13,
+        "name": "Jon Richert",
+        "points": 1650,
         "gold": 0,
-        "silver": 1,
+        "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 7315,
-        "wins": 7,
-        "losses": 7,
-        "winRate": 50,
-        "pointsEarned": 262,
-        "pointsAgainst": 258,
-        "pointDifferential": 0.8,
+        "gameMakerPoints": 8815,
+        "wins": 10,
+        "losses": 11,
+        "winRate": 48,
+        "pointsEarned": 385,
+        "pointsAgainst": 397,
+        "pointDifferential": -1.5,
         "move": {
-          "dir": "down",
-          "places": 1
+          "dir": "up",
+          "places": 3
         },
         "photoUrl": null
       },
       {
         "id": "jarrett-menary",
-        "rank": 15,
+        "rank": 14,
         "name": "Jarrett Menary",
         "points": 1555,
         "gold": 0,
@@ -741,29 +720,8 @@
         "photoUrl": null
       },
       {
-        "id": "john-tuason",
-        "rank": 16,
-        "name": "John Tuason",
-        "points": 1500,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 8722,
-        "wins": 11,
-        "losses": 9,
-        "winRate": 55,
-        "pointsEarned": 368,
-        "pointsAgainst": 380,
-        "pointDifferential": -1.6,
-        "move": {
-          "dir": "up",
-          "places": 1
-        },
-        "photoUrl": null
-      },
-      {
         "id": "derek-dallas",
-        "rank": 17,
+        "rank": 15,
         "name": "Derek Dallas",
         "points": 1200,
         "gold": 0,
@@ -784,7 +742,7 @@
       },
       {
         "id": "mike-scibona",
-        "rank": 18,
+        "rank": 16,
         "name": "Mike Scibona",
         "points": 1050,
         "gold": 0,
@@ -805,7 +763,7 @@
       },
       {
         "id": "jeff-ross",
-        "rank": 19,
+        "rank": 17,
         "name": "Jeff Ross",
         "points": 900,
         "gold": 0,
@@ -825,50 +783,29 @@
         "photoUrl": null
       },
       {
-        "id": "kyle-laramie",
-        "rank": 20,
-        "name": "Kyle Laramie",
+        "id": "john-tuason",
+        "rank": 18,
+        "name": "John Tuason",
         "points": 900,
         "gold": 0,
         "silver": 0,
-        "bronze": 1,
-        "gameMakerPoints": 4055,
-        "wins": 5,
-        "losses": 2,
-        "winRate": 71,
-        "pointsEarned": 142,
-        "pointsAgainst": 122,
-        "pointDifferential": 7.6,
+        "bronze": 0,
+        "gameMakerPoints": 5480,
+        "wins": 7,
+        "losses": 7,
+        "winRate": 50,
+        "pointsEarned": 255,
+        "pointsAgainst": 270,
+        "pointDifferential": -2.9,
         "move": {
-          "dir": "down",
-          "places": 2
+          "dir": "up",
+          "places": 11
         },
         "photoUrl": null
       },
       {
-        "id": "orlando-paez",
-        "rank": 21,
-        "name": "Orlando Paez",
-        "points": 825,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 6687,
-        "wins": 9,
-        "losses": 11,
-        "winRate": 45,
-        "pointsEarned": 368,
-        "pointsAgainst": 380,
-        "pointDifferential": -1.6,
-        "move": {
-          "dir": "down",
-          "places": 1
-        },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/555b2883-53ae-429e-8db1-aa72e197c15b/48ab3a0d-3491-4aa6-baa5-a24cc3be582b.jpg"
-      },
-      {
         "id": "christopher-lee",
-        "rank": 22,
+        "rank": 19,
         "name": "Christopher Lee",
         "points": 700,
         "gold": 0,
@@ -883,34 +820,13 @@
         "pointDifferential": -3.1,
         "move": {
           "dir": "down",
-          "places": 1
-        },
-        "photoUrl": null
-      },
-      {
-        "id": "luke-bovee",
-        "rank": 23,
-        "name": "Luke Bovee",
-        "points": 700,
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0,
-        "gameMakerPoints": 4014,
-        "wins": 5,
-        "losses": 6,
-        "winRate": 45,
-        "pointsEarned": 203,
-        "pointsAgainst": 196,
-        "pointDifferential": 1.8,
-        "move": {
-          "dir": "down",
-          "places": 1
+          "places": 2
         },
         "photoUrl": null
       },
       {
         "id": "dominic-williams",
-        "rank": 24,
+        "rank": 20,
         "name": "Dominic Williams",
         "points": 600,
         "gold": 0,
@@ -925,13 +841,34 @@
         "pointDifferential": 0.9,
         "move": {
           "dir": "down",
-          "places": 1
+          "places": 2
+        },
+        "photoUrl": null
+      },
+      {
+        "id": "luke-bovee",
+        "rank": 21,
+        "name": "Luke Bovee",
+        "points": 600,
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0,
+        "gameMakerPoints": 3157,
+        "wins": 4,
+        "losses": 3,
+        "winRate": 57,
+        "pointsEarned": 133,
+        "pointsAgainst": 121,
+        "pointDifferential": 4.7,
+        "move": {
+          "dir": "down",
+          "places": 2
         },
         "photoUrl": null
       },
       {
         "id": "michael-randle",
-        "rank": 25,
+        "rank": 22,
         "name": "Michael Randle",
         "points": 550,
         "gold": 0,
@@ -946,13 +883,13 @@
         "pointDifferential": -6.5,
         "move": {
           "dir": "up",
-          "places": 3
+          "places": 1
         },
         "photoUrl": null
       },
       {
         "id": "shiva-garimella",
-        "rank": 26,
+        "rank": 23,
         "name": "Shiva Garimella",
         "points": 550,
         "gold": 0,
@@ -967,13 +904,13 @@
         "pointDifferential": -10.7,
         "move": {
           "dir": "down",
-          "places": 1
+          "places": 2
         },
         "photoUrl": null
       },
       {
         "id": "matt-landolt",
-        "rank": 27,
+        "rank": 24,
         "name": "Matt Landolt",
         "points": 500,
         "gold": 0,
@@ -988,13 +925,13 @@
         "pointDifferential": 2.8,
         "move": {
           "dir": "down",
-          "places": 2
+          "places": 3
         },
         "photoUrl": null
       },
       {
         "id": "ramy-shoela",
-        "rank": 28,
+        "rank": 25,
         "name": "Ramy Shoela",
         "points": 500,
         "gold": 0,
@@ -1015,7 +952,7 @@
       },
       {
         "id": "steven-benedict",
-        "rank": 29,
+        "rank": 26,
         "name": "Steven Benedict",
         "points": 500,
         "gold": 0,
@@ -1030,34 +967,34 @@
         "pointDifferential": -1.2,
         "move": {
           "dir": "down",
-          "places": 2
+          "places": 3
         },
         "photoUrl": null
       },
       {
-        "id": "kevin-reque",
-        "rank": 30,
-        "name": "Kevin Reque",
-        "points": 450,
+        "id": "chase-blickhan",
+        "rank": 27,
+        "name": "Chase Blickhan",
+        "points": 400,
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 3688,
-        "wins": 5,
-        "losses": 8,
-        "winRate": 38,
-        "pointsEarned": 225,
-        "pointsAgainst": 223,
-        "pointDifferential": 0.4,
+        "gameMakerPoints": 2870,
+        "wins": 3,
+        "losses": 4,
+        "winRate": 43,
+        "pointsEarned": 126,
+        "pointsAgainst": 134,
+        "pointDifferential": -3.1,
         "move": {
           "dir": "down",
           "places": 3
         },
-        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/db9639fd-9386-4b92-bc4d-dfdaa2f63e5f/5a568a22-0449-4a2a-b435-eb6d5be009c2.jpg"
+        "photoUrl": null
       },
       {
         "id": "dan-green",
-        "rank": 31,
+        "rank": 28,
         "name": "Dan Green",
         "points": 400,
         "gold": 0,
@@ -1072,13 +1009,13 @@
         "pointDifferential": 1.3,
         "move": {
           "dir": "down",
-          "places": 2
+          "places": 3
         },
         "photoUrl": null
       },
       {
         "id": "austin-lin",
-        "rank": 32,
+        "rank": 29,
         "name": "Austin Lin",
         "points": 350,
         "gold": 0,
@@ -1093,13 +1030,13 @@
         "pointDifferential": 0.2,
         "move": {
           "dir": "down",
-          "places": 2
+          "places": 3
         },
         "photoUrl": null
       },
       {
         "id": "kevin-folkl",
-        "rank": 33,
+        "rank": 30,
         "name": "Kevin Folkl",
         "points": 350,
         "gold": 0,
@@ -1119,29 +1056,29 @@
         "photoUrl": null
       },
       {
-        "id": "ryan-niedermayer",
-        "rank": 34,
-        "name": "Ryan Niedermayer",
-        "points": 330,
+        "id": "orlando-paez",
+        "rank": 31,
+        "name": "Orlando Paez",
+        "points": 325,
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 3241,
-        "wins": 4,
+        "gameMakerPoints": 3466,
+        "wins": 5,
         "losses": 8,
-        "winRate": 33,
-        "pointsEarned": 219,
-        "pointsAgainst": 235,
-        "pointDifferential": -3.5,
+        "winRate": 38,
+        "pointsEarned": 230,
+        "pointsAgainst": 248,
+        "pointDifferential": -3.8,
         "move": {
           "dir": "down",
-          "places": 3
+          "places": 4
         },
-        "photoUrl": null
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/555b2883-53ae-429e-8db1-aa72e197c15b/48ab3a0d-3491-4aa6-baa5-a24cc3be582b.jpg"
       },
       {
         "id": "chris-goff",
-        "rank": 35,
+        "rank": 32,
         "name": "Chris Goff",
         "points": 300,
         "gold": 0,
@@ -1156,13 +1093,13 @@
         "pointDifferential": -6.2,
         "move": {
           "dir": "down",
-          "places": 3
+          "places": 4
         },
         "photoUrl": null
       },
       {
         "id": "daton-rippley",
-        "rank": 36,
+        "rank": 33,
         "name": "Daton Rippley",
         "points": 300,
         "gold": 0,
@@ -1177,13 +1114,13 @@
         "pointDifferential": -2.9,
         "move": {
           "dir": "up",
-          "places": 1
+          "places": 2
         },
         "photoUrl": null
       },
       {
         "id": "jon-harris",
-        "rank": 37,
+        "rank": 34,
         "name": "Jon Harris",
         "points": 300,
         "gold": 0,
@@ -1203,29 +1140,29 @@
         "photoUrl": null
       },
       {
-        "id": "sam-ngo",
-        "rank": 38,
-        "name": "Sam Ngo",
+        "id": "kevin-reque",
+        "rank": 35,
+        "name": "Kevin Reque",
         "points": 300,
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 2123,
+        "gameMakerPoints": 2178,
         "wins": 3,
-        "losses": 3,
-        "winRate": 50,
-        "pointsEarned": 110,
-        "pointsAgainst": 106,
-        "pointDifferential": 1.9,
+        "losses": 4,
+        "winRate": 43,
+        "pointsEarned": 119,
+        "pointsAgainst": 109,
+        "pointDifferential": 4.4,
         "move": {
           "dir": "down",
-          "places": 3
+          "places": 4
         },
-        "photoUrl": null
+        "photoUrl": "https://pbgm-app.b-cdn.net/profile-images/db9639fd-9386-4b92-bc4d-dfdaa2f63e5f/5a568a22-0449-4a2a-b435-eb6d5be009c2.jpg"
       },
       {
         "id": "sreekanth-peyyeti",
-        "rank": 39,
+        "rank": 36,
         "name": "Sreekanth Peyyeti",
         "points": 300,
         "gold": 0,
@@ -1240,13 +1177,13 @@
         "pointDifferential": 17,
         "move": {
           "dir": "down",
-          "places": 3
+          "places": 4
         },
         "photoUrl": null
       },
       {
         "id": "dev-newsome",
-        "rank": 40,
+        "rank": 37,
         "name": "Dev Newsome",
         "points": 250,
         "gold": 0,
@@ -1266,20 +1203,20 @@
         "photoUrl": null
       },
       {
-        "id": "todd-wahl",
-        "rank": 41,
-        "name": "Todd Wahl",
-        "points": 200,
+        "id": "ryan-niedermayer",
+        "rank": 38,
+        "name": "Ryan Niedermayer",
+        "points": 250,
         "gold": 0,
         "silver": 0,
         "bronze": 0,
-        "gameMakerPoints": 1670,
-        "wins": 2,
-        "losses": 3,
-        "winRate": 40,
-        "pointsEarned": 75,
-        "pointsAgainst": 96,
-        "pointDifferential": -12.3,
+        "gameMakerPoints": 2425,
+        "wins": 3,
+        "losses": 5,
+        "winRate": 38,
+        "pointsEarned": 152,
+        "pointsAgainst": 156,
+        "pointDifferential": -1.3,
         "move": {
           "dir": "down",
           "places": 5
@@ -1288,7 +1225,7 @@
       },
       {
         "id": "tim-long",
-        "rank": 42,
+        "rank": 39,
         "name": "Tim Long",
         "points": 150,
         "gold": 0,
@@ -1309,7 +1246,7 @@
       },
       {
         "id": "matt-goodwin",
-        "rank": 43,
+        "rank": 40,
         "name": "Matt Goodwin",
         "points": 125,
         "gold": 0,
@@ -1330,7 +1267,7 @@
       },
       {
         "id": "farhad-saifuddin",
-        "rank": 44,
+        "rank": 41,
         "name": "Farhad Saifuddin",
         "points": 80,
         "gold": 0,
@@ -1351,7 +1288,7 @@
       },
       {
         "id": "matthew-trokey",
-        "rank": 45,
+        "rank": 42,
         "name": "Matthew Trokey",
         "points": 60,
         "gold": 0,
@@ -1372,7 +1309,7 @@
       },
       {
         "id": "randy-walters",
-        "rank": 46,
+        "rank": 43,
         "name": "Randy Walters",
         "points": 60,
         "gold": 0,
@@ -1393,7 +1330,7 @@
       },
       {
         "id": "rick-phung",
-        "rank": 47,
+        "rank": 44,
         "name": "Rick Phung",
         "points": 60,
         "gold": 0,
@@ -1414,7 +1351,7 @@
       },
       {
         "id": "phil-mckenna",
-        "rank": 48,
+        "rank": 45,
         "name": "Phil Mckenna",
         "points": 50,
         "gold": 0,
@@ -1435,7 +1372,7 @@
       },
       {
         "id": "sharan-tej-kodumuru",
-        "rank": 49,
+        "rank": 46,
         "name": "Sharan Tej Kodumuru",
         "points": 40,
         "gold": 0,
@@ -1456,7 +1393,7 @@
       },
       {
         "id": "kyle-weaver",
-        "rank": 50,
+        "rank": 47,
         "name": "Kyle Weaver",
         "points": 30,
         "gold": 0,
@@ -1477,7 +1414,7 @@
       },
       {
         "id": "sai-ram-reddy",
-        "rank": 51,
+        "rank": 48,
         "name": "Sai Ram Reddy",
         "points": 25,
         "gold": 0,
@@ -3636,31 +3573,31 @@
       "id": "brian-romine",
       "name": "Brian Romine",
       "seed": 2,
-      "past60Days": 7175,
+      "past60Days": 7050,
       "allTime": 7775,
       "dupr": 4.388
     },
     {
-      "id": "garrett-hallemeier",
-      "name": "Garrett Hallemeier",
-      "seed": 3,
-      "past60Days": 6500,
-      "allTime": 7300,
-      "dupr": 4.597
-    },
-    {
       "id": "john-paden",
       "name": "John Paden",
-      "seed": 4,
+      "seed": 3,
       "past60Days": 5300,
       "allTime": 5350,
       "dupr": 4.577
     },
     {
+      "id": "garrett-hallemeier",
+      "name": "Garrett Hallemeier",
+      "seed": 4,
+      "past60Days": 5000,
+      "allTime": 7300,
+      "dupr": 4.597
+    },
+    {
       "id": "sean-liston",
       "name": "Sean Liston",
       "seed": 5,
-      "past60Days": 3775,
+      "past60Days": 3025,
       "allTime": 4925,
       "dupr": 4.019
     },
@@ -3697,65 +3634,49 @@
       "dupr": 4.698
     },
     {
-      "id": "michael-fan",
-      "name": "Michael Fan",
-      "seed": 10,
-      "past60Days": 2250,
-      "allTime": 3750,
-      "dupr": 4.28
-    },
-    {
       "id": "otto-may",
       "name": "Otto May",
-      "seed": 11,
+      "seed": 10,
       "past60Days": 2150,
       "allTime": 2150,
       "dupr": 4.217
     },
     {
-      "id": "jon-richert",
-      "name": "Jon Richert",
-      "seed": 12,
-      "past60Days": 1900,
-      "allTime": 3025,
-      "dupr": 4.509
+      "id": "michael-fan",
+      "name": "Michael Fan",
+      "seed": 11,
+      "past60Days": 1850,
+      "allTime": 3750,
+      "dupr": 4.28
     },
     {
       "id": "matt-fleming",
       "name": "Matt Fleming",
-      "seed": 13,
+      "seed": 12,
       "past60Days": 1830,
       "allTime": 2080,
       "dupr": 4.303
     },
     {
-      "id": "chase-blickhan",
-      "name": "Chase Blickhan",
-      "seed": 14,
-      "past60Days": 1600,
-      "allTime": 4100,
-      "dupr": 4.931
+      "id": "jon-richert",
+      "name": "Jon Richert",
+      "seed": 13,
+      "past60Days": 1650,
+      "allTime": 3025,
+      "dupr": 4.509
     },
     {
       "id": "jarrett-menary",
       "name": "Jarrett Menary",
-      "seed": 15,
+      "seed": 14,
       "past60Days": 1555,
       "allTime": 1555,
       "dupr": 4.112
     },
     {
-      "id": "john-tuason",
-      "name": "John Tuason",
-      "seed": 16,
-      "past60Days": 1500,
-      "allTime": 1500,
-      "dupr": 4.122
-    },
-    {
       "id": "derek-dallas",
       "name": "Derek Dallas",
-      "seed": 17,
+      "seed": 15,
       "past60Days": 1200,
       "allTime": 1450,
       "dupr": 4.142
@@ -3763,63 +3684,55 @@
     {
       "id": "mike-scibona",
       "name": "Mike Scibona",
-      "seed": 18,
+      "seed": 16,
       "past60Days": 1050,
       "allTime": 1050,
       "dupr": 4.392
     },
     {
-      "id": "kyle-laramie",
-      "name": "Kyle Laramie",
-      "seed": 19,
-      "past60Days": 900,
-      "allTime": 900,
-      "dupr": 5.033
-    },
-    {
       "id": "jeff-ross",
       "name": "Jeff Ross",
-      "seed": 20,
+      "seed": 17,
       "past60Days": 900,
       "allTime": 900,
       "dupr": 4.226
     },
     {
-      "id": "orlando-paez",
-      "name": "Orlando Paez",
-      "seed": 21,
-      "past60Days": 825,
-      "allTime": 1725,
-      "dupr": 4.294
+      "id": "john-tuason",
+      "name": "John Tuason",
+      "seed": 18,
+      "past60Days": 900,
+      "allTime": 1500,
+      "dupr": 4.122
     },
     {
       "id": "christopher-lee",
       "name": "Christopher Lee",
-      "seed": 22,
+      "seed": 19,
       "past60Days": 700,
       "allTime": 700,
       "dupr": 4.459
     },
     {
-      "id": "luke-bovee",
-      "name": "Luke Bovee",
-      "seed": 23,
-      "past60Days": 700,
-      "allTime": 700,
-      "dupr": 4.011
-    },
-    {
       "id": "dominic-williams",
       "name": "Dominic Williams",
-      "seed": 24,
+      "seed": 20,
       "past60Days": 600,
       "allTime": 600,
       "dupr": 4.553
     },
     {
+      "id": "luke-bovee",
+      "name": "Luke Bovee",
+      "seed": 21,
+      "past60Days": 600,
+      "allTime": 700,
+      "dupr": 4.011
+    },
+    {
       "id": "michael-randle",
       "name": "Michael Randle",
-      "seed": 25,
+      "seed": 22,
       "past60Days": 550,
       "allTime": 750,
       "dupr": 4.314
@@ -3827,7 +3740,7 @@
     {
       "id": "shiva-garimella",
       "name": "Shiva Garimella",
-      "seed": 26,
+      "seed": 23,
       "past60Days": 550,
       "allTime": 550,
       "dupr": 4.106
@@ -3835,7 +3748,7 @@
     {
       "id": "steven-benedict",
       "name": "Steven Benedict",
-      "seed": 27,
+      "seed": 24,
       "past60Days": 500,
       "allTime": 500,
       "dupr": 4.433
@@ -3843,7 +3756,7 @@
     {
       "id": "matt-landolt",
       "name": "Matt Landolt",
-      "seed": 28,
+      "seed": 25,
       "past60Days": 500,
       "allTime": 500,
       "dupr": 4.423
@@ -3851,23 +3764,23 @@
     {
       "id": "ramy-shoela",
       "name": "Ramy Shoela",
-      "seed": 29,
+      "seed": 26,
       "past60Days": 500,
       "allTime": 500,
       "dupr": 4.113
     },
     {
-      "id": "kevin-reque",
-      "name": "Kevin Reque",
-      "seed": 30,
-      "past60Days": 450,
-      "allTime": 450,
-      "dupr": 4.274
+      "id": "chase-blickhan",
+      "name": "Chase Blickhan",
+      "seed": 27,
+      "past60Days": 400,
+      "allTime": 4100,
+      "dupr": 4.931
     },
     {
       "id": "dan-green",
       "name": "Dan Green",
-      "seed": 31,
+      "seed": 28,
       "past60Days": 400,
       "allTime": 400,
       "dupr": 4.398
@@ -3875,7 +3788,7 @@
     {
       "id": "austin-lin",
       "name": "Austin Lin",
-      "seed": 32,
+      "seed": 29,
       "past60Days": 350,
       "allTime": 550,
       "dupr": 4.33
@@ -3883,23 +3796,23 @@
     {
       "id": "kevin-folkl",
       "name": "Kevin Folkl",
-      "seed": 33,
+      "seed": 30,
       "past60Days": 350,
       "allTime": 350,
       "dupr": 4.05
     },
     {
-      "id": "ryan-niedermayer",
-      "name": "Ryan Niedermayer",
-      "seed": 34,
-      "past60Days": 330,
-      "allTime": 330,
-      "dupr": 4.202
+      "id": "orlando-paez",
+      "name": "Orlando Paez",
+      "seed": 31,
+      "past60Days": 325,
+      "allTime": 1725,
+      "dupr": 4.294
     },
     {
       "id": "chris-goff",
       "name": "Chris Goff",
-      "seed": 35,
+      "seed": 32,
       "past60Days": 300,
       "allTime": 300,
       "dupr": 4.445
@@ -3907,7 +3820,7 @@
     {
       "id": "jon-harris",
       "name": "Jon Harris",
-      "seed": 36,
+      "seed": 33,
       "past60Days": 300,
       "allTime": 3500,
       "dupr": 4.391
@@ -3915,47 +3828,47 @@
     {
       "id": "daton-rippley",
       "name": "Daton Rippley",
-      "seed": 37,
+      "seed": 34,
       "past60Days": 300,
       "allTime": 300,
       "dupr": 4.289
     },
     {
+      "id": "kevin-reque",
+      "name": "Kevin Reque",
+      "seed": 35,
+      "past60Days": 300,
+      "allTime": 450,
+      "dupr": 4.274
+    },
+    {
       "id": "sreekanth-peyyeti",
       "name": "Sreekanth Peyyeti",
-      "seed": 38,
+      "seed": 36,
       "past60Days": 300,
       "allTime": 300,
       "dupr": 3.876
     },
     {
-      "id": "sam-ngo",
-      "name": "Sam Ngo",
-      "seed": 39,
-      "past60Days": 300,
-      "allTime": 1030,
-      "dupr": 3.596
-    },
-    {
       "id": "dev-newsome",
       "name": "Dev Newsome",
-      "seed": 40,
+      "seed": 37,
       "past60Days": 250,
       "allTime": 1150,
       "dupr": 4.663
     },
     {
-      "id": "todd-wahl",
-      "name": "Todd Wahl",
-      "seed": 41,
-      "past60Days": 200,
-      "allTime": 200,
-      "dupr": 4.009
+      "id": "ryan-niedermayer",
+      "name": "Ryan Niedermayer",
+      "seed": 38,
+      "past60Days": 250,
+      "allTime": 330,
+      "dupr": 4.202
     },
     {
       "id": "tim-long",
       "name": "Tim Long",
-      "seed": 42,
+      "seed": 39,
       "past60Days": 150,
       "allTime": 150,
       "dupr": 2
@@ -3963,7 +3876,7 @@
     {
       "id": "matt-goodwin",
       "name": "Matt Goodwin",
-      "seed": 43,
+      "seed": 40,
       "past60Days": 125,
       "allTime": 125,
       "dupr": 4.242
@@ -3971,7 +3884,7 @@
     {
       "id": "farhad-saifuddin",
       "name": "Farhad Saifuddin",
-      "seed": 44,
+      "seed": 41,
       "past60Days": 80,
       "allTime": 80,
       "dupr": 4.304
@@ -3979,7 +3892,7 @@
     {
       "id": "randy-walters",
       "name": "Randy Walters",
-      "seed": 45,
+      "seed": 42,
       "past60Days": 60,
       "allTime": 60,
       "dupr": 4.091
@@ -3987,7 +3900,7 @@
     {
       "id": "matthew-trokey",
       "name": "Matthew Trokey",
-      "seed": 46,
+      "seed": 43,
       "past60Days": 60,
       "allTime": 60,
       "dupr": 4.062
@@ -3995,7 +3908,7 @@
     {
       "id": "rick-phung",
       "name": "Rick Phung",
-      "seed": 47,
+      "seed": 44,
       "past60Days": 60,
       "allTime": 60,
       "dupr": 2
@@ -4003,7 +3916,7 @@
     {
       "id": "phil-mckenna",
       "name": "Phil Mckenna",
-      "seed": 48,
+      "seed": 45,
       "past60Days": 50,
       "allTime": 50,
       "dupr": 3.979
@@ -4011,7 +3924,7 @@
     {
       "id": "sharan-tej-kodumuru",
       "name": "Sharan Tej Kodumuru",
-      "seed": 49,
+      "seed": 46,
       "past60Days": 40,
       "allTime": 40,
       "dupr": 4.136
@@ -4019,7 +3932,7 @@
     {
       "id": "kyle-weaver",
       "name": "Kyle Weaver",
-      "seed": 50,
+      "seed": 47,
       "past60Days": 30,
       "allTime": 30,
       "dupr": 4.121
@@ -4027,7 +3940,7 @@
     {
       "id": "sai-ram-reddy",
       "name": "Sai Ram Reddy",
-      "seed": 51,
+      "seed": 48,
       "past60Days": 25,
       "allTime": 25,
       "dupr": 2
@@ -4035,15 +3948,23 @@
     {
       "id": "jason-rule",
       "name": "Jason Rule",
-      "seed": 52,
+      "seed": 49,
       "past60Days": 0,
       "allTime": 0,
       "dupr": 5.12
     },
     {
+      "id": "kyle-laramie",
+      "name": "Kyle Laramie",
+      "seed": 50,
+      "past60Days": 0,
+      "allTime": 900,
+      "dupr": 5.033
+    },
+    {
       "id": "brooks-toth",
       "name": "Brooks Toth",
-      "seed": 53,
+      "seed": 51,
       "past60Days": 0,
       "allTime": 125,
       "dupr": 4.644
@@ -4051,7 +3972,7 @@
     {
       "id": "josh-wilson",
       "name": "Josh Wilson",
-      "seed": 54,
+      "seed": 52,
       "past60Days": 0,
       "allTime": 0,
       "dupr": 4.386
@@ -4059,7 +3980,7 @@
     {
       "id": "james-brown",
       "name": "James Brown",
-      "seed": 55,
+      "seed": 53,
       "past60Days": 0,
       "allTime": 750,
       "dupr": 4.292
@@ -4067,7 +3988,7 @@
     {
       "id": "bekah-ola",
       "name": "Bekah Ola",
-      "seed": 56,
+      "seed": 54,
       "past60Days": 0,
       "allTime": 200,
       "dupr": 4.248
@@ -4075,7 +3996,7 @@
     {
       "id": "matthew-hultman",
       "name": "Matthew Hultman",
-      "seed": 57,
+      "seed": 55,
       "past60Days": 0,
       "allTime": 100,
       "dupr": 4.245
@@ -4083,7 +4004,7 @@
     {
       "id": "ivan-gutierrez",
       "name": "Ivan Gutierrez",
-      "seed": 58,
+      "seed": 56,
       "past60Days": 0,
       "allTime": 1500,
       "dupr": 4.111
@@ -4091,15 +4012,23 @@
     {
       "id": "nick-borger",
       "name": "Nick Borger",
-      "seed": 59,
+      "seed": 57,
       "past60Days": 0,
       "allTime": 60,
       "dupr": 4.059
     },
     {
+      "id": "todd-wahl",
+      "name": "Todd Wahl",
+      "seed": 58,
+      "past60Days": 0,
+      "allTime": 200,
+      "dupr": 4.009
+    },
+    {
       "id": "preston-langlois",
       "name": "Preston Langlois",
-      "seed": 60,
+      "seed": 59,
       "past60Days": 0,
       "allTime": 600,
       "dupr": 3.946
@@ -4107,7 +4036,7 @@
     {
       "id": "sai-ram-reddy-tipireddy",
       "name": "Sai Ram Reddy Tipireddy",
-      "seed": 61,
+      "seed": 60,
       "past60Days": 0,
       "allTime": 0,
       "dupr": 3.88
@@ -4115,10 +4044,18 @@
     {
       "id": "matthew-johnson",
       "name": "Matthew Johnson",
-      "seed": 62,
+      "seed": 61,
       "past60Days": 0,
       "allTime": 300,
       "dupr": 3.764
+    },
+    {
+      "id": "sam-ngo",
+      "name": "Sam Ngo",
+      "seed": 62,
+      "past60Days": 0,
+      "allTime": 1030,
+      "dupr": 3.596
     },
     {
       "id": "mayur-ostwal",
