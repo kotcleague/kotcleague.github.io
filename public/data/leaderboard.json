@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-19T21:32:54.900Z",
+  "scrapedAt": "2026-11-19T23:59:48.489Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -4010,9 +4010,17 @@
       "dupr": 4.111
     },
     {
+      "id": "preston-langlois",
+      "name": "Preston Langlois",
+      "seed": 57,
+      "past60Days": 0,
+      "allTime": 600,
+      "dupr": 4.076
+    },
+    {
       "id": "nick-borger",
       "name": "Nick Borger",
-      "seed": 57,
+      "seed": 58,
       "past60Days": 0,
       "allTime": 60,
       "dupr": 4.059
@@ -4020,18 +4028,10 @@
     {
       "id": "todd-wahl",
       "name": "Todd Wahl",
-      "seed": 58,
+      "seed": 59,
       "past60Days": 0,
       "allTime": 200,
       "dupr": 4.009
-    },
-    {
-      "id": "preston-langlois",
-      "name": "Preston Langlois",
-      "seed": 59,
-      "past60Days": 0,
-      "allTime": 600,
-      "dupr": 3.946
     },
     {
       "id": "sai-ram-reddy-tipireddy",
@@ -4089,8 +4089,9 @@
         "date": "2026-11-19",
         "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/LATT65J10117144",
         "gameMakerUrl": null,
-        "registeredPlayerCount": 8,
+        "registeredPlayerCount": 9,
         "registeredPlayerIds": [
+          "jarrett-menary",
           "mat-sevilla",
           "matt-fleming",
           "michael-randle",
