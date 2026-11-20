@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-11-20T04:18:08.382Z",
+  "scrapedAt": "2026-11-20T11:42:00.132Z",
   "source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS3d2RVZh7OT4-wHFWvaTe0CnT3eSH-1rwGxLNyBURh8IZLThRAMXx5pd56XF6AURpWm1cDSsuhsQDj/pubhtml",
   "views": {
     "current-month": [
@@ -4197,23 +4197,6 @@
   ],
   "events": {
     "upcoming": [
-      {
-        "id": "2026-11-19",
-        "date": "2026-11-19",
-        "courtReserveUrl": "https://mobileapp.courtreserve.com/Online/Events/Details/10117/LATT65J10117144",
-        "gameMakerUrl": null,
-        "registeredPlayerCount": 7,
-        "registeredPlayerIds": [
-          "jarrett-menary",
-          "mat-sevilla",
-          "matt-fleming",
-          "michael-randle",
-          "preston-langlois",
-          "ramy-shoela",
-          "tobi-ola"
-        ],
-        "unmatchedRegistrantNames": []
-      },
       {
         "id": "2026-12-03",
         "date": "2026-12-03",
